@@ -8,4 +8,16 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+    
+    public function test(): string 
+    {
+        return view('tests/template');
+    }
+
+    public function testPostData(): string
+    {
+        return view('tests/template', [
+            'data' => $this->request->getPost('len')
+        ]);
+    }
 }
