@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
-
-    <!-- external css -->
-    <link rel="stylesheet" href="<?= base_url('assets/css/main.css') ?>">
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <!-- script -->
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
+
+    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+
+    <!-- external css -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/main.css') ?>">
 </head>
 
 <body>

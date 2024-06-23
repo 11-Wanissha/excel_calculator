@@ -50,7 +50,7 @@
 <!-- conditional rendering ??????? -->
 <?= isset($data) ? '<span class="text-success">Submitted data: ' . $data . '</span>' : '' ?>
 <?php
-$option = [
+$option = array(
     [
         'optionName' => "Something",
     ],
@@ -60,9 +60,10 @@ $option = [
     [
         'optionName' => "kuygun2",
     ]
-];
+);
 echo view('components/dropdown', [
     'label' => 'ควยกันต์',
+    'option' => $option
 ])
 
 ?>
