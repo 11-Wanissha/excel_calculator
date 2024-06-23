@@ -15,20 +15,20 @@
 <div class="row">
     <!-- เรียกคอมโพเน้นกับ props -->
     <?= view('components/yare_component', [
-            'color' => 'success',
-            'text' => 'ojo sama',
-            'name' => 'name'
-        ])
-    ?>
+        'color' => 'success',
+        'text' => 'ojo sama',
+        'name' => 'name'
+    ])
+        ?>
 </div>
 
 <div class="row">
     <!-- ลองเรียกคอมโพเน้นแบบ nullable props -->
     <?= view('components/yare_component', [
-            'color' => 'primary',
-            'text' => 'it\'s time to go to bed',
-        ])
-    ?>
+        'color' => 'primary',
+        'text' => 'it\'s time to go to bed',
+    ])
+        ?>
 </div>
 
 <!-- ทดสอบ route กับ controller -->
@@ -36,11 +36,11 @@
     <div class="row mt-5">
         <div class="col-md-4">
             <?= view('components/text_input', [
-                    'label' => 'ความยาว',
-                    'id' => 'len',
-                    'name' => 'len'
-                ])
-            ?>
+                'label' => 'ความยาว',
+                'id' => 'len',
+                'name' => 'len'
+            ])
+                ?>
         </div>
     </div>
 
@@ -48,8 +48,24 @@
 </form>
 
 <!-- conditional rendering ??????? -->
-<?= isset($data) ? '<span class="text-success">Submitted data: '.$data. '</span>' : '' ?>
+<?= isset($data) ? '<span class="text-success">Submitted data: ' . $data . '</span>' : '' ?>
+<?php
+$option = [
+    [
+        'optionName' => "Something",
+    ],
+    [
+        'optionName' => "kuygun",
+    ],
+    [
+        'optionName' => "kuygun2",
+    ]
+];
+echo view('components/dropdown', [
+    'label' => 'ควยกันต์',
+])
 
+?>
 <script>
     document.getElementById('swal').addEventListener('click', testSwal);
     function testSwal() {
