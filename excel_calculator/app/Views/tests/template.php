@@ -32,7 +32,7 @@
 </div>
 
 <!-- ทดสอบ route กับ controller -->
-<form action="/test/post" method="POST">
+<form action="/test/post" method="POST" id="form">
     <div class="row mt-5">
         <div class="col-md-4">
             <?= view('components/text_input', [
