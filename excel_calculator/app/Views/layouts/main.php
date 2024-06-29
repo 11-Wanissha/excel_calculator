@@ -19,10 +19,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <?php echo view('components/navbar'); ?>
+    <div class="container-fluid">
         <?php echo $this->renderSection('content'); ?>
     </div>
-
+    <?php echo view('components/footer'); ?>
 
 </body>
 

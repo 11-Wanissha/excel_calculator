@@ -10,3 +10,5 @@ $routes->get('/', 'Home::index');
 $routes->get('/test', 'Home::test');
 
 $routes->post('/test/post', 'Home::testPostData');
+
+$routes->get('/main', 'Home::main');
