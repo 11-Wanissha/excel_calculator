@@ -43,7 +43,6 @@
                 ?>
         </div>
     </div>
-
     <button class="btn btn-success mt-3" type="submit">ส่งข้อมูล</button>
 </form>
 
@@ -55,21 +54,28 @@ $option = array(
         'optionName' => "Something",
     ],
     [
-        'optionName' => "kuygun",
+        'optionName' => "Keetapong",
     ],
     [
-        'optionName' => "kuygun2",
+        'optionName' => "Keetapong2",
     ]
 );
 echo view('components/dropdown', [
     'label' => 'ควยกันต์',
     'option' => $option
-])
+]);
 
+echo view('components/table', [
+    'label' => 'ควยกันต์',
+    'option' => $option
+])
 ?>
 <script>
+    const kuygun = document.getElementById('labelSelect');
+    console.log("Plam be bestie with Keeetapong" + kuygun);
     document.getElementById('swal').addEventListener('click', testSwal);
     function testSwal() {
+        console.log(document.getElementById('labelSelect').textContent)
         Swal.fire({
             title: "The Internet?",
             text: "That thing is still around?",
