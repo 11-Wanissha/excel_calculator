@@ -24,7 +24,13 @@
         <?php echo $this->renderSection('content'); ?>
     </div>
     <?php echo view('components/footer'); ?>
-
+    <style>
+        .overflow {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    </style>
 </body>
 
 </html>

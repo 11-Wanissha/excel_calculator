@@ -1,41 +1,35 @@
 <?php
 $props = new stdClass();
 $props = [
+    'id' => isset($id) ? $id : '',
+    'label' => isset($label) ? $label : '',
     'option' => isset($option) ? $option : array(),
-    'setNew' => isset($setNew) ? $setNew : false,
-    'selectOption' => isset($selectOption) ? $selectOption : "กรุณาเลือกข้อมูล",
+    'selectOption' => isset($selectOption) ? $selectOption : "--- Please Select ---",
     'disabled' => isset($disabled) ? $disabled : false,
-
-]
-    ?>
-<style>
-    .dropdown-toggle-component.dropdown-toggle::after {
-        margin-left: 5px;
-        margin-right: 0;
-    }
+];
 
 
-    .dropdown-item.selected::after {
-        float: right;
-        margin-left: auto;
-    }
-</style>
-<label class="col-sm-3 col-form-label form-label">
-    kuy
+?>
+
+
+<label for="<?= $props['id'] ?>" class="col-sm-3 col-form-label form-label w-100  overflow" title=" <?= $props['label'] ?>">
+    <?= $props['label'] ?>
 </label>
-<div class="dropdown">
-    <span class="btn dropdown-toggle dropdown-toggle-component text-wrap w-100" data-bs-toggle="dropdown"
-        id="labelSelect"><?= $props['selectOption'] ?></span>
-    <div class="dropdown-menu w-100">
-        <?php
-        foreach ($props['option'] as $key => $optionSelect) {
-            echo "<span class=' " . ($props['disabled'] ? 'disabled ' : '') . " dropdown-item text-wrap' id ='kuygun[$key]' onclick=\"selectOption('" . $optionSelect['optionName'] . "')\">" . $optionSelect['optionName'] . "</span>";
+<select name="<?= $props['id'] ?>" class="form-select" id="<?= $props['id'] ?>" aria-label="<?= $props['id'] ?>" <?php echo $props['disabled'] ? 'disabled' : ''; ?>>
+    <option value="null" selected="" disabled><?= $props['selectOption'] ?></option>
+    <?php
+    foreach ($props['option'] as $optionSelect) {
+        if (isset($optionSelect['optionGroup']) && !empty($optionSelect['optionGroup'])) {
+            foreach ($optionSelect['optionGroup'] as $optionGroup) {
+                echo "<optgroup label='" . $optionGroup['label'] . "'>";
+                foreach ($optionGroup['optionInGroup'] as $optionInGroup) {
+                    echo "<option value='" . $optionInGroup['value'] . "'>" . $optionInGroup['optionName'] . "</option>";
+                }
+                echo '</optgroup>';
+            }
+        } else {
+            echo "<option value='" . $optionSelect['value'] . "'>" . $optionSelect['optionName'] . "</option>";
         }
-        ?>
-    </div>
-</div>
-<script>
-    function selectOption(option) {
-        document.getElementById('labelSelect').innerHTML = option;
     }
-</script>
+    ?>
+</select>

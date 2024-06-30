@@ -62,13 +62,8 @@ $option = array(
 );
 echo view('components/dropdown', [
     'label' => 'ควยกันต์',
-    'option' => $option
 ]);
 
-echo view('components/table', [
-    'label' => 'ควยกันต์',
-    'option' => $option
-])
 ?>
 <script>
     const kuygun = document.getElementById('labelSelect');

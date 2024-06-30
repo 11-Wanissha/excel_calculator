@@ -4,32 +4,149 @@
 <!-- บ่งบอกว่าส่วนที่อยู่ด้านล่างนี้คือ section -->
 <?= $this->section('content') ?>
 <?php
-
+// ตัวแปรรับ section menu
+$count = 0;
+// column table
+$column = array(
+    [
+        'id' => "request",
+        'label' => "#",
+        'width' => '300px', // ใส่ ไม่ใส่ก็ได้
+    ],
+    [
+        'id' => "kuy",
+        'label' => "Test",
+        'unit' => "mt",
+    ],
+    [
+        'id' => "gun",
+        'label' => "Test2",
+        'unit' => "mt",
+    ]
+);
+// row table อ้างอิงจาก id 
+$row = array(
+    [
+        'request' => array(
+            [
+                'text' => '1',
+                'textColor' => 'text-success' // ไม่ required
+            ]
+        ),
+        'kuy' => array(
+            [
+                'text' => 'Test1',
+                'textColor' => 'text-danger' // ไม่ required
+            ]
+        ),
+        'gun' => array(
+            [
+                'text' => 'Test2',
+            ]
+        ),
+    ],
+);
 $props = [
-    'title' => 'Soakage Design &amp; Calculation',
+    'title' => 'Calculator',
     'secTion' => array(
         [
             'menu' => array(
                 [
-                    'menuTitle' => '1. Kuygun',
+                    'menuTitle' => '1. Cal',
                     'input' => array(
+                        [
+                            'inputType' => 'file',
+                            'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
+                            'label' => 'Import File', // required
+                            'id' => 'file' // required
+                        ],
                         [
                             'inputType' => 'text',
                             'slot' => 1,
+                            'label' => 'ข้อมูล', // required
+                            'name' => 'kuy', // required
+                            'unit' => 'meter',
+                            'id' => 'kuy' // required
                         ],
                         [
                             'inputType' => 'dropdown',
+                            'id' => '1', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
+                            'label' => "ข้อมูลสำหรับเลือก",
+                            'selectOption' => "โปรดเลือก",
+                            'disabled' => false,
+                            // required
+                            'option' => array(
+                                [
+                                    'optionName' => "1",
+                                    'value' => "1",
+                                ],
+                                [
+                                    'optionName' => "2",
+                                    'value' => "1",
+                                ],
+                                [
+                                    'optionName' => "3",
+                                    'value' => "1",
+                                ],
+                                [
+                                    // ถ้าจะเอาแบบกลุ่มตัวเลือกก็เขียนแบบนี้ ไม่ได้ required
+                                    'optionGroup' => array(
+                                        [
+                                            'label' => "เลือกเลขโหน่ย",
+                                            'optionInGroup' => array(
+                                                [
+                                                    'optionName' => "1",
+                                                    'value' => "1",
+                                                ],
+                                                [
+                                                    'optionName' => "1",
+                                                    'value' => "1",
+                                                ],
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
                         ],
                     ),
                 ],
                 [
-                    'menuTitle' => '2. Kuygun2',
+                    'menuTitle' => '2. Cal2',
                     'input' => array(
                         [
                             'inputType' => 'text',
+                            'label' => 'ข้อมูล', // required
+                            'name' => 'kuy', // required
+                            'unit' => 'meter',
+                            'id' => 'kuy' // required
                         ],
                         [
                             'inputType' => 'dropdown',
+                            'id' => '1', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
+                            'label' => "เลือกข้อมูล",
+                            'selectOption' => "โปรดเลือก",
+                            'disabled' => false,
+                            // required
+                            'option' => array(
+                                [
+                                    'optionName' => "1",
+                                    'value' => "1",
+                                ],
+                                [
+                                    'optionName' => "2",
+                                    'value' => "1",
+                                ],
+                                [
+                                    'optionName' => "3",
+                                    'value' => "1",
+                                ],
+                            ),
+                        ],
+                        [
+                            'inputType' => 'table',
+                            'column' => $column, // required
+                            'row' => $row, // required
+                            'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
                         ],
                     ),
                 ],
@@ -38,16 +155,57 @@ $props = [
         [
             'menu' => array(
                 [
-                    'menuTitle' => '3. Kuygun',
+                    'menuTitle' => '3. Cal3',
                     'subMenu' => array(
                         [
-                            'subMenuTitle' => '3.1 ไอสัสกันต์',
+                            'subMenuTitle' => '3.1 Cal3-1',
                             'input' => array(
                                 [
                                     'inputType' => 'text',
+                                    'label' => 'ข้อมูล', // required
+                                    'name' => 'kuy', // required
+                                    'unit' => 'meter',
+                                    'id' => 'kuy' // required
                                 ],
                                 [
                                     'inputType' => 'dropdown',
+                                    'id' => '1', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
+                                    'label' => "เลือกข้อมูล",
+                                    'selectOption' => "โปรดเลือก",
+                                    'disabled' => true,
+                                    // required
+                                    'option' => array(
+                                        [
+                                            'optionName' => "1",
+                                            'value' => "1",
+                                        ],
+                                        [
+                                            'optionName' => "2",
+                                            'value' => "1",
+                                        ],
+                                        [
+                                            'optionName' => "3",
+                                            'value' => "1",
+                                        ],
+                                        [
+                                            // ถ้าจะเอาแบบกลุ่มตัวเลือกก็เขียนแบบนี้ ไม่ได้ required
+                                            'optionGroup' => array(
+                                                [
+                                                    'label' => "เลือกเลขโหน่ย",
+                                                    'optionInGroup' => array(
+                                                        [
+                                                            'optionName' => "1",
+                                                            'value' => "1",
+                                                        ],
+                                                        [
+                                                            'optionName' => "1",
+                                                            'value' => "1",
+                                                        ],
+                                                    ),
+                                                ],
+                                            ),
+                                        ],
+                                    ),
                                 ],
                             ),
                         ],
@@ -55,64 +213,108 @@ $props = [
                     'input' => array(
                         [
                             'inputType' => 'text',
+                            'label' => 'ข้อมูล', // required
+                            'name' => 'kuy', // required
+                            'unit' => 'meter',
+                            'id' => 'kuy' // required
                         ],
                         [
                             'inputType' => 'dropdown',
+                            'id' => '1', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
+                            'label' => "เลือกข้อมูล",
+                            'selectOption' => "โปรดเลือก ",
+                            'disabled' => true,
+                            // required
+                            'option' => array(
+                                [
+                                    'optionName' => "1",
+                                    'value' => "1",
+                                ],
+                                [
+                                    'optionName' => "2",
+                                    'value' => "1",
+                                ],
+                                [
+                                    'optionName' => "3",
+                                    'value' => "1",
+                                ],
+                                [
+                                    // ถ้าจะเอาแบบกลุ่มตัวเลือกก็เขียนแบบนี้ ไม่ได้ required
+                                    'optionGroup' => array(
+                                        [
+                                            'label' => "เลือกเลขโหน่ย",
+                                            'optionInGroup' => array(
+                                                [
+                                                    'optionName' => "1",
+                                                    'value' => "1",
+                                                ],
+                                                [
+                                                    'optionName' => "1",
+                                                    'value' => "1",
+                                                ],
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
                         ],
                     ),
                 ],
                 [
-                    'menuTitle' => '4. Kuygun',
+                    'menuTitle' => '4. Cal4',
                     'input' => array(
                         [
                             'inputType' => 'text',
                         ],
                         [
                             'inputType' => 'dropdown',
+                            'id' => '1', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
+                            'label' => "ข้อมูล",
+                            'selectOption' => "โปรดเลือก",
+                            'disabled' => true,
+                            // required
+                            'option' => array(
+                                [
+                                    'optionName' => "1",
+                                    'value' => "1",
+                                ],
+                                [
+                                    'optionName' => "2",
+                                    'value' => "1",
+                                ],
+                                [
+                                    'optionName' => "3",
+                                    'value' => "1",
+                                ],
+                                [
+                                    // ถ้าจะเอาแบบกลุ่มตัวเลือกก็เขียนแบบนี้ ไม่ได้ required
+                                    'optionGroup' => array(
+                                        [
+                                            'label' => "เลือกเลขโหน่ย",
+                                            'optionInGroup' => array(
+                                                [
+                                                    'optionName' => "1",
+                                                    'value' => "1",
+                                                ],
+                                                [
+                                                    'optionName' => "1",
+                                                    'value' => "1",
+                                                ],
+                                            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
                         ],
                     ),
                 ],
             )
         ],
-    ),
-    'rows' => array(
-        [
-            'request' => 'kuy',
-            'kuy' => 'haha',
-            'gun' => 'kuygun',
-        ],
-        [
-            'request' => 'kuy2',
-            'kuy' => 'haha2',
-            'gun' => 'kuygun2',
-        ],
-        [
-            'request' => 'kuy3',
-            'kuy' => 'haha3',
-            'gun' => 'kuygun3',
-        ],
-    ),
-    'columns' => array(
-        [
-            'id' => "request",
-            'label' => "Req",
-            'unit' => "mt",
-        ],
-        [
-            'id' => "kuy",
-            'label' => "Kuy",
-            'unit' => "mt",
-        ],
-        [
-            'id' => "gun",
-            'label' => "gun",
-            'unit' => "mt",
-        ]
-    ),
 
+    ),
 ]
     ?>
-<div class="">
+<div class="mb-5">
     <div class="bg-blue">
         <div class="h5 p-5 text-center">
             <strong>
@@ -129,218 +331,130 @@ $props = [
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-6 col-sm-12 col-md-12 col-xs-12 ">
-            <div class="accordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#section-1" aria-expanded="false" aria-controls="section-1">
-                            1. Rainfall Data
-                        </button>
-                    </h2>
-                    <div id="section-1" class="accordion-collapse collapse" aria-labelledby="section-1"
-                        data-bs-parent="#section-1" style="">
-                        <div class="accordion-body">
-                            <div class="row align-items-end">
-                                <div class="col-xl-12 col-md-12">
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label">
-                                            Upload your rainfall intensity
-                                        </label>
-                                        <input class="form-control" type="file" id="formFile" accept=".csv">
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label for="design_return_period" class="form-label">
-                                            Design Return Period (1 in X Year)
-                                        </label>
-                                        <select class="form-select" id="design_return_period"
-                                            aria-label="Design Return Period" disabled="">
-                                            <option value="1.58">1.58</option>
-                                            <option value="2">2</option>
-                                            <option value="5">5</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                            <option value="30">30</option>
-                                            <option value="40">40</option>
-                                            <option value="50">50</option>
-                                            <option value="60">60</option>
-                                            <option value="80">80</option>
-                                            <option value="100">100</option>
-                                            <option value="250">250</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label for="time_of_concentration" class="form-label">
-                                            Time Of Concentration
-                                        </label>
-                                        <select class="form-select" id="time_of_concentration"
-                                            aria-label="Time Of Concentration" disabled="">
-                                            <option value="10m">10m</option>
-                                            <option value="20m">20m</option>
-                                            <option value="30m">30m</option>
-                                            <option value="1h">1h</option>
-                                            <option value="2h">2h</option>
-                                            <option value="6h">6h</option>
-                                            <option value="12h">12h</option>
-                                            <option value="24h">24h</option>
-                                            <option value="48h">48h</option>
-                                            <option value="72h">72h</option>
-                                            <option value="96h">96h</option>
-                                            <option value="120h">120h</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-12">
-                                    <div class="mb-3">
-                                        <label for="climate_change_factor" class="form-label">
-                                            Climate Change Factor (%)
-                                        </label>
-                                        <div class="input-group">
-                                            <input type="number" class="form-control" id="climate_change_factor"
-                                                value="20" aria-describedby="addon-label" disabled="">
-                                            <span class="input-group-text" id="addon-label">%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12 col-md-12">
-                                    <div class="mb-3">
-                                        <label for="intensity_without" class="form-label">
-                                            Intensity I (without climate change)
-                                        </label>
-                                        <div class="input-group">
-                                            <input type="number" class="form-control" id="intensity_without"
-                                                aria-describedby="addon-label" disabled="" readonly="">
-                                            <span class="input-group-text" id="addon-label">mm/hr</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-12 col-md-12">
-                                    <div class="mb-3">
-                                        <label for="intensity" class="form-label">
-                                            Intensity I (with climate change)
-                                        </label>
-                                        <div class="input-group">
-                                            <input type="number" class="form-control" id="intensity"
-                                                aria-describedby="addon-label" disabled="" readonly="">
-                                            <span class="input-group-text" id="addon-label">mm/hr</span>
+        <!-- ข้อมูลการ์ดฝั่งซ้าย ขวา -->
+        <?php foreach ($props['secTion'] as $secTion): ?>
+            <div class="col-xl-6 col-sm-12 col-md-12 col-xs-12">
+                <div class="accordion">
+                    <!-- section ซ้าย ขวา -->
+                    <?php foreach ($secTion['menu'] as $menu): ?>
+                        <div class="accordion-item overflow" title=" <?= $menu['menuTitle'] ?>">
+                            <h2 class="accordion-header overflow">
+                                <button class="accordion-button collapsed overflow" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#section-<?= $count ?>" aria-expanded="false"
+                                    aria-controls="section-<?= $count ?>">
+                                    <!-- แสดงข้อๆ เปิดปิด -->
+                                    <?= $menu['menuTitle'] ?>
+                                </button>
+                            </h2>
+                            <div id="section-<?= $count ?>" class="accordion-collapse collapse"
+                                aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>" style="">
+                                <div class="accordion-body">
+                                    <?php ++$count ?>
+                                    <!-- input ต่างๆ -->
+                                    <div class="row align-items-end">
+                                        <?php foreach ($menu['input'] as $input): ?>
+                                            <?php $check = (isset($input['slot']) && $input['slot'] == 1) ? 'col-12' : 'col-6'; ?>
+                                            <div class="<?= $check ?> mb-2">
+                                                <?php
+                                                if ($input['inputType'] == "text") {
+                                                    echo view('components/text_input', [
+                                                        'id' => (isset($input['id']) ? $input['id'] : ''),
+                                                        'label' => (isset($input['label']) ? $input['label'] : ''),
+                                                        'name' => (isset($input['name']) ? $input['name'] : ''),
+                                                        'unit' => (isset($input['unit']) ? $input['unit'] : ''),
+                                                        'disabled' => (isset($input['disabled']) ? $input['disabled'] : false),
+                                                        'value' => (isset($input['value']) ? $input['value'] : ''),
+                                                    ]);
+                                                } else if ($input['inputType'] == "dropdown") {
+                                                    echo view('components/dropdown', [
+                                                        'id' => (isset($input['id']) ? $input['id'] : ''), // required
+                                                        'label' => (isset($input['label']) ? $input['label'] : ''),
+                                                        'selectOption' => (isset($input['selectOption']) ? $input['selectOption'] : ''),
+                                                        'disabled' => (isset($input['disabled']) ? $input['disabled'] : ''),
+                                                        'option' => (isset($input['option']) ? $input['option'] : '')
+                                                    ]);
+                                                } else if ($input['inputType'] == "table") {
+                                                    echo view('components/table', [
+                                                        'column' => (isset($input['column']) ? $input['column'] : ''),
+                                                        'row' => (isset($input['row']) ? $input['row'] : ''),
+                                                    ]);
+                                                } else {
+                                                    echo view('components/file_input', [
+                                                        'id' => (isset($input['id']) ? $input['id'] : ''),
+                                                        'label' => (isset($input['label']) ? $input['label'] : '')
+                                                    ]);
+                                                }
+                                                ?>
+                                            </div>
+                                        <?php endforeach; ?>
+                                        <div class="mt-2">
+                                            <?php if (isset($menu['subMenu']) && !empty($menu['subMenu'])): ?>
+                                                <?php foreach ($menu['subMenu'] as $subMenu): ?>
+                                                    <div class="accordion">
+                                                        <div class="accordion-item overflow" title=" <?= $subMenu['subMenuTitle'] ?>">
+                                                            <h2 class="accordion-header overflow">
+                                                                <button class="accordion-button collapsed overflow" type="button"
+                                                                    data-bs-toggle="collapse" data-bs-target="#section-<?= $count ?>"
+                                                                    aria-expanded="false" aria-controls="section-<?= $count ?>">
+                                                                    <?= $subMenu['subMenuTitle'] ?>
+                                                                </button>
+                                                            </h2>
+                                                            <div id="section-<?= $count ?>" class="accordion-collapse collapse"
+                                                                aria-labelledby="section-<?= $count ?>"
+                                                                data-bs-parent="#section-<?= $count ?>" style="">
+                                                                <div class="accordion-body">
+                                                                    <div class="row align-items-end">
+                                                                        <?php foreach ($subMenu['input'] as $input): ?>
+                                                                            <?php $check = (isset($input['slot']) && $input['slot'] == 1) ? 'col-12' : 'col-6'; ?>
+                                                                            <div class="<?= $check ?> mb-2">
+                                                                                <?php
+                                                                                if ($input['inputType'] == "text") {
+                                                                                    echo view('components/text_input', [
+                                                                                        'id' => (isset($input['id']) ? $input['id'] : ''),
+                                                                                        'label' => (isset($input['label']) ? $input['label'] : ''),
+                                                                                        'name' => (isset($input['name']) ? $input['name'] : ''),
+                                                                                        'unit' => (isset($input['unit']) ? $input['unit'] : ''),
+                                                                                        'disabled' => (isset($input['disabled']) ? $input['disabled'] : false),
+                                                                                        'value' => (isset($input['value']) ? $input['value'] : ''),
+                                                                                    ]);
+                                                                                } else if ($input['inputType'] == "dropdown") {
+                                                                                    echo view('components/dropdown', [
+                                                                                        'id' => (isset($input['id']) ? $input['id'] : ''), // required
+                                                                                        'label' => (isset($input['label']) ? $input['label'] : ''),
+                                                                                        'selectOption' => (isset($input['selectOption']) ? $input['selectOption'] : ''),
+                                                                                        'disabled' => (isset($input['disabled']) ? $input['disabled'] : ''),
+                                                                                    ]);
+                                                                                } else if ($input['inputType'] == "table") {
+                                                                                    echo view('components/table', [
+                                                                                        'column' => $input['column'],
+                                                                                        'row' => $input['row']
+                                                                                    ]);
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        <?php endforeach; ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php ++$count ?>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-6 col-sm-12 col-md-12 col-xs-12">
-            <div class="table-responsive w-100 h-100">
-                <table class="table table-dark table-sm align-middle">
-                    <thead>
-                        <tr class='text-center'>
-                            <?php foreach ($props['columns'] as $col): ?>
-                                <th scope="col" key="<?= $col['id'] ?>"><?= $col['label'] ?>
-                                    <br><?= $col['unit'] ?>
-                                </th>
-                            <?php endforeach; ?>
-                        </tr class='text-center'>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($props['rows'] as $row): ?>
-                            <tr class='text-center'>
-                                <?php foreach ($props['columns'] as $col): ?>
-                                    <td><?= $row[$col['id']] ?></td>
-                                <?php endforeach; ?>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <!-- ข้อมูลการ์ดฝั่งซ้าย ขวา -->
-            <?php foreach ($props['secTion'] as $secTion): ?>
-                <div class="col-xl-6 col-sm-12 col-md-12 col-xs-12">
-                    <div class="row">
-                        <!-- section ซ้าย ขวา -->
-                        <?php foreach ($secTion['menu'] as $menu): ?>
-                            <div class="col-12">
-                                <!-- แสดงข้อๆ เปิดปิด -->
-                                <?= $menu['menuTitle'] ?>
-                                <!-- input ต่างๆ -->
-                                <div class="row">
-                                    <?php foreach ($menu['input'] as $input): ?>
-                                        <?php $check = (isset($input['slot']) && $input['slot'] == 1) ? 'col-12' : 'col-6'; ?>
-                                        <div class="<?= $check ?>">
-                                            <?php
-                                            if ($input['inputType'] == "text") {
-                                                echo view('components/text_input', [
-                                                    'label' => 'ความยาว',
-                                                    'id' => 'len',
-                                                    'name' => 'len'
-                                                ]);
-                                            } else if ($input['inputType'] == "dropdown") {
-                                                echo view('components/dropdown', [
-                                                    'label' => 'ควยกันต์',
-                                                ]);
-                                            } else if ($input['inputType'] == "table") {
-                                                echo view('components/table', [
-                                                    'label' => 'ควยกันต์',
-                                                    'option' => $option
-                                                ]);
-                                            }
-                                            ?>
-                                        </div>
-                                    <?php endforeach; ?>
-                                    <div>
-                                        <?php if (isset($menu['subMenu']) && !empty($menu['subMenu'])): ?>
-                                            <?php foreach ($menu['subMenu'] as $subMenu): ?>
-                                                <?= $subMenu['subMenuTitle'] ?>
-                                                <?php foreach ($subMenu['input'] as $input): ?>
-                                                    <?php $check = (isset($input['slot']) && $input['slot'] == 1) ? 'col-12' : 'col-6'; ?>
-                                                    <div class="<?= $check ?>">
-                                                        <?php
-                                                        if ($input['inputType'] == "text") {
-                                                            echo view('components/text_input', [
-                                                                'label' => 'ความยาว',
-                                                                'id' => 'len',
-                                                                'name' => 'len'
-                                                            ]);
-                                                        } else if ($input['inputType'] == "dropdown") {
-                                                            echo view('components/dropdown', [
-                                                                'label' => 'ควยกันต์',
-                                                            ]);
-                                                        } else if ($input['inputType'] == "table") {
-                                                            echo view('components/table', [
-                                                                'label' => 'ควยกันต์',
-                                                                'option' => $option
-                                                            ]);
-                                                        }
-                                                        ?>
-                                                    </div>
-                                                <?php endforeach; ?>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>
 
 
 <style>
-    .bor {
-        border: 1px solid red;
-    }
-
     .bg-blue {
         color: #fff;
         background-color: #3559c7 !important;

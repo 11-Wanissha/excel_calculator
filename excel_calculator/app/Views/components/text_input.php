@@ -10,13 +10,13 @@ $props = [
 ]
     ?>
 <div class="h-100 w-auto">
-    <label for="<?= $props['name'] ?>" class="col-sm-3 col-form-label form-label">
+    <label for="<?= $props['name'] ?>" class="col-sm-3 col-form-label form-label w-100 overflow" title=" <?= $props['label'] ?>">
         <?= $props['label'] ?>
     </label>
-    <div class="d-flex align-items-center ">
+    <div class="input-group">
         <input value="<?= htmlspecialchars($props['value']) ?>" type="text" class="form-control"
-            id="<?= $props['id'] ?>" name="<?= $props['name'] ?>" <?= $props['disabled'] ? 'disabled' : '' ?> />
-        <div class="d-flex align-items-center box-unit h-100 ps-1"><span><?= htmlspecialchars($props['unit']) ?></span>
-        </div>
+            id="<?= $props['id'] ?>" name="<?= $props['name'] ?>" <?= $props['disabled'] ? 'disabled' : '' ?>
+            aria-describedby="basic-addon3" />
+        <span class="input-group-text" id="basic-addon3"><?= htmlspecialchars($props['unit']) ?></span>
     </div>
 </div>

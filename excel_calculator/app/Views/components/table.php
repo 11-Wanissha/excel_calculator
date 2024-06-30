@@ -3,50 +3,22 @@ $props = new stdClass();
 $props = [
     'column' => isset($column) ? $column : null,
     'row' => isset($row) ? $row : null,
-    'width' => isset($width) ? "width:{$width}px;" : '',
 ];
-$columns = array(
-    [
-        'id' => "request",
-        'label' => "Req",
-        'unit' => "mt",
-    ],
-    [
-        'id' => "kuy",
-        'label' => "Kuy",
-        'unit' => "mt",
-    ],
-    [
-        'id' => "gun",
-        'label' => "gun",
-        'unit' => "mt",
-    ]
-);
-$rows = array(
-    [
-        'request' => 'kuy',
-        'kuy' => 'haha',
-        'gun' => 'kuygun',
-    ],
-    [
-        'request' => 'kuy2',
-        'kuy' => 'haha2',
-        'gun' => 'kuygun2',
-    ],
-    [
-        'request' => 'kuy3',
-        'kuy' => 'haha3',
-        'gun' => 'kuygun3',
-    ],
-);
 ?>
 <div class="table-responsive w-100 h-100">
-    <table class="table table-dark table-sm align-middle">
+    <table class="table table-striped border table-sm align-middle">
         <thead>
             <tr class='text-center'>
                 <?php foreach ($props['column'] as $col): ?>
-                    <th scope="col" key="<?= $col['id'] ?>" style="<?= $props['width'] ?>"><?= $col['label'] ?>
-                        <br><?= (isset($col['unit']) ? $col['unit'] : '')?> </th>
+                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" <?= isset($col['width']) ? "style='width: {$col['width']}'" : '' ?> title=" <?= $col['label'] ?>">
+                        <?php
+                        if (isset($col['unit'])) {
+                            echo $col['label'] . '<br>' . $col['unit'];
+                        } else {
+                            echo "<div class='pb-3'>" . $col['label'] . "</div>";
+                        }
+                        ?>
+                    </th>
                 <?php endforeach; ?>
             </tr class='text-center'>
         </thead>
@@ -59,7 +31,16 @@ $rows = array(
                 <?php foreach ($props['row'] as $row): ?>
                     <tr class='text-center'>
                         <?php foreach ($props['column'] as $col): ?>
-                            <td><?= $row[$col['id']] ?></td>
+                            <?php
+                            // Initialize the class string with default classes
+                            $class = 'overflow';
+
+                            // Check if 'textColor' is set in the current column data
+                            if (isset($row[$col['id']][0]['textColor'])) {
+                                $class = 'overflow ' . $row[$col['id']][0]['textColor'];
+                            }
+                            ?>
+                            <td class="<?= $class ?>" title="<?= $row[$col['id']][0]['text'] ?>"><?= $row[$col['id']][0]['text'] ?></td>
                         <?php endforeach; ?>
                     </tr>
                 <?php endforeach; ?>
