@@ -30,7 +30,7 @@ $props = [
             <?php else: ?>
                 <?php foreach ($props['row'] as $row): ?>
                     <tr class='text-center'>
-                        <?php foreach ($props['column'] as $col): ?>
+                        <?php foreach ($props['column'] as $key => $col): ?>
                             <?php
                             // Initialize the class string with default classes
                             $class = 'overflow';

@@ -150,7 +150,7 @@ class TimberBeamController extends BaseController
                 ],
                 [
                   'inputType' => 'text',
-                  'label' => 'Span', // required
+                  'label' => 'Span L', // required
                   'id' => 'D', // required
                   'name' => 'D',
                   'unit' => 'm',
@@ -200,14 +200,14 @@ class TimberBeamController extends BaseController
                     ],
                     [
                       'inputType' => 'text',
-                      'label' => 'h(s)', // required
+                      'label' => 'Ψ(s)', // required
                       'name' => 'h(s)', // required
                       'id' => 'h(s)', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
-                      'label' => 'h(l)', // required
+                      'label' => 'Ψ(l)', // required
                       'name' => 'h(l)', // required
                       'id' => 'h(l)', // required
                       'type' => 'number',
@@ -680,8 +680,8 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 'p2', // required
-                      'unit' => 'p2',
+                      'name' => 'p1', // required
+                      'unit' => 'p1',
                       'id' => 'kuy', // required
                       'type' => 'number'
                     ],
@@ -717,8 +717,8 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 'q2', // required
-                      'unit' => 'q2',
+                      'name' => 'q1', // required
+                      'unit' => 'q1',
                       'id' => 'kuy', // required
                       'type' => 'number'
                     ],
@@ -754,8 +754,8 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 'r2', // required
-                      'unit' => 'r2',
+                      'name' => 'r1', // required
+                      'unit' => 'r1',
                       'id' => 'kuy', // required
                       'type' => 'number'
                     ],
@@ -791,8 +791,8 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 's2', // required
-                      'unit' => 's2',
+                      'name' => 's1', // required
+                      'unit' => 's1',
                       'id' => 'kuy', // required
                       'type' => 'number'
                     ],
@@ -828,8 +828,8 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 'qO2', // required
-                      'unit' => 'qO2',
+                      'name' => 'qO1', // required
+                      'unit' => 'qO1',
                       'id' => 'kuy', // required
                       'type' => 'number'
                     ],
@@ -1141,6 +1141,147 @@ class TimberBeamController extends BaseController
                 ],
               ),
             ],
+            [
+              'menuTitle' => '6. TOTAL LOADS',
+              'input' => array(
+                [
+                  'slot' => 1,
+                  'inputType' => 'table',
+                  'row' => array(
+                    [
+                      'Gcol1' => array(
+                        [
+                          'text' => 'qwe',
+                        ],
+                        [
+                          'text' => '12321',
+                        ],
+                        [
+                          'text' => 'asd',
+                        ],
+                        [
+                          'text' => 'qwewq',
+                        ],
+                      ),
+                      'Qroof' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Qfloor' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Qdeck' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Qwall' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      '1.2G' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Mstar-mid' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                    ]
+                  ),
+                  'column' => array(
+                    [
+                      'id' => 'Gcol1',
+                      'label' => 'G',
+                    ],
+                    [
+                      'id' => 'Qroof',
+                      'label' => 'QRoof'
+                    ],
+                    [
+                      'id' => 'Qfloor',
+                      'label' => 'Qfloor',
+                    ],
+                    [
+                      'id' => 'Qdeck',
+                      'label' => 'Qdeck',
+                    ],
+                    [
+                      'id' => 'Qwall',
+                      'label' => 'Qwall',
+                    ],
+                    [
+                      'id' => '1.2G',
+                      'label' => '1.2G+1.5Q',
+                    ],
+                    [
+                      'id' => 'Mstar-mid',
+                      'label' => 'M* (midspan)',
+                    ],
+                    [
+                      'id' => 'Mstar-p1',
+                      'label' => 'M* (P1)',
+                    ],
+                    [
+                      'id' => 'Mstar-p2',
+                      'label' => 'M* (P2)',
+                    ],
+                    [
+                      'id' => 'Mstar-p3',
+                      'label' => 'M* (P3)',
+                    ],
+                    [
+                      'id' => 'Mstar-p4',
+                      'label' => 'M* (P4)',
+                    ],
+                    [
+                      'id' => 'k2G',
+                      'label' => 'k2G+k2ΨlQ+(Ψs-Ψl)Q',
+                    ],
+                    [
+                      'id' => 'defl',
+                      'label' => 'defl mids (mm)',
+                    ],
+                  )
+                ]
+              )
+            ],
           )
         ],
       ),
@@ -1153,6 +1294,325 @@ class TimberBeamController extends BaseController
 
   public function calculator()
   {
+    $req = $this->request->getPost();
+
+    $req["V"] = isset($req["V"]);
+
+    $timberInfo = array(
+      "vsG8" => [
+        "fb" => 14000,
+        "fs" => 3800,
+        "E" => 6700000,
+        "fb(wet)" => 11700,
+        "fs(wet" => 2400,
+        "E(wet)" => 5450000
+      ],
+      "VSG10" => [
+        "fb" => 20000,
+        "fs" => 3800,
+        "E" => 8350000,
+        "fb(wet)" => 11700,
+        "fs(wet" => 2400,
+        "E(wet)" => 5450000
+      ],
+      "timNo1" => [
+        "fb" => 10000,
+        "fs" => 3800,
+        "E" => 5000000,
+        "fb(wet)" => 7500,
+        "fs(wet" => 2400,
+        "E(wet)" => 4000000
+      ],
+      "gluLam8" => [
+        "fb" => 19000,
+        "fs" => 3700,
+        "E" => 8000000,
+        "fb(wet)" => 15200,
+        "fs(wet" => 2500,
+        "E(wet)" => 6400000
+      ],
+      "gluLam12" => [
+        "fb" => 25000,
+        "fs" => 3700,
+        "E" => 11500000,
+        "fb(wet)" => 20000,
+        "fs(wet" => 2500,
+        "E(wet)" => 9200000
+      ],
+      "gluLam17" => [
+        "fb" => 42000,
+        "fs" => 3700,
+        "E" => 16700000,
+        "fb(wet)" => 33600,
+        "fs(wet" => 2500,
+        "E(wet)" => 13400000
+      ],
+      "lvlHyspan" => [
+        "fb" => 50000,
+        "fs" => 4600,
+        "E" => 13200000,
+        "fb(wet)" => 0,
+        "fs(wet" => 0,
+        "E(wet)" => 0
+      ],
+      "LVL - hyONE" => [
+        "fb" => 34000,
+        "fs" => 4600,
+        "E" => 9500000,
+        "fb(wet)" => 0,
+        "fs(wet" => 0,
+        "E(wet)" => 0
+      ],
+      "lvlOne" => [
+        "fb" => 65000,
+        "fs" => 4600,
+        "E" => 16000000,
+        "fb(wet)" => 0,
+        "fs(wet" => 0,
+        "E(wet)" => 0
+      ],
+      "flitchBeam" => [
+        "fb" => 300000,
+        "fs" => 300000,
+        "E" => 200000000,
+        "fb(wet)" => 300000,
+        "fs(wet" => 300000,
+        "E(wet)" => 200000000
+      ],
+    );
+
+    $targetTimberInfo = $timberInfo[$req["B"]];
+
+    $baseTotalLoads = array(
+      "G" => array(
+        "w" => $req["hgkPa"] * $req["hTrib"] + $req["igkPa"] * $req["iTrib"] + $req["jgkPa"] * $req["jTrib"] + $req["kgkPa"] * $req["kTrib"] + $req["lgkPa"] * $req["lTrib"] + $req["mgkPa"] * $req["mTrib"] + 0,
+        'P1' => $req["hgkPa"] * $req["hP1"] + $req["igkPa"] * $req["iP1"] + $req["jgkPa"] * $req["jP1"] + $req["kgkPa"] * $req["kP1"] + $req["lgkPa"] * $req["lP1"] + $req["mgkPa"] * $req["mP1"] + 0,
+        'P2' => $req["hgkPa"] * $req["hP2"] + $req["igkPa"] * $req["iP2"] + $req["jgkPa"] * $req["jP2"] + $req["kgkPa"] * $req["kP2"] + $req["lgkPa"] * $req["lP2"] + $req["mgkPa"] * $req["mP2"] + 0,
+        'P3' => $req["hgkPa"] * $req["hP3"] + $req["igkPa"] * $req["iP3"] + $req["jgkPa"] * $req["jP3"] + $req["kgkPa"] * $req["kP3"] + $req["lgkPa"] * $req["lP3"] + $req["mgkPa"] * $req["mP3"] + 0,
+        'P4' => $req["hgkPa"] * $req["hP4"] + $req["igkPa"] * $req["iP4"] + $req["jgkPa"] * $req["jP4"] + $req["kgkPa"] * $req["kP4"] + $req["lgkPa"] * $req["lP4"] + $req["mgkPa"] * $req["mP4"] + 0,
+      ),
+      "Qroof" => array(
+        "w" => $req["hqkPa"] * $req["hTrib"],
+        'P1' => $req["hqkPa"] * $req["hP1"] + $req["q1"],
+        'P2' => $req["hqkPa"] * $req["hP2"] + $req["q2"],
+        'P3' => $req["hqkPa"] * $req["hP3"] + $req["q3"],
+        'P4' => $req["hqkPa"] * $req["hP4"] + $req["q4"]
+      ),
+      "Qfloor" => array(
+        "w" => $req["iqkPa"] * $req["iTrib"],
+        'P1' => $req["iqkPa"] * $req["iP1"] + $req["r1"],
+        'P2' => $req["iqkPa"] * $req["iP2"] + $req["r2"],
+        'P3' => $req["iqkPa"] * $req["iP3"] + $req["r3"],
+        'P4' => $req["iqkPa"] * $req["iP4"] + $req["r4"]
+      ),
+      "Qdeck" => array(
+        "w" => $req["jgkPa"] * $req["jTrib"],
+        'P1' => $req["jgkPa"] * $req["jP1"] + $req["s1"],
+        'P2' => $req["jgkPa"] * $req["jP2"] + $req["s2"],
+        'P3' => $req["jgkPa"] * $req["jP3"] + $req["s3"],
+        'P4' => $req["jgkPa"] * $req["jP4"] + $req["s4"]
+      ),
+      "Qwall" => array(
+        "w" => $req["mqkPa"] * $req["mTrib"],
+        'P1' => $req["mqkPa"] * $req["mP1"] + $req["qO1"],
+        'P2' => $req["mqkPa"] * $req["mP2"] + $req["qO2"],
+        'P3' => $req["mqkPa"] * $req["mP3"] + $req["qO3"],
+        'P4' => $req["mqkPa"] * $req["mP4"] + $req["qO4"]
+      ),
+    );
+
+    $totalLoads1G = array(
+      "w" => 1.2 * $baseTotalLoads["G"]["w"] + 1.5 * ($baseTotalLoads["Qroof"]["w"] + $baseTotalLoads["Qfloor"]["w"] + $baseTotalLoads["Qdeck"]["w"] + $baseTotalLoads["Qwall"]["w"]),
+      "P1" => 1.2 * $baseTotalLoads["G"]["P1"] + 1.5 * ($baseTotalLoads["Qroof"]["P1"] + $baseTotalLoads["Qfloor"]["P1"] + $baseTotalLoads["Qdeck"]["P1"] + $baseTotalLoads["Qwall"]["P1"]),
+      "P2" => 1.2 * $baseTotalLoads["G"]["P2"] + 1.5 * ($baseTotalLoads["Qroof"]["P2"] + $baseTotalLoads["Qfloor"]["P2"] + $baseTotalLoads["Qdeck"]["P2"] + $baseTotalLoads["Qwall"]["P2"]),
+      "P3" => 1.2 * $baseTotalLoads["G"]["P3"] + 1.5 * ($baseTotalLoads["Qroof"]["P3"] + $baseTotalLoads["Qfloor"]["P3"] + $baseTotalLoads["Qdeck"]["P3"] + $baseTotalLoads["Qwall"]["P3"]),
+      "P4" => 1.2 * $baseTotalLoads["G"]["P4"] + 1.5 * ($baseTotalLoads["Qroof"]["P4"] + $baseTotalLoads["Qfloor"]["P4"] + $baseTotalLoads["Qdeck"]["P4"] + $baseTotalLoads["Qwall"]["P4"]),
+    );
+
+    $W = (in_array($req["B"], ["VSG8", "VSG10", "timNo1", "gluLam8", "gluLam12", "gluLam17"]) && $req["V"] == "No") ? 2 : ((in_array($req["B"], ["VSG8", "VSG10", "timNo1", "gluLam8", "gluLam12", "gluLam17"]) && $req["V"] == "Yes") ? 3 : ((in_array($req["B"], ["lvlHyspan", "LVL - hyONE", "lvlOne"]) && $req["V"] == "Yes") ? "ERROR" : ($req["B"] == "flitchBeam" ? 1.3 : 2)));
+
+    $mStar = array(
+      "midspan" => array(
+        "w" => $totalLoads1G["w"] * ($req["D"] * $req["D"]) / 8,
+        "P1" => isset($req["a"]) ? 0 : ($totalLoads1G["P1"] / 2) * $req["a"],
+        "P2" => isset($req["b"]) ? 0 : ($totalLoads1G["P2"] / 2) * $req["b"],
+        "P3" => isset($req["c"]) ? 0 : ($totalLoads1G["P3"] / 2) * $req["c"],
+        "P4" => isset($req["d"]) ? 0 : ($totalLoads1G["P4"] / 2) * $req["d"],
+      ),
+      "P1" => array(
+        "w" => $totalLoads1G["w"] * $req["a"] * ($req["D"] - $req["a"]) / 2,
+        "P1" => isset($req["D"]) ? 0 : ($totalLoads1G["P1"] * $req["a"] * ($req["D"] -  $req["a"]) / $req["D"]),
+        "P2" => isset($req["D"]) ? 0 : (($req["a"] <= $req["b"]) ? ($totalLoads1G["P2"] * ($req["D"] - $req["b"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["b"]) ? ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
+        "P3" => isset($req["D"]) ? 0 : (($req["a"] <= $req["c"]) ? ($totalLoads1G["P3"] * ($req["D"] - $req["c"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["c"]) ? ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
+        "P4" => isset($req["D"]) ? 0 : (($req["a"] <= $req["c"]) ? ($totalLoads1G["P4"] * ($req["D"] - $req["d"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["d"]) ? ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
+      ),
+      "P2" => array(
+        "w" => $totalLoads1G["w"] * $req["b"] * ($req["D"] - $req["b"]) / 2,
+        "P1" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["a"]) ? ($totalLoads1G["P1"]  * ($req["D"] - $req["a"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["a"]) ? ($totalLoads1G["P1"]  * $req["a"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
+        "P2" => ($req["D"] == 0) ? 0 : ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["b"]) / $req["D"]),
+        "P3" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["c"]) ? ($totalLoads1G["P3"] * ($req["D"] - $req["c"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["c"]) ? ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
+        "P4" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["d"]) ? ($totalLoads1G["P4"] * ($req["D"] - $req["d"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["d"]) ? ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
+      ),
+      "P3" => array(
+        "w" => $totalLoads1G["w"] * $req["c"] * ($req["D"] - $req["c"]) / 2,
+        "P1" => ($req["D"] == 0) ? 0 : (($req["c"] <= $req["a"]) ? ($totalLoads1G["P1"] * ($req["D"] - $req["a"]) * $req["c"] / $req["D"]) : (($req["c"] > $req["a"]) ? ($totalLoads1G["P1"] * $req["a"] * ($req["D"] - $req["c"]) / $req["D"]) : "ERROR")),
+        "P2" => ($req["D"] == 0) ? 0 : (($req["c"] <= $req["b"]) ? ($totalLoads1G["P2"] * ($req["D"] - $req["b"]) * $req["c"] / $req["D"]) : (($req["c"] > $req["b"]) ? ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["c"]) / $req["D"]) : "ERROR")),
+        "P3" => ($req["D"] == 0) ? 0 : ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["c"]) / $req["D"]),
+        "P4" => ($req["D"] == 0) ? 0 : (($req["c"] <= $req["d"]) ? ($totalLoads1G["P4"] * ($req["D"] - $req["d"]) * $req["c"] / $req["D"]) : (($req["c"] > $req["d"]) ? ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["c"]) / $req["D"]) : "ERROR")),
+      ),
+      "P4" => array(
+        "w" => $totalLoads1G["w"] * $req["d"] * ($req["D"] - $req["d"]) / 2,
+        "P1" => ($req["D"] == 0) ? 0 : (($req["d"] <= $req["a"]) ? ($totalLoads1G["P1"] * ($req["D"] - $req["a"]) * $req["d"] / $req["D"]) : (($req["d"] > $req["a"]) ? ($totalLoads1G["P1"] * $req["a"] * ($req["D"] - $req["d"]) / $req["D"]) : "ERROR")),
+        "P2" => ($req["D"] == 0) ? 0 : (($req["d"] <= $req["b"]) ? ($totalLoads1G["P2"] * ($req["D"] - $req["b"]) * $req["d"] / $req["D"]) : (($req["d"] > $req["b"]) ? ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["d"]) / $req["D"]) : "ERROR")),
+        "P3" => ($req["D"] == 0) ? 0 : (($req["d"] <= $req["c"]) ? ($totalLoads1G["P3"] * ($req["D"] - $req["c"]) * $req["d"] / $req["D"]) : (($req["d"] > $req["c"]) ? ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["d"]) / $req["D"]) : "ERROR")),
+        "P4" => ($req["D"] == 0) ? 0 : ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["d"]) / $req["D"]),
+      ),
+      "k2G" => array(
+        "w" => (in_array($req["B"], ["VSG8", "VSG10", "timNo1", "gluLam8", "gluLam12", "gluLam17"]) && $req["V"] == "No") ? 2 : ((in_array($req["B"], ["VSG8", "VSG10", "timNo1", "gluLam8", "gluLam12", "gluLam17"]) && $req["V"] == "Yes") ? 3 : ((in_array($req["B"], ["lvlHyspan", "LVL - hyONE", "lvlOne"]) && $req["V"] == "Yes") ? "ERROR" : ($req["B"] == "flitchBeam" ? 1.3 : 2))),
+        "P1" => ($req["W"] * $baseTotalLoads["G"]["w"] +
+          $req["W"] * $req["h(l)"] * $baseTotalLoads["Qroof"]["P1"] +
+          ($req["h(s)"] - $req["h(l)"]) * $baseTotalLoads["Qroof"]["P1"] +
+          $req["W"] * $req["i(l)"] * $baseTotalLoads["Qfloor"]["P1"] +
+          ($req["i(s)"] - $req["i(l)"]) * $baseTotalLoads["Qfloor"]["P1"] +
+          $req["W"] * $req["j(l)"] * $baseTotalLoads["Qdeck"]["P1"] +
+          ($req["j(s)"] - $req["j(l)"]) * $baseTotalLoads["Qdeck"]["P1"] +
+          $req["W"] * $req["m(l)"] * $baseTotalLoads["Qwall"]["P1"] +
+          ($req["m(s)"] - $req["m(l)"]) * $baseTotalLoads["Qwall"]["P1"]),
+
+        "P2" => $req["W"] * $baseTotalLoads["G"]["P1"] +
+          $req["W"] * $req["h(l)"] * $baseTotalLoads["Qroof"]["P2"] +
+          ($req["h(s)"] - $req["h(l)"]) * $baseTotalLoads["Qroof"]["P2"] +
+          $req["W"] * $req["i(l)"] * $baseTotalLoads["Qfloor"]["P2"] +
+          ($req["i(s)"] - $req["i(l)"]) * $baseTotalLoads["Qfloor"]["P2"] +
+          $req["W"] * $req["j(l)"] * $baseTotalLoads["Qdeck"]["P2"] +
+          ($req["j(s)"] - $req["j(l)"]) * $baseTotalLoads["Qdeck"]["P2"] +
+          $req["W"] * $req["m(l)"] * $baseTotalLoads["Qwall"]["P2"] +
+          ($req["m(s)"] - $req["m(l)"]) * $$baseTotalLoads["Qwall"]["P2"],
+
+        "P3" => $req["W"] * $req["h(l)"] * $baseTotalLoads["Qroof"]["P2"] +
+          ($req["h(s)"] - $req["h(l)"]) * $baseTotalLoads["Qroof"]["P2"] +
+          $req["W"] * $req["i(l)"] * $baseTotalLoads["Qfloor"]["P3"] +
+          ($req["i(s)"] - $req["i(l)"]) * $baseTotalLoads["Qfloor"]["P3"] +
+          $req["W"] * $req["j(l)"] * $baseTotalLoads["Qdeck"]["P3"] +
+          ($req["j(s)"] - $req["j(l)"]) * $baseTotalLoads["Qdeck"]["P3"] +
+          $req["W"] * $req["m(l)"] * $baseTotalLoads["Qwall"]["P3"] +
+          ($req["m(s)"] - $req["m(l)"]) * $$baseTotalLoads["Qwall"]["P3"],
+
+        "P4" => $req["W"] * $req["h(l)"] * $baseTotalLoads["Qroof"]["P4"] +
+          ($req["h(s)"] - $req["h(l)"]) * $baseTotalLoads["Qroof"]["P4"] +
+          $req["W"] * $req["i(l)"] * $baseTotalLoads["Qfloor"]["P4"] +
+          ($req["i(s)"] - $req["i(l)"]) * $baseTotalLoads["Qfloor"]["P4"] +
+          $req["W"] * $req["j(l)"] * $baseTotalLoads["Qdeck"]["P4"] +
+          ($req["j(s)"] - $req["j(l)"]) * $baseTotalLoads["Qdeck"]["P4"] +
+          $req["W"] * $req["m(l)"] * $baseTotalLoads["Qwall"]["P4"] +
+          ($req["m(s)"] - $req["m(l)"]) * $$baseTotalLoads["Qwall"]["P4"],
+      ),
+    );
+
+    $defl = array(
+      
+    );
+
+    $totalLoads = array(
+      [
+        'Gcol1' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Qroof' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Qfloor' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Qdeck' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Qwall' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        '1.2G' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Mstar-mid' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Mstar-p1' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Mstar-p2' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Mstar-p3' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'Mstar-p4' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'k2G' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+        'defl' => array(
+          ['text' => 'qwe',],
+          ['text' => '12321',],
+          ['text' => 'asd',],
+          ['text' => 'qwewq',],
+          ['text' => 'qwewq',],
+        ),
+      ]
+    );
+
+    $F = isset($req["E"]) ? "" : ($req["D"] * 1000) / $req["E"];
+
+    $W = (($req["B"] == "VSG8" || $req["B"] == "VSG10" || $req["B"] == "timNo1" || $req["B"] == "gluLam8" || $req["B"] == "gluLam12" || $req["B"] == "gluLam17") && isset($req["V"])) ? 2 : ((($req["B"] == "VSG8" || $req["B"] == "VSG10" || $req["B"] == "timNo1" || $req["B"] == "gluLam8" || $req["B"] == "gluLam12" || $req["B"] == "gluLam17") && isset($req["V"])) ? 3 : ((($req["B"] == "lvlHyspan" || $req["B"] == "LVL - hyONE" || $req["B"] == "lvlOne" || $req["B"] == "flitchBeam") && isset($req["V"])) ? "ERROR" : ($req["B"] == isset($req["V"]))));
+
     return $this->response->setJSON($this->request->getPost());
   }
 }
