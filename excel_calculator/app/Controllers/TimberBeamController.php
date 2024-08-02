@@ -1187,231 +1187,534 @@ class TimberBeamController extends BaseController
                   'inputType' => 'table',
                   'row' => array(
                     [
+                      'name' => array(
+                        [
+                         'text' => 'w',
+                        ],
+                      ),
                       'Gcol1' => array(
                         [
-                          'text' => '',
-                          'id' => 'O14',
+                          'text' => '<input type="text" class="form-control" id="O14" name="O14" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '',
-                          'id' => 'O14',
+                          'text' => '<input type="text" class="form-control" id="P14" name="P14" value="" disabled /',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '',
-                          'id' => 'Q14',
+                          'text' => '<input type="text" class="form-control" id="Q14" name="Q14" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '',
-                          'id' => 'R14',
+                          'text' => '<input type="text" class="form-control" id="R14" name="R14" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '',
-                          'id' => 'S14',
+                          'text' => '<input type="text" class="form-control" id="S14" name="S14" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '',
-                          'id' => 'T14',
+                          'text' => '<input type="text" class="form-control" id="T14" name="T14" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '',
+                          'text' => '<input type="text" class="form-control" id="U14" name="U14" value="" disabled /',
                           'id' => 'U14',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '',
-                          'id' => 'V14',
+                          'text' => '<input type="text" class="form-control" id="V14" name="V14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                          'text' => '',
-                          'id' => 'W14',
+                         'text' => '<input type="text" class="form-control" id="W14" name="W14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '',
-                          'id' => 'X14',
+                          'text' => '<input type="text" class="form-control" id="X14" name="X14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '',
-                          'id' => 'Y14',
+                          'text' => '<input type="text" class="form-control" id="Y14" name="Y14" value="" disabled /',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '',
-                          'id' => 'Z14',
+                         'text' => '<input type="text" class="form-control" id="Z14" name="Z14" value="" disabled /',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '',
-                          'id' => 'AA14',
+                          'text' => '<input type="text" class="form-control" id="AA14" name="AA14" value="" disabled /',
                         ]
                       ),
                     ],
                     [
+                      'name' => array(
+                        [
+                         'text' => 'P1',
+                        ],
+                      ),
                       'Gcol1' => array(
                         [
-                          'text' => '',
-                          'id' => 'O15',
+                         'text' => '<input type="text" class="form-control" id="O15" name="O15" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '',
+                         'text' => '<input type="text" class="form-control" id="P15" name="P15" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '',
-                          'id' => 'Q15',
+                          'text' => '<input type="text" class="form-control" id="Q15" name="Q15" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '',
-                          'id' => 'R15',
+                          'text' => '<input type="text" class="form-control" id="R15" name="R15" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '',
-                          'id' => 'S15',
+                         'text' => '<input type="text" class="form-control" id="S15" name="S15" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '',
-                          'id' => 'T15',
+                          'text' => '<input type="text" class="form-control" id="T15" name="T15" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '',
+                          'text' => '<input type="text" class="form-control" id="U15" name="U15" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '',
-                          'id' => 'V15',
+                          'text' => '<input type="text" class="form-control" id="V15" name="V15" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                          'text' => '',
+                         'text' => '<input type="text" class="form-control" id="W15" name="W15" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '',
-                          'id' => 'X15',
+                          'text' => '<input type="text" class="form-control" id="X15" name="X15" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '',
+                          'text' => '<input type="text" class="form-control" id="Y15" name="Y15" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '',
+                          'text' => '<input type="text" class="form-control" id="Z15" name="Z15" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '',
-                          'id' => 'AA15',
+                         'text' => '<input type="text" class="form-control" id="AA15" name="AA15" value="" disabled /',
                         ]
                       ),
-                    ]
+                    ],
+                    [
+                      'name' => array(
+                        [
+                         'text' => 'P2',
+                        ],
+                      ),
+                      'Gcol1' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="O16" name="O16" value="" disabled /',
+                        ],
+                      ),
+                      'Qroof' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="P16" name="P16" value="" disabled /',
+                          'id' => 'P15',
+                        ]
+                      ),
+                      'Qfloor' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Q16" name="Q16" value="" disabled /',
+                        ]
+                      ),
+                      'Qdeck' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="R16" name="R16" value="" disabled /',
+                        ]
+                      ),
+                      'Qwall' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="S16" name="S16" value="" disabled /',
+                        ]
+                      ),
+                      '1.2G' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="T16" name="T16" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-mid' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="U16" name="U16" value="" disabled /',
+                          'id' => 'U15',
+                        ]
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="V16" name="V16" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="W16" name="W16" value="" disabled /',
+                          'id' => 'W15',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="X16" name="X16" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Y16" name="Y16" value="" disabled /',
+                          'id' => 'Y15',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Z16" name="Z16" value="" disabled /',
+                          'id' => 'Z15',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="AA16" name="AA16" value="" disabled /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                         'text' => 'P3',
+                        ],
+                      ),
+                      'Gcol1' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="O17" name="O17" value="" disabled /',
+                        ],
+                      ),
+                      'Qroof' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="P17" name="P17" value="" disabled /',
+                          'id' => 'P15',
+                        ]
+                      ),
+                      'Qfloor' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Q17" name="Q17" value="" disabled /',
+                        ]
+                      ),
+                      'Qdeck' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="R17" name="R17" value="" disabled /',
+                        ]
+                      ),
+                      'Qwall' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="S17" name="S17" value="" disabled /',
+                        ]
+                      ),
+                      '1.2G' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="T17" name="T17" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-mid' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="U17" name="U17" value="" disabled /',
+                          'id' => 'U15',
+                        ]
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="V17" name="V17" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="W17" name="W17" value="" disabled /',
+                          'id' => 'W15',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="X17" name="X17" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Y17" name="Y17" value="" disabled /',
+                          'id' => 'Y15',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Z17" name="Z15" value="" disabled /',
+                          'id' => 'Z15',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="AA17" name="AA17" value="" disabled /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                         'text' => 'P4',
+                        ],
+                      ),
+                      'Gcol1' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="O18" name="O18" value="" disabled /',
+                        ],
+                      ),
+                      'Qroof' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="P18" name="P18" value="" disabled /',
+                          'id' => 'P15',
+                        ]
+                      ),
+                      'Qfloor' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Q18" name="Q18" value="" disabled /',
+                        ]
+                      ),
+                      'Qdeck' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="R18" name="R18" value="" disabled /',
+                        ]
+                      ),
+                      'Qwall' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="S18" name="S18" value="" disabled /',
+                        ]
+                      ),
+                      '1.2G' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="T18" name="T18" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-mid' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="U18" name="U18" value="" disabled /',
+                          'id' => 'U15',
+                        ]
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="V18" name="V18" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="W18" name="W18" value="" disabled /',
+                          'id' => 'W15',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="X18" name="X18" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Y18" name="Y18" value="" disabled /',
+                          'id' => 'Y15',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Z18" name="Z18" value="" disabled /',
+                          'id' => 'Z15',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="AA18" name="AA18" value="" disabled /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                         'text' => 'Sum',
+                        ],
+                      ),
+                      'Gcol1' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="O19" name="O19" value="" disabled /',
+                        ],
+                      ),
+                      'Qroof' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="P19" name="P19" value="" disabled /',
+                          'id' => 'P15',
+                        ]
+                      ),
+                      'Qfloor' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Q19" name="Q19" value="" disabled /',
+                        ]
+                      ),
+                      'Qdeck' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="R19" name="R19" value="" disabled /',
+                        ]
+                      ),
+                      'Qwall' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="S19" name="S19" value="" disabled /',
+                        ]
+                      ),
+                      '1.2G' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="T19" name="T19" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-mid' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="U19" name="U19" value="" disabled /',
+                          'id' => 'U15',
+                        ]
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="V19" name="V19" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="W19" name="W19" value="" disabled /',
+                          'id' => 'W15',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="X19" name="X19" value="" disabled /',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Y19" name="Y19" value="" disabled /',
+                          'id' => 'Y15',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<input type="text" class="form-control" id="Z19" name="Z19" value="" disabled /',
+                          'id' => 'Z15',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                         'text' => '<input type="text" class="form-control" id="AA19" name="AA19" value="" disabled /',
+                        ]
+                      ),
+                    ],
                   ),
                   'column' => array(
                     [
+                      'id' => 'name',
+                      'label' => '',
+                      'width'=> '50px',
+                    ],
+                    [
                       'id' => 'Gcol1',
                       'label' => 'G',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Qroof',
                       'label' => 'QRoof',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Qfloor',
                       'label' => 'Qfloor',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Qdeck',
                       'label' => 'Qdeck',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Qwall',
                       'label' => 'Qwall',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => '1.2G',
                       'label' => '1.2G+1.5Q',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Mstar-mid',
                       'label' => 'M* (midspan)',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Mstar-p1',
                       'label' => 'M* (P1)',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Mstar-p2',
                       'label' => 'M* (P2)',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Mstar-p3',
                       'label' => 'M* (P3)',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'Mstar-p4',
                       'label' => 'M* (P4)',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'k2G',
                       'label' => 'k2G+k2ΨlQ+(Ψs-Ψl)Q',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                     [
                       'id' => 'defl',
                       'label' => 'defl mids (mm)',
-                      'width'=> '800px',
+                      'width'=> '100px',
                     ],
                   )
                 ]

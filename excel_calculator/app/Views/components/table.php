@@ -6,11 +6,11 @@ $props = [
 ];
 ?>
 <div class="table-responsive w-100 h-100">
-    <table class="table  border table-sm align-middle table-bordered border-info">
+    <table class="table  border table-sm align-middle">
         <thead>
             <tr class='text-center'>
                 <?php foreach ($props['column'] as $col): ?>
-                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" <?php if (isset($props['width'])) echo "style='width: {$col['width']} !important'"; ?> title=" <?= $col['label'] ?>">
+                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" <?= isset($col['width']) ? "style='min-width: {$col['width']} !important; width:100%; max-width:800px;'" : '' ?>  title=" <?= $col['label'] ?>">
                         <?php
                         if (isset($col['unit'])) {
                             echo $col['label'] . '<br>' . $col['unit'];
