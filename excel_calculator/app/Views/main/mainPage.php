@@ -10,7 +10,7 @@ $count = 0;
 $props = new stdClass();
 $props = isset($formProperties) ? $formProperties : []
 
-?>
+  ?>
 <div class="mb-5">
   <div class="bg-blue">
     <div class="h5 p-5 text-center">
@@ -19,36 +19,39 @@ $props = isset($formProperties) ? $formProperties : []
       </strong>
     </div>
   </div>
-  <div class="col-xl-12 py-3">
-    <div class="d-flex gap-2 align-items-center">
-      <div class="btn-group btn-group-sm" role="group" aria-label="">
-        <button type="button" class="btn btn-outline-secondary" disabled="">Share</button>
-        <button type="button" class="btn btn-outline-secondary" id="export">Export</button>
+  <form id="form">
+    <div class="col-xl-12 py-3">
+      <div class="d-flex gap-2 align-items-center justify-content-between">
+        <div class="btn-group btn-group-sm" role="group" aria-label="">
+          <button type="button" class="btn btn-outline-secondary" disabled="">Share</button>
+          <button type="button" class="btn btn-outline-secondary" id="export">Export</button>
+        </div>
+        <button type="submit" class="btn btn-primary px-5 me-4">Submit</button>
       </div>
     </div>
-  </div>
-  <form id="form">
     <div class="row">
       <!-- ข้อมูลการ์ดฝั่งซ้าย ขวา -->
-      <?php foreach ($props['secTion'] as $secTion) : ?>
+      <?php foreach ($props['secTion'] as $secTion): ?>
         <div class="col-xl-6 col-sm-12 col-md-12 col-xs-12">
           <div class="accordion">
             <!-- section ข้อๆ -->
-            <?php foreach ($secTion['menu'] as $menu) : ?>
+            <?php foreach ($secTion['menu'] as $menu): ?>
               <div class="accordion-item overflow" title=" <?= $menu['menuTitle'] ?>">
                 <h2 class="accordion-header overflow">
-                  <button class="accordion-button collapsed overflow" type="button" data-bs-toggle="collapse" data-bs-target="#section-<?= $count ?>" aria-expanded="false" aria-controls="section-<?= $count ?>">
+                  <button class="accordion-button collapsed overflow" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#section-<?= $count ?>" aria-expanded="false" aria-controls="section-<?= $count ?>">
                     <!-- แสดงข้อๆ เปิดปิด -->
                     <?= $menu['menuTitle'] ?>
                   </button>
                 </h2>
-                <div id="section-<?= $count ?>" class="accordion-collapse collapse" aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>" style="">
+                <div id="section-<?= $count ?>" class="accordion-collapse collapse" aria-labelledby="section-<?= $count ?>"
+                  data-bs-parent="#section-<?= $count ?>" style="">
                   <div class="accordion-body">
                     <?php ++$count ?>
                     <!-- input ต่างๆ -->
                     <div class="row align-items-end">
-                      <?php if (isset($menu['input']) && !empty($menu['input'])) :
-                        foreach ($menu['input'] as $input) : ?>
+                      <?php if (isset($menu['input']) && !empty($menu['input'])):
+                        foreach ($menu['input'] as $input): ?>
                           <?php $check = (isset($input['slot']) && $input['slot'] == 1) ? 'col-12' : 'col-6'; ?>
                           <div class="<?= $check ?> mb-2">
                             <?php
@@ -83,22 +86,25 @@ $props = isset($formProperties) ? $formProperties : []
                             }
                             ?>
                           </div>
-                      <?php endforeach;
+                        <?php endforeach;
                       endif; ?>
                       <div>
-                        <?php if (isset($menu['subMenu']) && !empty($menu['subMenu'])) : ?>
-                          <?php foreach ($menu['subMenu'] as $subMenu) : ?>
+                        <?php if (isset($menu['subMenu']) && !empty($menu['subMenu'])): ?>
+                          <?php foreach ($menu['subMenu'] as $subMenu): ?>
                             <div class="accordion mt-3">
                               <div class="accordion-item overflow" title=" <?= $subMenu['subMenuTitle'] ?>">
                                 <h2 class="accordion-header overflow">
-                                  <button class="accordion-button collapsed overflow" type="button" data-bs-toggle="collapse" data-bs-target="#section-<?= $count ?>" aria-expanded="false" aria-controls="section-<?= $count ?>">
+                                  <button class="accordion-button collapsed overflow" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#section-<?= $count ?>" aria-expanded="false"
+                                    aria-controls="section-<?= $count ?>">
                                     <?= $subMenu['subMenuTitle'] ?>
                                   </button>
                                 </h2>
-                                <div id="section-<?= $count ?>" class="accordion-collapse collapse" aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>" style="">
+                                <div id="section-<?= $count ?>" class="accordion-collapse collapse"
+                                  aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>" style="">
                                   <div class="accordion-body">
                                     <div class="row align-items-end">
-                                      <?php foreach ($subMenu['input'] as $input) : ?>
+                                      <?php foreach ($subMenu['input'] as $input): ?>
                                         <?php $check = (isset($input['slot']) && $input['slot'] == 1) ? 'col-12' : 'col-6'; ?>
                                         <div class="<?= $check ?> mb-2">
                                           <?php
@@ -151,13 +157,12 @@ $props = isset($formProperties) ? $formProperties : []
         </div>
       <?php endforeach; ?>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   <div id="url" class="d-none"><?= $props['url'] ?></div>
 </div>
 <script>
-  $(document).ready(function() {
-    $('#form').on('submit', function(e) {
+  $(document).ready(function () {
+    $('#form').on('submit', function (e) {
       e.preventDefault(); // Prevent the default form submission
       const url = document.getElementById('url').innerHTML;
       // ajax serialize()
@@ -166,14 +171,14 @@ $props = isset($formProperties) ? $formProperties : []
         type: 'POST',
         url: `${url}`, // Your form action URL
         data: $(this).serialize(), // Serialize the form data
-        success: function(response) {
+        success: function (response) {
           // Handle the response from the server
           alert('Form submitted successfully!');
           console.log(response); // You can log the response for debugging
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
           // Handle errors
-          alert('Form submission failed!');
+          alert('Form submission failed! Please input Data or Import File');
           console.log(xhr.responseText); // Log the error response for debugging
         }
       });

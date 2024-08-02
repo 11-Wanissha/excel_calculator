@@ -149,28 +149,28 @@ class TimberBeamController extends BaseController
                   ),
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'Span L', // required
                   'id' => 'D12', // required
                   'name' => 'D12',
                   'unit' => 'm',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'span/', // required
                   'id' => 'D13', // required
                   'name' => 'D13',
                   'type' => 'number',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'Deflection Limit', // required
                   'id' => 'C14', // required
                   'name' => 'C14',
                   'disabled' => true,
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'Vibration Limit', // required
                   'id' => 'C15', // required
                   'name' => 'C15',
@@ -182,679 +182,38 @@ class TimberBeamController extends BaseController
               'menuTitle' => '2. LOADS',
               'subMenu' => array(
                 [
-                  'subMenuTitle' => '2.1 Roof',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'G (kPa)', // required
-                      'name' => 'B20', // required
-                      'id' => 'B20', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Q (kPa)', // required
-                      'name' => 'C20', // required
-                      'id' => 'C20', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(s)', // required
-                      'name' => 'D20', // required
-                      'id' => 'D20', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(l)', // required
-                      'name' => 'E20', // required
-                      'id' => 'E20', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'w Trib. Width', // required
-                      'name' => 'F20', // required
-                      'id' => 'F20', // required
-                      'type' => 'number',
-                      'unit' => 'm',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1 Trib. area', // required
-                      'name' => 'G20', // required
-                      'id' => 'G20', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2 Trib. Area', // required
-                      'name' => 'H20', // required
-                      'id' => 'H20', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3 Trib. Area', // required
-                      'name' => 'I20', // required
-                      'id' => 'I20', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4 Trib. Area', // required
-                      'name' => 'J20', // required
-                      'id' => 'J20', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '2.2 Floor',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'G (kPa)', // required
-                      'name' => 'B21', // required
-                      'id' => 'B21', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Q (kPa)', // required
-                      'name' => 'C21', // required
-                      'id' => 'C21', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(s)', // required
-                      'name' => 'D21', // required
-                      'id' => 'D21', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(l)', // required
-                      'name' => 'E21', // required
-                      'id' => 'E21', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'w Trib. Width', // required
-                      'name' => 'F21', // required
-                      'id' => 'F21', // required
-                      'type' => 'number',
-                      'unit' => 'm',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1 Trib. area', // required
-                      'name' => 'G21', // required
-                      'id' => 'G21', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2 Trib. Area', // required
-                      'name' => 'H21', // required
-                      'id' => 'H21', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3 Trib. Area', // required
-                      'name' => 'I21', // required
-                      'id' => 'I21', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4 Trib. Area', // required
-                      'name' => 'J21', // required
-                      'id' => 'J21', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '2.3 Deck',
-                 'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'G (kPa)', // required
-                      'name' => 'B22', // required
-                      'id' => 'B22', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Q (kPa)', // required
-                      'name' => 'C22', // required
-                      'id' => 'C22', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(s)', // required
-                      'name' => 'D22', // required
-                      'id' => 'D22', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(l)', // required
-                      'name' => 'E22', // required
-                      'id' => 'E22', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'w Trib. Width', // required
-                      'name' => 'F22', // required
-                      'id' => 'F22', // required
-                      'type' => 'number',
-                      'unit' => 'm',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1 Trib. area', // required
-                      'name' => 'G22', // required
-                      'id' => 'G22', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2 Trib. Area', // required
-                      'name' => 'H22', // required
-                      'id' => 'H22', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3 Trib. Area', // required
-                      'name' => 'I22', // required
-                      'id' => 'I22', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4 Trib. Area', // required
-                      'name' => 'J22', // required
-                      'id' => 'J22', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '2.4 Wall',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'G (kPa)', // required
-                      'name' => 'B23', // required
-                      'id' => 'B23', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Q (kPa)', // required
-                      'name' => 'C23', // required
-                      'id' => 'C23', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(s)', // required
-                      'name' => 'D23', // required
-                      'id' => 'D23', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(l)', // required
-                      'name' => 'E23', // required
-                      'id' => 'E23', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'w Trib. Width', // required
-                      'name' => 'F23', // required
-                      'id' => 'F23', // required
-                      'type' => 'number',
-                      'unit' => 'm',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1 Trib. area', // required
-                      'name' => 'G23', // required
-                      'id' => 'G23', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2 Trib. Area', // required
-                      'name' => 'H23', // required
-                      'id' => 'H23', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3 Trib. Area', // required
-                      'name' => 'I23', // required
-                      'id' => 'I23', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4 Trib. Area', // required
-                      'name' => 'J23', // required
-                      'id' => 'J23', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '2.5 Ex Wall',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'G (kPa)', // required
-                      'name' => 'B24', // required
-                      'id' => 'B24', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Q (kPa)', // required
-                      'name' => 'C24', // required
-                      'id' => 'C24', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(s)', // required
-                      'name' => 'D24', // required
-                      'id' => 'D24', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(l)', // required
-                      'name' => 'E24', // required
-                      'id' => 'E24', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'w Trib. Width', // required
-                      'name' => 'F24', // required
-                      'id' => 'F24', // required
-                      'type' => 'number',
-                      'unit' => 'm',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1 Trib. area', // required
-                      'name' => 'G24', // required
-                      'id' => 'G24', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2 Trib. Area', // required
-                      'name' => 'H24', // required
-                      'id' => 'H24', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3 Trib. Area', // required
-                      'name' => 'I24', // required
-                      'id' => 'I24', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4 Trib. Area', // required
-                      'name' => 'J24', // required
-                      'id' => 'J24', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '2.6 Ex Other',
-                 'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'G (kPa)', // required
-                      'name' => 'B25', // required
-                      'id' => 'B25', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Q (kPa)', // required
-                      'name' => 'C25', // required
-                      'id' => 'C25', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(s)', // required
-                      'name' => 'D25', // required
-                      'id' => 'D25', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Ψ(l)', // required
-                      'name' => 'E25', // required
-                      'id' => 'E25', // required
-                      'type' => 'number',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'w Trib. Width', // required
-                      'name' => 'F25', // required
-                      'id' => 'F25', // required
-                      'type' => 'number',
-                      'unit' => 'm',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1 Trib. area', // required
-                      'name' => 'G25', // required
-                      'id' => 'G25', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2 Trib. Area', // required
-                      'name' => 'H25', // required
-                      'id' => 'H25', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3 Trib. Area', // required
-                      'name' => 'I25', // required
-                      'id' => 'I25', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4 Trib. Area', // required
-                      'name' => 'J25', // required
-                      'id' => 'J25', // required
-                      'type' => 'number',
-                      'unit' => 'm^2',
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '2.7 Distance to P Loads',
+                  'subMenuTitle' => '2.1 Distance to P Loads',
                   'input' => array(
                     [
                       'inputType' => 'text',
                       'label' => 'a', // required
                       'name' => 'G27', // required
-                      'id' => 'G27', // required
-                      'type' => 'number',
                       'unit' => 'm',
+                      'id' => 'G27', // required
+                      'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'b', // required
                       'name' => 'H27', // required
-                      'id' => 'H27', // required
-                      'type' => 'number',
                       'unit' => 'm',
+                      'id' => 'H27', // required
+                      'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'c', // required
                       'name' => 'I27', // required
-                      'id' => 'I27', // required
-                      'type' => 'number',
                       'unit' => 'm',
+                      'id' => 'I27', // required
+                      'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'd', // required
                       'name' => 'J27', // required
-                      'id' => 'J27', // required
-                      'type' => 'number',
                       'unit' => 'm',
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '2.8 Self Weight G',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Self Weight G', // required
-                      'name' => 'C27', // required
-                      'unit' => 'kN/m',
-                      'id' => 'o', // required
-                      'disabled' => true,
-                    ],
-                  ),
-                ],
-              ),
-            ],
-            [
-              'menuTitle' => '3. Cal3',
-              'subMenu' => array(
-                [
-                  'subMenuTitle' => '3.1 G',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1', // required
-                      'name' => 'B31', // required
-                      'unit' => 'p1',
-                      'id' => 'B31', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2', // required
-                      'name' => 'C31', // required
-                      'unit' => 'p2',
-                      'id' => 'C31', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3', // required
-                      'name' => 'D31', // required
-                      'unit' => 'p3',
-                      'id' => 'D31', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4', // required
-                      'name' => 'E31', // required
-                      'unit' => 'p4',
-                      'id' => 'E31', // required
-                      'type' => 'number'
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '3.2 Q (Roof)',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1', // required
-                      'name' => 'B32', // required
-                      'unit' => 'p1',
-                      'id' => 'B32', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2', // required
-                      'name' => 'C32', // required
-                      'unit' => 'p2',
-                      'id' => 'C32', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3', // required
-                      'name' => 'D32', // required
-                      'unit' => 'p3',
-                      'id' => 'D32', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4', // required
-                      'name' => 'E32', // required
-                      'unit' => 'p4',
-                      'id' => 'E32', // required
-                      'type' => 'number'
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '3.3 Q (Floor)',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1', // required
-                      'name' => 'B33', // required
-                      'unit' => 'p1',
-                      'id' => 'B33', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2', // required
-                      'name' => 'C33', // required
-                      'unit' => 'p2',
-                      'id' => 'C33', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3', // required
-                      'name' => 'D33', // required
-                      'unit' => 'p3',
-                      'id' => 'D33', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4', // required
-                      'name' => 'E33', // required
-                      'unit' => 'p4',
-                      'id' => 'E33', // required
-                      'type' => 'number'
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '3.4 Q (Deck)',
-                 'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1', // required
-                      'name' => 'B34', // required
-                      'unit' => 'p1',
-                      'id' => 'B34', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2', // required
-                      'name' => 'C34', // required
-                      'unit' => 'p2',
-                      'id' => 'C34', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3', // required
-                      'name' => 'D34', // required
-                      'unit' => 'p3',
-                      'id' => 'D34', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4', // required
-                      'name' => 'E34', // required
-                      'unit' => 'p4',
-                      'id' => 'E34', // required
-                      'type' => 'number'
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '3.4 Q (Other)',
-                 'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P1', // required
-                      'name' => 'B35', // required
-                      'unit' => 'p1',
-                      'id' => 'B35', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P2', // required
-                      'name' => 'C35', // required
-                      'unit' => 'p2',
-                      'id' => 'C35', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P3', // required
-                      'name' => 'D35', // required
-                      'unit' => 'p3',
-                      'id' => 'D35', // required
-                      'type' => 'number'
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'P4', // required
-                      'name' => 'E35', // required
-                      'unit' => 'p4',
-                      'id' => 'E35', // required
+                      'id' => 'J27', // required
                       'type' => 'number'
                     ],
                   ),
@@ -863,14 +222,401 @@ class TimberBeamController extends BaseController
               'input' => array(
                 [
                   'inputType' => 'text',
+                  'label' => 'Self Weight G', // required
+                  'id' => 'C27', // required
+                  'name' => 'C27',
+                  'type' => 'number',
+                  'unit' => 'kN/m',
+                  'disabled' => true,
+                  'slot' => 1,
+                ],
+                [
+                  'inputType' => 'table',
+                  'column' => array(
+                    [
+                      'id' => "name",
+                      'label' => "",
+                    ],
+                    [
+                      'id' => "G(kPa)",
+                      'label' => "G (kPa)",
+                      'unit' => 'kPa',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => "Q(kPa)",
+                      'label' => "Q (kPa)",
+                      'unit' => 'kPa',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => "Ψs",
+                      'label' => "Ψs",
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => "Ψl",
+                      'label' => "Ψl",
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => "wTrib.Width(m)",
+                      'label' => "w Trib. Width(m)",
+                      'unit' => 'm'
+                    ],
+                    [
+                      'id' => "P1Trib.Area(m^2)",
+                      'label' => "P1 Trib. Area (m^2)",
+                      'unit' => 'm^2'
+                    ],
+                    [
+                      'id' => "P2Trib.Area(m^2)",
+                      'label' => "P2 Trib. Area (m^2)",
+                      'unit' => 'm^2'
+                    ],
+                    [
+                      'id' => "P3Trib.Area(m^2)",
+                      'label' => "P3 Trib. Area (m^2)",
+                      'unit' => 'm^2'
+                    ],
+                    [
+                      'id' => "P4Trib.Area(m^2)",
+                      'label' => "P4 Trib. Area (m^2)",
+                      'unit' => 'm^2'
+                    ],
+                  ), // required
+                  'row' => array(
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Roof',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B20" name="B20" value="0.4"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C20" name="C20" value="0.25"  /',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D20" name="D20" value="0.7"  /',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E20" name="E20" value="0"  /',
+                        ]
+                      ),
+                      'wTrib.Width(m)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="F20" name="F20" value=""  /',
+                        ]
+                      ),
+                      'P1Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="G20" name="G20" value=""  /',
+                        ]
+                      ),
+                      'P2Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="H20" name="H20" value=""  /',
+                        ]
+                      ),
+                      'P3Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="I20" name="I20" value=""  /',
+                        ]
+                      ),
+                      'P4Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="J20" name="J20" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Floor',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B21" name="B21" value="0.4"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C21" name="C21" value="1.5"  /',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D21" name="D21" value="0.7"  /',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E21" name="E21" value="0.4"  /',
+                        ]
+                      ),
+                      'wTrib.Width(m)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="F21" name="F21" value=""  /',
+                        ]
+                      ),
+                      'P1Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="G21" name="G21" value=""  /',
+                        ]
+                      ),
+                      'P2Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="H21" name="H21" value=""  /',
+                        ]
+                      ),
+                      'P3Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="I21" name="I21" value=""  /',
+                        ]
+                      ),
+                      'P4Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="J21" name="J21" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Deck',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B22" name="B22" value="0.4"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C22" name="C22" value="1.5"  /',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D22" name="D22" value="0.7"  /',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E22" name="E22" value="0.4"  /',
+                        ]
+                      ),
+                      'wTrib.Width(m)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="F22" name="F22" value=""  /',
+                        ]
+                      ),
+                      'P1Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="G22" name="G22" value=""  /',
+                        ]
+                      ),
+                      'P2Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="H22" name="H22" value=""  /',
+                        ]
+                      ),
+                      'P3Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="I22" name="I22" value=""  /',
+                        ]
+                      ),
+                      'P4Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="J22" name="J22" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Int Wall',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B23" name="B23" value="0.3"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'wTrib.Width(m)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="F23" name="F23" value=""  /',
+                        ]
+                      ),
+                      'P1Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="G23" name="G23" value=""  /',
+                        ]
+                      ),
+                      'P2Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="H23" name="H23" value=""  /',
+                        ]
+                      ),
+                      'P3Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="I23" name="I23" value=""  /',
+                        ]
+                      ),
+                      'P4Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="J23" name="J23" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Ex Wall',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B24" name="B24" value="0.4"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'wTrib.Width(m)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="F24" name="F24" value=""  /',
+                        ]
+                      ),
+                      'P1Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="G24" name="G24" value=""  /',
+                        ]
+                      ),
+                      'P2Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="H24" name="H24" value=""  /',
+                        ]
+                      ),
+                      'P3Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="I24" name="I24" value=""  /',
+                        ]
+                      ),
+                      'P4Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="J24" name="J24" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Other',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B25" name="B25" value=""  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C25" name="C25" value=""  /',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D25" name="D25" value=""  /',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E25" name="E25" value=""  /',
+                        ]
+                      ),
+                      'wTrib.Width(m)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="F25" name="F25" value=""  /',
+                        ]
+                      ),
+                      'P1Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="G25" name="G25" value=""  /',
+                        ]
+                      ),
+                      'P2Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="H25" name="H25" value=""  /',
+                        ]
+                      ),
+                      'P3Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="I25" name="I25" value=""  /',
+                        ]
+                      ),
+                      'P4Trib.Area(m^2)' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="J25" name="J25" value=""  /',
+                        ]
+                      ),
+                    ],
+                  ), // required
+                  'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                ],
+              ),
+            ],
+            [
+              'menuTitle' => '3. ADDITIONAL UNFACTORED LOADS (kN)',
+              'input' => array(
+                [
+                  'inputType' => 'number',
                   'label' => 'Maximum segment length between Full lateral restraints', // required
                   'name' => 'I31', // required
                   'unit' => 'm',
                   'id' => 'I31', // required
-                  'type' => 'number'
+                  'type' => 'number',
+                  'value' => '1',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'k1', // required
                   'name' => 'I33', // required
                   'value' => '0.8',
@@ -878,18 +624,185 @@ class TimberBeamController extends BaseController
                   'type' => 'number'
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'is timber wet ?', // required
                   'id' => 'I34', // required
                   'name' => 'I34', // required
                   'type' => 'checkbox',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'k2', // required
                   'name' => 'I35', // required
                   'id' => 'I35', // required
                   'disabled' => true,
+                ],
+                [
+                  'inputType' => 'table',
+                  'column' => array(
+                    [
+                      'id' => "name",
+                      'label' => "",
+                    ],
+                    [
+                      'id' => "P1",
+                      'label' => "P1",
+                      'unit' => 'p1'
+                    ],
+                    [
+                      'id' => "P2",
+                      'label' => "P2",
+                      'unit' => 'p2'
+                    ],
+                    [
+                      'id' => "P3",
+                      'label' => "P3",
+                      'unit' => 'p3'
+                    ],
+                    [
+                      'id' => "P4",
+                      'label' => "P4",
+                      'unit' => 'p4'
+                    ],
+                  ), // required
+                  'row' => array(
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'G',
+                        ]
+                      ),
+                      'P1' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B31" name="B31" value=""  /',
+                        ]
+                      ),
+                      'P2' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C31" name="C31" value=""  /',
+                        ]
+                      ),
+                      'P3' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D31" name="D31" value=""  /',
+                        ]
+                      ),
+                      'P4' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E31" name="E31" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Q (Roof)',
+                        ]
+                      ),
+                      'P1' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B32" name="B32" value=""  /',
+                        ]
+                      ),
+                      'P2' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C32" name="C32" value=""  /',
+                        ]
+                      ),
+                      'P3' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D32" name="D32" value=""  /',
+                        ]
+                      ),
+                      'P4' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E32" name="E32" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Q (Floor)',
+                        ]
+                      ),
+                      'P1' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B33" name="B33" value=""  /',
+                        ]
+                      ),
+                      'P2' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C33" name="C33" value=""  /',
+                        ]
+                      ),
+                      'P3' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D33" name="D33" value=""  /',
+                        ]
+                      ),
+                      'P4' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E33" name="E33" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Q (Deck)',
+                        ]
+                      ),
+                      'P1' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B34" name="B34" value=""  /',
+                        ]
+                      ),
+                      'P2' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C34" name="C34" value=""  /',
+                        ]
+                      ),
+                      'P3' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D34" name="D34" value=""  /',
+                        ]
+                      ),
+                      'P4' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E34" name="E34" value=""  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Q (Other)',
+                        ]
+                      ),
+                      'P1' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B35" name="B35" value=""  /',
+                        ]
+                      ),
+                      'P2' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C35" name="C35" value=""  /',
+                        ]
+                      ),
+                      'P3' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D35" name="D35" value=""  /',
+                        ]
+                      ),
+                      'P4' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E35" name="E35" value=""  /',
+                        ]
+                      ),
+                    ],
+                  ), // required
+                  'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
                 ],
               ),
             ],
@@ -901,17 +814,10 @@ class TimberBeamController extends BaseController
               'menuTitle' => '4. RESULTS (kN)',
               'input' => array(
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'M*', // required
                   'name' => 'I38', // required
                   'id' => 'I38', // required
-                  'disabled' => true,
-                ],
-                [
-                  'inputType' => 'text',
-                  'label' => 'V*', // required
-                  'name' => 'I40', // required
-                  'id' => 'I40', // required
                   'disabled' => true,
                 ],
                 [
@@ -922,107 +828,128 @@ class TimberBeamController extends BaseController
                   'disabled' => true,
                 ],
                 [
+                  'inputType' => 'number',
+                  'label' => 'V*', // required
+                  'name' => 'I40', // required
+                  'id' => 'I40', // required
+                  'disabled' => true,
+                ],
+                [
                   'inputType' => 'text',
                   'label' => '', // required
                   'name' => 'I41', // required
                   'id' => 'I41', // required
                   'disabled' => true,
                 ],
-              ),
-              'subMenu' => array(
                 [
-                  'subMenuTitle' => '3.4 R1',
-                  'input' => array(
+                  'inputType' => 'table',
+                  'column' => array(
                     [
-                      'inputType' => 'text',
-                      'label' => 'G', // required
-                      'name' => 'B39', // required
-                      'id' => 'B39', // required
-                      'disabled' => true,
+                      'id' => "name",
+                      'label' => "",
                     ],
                     [
-                      'inputType' => 'text',
-                      'label' => 'Q1', // required
-                      'name' => 'C39', // required
-                      'id' => 'C39', // required
-                      'disabled' => true,
+                      'id' => "G",
+                      'label' => "G",
                     ],
                     [
-                      'inputType' => 'text',
-                      'label' => 'Q2', // required
-                      'name' => 'D39', // required
-                      'id' => 'D39', // required
-                      'disabled' => true,
+                      'id' => "Q1",
+                      'label' => "Q1",
                     ],
                     [
-                      'inputType' => 'text',
-                      'label' => 'Q3', // required
-                      'name' => 'E39', // required
-                      'id' => 'E39', // required
-                      'disabled' => true,
+                      'id' => "Q1",
+                      'label' => "Q1",
                     ],
                     [
-                      'inputType' => 'text',
-                      'label' => 'Q4', // required
-                      'name' => 'F39', // required
-                      'id' => 'F39', // required
-                      'disabled' => true,
+                      'id' => "Q1",
+                      'label' => "Q1",
                     ],
                     [
-                      'inputType' => 'text',
-                      'label' => '1.2G+1.5Q', // required
-                      'name' => 'G39', // required
-                      'id' => 'G39', // required
-                      'disabled' => true,
-                    ],
-                  ),
-                ],
-                [
-                  'subMenuTitle' => '3.4 R2',
-                  'input' => array(
-                    [
-                      'inputType' => 'text',
-                      'label' => 'G', // required
-                      'name' => 'B40', // required
-                      'id' => 'B40', // required
-                      'disabled' => true,
+                      'id' => "Q1",
+                      'label' => "Q1",
                     ],
                     [
-                      'inputType' => 'text',
-                      'label' => 'Q1', // required
-                      'name' => 'C40', // required
-                      'id' => 'C40', // required
-                      'disabled' => true,
+                      'id' => "1.2G",
+                      'label' => "1.2G+1.5Q",
+                    ],
+                  ), // required
+                  'row' => array(
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'R1',
+                        ]
+                      ),
+                      'G' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B39" name="B39" value=""  disabled/',
+                        ]
+                      ),
+                      'Q1' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C39" name="C39" value=""  disabled/',
+                        ]
+                      ),
+                      'Q2' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D39" name="D39" value=""  disabled/',
+                        ]
+                      ),
+                      'Q3' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E39" name="E39" value=""  disabled/',
+                        ]
+                      ),
+                      'Q4' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="F39" name="F39" value="" disabled /',
+                        ]
+                      ),
+                      '1.2G' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="G39" name="G39" value="" disabled /',
+                        ]
+                      ),
                     ],
                     [
-                      'inputType' => 'text',
-                      'label' => 'Q2', // required
-                      'name' => 'D40', // required
-                      'id' => 'D40', // required
-                      'disabled' => true,
+                      'name' => array(
+                        [
+                          'text' => 'R2',
+                        ]
+                      ),
+                      'G' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="B40" name="B40" value=""  disabled/',
+                        ]
+                      ),
+                      'Q1' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="C40" name="C40" value="" disabled /',
+                        ]
+                      ),
+                      'Q2' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="D40" name="D40" value="" disabled /',
+                        ]
+                      ),
+                      'Q3' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="E40" name="E40" value="" disabled /',
+                        ]
+                      ),
+                      'Q4' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="F40" name="F40" value=""  disabled/',
+                        ]
+                      ),
+                      '1.2G' => array(
+                        [
+                          'text' => '<input type="number" class="form-control" id="G40" name="G40" value="" disabled /',
+                        ]
+                      ),
                     ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Q3', // required
-                      'name' => 'E40', // required
-                      'id' => 'E40', // required
-                      'disabled' => true,
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => 'Q4', // required
-                      'name' => 'F40', // required
-                      'id' => 'F40', // required
-                      'disabled' => true,
-                    ],
-                    [
-                      'inputType' => 'text',
-                      'label' => '1.2G+1.5Q', // required
-                      'name' => 'G40', // required
-                      'id' => 'G40', // required
-                      'disabled' => true,
-                    ],
-                  ),
+                  ), // required
+                  'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
                 ],
               ),
             ],
@@ -1030,28 +957,28 @@ class TimberBeamController extends BaseController
               'menuTitle' => '5. BEAM ANALYSIS',
               'input' => array(
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'φ', // required
                   'name' => 'B44', // required
                   'id' => 'B44', // required
                   'disabled' => true,
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'k1', // required
                   'name' => 'E44', // required
                   'id' => 'E44', // required
                   'disabled' => true,
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'k8', // required
                   'name' => 'H44', // required
                   'id' => 'H44', // required
                   'disabled' => true,
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'k4', // required
                   'name' => 'B45', // required
                   'id' => 'B45', // required
@@ -1059,7 +986,7 @@ class TimberBeamController extends BaseController
                   'type' => 'number'
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'k5', // required
                   'name' => 'E45', // required
                   'id' => 'E45', // required
@@ -1067,7 +994,7 @@ class TimberBeamController extends BaseController
                   'type' => 'number'
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'f(b)', // required
                   'name' => 'B46', // required
                   'id' => 'B46', // required
@@ -1075,7 +1002,7 @@ class TimberBeamController extends BaseController
                   'unit' => 'MPa',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'f(s)', // required
                   'name' => 'E46', // required
                   'id' => 'E46', // required
@@ -1083,7 +1010,7 @@ class TimberBeamController extends BaseController
                   'unit' => 'MPa',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'E', // required
                   'name' => 'H46', // required
                   'id' => 'H46', // required
@@ -1091,7 +1018,7 @@ class TimberBeamController extends BaseController
                   'unit' => 'GPa',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'A', // required
                   'name' => 'B47', // required
                   'id' => 'B47', // required
@@ -1099,7 +1026,7 @@ class TimberBeamController extends BaseController
                   'unit' => 'mm^2',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'Z', // required
                   'name' => 'E47', // required
                   'id' => 'E47', // required
@@ -1107,14 +1034,14 @@ class TimberBeamController extends BaseController
                   'unit' => 'mm^3',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'I', // required
                   'name' => 'H47', // required
                   'id' => 'H47', // required
                   'disabled' => true,
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'φM(x)', // required
                   'name' => 'C50', // required
                   'id' => 'C50', // required
@@ -1130,7 +1057,7 @@ class TimberBeamController extends BaseController
                   'unit' => 'kNm',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'φV', // required
                   'name' => 'H50', // required
                   'id' => 'H50', // required
@@ -1146,7 +1073,7 @@ class TimberBeamController extends BaseController
                   'unit' => 'kNm',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'SLS δ', // required
                   'name' => 'C52', // required
                   'id' => 'C52', // required
@@ -1162,7 +1089,7 @@ class TimberBeamController extends BaseController
                   'unit' => 'kNm',
                 ],
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'number',
                   'label' => 'Vibration δ', // required
                   'name' => 'H52', // required
                   'id' => 'H52', // required
@@ -1189,458 +1116,458 @@ class TimberBeamController extends BaseController
                     [
                       'name' => array(
                         [
-                         'text' => 'w',
+                          'text' => 'w',
                         ],
                       ),
                       'Gcol1' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="O14" name="O14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="O14" name="O14" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="P14" name="P14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="P14" name="P14" value="" disabled /',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Q14" name="Q14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Q14" name="Q14" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="R14" name="R14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="R14" name="R14" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="S14" name="S14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="S14" name="S14" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="T14" name="T14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="T14" name="T14" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="U14" name="U14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="U14" name="U14" value="" disabled /',
                           'id' => 'U14',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="V14" name="V14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="V14" name="V14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="W14" name="W14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="W14" name="W14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="X14" name="X14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="X14" name="X14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Y14" name="Y14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Y14" name="Y14" value="" disabled /',
                         ]
                       ),
                       'k2G' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="Z14" name="Z14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Z14" name="Z14" value="" disabled /',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="AA14" name="AA14" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="AA14" name="AA14" value="" disabled /',
                         ]
                       ),
                     ],
                     [
                       'name' => array(
                         [
-                         'text' => 'P1',
+                          'text' => 'P1',
                         ],
                       ),
                       'Gcol1' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="O15" name="O15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="O15" name="O15" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="P15" name="P15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="P15" name="P15" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Q15" name="Q15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Q15" name="Q15" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="R15" name="R15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="R15" name="R15" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="S15" name="S15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="S15" name="S15" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="T15" name="T15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="T15" name="T15" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="U15" name="U15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="U15" name="U15" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="V15" name="V15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="V15" name="V15" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="W15" name="W15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="W15" name="W15" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="X15" name="X15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="X15" name="X15" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Y15" name="Y15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Y15" name="Y15" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Z15" name="Z15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Z15" name="Z15" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="AA15" name="AA15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="AA15" name="AA15" value="" disabled /',
                         ]
                       ),
                     ],
                     [
                       'name' => array(
                         [
-                         'text' => 'P2',
+                          'text' => 'P2',
                         ],
                       ),
                       'Gcol1' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="O16" name="O16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="O16" name="O16" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="P16" name="P16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="P16" name="P16" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Q16" name="Q16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Q16" name="Q16" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="R16" name="R16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="R16" name="R16" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="S16" name="S16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="S16" name="S16" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="T16" name="T16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="T16" name="T16" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="U16" name="U16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="U16" name="U16" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="V16" name="V16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="V16" name="V16" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="W16" name="W16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="W16" name="W16" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="X16" name="X16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="X16" name="X16" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Y16" name="Y16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Y16" name="Y16" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Z16" name="Z16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Z16" name="Z16" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="AA16" name="AA16" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="AA16" name="AA16" value="" disabled /',
                         ]
                       ),
                     ],
                     [
                       'name' => array(
                         [
-                         'text' => 'P3',
+                          'text' => 'P3',
                         ],
                       ),
                       'Gcol1' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="O17" name="O17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="O17" name="O17" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="P17" name="P17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="P17" name="P17" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Q17" name="Q17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Q17" name="Q17" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="R17" name="R17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="R17" name="R17" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="S17" name="S17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="S17" name="S17" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="T17" name="T17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="T17" name="T17" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="U17" name="U17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="U17" name="U17" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="V17" name="V17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="V17" name="V17" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="W17" name="W17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="W17" name="W17" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="X17" name="X17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="X17" name="X17" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Y17" name="Y17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Y17" name="Y17" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Z17" name="Z15" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Z17" name="Z15" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="AA17" name="AA17" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="AA17" name="AA17" value="" disabled /',
                         ]
                       ),
                     ],
                     [
                       'name' => array(
                         [
-                         'text' => 'P4',
+                          'text' => 'P4',
                         ],
                       ),
                       'Gcol1' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="O18" name="O18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="O18" name="O18" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="P18" name="P18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="P18" name="P18" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Q18" name="Q18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Q18" name="Q18" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="R18" name="R18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="R18" name="R18" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="S18" name="S18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="S18" name="S18" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="T18" name="T18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="T18" name="T18" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="U18" name="U18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="U18" name="U18" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="V18" name="V18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="V18" name="V18" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="W18" name="W18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="W18" name="W18" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="X18" name="X18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="X18" name="X18" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Y18" name="Y18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Y18" name="Y18" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Z18" name="Z18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Z18" name="Z18" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="AA18" name="AA18" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="AA18" name="AA18" value="" disabled /',
                         ]
                       ),
                     ],
                     [
                       'name' => array(
                         [
-                         'text' => 'Sum',
+                          'text' => 'Sum',
                         ],
                       ),
                       'Gcol1' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="O19" name="O19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="O19" name="O19" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="P19" name="P19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="P19" name="P19" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Q19" name="Q19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Q19" name="Q19" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="R19" name="R19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="R19" name="R19" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="S19" name="S19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="S19" name="S19" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="T19" name="T19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="T19" name="T19" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="U19" name="U19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="U19" name="U19" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="V19" name="V19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="V19" name="V19" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="W19" name="W19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="W19" name="W19" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="X19" name="X19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="X19" name="X19" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Y19" name="Y19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Y19" name="Y19" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="text" class="form-control" id="Z19" name="Z19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="Z19" name="Z19" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                         'text' => '<input type="text" class="form-control" id="AA19" name="AA19" value="" disabled /',
+                          'text' => '<input type="number" class="form-control" id="AA19" name="AA19" value="" disabled /',
                         ]
                       ),
                     ],
@@ -1649,72 +1576,72 @@ class TimberBeamController extends BaseController
                     [
                       'id' => 'name',
                       'label' => '',
-                      'width'=> '50px',
+                      'width' => '50px',
                     ],
                     [
                       'id' => 'Gcol1',
                       'label' => 'G',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Qroof',
                       'label' => 'QRoof',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Qfloor',
                       'label' => 'Qfloor',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Qdeck',
                       'label' => 'Qdeck',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Qwall',
                       'label' => 'Qwall',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => '1.2G',
                       'label' => '1.2G+1.5Q',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-mid',
                       'label' => 'M* (midspan)',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-p1',
                       'label' => 'M* (P1)',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-p2',
                       'label' => 'M* (P2)',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-p3',
                       'label' => 'M* (P3)',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-p4',
                       'label' => 'M* (P4)',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'k2G',
                       'label' => 'k2G+k2ΨlQ+(Ψs-Ψl)Q',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'defl',
                       'label' => 'defl mids (mm)',
-                      'width'=> '100px',
+                      'width' => '100px',
                     ],
                   )
                 ]
@@ -1879,14 +1806,14 @@ class TimberBeamController extends BaseController
       ),
       "P1" => array(
         "w" => $totalLoads1G["w"] * $req["a"] * ($req["D"] - $req["a"]) / 2,
-        "P1" => isset($req["D"]) ? 0 : ($totalLoads1G["P1"] * $req["a"] * ($req["D"] -  $req["a"]) / $req["D"]),
+        "P1" => isset($req["D"]) ? 0 : ($totalLoads1G["P1"] * $req["a"] * ($req["D"] - $req["a"]) / $req["D"]),
         "P2" => isset($req["D"]) ? 0 : (($req["a"] <= $req["b"]) ? ($totalLoads1G["P2"] * ($req["D"] - $req["b"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["b"]) ? ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
         "P3" => isset($req["D"]) ? 0 : (($req["a"] <= $req["c"]) ? ($totalLoads1G["P3"] * ($req["D"] - $req["c"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["c"]) ? ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
         "P4" => isset($req["D"]) ? 0 : (($req["a"] <= $req["c"]) ? ($totalLoads1G["P4"] * ($req["D"] - $req["d"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["d"]) ? ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
       ),
       "P2" => array(
         "w" => $totalLoads1G["w"] * $req["b"] * ($req["D"] - $req["b"]) / 2,
-        "P1" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["a"]) ? ($totalLoads1G["P1"]  * ($req["D"] - $req["a"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["a"]) ? ($totalLoads1G["P1"]  * $req["a"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
+        "P1" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["a"]) ? ($totalLoads1G["P1"] * ($req["D"] - $req["a"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["a"]) ? ($totalLoads1G["P1"] * $req["a"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
         "P2" => ($req["D"] == 0) ? 0 : ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["b"]) / $req["D"]),
         "P3" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["c"]) ? ($totalLoads1G["P3"] * ($req["D"] - $req["c"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["c"]) ? ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
         "P4" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["d"]) ? ($totalLoads1G["P4"] * ($req["D"] - $req["d"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["d"]) ? ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
@@ -1948,7 +1875,7 @@ class TimberBeamController extends BaseController
     );
 
     $defl = array(
-      
+
     );
 
     $totalLoads = array(
