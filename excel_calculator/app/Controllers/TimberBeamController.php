@@ -149,32 +149,35 @@ class TimberBeamController extends BaseController
                   ),
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'Span L', // required
                   'id' => 'D12', // required
                   'name' => 'D12',
                   'unit' => 'm',
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'span/', // required
                   'id' => 'D13', // required
                   'name' => 'D13',
                   'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'Deflection Limit', // required
                   'id' => 'C14', // required
                   'name' => 'C14',
                   'disabled' => true,
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'Vibration Limit', // required
                   'id' => 'C15', // required
                   'name' => 'C15',
                   'unit' => 'mm',
+                  'type' => 'number',
                 ],
               ),
             ],
@@ -607,7 +610,7 @@ class TimberBeamController extends BaseController
               'menuTitle' => '3. ADDITIONAL UNFACTORED LOADS (kN)',
               'input' => array(
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'Maximum segment length between Full lateral restraints', // required
                   'name' => 'I31', // required
                   'unit' => 'm',
@@ -616,7 +619,7 @@ class TimberBeamController extends BaseController
                   'value' => '1',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'k1', // required
                   'name' => 'I33', // required
                   'value' => '0.8',
@@ -624,18 +627,19 @@ class TimberBeamController extends BaseController
                   'type' => 'number'
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'is timber wet ?', // required
                   'id' => 'I34', // required
                   'name' => 'I34', // required
                   'type' => 'checkbox',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'k2', // required
                   'name' => 'I35', // required
                   'id' => 'I35', // required
                   'disabled' => true,
+                  'type' => 'number',
                 ],
                 [
                   'inputType' => 'table',
@@ -814,11 +818,12 @@ class TimberBeamController extends BaseController
               'menuTitle' => '4. RESULTS (kN)',
               'input' => array(
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'M*', // required
                   'name' => 'I38', // required
                   'id' => 'I38', // required
                   'disabled' => true,
+                  'type' => 'number',
                 ],
                 [
                   'inputType' => 'text',
@@ -828,11 +833,12 @@ class TimberBeamController extends BaseController
                   'disabled' => true,
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'V*', // required
                   'name' => 'I40', // required
                   'id' => 'I40', // required
                   'disabled' => true,
+                  'type' => 'number',
                 ],
                 [
                   'inputType' => 'text',
@@ -957,28 +963,31 @@ class TimberBeamController extends BaseController
               'menuTitle' => '5. BEAM ANALYSIS',
               'input' => array(
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'φ', // required
                   'name' => 'B44', // required
                   'id' => 'B44', // required
                   'disabled' => true,
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'k1', // required
                   'name' => 'E44', // required
                   'id' => 'E44', // required
                   'disabled' => true,
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'k8', // required
                   'name' => 'H44', // required
                   'id' => 'H44', // required
                   'disabled' => true,
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'k4', // required
                   'name' => 'B45', // required
                   'id' => 'B45', // required
@@ -986,7 +995,7 @@ class TimberBeamController extends BaseController
                   'type' => 'number'
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'k5', // required
                   'name' => 'E45', // required
                   'id' => 'E45', // required
@@ -994,59 +1003,66 @@ class TimberBeamController extends BaseController
                   'type' => 'number'
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'f(b)', // required
                   'name' => 'B46', // required
                   'id' => 'B46', // required
                   'disabled' => true,
                   'unit' => 'MPa',
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'f(s)', // required
                   'name' => 'E46', // required
                   'id' => 'E46', // required
                   'disabled' => true,
                   'unit' => 'MPa',
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'E', // required
                   'name' => 'H46', // required
                   'id' => 'H46', // required
                   'disabled' => true,
                   'unit' => 'GPa',
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'A', // required
                   'name' => 'B47', // required
                   'id' => 'B47', // required
                   'disabled' => true,
                   'unit' => 'mm^2',
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'Z', // required
                   'name' => 'E47', // required
                   'id' => 'E47', // required
                   'disabled' => true,
                   'unit' => 'mm^3',
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'I', // required
                   'name' => 'H47', // required
                   'id' => 'H47', // required
                   'disabled' => true,
+                  'type' => 'number',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'φM(x)', // required
                   'name' => 'C50', // required
                   'id' => 'C50', // required
                   'disabled' => true,
                   'unit' => 'kNm',
+                  'type' => 'number',
                 ],
                 [
                   'inputType' => 'text',
@@ -1057,12 +1073,13 @@ class TimberBeamController extends BaseController
                   'unit' => 'kNm',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'φV', // required
                   'name' => 'H50', // required
                   'id' => 'H50', // required
                   'disabled' => true,
                   'unit' => 'kN',
+                  'type' => 'number',
                 ],
                 [
                   'inputType' => 'text',
@@ -1073,12 +1090,13 @@ class TimberBeamController extends BaseController
                   'unit' => 'kNm',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'SLS δ', // required
                   'name' => 'C52', // required
                   'id' => 'C52', // required
                   'disabled' => true,
                   'unit' => 'mm^4',
+                  'type' => 'number',
                 ],
                 [
                   'inputType' => 'text',
@@ -1089,12 +1107,13 @@ class TimberBeamController extends BaseController
                   'unit' => 'kNm',
                 ],
                 [
-                  'inputType' => 'number',
+                  'inputType' => 'text',
                   'label' => 'Vibration δ', // required
                   'name' => 'H52', // required
                   'id' => 'H52', // required
                   'disabled' => true,
                   'unit' => 'mm',
+                  'type' => 'number',
                 ],
                 [
                   'inputType' => 'text',
