@@ -29,7 +29,7 @@ $props = [
         <div class="input-group">
             <input value="<?= htmlspecialchars($props['value']) ?>" type="<?= htmlspecialchars($props['type']) ?>"
                 class="form-control" id="<?= htmlspecialchars($props['id']) ?>"
-                name="<?= htmlspecialchars($props['name']) ?>" <?= $props['disabled'] ? 'disabled' : '' ?>
+                name="<?= htmlspecialchars($props['name']) ?>" <?php if (isset($props['disabled'])) echo 'disabled'; ?>
                 aria-describedby="basic-addon3" <?= $props['required'] ? 'required' : '' ?> />
             <span class="input-group-text" id="basic-addon3"><?= htmlspecialchars($props['unit']) ?></span>
         </div>

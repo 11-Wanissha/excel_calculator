@@ -6,11 +6,11 @@ $props = [
 ];
 ?>
 <div class="table-responsive w-100 h-100">
-    <table class="table table-striped border table-sm align-middle">
+    <table class="table  border table-sm align-middle table-bordered border-info">
         <thead>
             <tr class='text-center'>
                 <?php foreach ($props['column'] as $col): ?>
-                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" <?= isset($col['width']) ? "style='width: {$col['width']}'" : '' ?> title=" <?= $col['label'] ?>">
+                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" <?php if (isset($props['width'])) echo "style='width: {$col['width']} !important'"; ?> title=" <?= $col['label'] ?>">
                         <?php
                         if (isset($col['unit'])) {
                             echo $col['label'] . '<br>' . $col['unit'];
@@ -40,7 +40,7 @@ $props = [
                                 $class = 'overflow ' . $row[$col['id']][0]['textColor'];
                             }
                             ?>
-                            <td class="<?= $class ?>" title="<?= $row[$col['id']][0]['text'] ?>"><?= $row[$col['id']][0]['text'] ?></td>
+                            <td class="<?= $class ?>" title="<?= $row[$col['id']][0]['text'] ?>" ><?= $row[$col['id']][0]['text'] ?></td>
                         <?php endforeach; ?>
                     </tr>
                 <?php endforeach; ?>

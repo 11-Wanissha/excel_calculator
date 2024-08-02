@@ -19,68 +19,68 @@ class TimberBeamController extends BaseController
                   'inputType' => 'text',
                   'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
                   'label' => 'Beam ID', // required
-                  'id' => 'A', // required
-                  'name' => 'A',
+                  'id' => 'C8', // required
+                  'name' => 'C8',
                 ],
                 [
                   'inputType' => 'dropdown',
                   'slot' => 1,
                   'label' => 'Beam Type', // required
                   'selectOption' => "โปรดเลือก",
-                  'id' => 'B', // required
+                  'id' => 'C10', // required
                   'disabled' => false,
                   // required
                   'option' => array(
                     [
                       'optionName' => "Timber - VSG8",
-                      'value' => "VSG8",
+                      'value' => "timber1",
                       'selected' => true,
                     ],
                     [
                       'optionName' => "Timber - VSG10",
-                      'value' => "VSG10",
+                      'value' => "timber2",
                     ],
                     [
                       'optionName' => "Timber - No 1 Framing",
-                      'value' => "timNo1",
+                      'value' => "timber3",
                     ],
                     [
                       'optionName' => "Glulam8",
-                      'value' => "gluLam8",
+                      'value' => "glulam1",
                     ],
                     [
                       'optionName' => "Glulam12",
-                      'value' => "gluLam12",
+                      'value' => "glulam2",
                     ],
                     [
                       'optionName' => "Glulam17",
-                      'value' => "gluLam17",
+                      'value' => "glulam3",
                     ],
                     [
                       'optionName' => "LVL - hySPAN",
-                      'value' => "lvlHyspan",
+                      'value' => "lvl1",
                     ],
                     [
                       'optionName' => "LVL - hy90",
-                      'value' => "LVL - hyONE",
+                      'value' => "lvl2",
                     ],
                     [
                       'optionName' => "LVL - hyONE",
-                      'value' => "lvlOne",
+                      'value' => "lvl3",
                     ],
                     [
                       'optionName' => "Flitch Beam",
-                      'value' => "flitchBeam",
+                      'value' => "flitch1",
                     ],
                     [
                       'optionName' => "CUSTOM",
-                      'value' => "custom",
+                      'value' => "custom1",
                     ],
                   ),
                 ],
                 [
                   'inputType' => 'dropdown',
-                  'id' => 'C', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
+                  'id' => 'C11', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
                   'label' => "Beam Size",
                   'selectOption' => "โปรดเลือก",
                   'disabled' => false,
@@ -151,29 +151,29 @@ class TimberBeamController extends BaseController
                 [
                   'inputType' => 'text',
                   'label' => 'Span L', // required
-                  'id' => 'D', // required
-                  'name' => 'D',
+                  'id' => 'D12', // required
+                  'name' => 'D12',
                   'unit' => 'm',
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'span/', // required
-                  'id' => 'E', // required
-                  'name' => 'E',
+                  'id' => 'D13', // required
+                  'name' => 'D13',
                   'type' => 'number',
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'Deflection Limit', // required
-                  'id' => 'F', // required
-                  'name' => 'F',
+                  'id' => 'C14', // required
+                  'name' => 'C14',
                   'disabled' => true,
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'Vibration Limit', // required
-                  'id' => 'G', // required
-                  'name' => 'G',
+                  'id' => 'C15', // required
+                  'name' => 'C15',
                   'unit' => 'mm',
                 ],
               ),
@@ -187,68 +187,68 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'G (kPa)', // required
-                      'name' => 'hgkPa', // required
-                      'id' => 'hgkPa', // required
+                      'name' => 'B20', // required
+                      'id' => 'B20', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q (kPa)', // required
-                      'name' => 'hqkPa', // required
-                      'id' => 'hqkPa', // required
+                      'name' => 'C20', // required
+                      'id' => 'C20', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(s)', // required
-                      'name' => 'h(s)', // required
-                      'id' => 'h(s)', // required
+                      'name' => 'D20', // required
+                      'id' => 'D20', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(l)', // required
-                      'name' => 'h(l)', // required
-                      'id' => 'h(l)', // required
+                      'name' => 'E20', // required
+                      'id' => 'E20', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'w Trib. Width', // required
-                      'name' => 'hTrib', // required
-                      'id' => 'hTrib', // required
+                      'name' => 'F20', // required
+                      'id' => 'F20', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P1 Trib. area', // required
-                      'name' => 'hP1', // required
-                      'id' => 'hP1', // required
+                      'name' => 'G20', // required
+                      'id' => 'G20', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2 Trib. Area', // required
-                      'name' => 'hP2', // required
-                      'id' => 'hP2', // required
+                      'name' => 'H20', // required
+                      'id' => 'H20', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3 Trib. Area', // required
-                      'name' => 'hP3', // required
-                      'id' => 'hP3', // required
+                      'name' => 'I20', // required
+                      'id' => 'I20', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4 Trib. Area', // required
-                      'name' => 'hP3', // required
-                      'id' => 'hP3', // required
+                      'name' => 'J20', // required
+                      'id' => 'J20', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
@@ -260,68 +260,68 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'G (kPa)', // required
-                      'name' => 'igkPa', // required
-                      'id' => 'igkPa', // required
+                      'name' => 'B21', // required
+                      'id' => 'B21', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q (kPa)', // required
-                      'name' => 'iqkPa', // required
-                      'id' => 'iqkPa', // required
+                      'name' => 'C21', // required
+                      'id' => 'C21', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(s)', // required
-                      'name' => 'i(s)', // required
-                      'id' => 'i(s)', // required
+                      'name' => 'D21', // required
+                      'id' => 'D21', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(l)', // required
-                      'name' => 'i(l)', // required
-                      'id' => 'i(l)', // required
+                      'name' => 'E21', // required
+                      'id' => 'E21', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'w Trib. Width', // required
-                      'name' => 'iTrib', // required
-                      'id' => 'iTrib', // required
+                      'name' => 'F21', // required
+                      'id' => 'F21', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P1 Trib. area', // required
-                      'name' => 'iP1', // required
-                      'id' => 'iP1', // required
+                      'name' => 'G21', // required
+                      'id' => 'G21', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2 Trib. Area', // required
-                      'name' => 'iP2', // required
-                      'id' => 'iP2', // required
+                      'name' => 'H21', // required
+                      'id' => 'H21', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3 Trib. Area', // required
-                      'name' => 'iP3', // required
-                      'id' => 'iP3', // required
+                      'name' => 'I21', // required
+                      'id' => 'I21', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4 Trib. Area', // required
-                      'name' => 'iP3', // required
-                      'id' => 'iP3', // required
+                      'name' => 'J21', // required
+                      'id' => 'J21', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
@@ -329,72 +329,72 @@ class TimberBeamController extends BaseController
                 ],
                 [
                   'subMenuTitle' => '2.3 Deck',
-                  'input' => array(
+                 'input' => array(
                     [
                       'inputType' => 'text',
                       'label' => 'G (kPa)', // required
-                      'name' => 'jgkPa', // required
-                      'id' => 'jgkPa', // required
+                      'name' => 'B22', // required
+                      'id' => 'B22', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q (kPa)', // required
-                      'name' => 'jqkPa', // required
-                      'id' => 'jqkPa', // required
+                      'name' => 'C22', // required
+                      'id' => 'C22', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(s)', // required
-                      'name' => 'j(s)', // required
-                      'id' => 'j(s)', // required
+                      'name' => 'D22', // required
+                      'id' => 'D22', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(l)', // required
-                      'name' => 'j(l)', // required
-                      'id' => 'j(l)', // required
+                      'name' => 'E22', // required
+                      'id' => 'E22', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'w Trib. Width', // required
-                      'name' => 'jTrib', // required
-                      'id' => 'jTrib', // required
+                      'name' => 'F22', // required
+                      'id' => 'F22', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P1 Trib. area', // required
-                      'name' => 'jP1', // required
-                      'id' => 'jP1', // required
+                      'name' => 'G22', // required
+                      'id' => 'G22', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2 Trib. Area', // required
-                      'name' => 'jP2', // required
-                      'id' => 'jP2', // required
+                      'name' => 'H22', // required
+                      'id' => 'H22', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3 Trib. Area', // required
-                      'name' => 'jP3', // required
-                      'id' => 'jP3', // required
+                      'name' => 'I22', // required
+                      'id' => 'I22', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4 Trib. Area', // required
-                      'name' => 'jP3', // required
-                      'id' => 'jP3', // required
+                      'name' => 'J22', // required
+                      'id' => 'J22', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
@@ -406,68 +406,68 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'G (kPa)', // required
-                      'name' => 'kgkPa', // required
-                      'id' => 'kgkPa', // required
+                      'name' => 'B23', // required
+                      'id' => 'B23', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q (kPa)', // required
-                      'name' => 'kqkPa', // required
-                      'id' => 'kqkPa', // required
+                      'name' => 'C23', // required
+                      'id' => 'C23', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(s)', // required
-                      'name' => 'k(s)', // required
-                      'id' => 'k(s)', // required
+                      'name' => 'D23', // required
+                      'id' => 'D23', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(l)', // required
-                      'name' => 'k(l)', // required
-                      'id' => 'k(l)', // required
+                      'name' => 'E23', // required
+                      'id' => 'E23', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'w Trib. Width', // required
-                      'name' => 'kTrib', // required
-                      'id' => 'kTrib', // required
+                      'name' => 'F23', // required
+                      'id' => 'F23', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P1 Trib. area', // required
-                      'name' => 'kP1', // required
-                      'id' => 'kP1', // required
+                      'name' => 'G23', // required
+                      'id' => 'G23', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2 Trib. Area', // required
-                      'name' => 'kP2', // required
-                      'id' => 'kP2', // required
+                      'name' => 'H23', // required
+                      'id' => 'H23', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3 Trib. Area', // required
-                      'name' => 'kP3', // required
-                      'id' => 'kP3', // required
+                      'name' => 'I23', // required
+                      'id' => 'I23', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4 Trib. Area', // required
-                      'name' => 'kP3', // required
-                      'id' => 'kP3', // required
+                      'name' => 'J23', // required
+                      'id' => 'J23', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
@@ -479,68 +479,68 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'G (kPa)', // required
-                      'name' => 'lgkPa', // required
-                      'id' => 'lgkPa', // required
+                      'name' => 'B24', // required
+                      'id' => 'B24', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q (kPa)', // required
-                      'name' => 'lqkPa', // required
-                      'id' => 'lqkPa', // required
+                      'name' => 'C24', // required
+                      'id' => 'C24', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(s)', // required
-                      'name' => 'l(s)', // required
-                      'id' => 'l(s)', // required
+                      'name' => 'D24', // required
+                      'id' => 'D24', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(l)', // required
-                      'name' => 'l(l)', // required
-                      'id' => 'l(l)', // required
+                      'name' => 'E24', // required
+                      'id' => 'E24', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'w Trib. Width', // required
-                      'name' => 'lTrib', // required
-                      'id' => 'lTrib', // required
+                      'name' => 'F24', // required
+                      'id' => 'F24', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P1 Trib. area', // required
-                      'name' => 'lP1', // required
-                      'id' => 'lP1', // required
+                      'name' => 'G24', // required
+                      'id' => 'G24', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2 Trib. Area', // required
-                      'name' => 'lP2', // required
-                      'id' => 'lP2', // required
+                      'name' => 'H24', // required
+                      'id' => 'H24', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3 Trib. Area', // required
-                      'name' => 'lP3', // required
-                      'id' => 'lP3', // required
+                      'name' => 'I24', // required
+                      'id' => 'I24', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4 Trib. Area', // required
-                      'name' => 'lP3', // required
-                      'id' => 'lP3', // required
+                      'name' => 'J24', // required
+                      'id' => 'J24', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
@@ -548,72 +548,72 @@ class TimberBeamController extends BaseController
                 ],
                 [
                   'subMenuTitle' => '2.6 Ex Other',
-                  'input' => array(
+                 'input' => array(
                     [
                       'inputType' => 'text',
                       'label' => 'G (kPa)', // required
-                      'name' => 'mgkPa', // required
-                      'id' => 'mgkPa', // required
+                      'name' => 'B25', // required
+                      'id' => 'B25', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q (kPa)', // required
-                      'name' => 'mqkPa', // required
-                      'id' => 'mqkPa', // required
+                      'name' => 'C25', // required
+                      'id' => 'C25', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(s)', // required
-                      'name' => 'm(s)', // required
-                      'id' => 'm(s)', // required
+                      'name' => 'D25', // required
+                      'id' => 'D25', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Ψ(l)', // required
-                      'name' => 'm(l)', // required
-                      'id' => 'm(l)', // required
+                      'name' => 'E25', // required
+                      'id' => 'E25', // required
                       'type' => 'number',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'w Trib. Width', // required
-                      'name' => 'mTrib', // required
-                      'id' => 'mTrib', // required
+                      'name' => 'F25', // required
+                      'id' => 'F25', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P1 Trib. area', // required
-                      'name' => 'mP1', // required
-                      'id' => 'mP1', // required
+                      'name' => 'G25', // required
+                      'id' => 'G25', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2 Trib. Area', // required
-                      'name' => 'mP2', // required
-                      'id' => 'mP2', // required
+                      'name' => 'H25', // required
+                      'id' => 'H25', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3 Trib. Area', // required
-                      'name' => 'mP3', // required
-                      'id' => 'mP3', // required
+                      'name' => 'I25', // required
+                      'id' => 'I25', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4 Trib. Area', // required
-                      'name' => 'mP3', // required
-                      'id' => 'mP3', // required
+                      'name' => 'J25', // required
+                      'id' => 'J25', // required
                       'type' => 'number',
                       'unit' => 'm^2',
                     ],
@@ -625,32 +625,32 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'a', // required
-                      'name' => 'a', // required
-                      'id' => 'a', // required
+                      'name' => 'G27', // required
+                      'id' => 'G27', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'b', // required
-                      'name' => 'b', // required
-                      'id' => 'b', // required
+                      'name' => 'H27', // required
+                      'id' => 'H27', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'c', // required
-                      'name' => 'c', // required
-                      'id' => 'c', // required
+                      'name' => 'I27', // required
+                      'id' => 'I27', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'd', // required
-                      'name' => 'd', // required
-                      'id' => 'd', // required
+                      'name' => 'J27', // required
+                      'id' => 'J27', // required
                       'type' => 'number',
                       'unit' => 'm',
                     ],
@@ -662,7 +662,7 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'Self Weight G', // required
-                      'name' => 'o', // required
+                      'name' => 'C27', // required
                       'unit' => 'kN/m',
                       'id' => 'o', // required
                       'disabled' => true,
@@ -680,33 +680,33 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 'p1', // required
+                      'name' => 'B31', // required
                       'unit' => 'p1',
-                      'id' => 'kuy', // required
+                      'id' => 'B31', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2', // required
-                      'name' => 'p2', // required
+                      'name' => 'C31', // required
                       'unit' => 'p2',
-                      'id' => 'kuy', // required
+                      'id' => 'C31', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3', // required
-                      'name' => 'p3', // required
+                      'name' => 'D31', // required
                       'unit' => 'p3',
-                      'id' => 'kuy', // required
+                      'id' => 'D31', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4', // required
-                      'name' => 'p4', // required
+                      'name' => 'E31', // required
                       'unit' => 'p4',
-                      'id' => 'kuy', // required
+                      'id' => 'E31', // required
                       'type' => 'number'
                     ],
                   ),
@@ -717,33 +717,33 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 'q1', // required
-                      'unit' => 'q1',
-                      'id' => 'kuy', // required
+                      'name' => 'B32', // required
+                      'unit' => 'p1',
+                      'id' => 'B32', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2', // required
-                      'name' => 'q2', // required
-                      'unit' => 'q2',
-                      'id' => 'kuy', // required
+                      'name' => 'C32', // required
+                      'unit' => 'p2',
+                      'id' => 'C32', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3', // required
-                      'name' => 'q3', // required
-                      'unit' => 'q3',
-                      'id' => 'kuy', // required
+                      'name' => 'D32', // required
+                      'unit' => 'p3',
+                      'id' => 'D32', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4', // required
-                      'name' => 'q4', // required
-                      'unit' => 'q4',
-                      'id' => 'kuy', // required
+                      'name' => 'E32', // required
+                      'unit' => 'p4',
+                      'id' => 'E32', // required
                       'type' => 'number'
                     ],
                   ),
@@ -754,107 +754,107 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 'r1', // required
-                      'unit' => 'r1',
-                      'id' => 'kuy', // required
+                      'name' => 'B33', // required
+                      'unit' => 'p1',
+                      'id' => 'B33', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2', // required
-                      'name' => 'r2', // required
-                      'unit' => 'r2',
-                      'id' => 'kuy', // required
+                      'name' => 'C33', // required
+                      'unit' => 'p2',
+                      'id' => 'C33', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3', // required
-                      'name' => 'r3', // required
-                      'unit' => 'r3',
-                      'id' => 'kuy', // required
+                      'name' => 'D33', // required
+                      'unit' => 'p3',
+                      'id' => 'D33', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4', // required
-                      'name' => 'r4', // required
-                      'unit' => 'r4',
-                      'id' => 'kuy', // required
+                      'name' => 'E33', // required
+                      'unit' => 'p4',
+                      'id' => 'E33', // required
                       'type' => 'number'
                     ],
                   ),
                 ],
                 [
                   'subMenuTitle' => '3.4 Q (Deck)',
-                  'input' => array(
+                 'input' => array(
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 's1', // required
-                      'unit' => 's1',
-                      'id' => 'kuy', // required
+                      'name' => 'B34', // required
+                      'unit' => 'p1',
+                      'id' => 'B34', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2', // required
-                      'name' => 's2', // required
-                      'unit' => 's2',
-                      'id' => 'kuy', // required
+                      'name' => 'C34', // required
+                      'unit' => 'p2',
+                      'id' => 'C34', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3', // required
-                      'name' => 's3', // required
-                      'unit' => 's3',
-                      'id' => 'kuy', // required
+                      'name' => 'D34', // required
+                      'unit' => 'p3',
+                      'id' => 'D34', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4', // required
-                      'name' => 's4', // required
-                      'unit' => 's4',
-                      'id' => 'kuy', // required
+                      'name' => 'E34', // required
+                      'unit' => 'p4',
+                      'id' => 'E34', // required
                       'type' => 'number'
                     ],
                   ),
                 ],
                 [
                   'subMenuTitle' => '3.4 Q (Other)',
-                  'input' => array(
+                 'input' => array(
                     [
                       'inputType' => 'text',
                       'label' => 'P1', // required
-                      'name' => 'qO1', // required
-                      'unit' => 'qO1',
-                      'id' => 'kuy', // required
+                      'name' => 'B35', // required
+                      'unit' => 'p1',
+                      'id' => 'B35', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P2', // required
-                      'name' => 'qO2', // required
-                      'unit' => 'qO2',
-                      'id' => 'kuy', // required
+                      'name' => 'C35', // required
+                      'unit' => 'p2',
+                      'id' => 'C35', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P3', // required
-                      'name' => 'qO3', // required
-                      'unit' => 'qO3',
-                      'id' => 'kuy', // required
+                      'name' => 'D35', // required
+                      'unit' => 'p3',
+                      'id' => 'D35', // required
                       'type' => 'number'
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'P4', // required
-                      'name' => 'qO4', // required
-                      'unit' => 'qO4',
-                      'id' => 'kuy', // required
+                      'name' => 'E35', // required
+                      'unit' => 'p4',
+                      'id' => 'E35', // required
                       'type' => 'number'
                     ],
                   ),
@@ -864,31 +864,31 @@ class TimberBeamController extends BaseController
                 [
                   'inputType' => 'text',
                   'label' => 'Maximum segment length between Full lateral restraints', // required
-                  'name' => 'T ', // required
+                  'name' => 'I31', // required
                   'unit' => 'm',
-                  'id' => 'T', // required
+                  'id' => 'I31', // required
                   'type' => 'number'
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'k1', // required
-                  'name' => 'U', // required
+                  'name' => 'I33', // required
                   'value' => '0.8',
-                  'id' => 'U', // required
+                  'id' => 'I33', // required
                   'type' => 'number'
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'is timber wet ?', // required
-                  'id' => 'V', // required
-                  'name' => 'V', // required
+                  'id' => 'I34', // required
+                  'name' => 'I34', // required
                   'type' => 'checkbox',
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'k2', // required
-                  'name' => 'W', // required
-                  'id' => 'W', // required
+                  'name' => 'I35', // required
+                  'id' => 'I35', // required
                   'disabled' => true,
                 ],
               ),
@@ -903,15 +903,29 @@ class TimberBeamController extends BaseController
                 [
                   'inputType' => 'text',
                   'label' => 'M*', // required
-                  'name' => 'AL', // required
-                  'id' => 'AL', // required
+                  'name' => 'I38', // required
+                  'id' => 'I38', // required
                   'disabled' => true,
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'V*', // required
-                  'name' => 'AM', // required
-                  'id' => 'AM', // required
+                  'name' => 'I40', // required
+                  'id' => 'I40', // required
+                  'disabled' => true,
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => '', // required
+                  'name' => 'I39', // required
+                  'id' => 'I39', // required
+                  'disabled' => true,
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => '', // required
+                  'name' => 'I41', // required
+                  'id' => 'I41', // required
                   'disabled' => true,
                 ],
               ),
@@ -922,43 +936,43 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'G', // required
-                      'name' => 'xG', // required
-                      'id' => 'xG', // required
+                      'name' => 'B39', // required
+                      'id' => 'B39', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q1', // required
-                      'name' => 'xQ1', // required
-                      'id' => 'xQ1', // required
+                      'name' => 'C39', // required
+                      'id' => 'C39', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q2', // required
-                      'name' => 'xQ2', // required
-                      'id' => 'xQ2', // required
+                      'name' => 'D39', // required
+                      'id' => 'D39', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q3', // required
-                      'name' => 'xQ3', // required
-                      'id' => 'xQ3', // required
+                      'name' => 'E39', // required
+                      'id' => 'E39', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q4', // required
-                      'name' => 'xQ4', // required
-                      'id' => 'xQ4', // required
+                      'name' => 'F39', // required
+                      'id' => 'F39', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => '1.2G+1.5Q', // required
-                      'name' => 'xQ', // required
-                      'id' => 'xQ', // required
+                      'name' => 'G39', // required
+                      'id' => 'G39', // required
                       'disabled' => true,
                     ],
                   ),
@@ -969,43 +983,43 @@ class TimberBeamController extends BaseController
                     [
                       'inputType' => 'text',
                       'label' => 'G', // required
-                      'name' => 'yG', // required
-                      'id' => 'yG', // required
+                      'name' => 'B40', // required
+                      'id' => 'B40', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q1', // required
-                      'name' => 'yQ1', // required
-                      'id' => 'yQ1', // required
+                      'name' => 'C40', // required
+                      'id' => 'C40', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q2', // required
-                      'name' => 'yQ2', // required
-                      'id' => 'yQ2', // required
+                      'name' => 'D40', // required
+                      'id' => 'D40', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q3', // required
-                      'name' => 'yQ3', // required
-                      'id' => 'yQ3', // required
+                      'name' => 'E40', // required
+                      'id' => 'E40', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => 'Q4', // required
-                      'name' => 'yQ4', // required
-                      'id' => 'yQ4', // required
+                      'name' => 'F40', // required
+                      'id' => 'F40', // required
                       'disabled' => true,
                     ],
                     [
                       'inputType' => 'text',
                       'label' => '1.2G+1.5Q', // required
-                      'name' => 'yQ', // required
-                      'id' => 'yQ', // required
+                      'name' => 'G40', // required
+                      'id' => 'G40', // required
                       'disabled' => true,
                     ],
                   ),
@@ -1018,126 +1032,150 @@ class TimberBeamController extends BaseController
                 [
                   'inputType' => 'text',
                   'label' => 'φ', // required
-                  'name' => 'Z', // required
-                  'id' => 'Z', // required
+                  'name' => 'B44', // required
+                  'id' => 'B44', // required
                   'disabled' => true,
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'k1', // required
-                  'name' => 'AA', // required
-                  'id' => 'AA', // required
+                  'name' => 'E44', // required
+                  'id' => 'E44', // required
+                  'disabled' => true,
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => 'k8', // required
+                  'name' => 'H44', // required
+                  'id' => 'H44', // required
                   'disabled' => true,
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'k4', // required
-                  'name' => 'AB', // required
-                  'id' => 'AB', // required
+                  'name' => 'B45', // required
+                  'id' => 'B45', // required
                   'value' => '1',
                   'type' => 'number'
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'k5', // required
-                  'name' => 'AC', // required
-                  'id' => 'AC', // required
+                  'name' => 'E45', // required
+                  'id' => 'E45', // required
                   'value' => '1',
                   'type' => 'number'
                 ],
                 [
                   'inputType' => 'text',
-                  'label' => 'k8', // required
-                  'name' => 'AD', // required
-                  'id' => 'AD', // required
-                  'disabled' => true,
-                ],
-                [
-                  'inputType' => 'text',
                   'label' => 'f(b)', // required
-                  'name' => 'AE', // required
-                  'id' => 'AE', // required
+                  'name' => 'B46', // required
+                  'id' => 'B46', // required
                   'disabled' => true,
                   'unit' => 'MPa',
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'f(s)', // required
-                  'name' => 'AF', // required
-                  'id' => 'AF', // required
+                  'name' => 'E46', // required
+                  'id' => 'E46', // required
                   'disabled' => true,
                   'unit' => 'MPa',
                 ],
                 [
                   'inputType' => 'text',
+                  'label' => 'E', // required
+                  'name' => 'H46', // required
+                  'id' => 'H46', // required
+                  'disabled' => true,
+                  'unit' => 'GPa',
+                ],
+                [
+                  'inputType' => 'text',
                   'label' => 'A', // required
-                  'name' => 'AG', // required
-                  'id' => 'AG', // required
+                  'name' => 'B47', // required
+                  'id' => 'B47', // required
                   'disabled' => true,
                   'unit' => 'mm^2',
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'Z', // required
-                  'name' => 'AH', // required
-                  'id' => 'AH', // required
+                  'name' => 'E47', // required
+                  'id' => 'E47', // required
                   'disabled' => true,
                   'unit' => 'mm^3',
                 ],
                 [
                   'inputType' => 'text',
-                  'label' => 'k8', // required
-                  'name' => 'AI', // required
-                  'id' => 'AI', // required
-                  'disabled' => true,
-                ],
-                [
-                  'inputType' => 'text',
-                  'label' => 'E', // required
-                  'name' => 'AJ', // required
-                  'id' => 'AJ', // required
-                  'disabled' => true,
-                  'unit' => 'GPa',
-                ],
-                [
-                  'inputType' => 'text',
                   'label' => 'I', // required
-                  'name' => 'AK', // required
-                  'id' => 'AK', // required
+                  'name' => 'H47', // required
+                  'id' => 'H47', // required
                   'disabled' => true,
-                  'unit' => 'mm^4',
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'φM(x)', // required
-                  'name' => 'AN', // required
-                  'id' => 'AN', // required
+                  'name' => 'C50', // required
+                  'id' => 'C50', // required
+                  'disabled' => true,
+                  'unit' => 'kNm',
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => '', // required
+                  'name' => 'E50', // required
+                  'id' => 'E50', // required
+                  'disabled' => true,
+                  'unit' => 'kNm',
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => 'φV', // required
+                  'name' => 'H50', // required
+                  'id' => 'H50', // required
+                  'disabled' => true,
+                  'unit' => 'kN',
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => '', // required
+                  'name' => 'J50', // required
+                  'id' => 'J50', // required
                   'disabled' => true,
                   'unit' => 'kNm',
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'SLS δ', // required
-                  'name' => 'AO', // required
-                  'id' => 'AO', // required
+                  'name' => 'C52', // required
+                  'id' => 'C52', // required
                   'disabled' => true,
                   'unit' => 'mm^4',
                 ],
                 [
                   'inputType' => 'text',
-                  'label' => 'φV', // required
-                  'name' => 'AP', // required
-                  'id' => 'AP', // required
+                  'label' => '', // required
+                  'name' => 'E52', // required
+                  'id' => 'E52', // required
                   'disabled' => true,
-                  'unit' => 'kN',
+                  'unit' => 'kNm',
                 ],
                 [
                   'inputType' => 'text',
                   'label' => 'Vibration δ', // required
-                  'name' => 'AQ', // required
-                  'id' => 'AQ', // required
+                  'name' => 'H52', // required
+                  'id' => 'H52', // required
                   'disabled' => true,
                   'unit' => 'mm',
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => '', // required
+                  'name' => 'J52', // required
+                  'id' => 'J52', // required
+                  'disabled' => true,
+                  'unit' => 'kNm',
                 ],
               ),
             ],
@@ -1151,76 +1189,160 @@ class TimberBeamController extends BaseController
                     [
                       'Gcol1' => array(
                         [
-                          'text' => 'qwe',
-                        ],
-                        [
-                          'text' => '12321',
-                        ],
-                        [
-                          'text' => 'asd',
-                        ],
-                        [
-                          'text' => 'qwewq',
+                          'text' => '',
+                          'id' => 'O14',
                         ],
                       ),
                       'Qroof' => array(
                         [
                           'text' => '',
+                          'id' => 'O14',
                         ]
                       ),
                       'Qfloor' => array(
                         [
                           'text' => '',
+                          'id' => 'Q14',
                         ]
                       ),
                       'Qdeck' => array(
                         [
                           'text' => '',
+                          'id' => 'R14',
                         ]
                       ),
                       'Qwall' => array(
                         [
                           'text' => '',
+                          'id' => 'S14',
                         ]
                       ),
                       '1.2G' => array(
                         [
                           'text' => '',
+                          'id' => 'T14',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
                           'text' => '',
+                          'id' => 'U14',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
                           'text' => '',
+                          'id' => 'V14',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
                           'text' => '',
+                          'id' => 'W14',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
                           'text' => '',
+                          'id' => 'X14',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
                           'text' => '',
+                          'id' => 'Y14',
                         ]
                       ),
                       'k2G' => array(
                         [
                           'text' => '',
+                          'id' => 'Z14',
                         ]
                       ),
                       'defl' => array(
                         [
                           'text' => '',
+                          'id' => 'AA14',
+                        ]
+                      ),
+                    ],
+                    [
+                      'Gcol1' => array(
+                        [
+                          'text' => '',
+                          'id' => 'O15',
+                        ],
+                      ),
+                      'Qroof' => array(
+                        [
+                          'text' => '',
+                          'id' => 'P15',
+                        ]
+                      ),
+                      'Qfloor' => array(
+                        [
+                          'text' => '',
+                          'id' => 'Q15',
+                        ]
+                      ),
+                      'Qdeck' => array(
+                        [
+                          'text' => '',
+                          'id' => 'R15',
+                        ]
+                      ),
+                      'Qwall' => array(
+                        [
+                          'text' => '',
+                          'id' => 'S15',
+                        ]
+                      ),
+                      '1.2G' => array(
+                        [
+                          'text' => '',
+                          'id' => 'T15',
+                        ]
+                      ),
+                      'Mstar-mid' => array(
+                        [
+                          'text' => '',
+                          'id' => 'U15',
+                        ]
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '',
+                          'id' => 'V15',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                          'text' => '',
+                          'id' => 'W15',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '',
+                          'id' => 'X15',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '',
+                          'id' => 'Y15',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '',
+                          'id' => 'Z15',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                          'text' => '',
+                          'id' => 'AA15',
                         ]
                       ),
                     ]
@@ -1229,54 +1351,67 @@ class TimberBeamController extends BaseController
                     [
                       'id' => 'Gcol1',
                       'label' => 'G',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Qroof',
-                      'label' => 'QRoof'
+                      'label' => 'QRoof',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Qfloor',
                       'label' => 'Qfloor',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Qdeck',
                       'label' => 'Qdeck',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Qwall',
                       'label' => 'Qwall',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => '1.2G',
                       'label' => '1.2G+1.5Q',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Mstar-mid',
                       'label' => 'M* (midspan)',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Mstar-p1',
                       'label' => 'M* (P1)',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Mstar-p2',
                       'label' => 'M* (P2)',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Mstar-p3',
                       'label' => 'M* (P3)',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'Mstar-p4',
                       'label' => 'M* (P4)',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'k2G',
                       'label' => 'k2G+k2ΨlQ+(Ψs-Ψl)Q',
+                      'width'=> '800px',
                     ],
                     [
                       'id' => 'defl',
                       'label' => 'defl mids (mm)',
+                      'width'=> '800px',
                     ],
                   )
                 ]
