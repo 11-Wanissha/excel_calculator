@@ -2057,7 +2057,6 @@ class TimberBeamController extends BaseController
       : 1000 * (($req['C12'] * 1000) ** 3) / (48 * $res['H46'] * 1000 * $res['H47']);
     $res['J52'] = $res['H52'] < $req['C15'] ? 'OK' : 'NOT OK';
 
-    dd($res);
     return $this->response->setJSON($res);
   }
 }
