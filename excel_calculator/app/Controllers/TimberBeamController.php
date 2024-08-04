@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\TimberBeam;
+
 class TimberBeamController extends BaseController
 {
   public function renderer()
@@ -151,8 +153,8 @@ class TimberBeamController extends BaseController
                 [
                   'inputType' => 'text',
                   'label' => 'Span L', // required
-                  'id' => 'D12', // required
-                  'name' => 'D12',
+                  'id' => 'C12', // required
+                  'name' => 'C12',
                   'unit' => 'm',
                   'type' => 'number',
                 ],
@@ -1679,324 +1681,383 @@ class TimberBeamController extends BaseController
   public function calculator()
   {
     $req = $this->request->getPost();
+    $res = [];
+    $model = new TimberBeam();
 
-    $req["V"] = isset($req["V"]);
+    $req['I34'] = isset($req['I34']) ? "Yes" : "No";
 
-    $timberInfo = array(
-      "vsG8" => [
-        "fb" => 14000,
-        "fs" => 3800,
-        "E" => 6700000,
-        "fb(wet)" => 11700,
-        "fs(wet" => 2400,
-        "E(wet)" => 5450000
-      ],
-      "VSG10" => [
-        "fb" => 20000,
-        "fs" => 3800,
-        "E" => 8350000,
-        "fb(wet)" => 11700,
-        "fs(wet" => 2400,
-        "E(wet)" => 5450000
-      ],
-      "timNo1" => [
-        "fb" => 10000,
-        "fs" => 3800,
-        "E" => 5000000,
-        "fb(wet)" => 7500,
-        "fs(wet" => 2400,
-        "E(wet)" => 4000000
-      ],
-      "gluLam8" => [
-        "fb" => 19000,
-        "fs" => 3700,
-        "E" => 8000000,
-        "fb(wet)" => 15200,
-        "fs(wet" => 2500,
-        "E(wet)" => 6400000
-      ],
-      "gluLam12" => [
-        "fb" => 25000,
-        "fs" => 3700,
-        "E" => 11500000,
-        "fb(wet)" => 20000,
-        "fs(wet" => 2500,
-        "E(wet)" => 9200000
-      ],
-      "gluLam17" => [
-        "fb" => 42000,
-        "fs" => 3700,
-        "E" => 16700000,
-        "fb(wet)" => 33600,
-        "fs(wet" => 2500,
-        "E(wet)" => 13400000
-      ],
-      "lvlHyspan" => [
-        "fb" => 50000,
-        "fs" => 4600,
-        "E" => 13200000,
-        "fb(wet)" => 0,
-        "fs(wet" => 0,
-        "E(wet)" => 0
-      ],
-      "LVL - hyONE" => [
-        "fb" => 34000,
-        "fs" => 4600,
-        "E" => 9500000,
-        "fb(wet)" => 0,
-        "fs(wet" => 0,
-        "E(wet)" => 0
-      ],
-      "lvlOne" => [
-        "fb" => 65000,
-        "fs" => 4600,
-        "E" => 16000000,
-        "fb(wet)" => 0,
-        "fs(wet" => 0,
-        "E(wet)" => 0
-      ],
-      "flitchBeam" => [
-        "fb" => 300000,
-        "fs" => 300000,
-        "E" => 200000000,
-        "fb(wet)" => 300000,
-        "fs(wet" => 300000,
-        "E(wet)" => 200000000
-      ],
-    );
+    /* dd($req); */
 
-    $targetTimberInfo = $timberInfo[$req["B"]];
+    foreach ($req as $key => $val) {
+      if (empty($val) || $val == "") {
+        $req[$key] = 0;
+      }
+    }
 
-    $baseTotalLoads = array(
-      "G" => array(
-        "w" => $req["hgkPa"] * $req["hTrib"] + $req["igkPa"] * $req["iTrib"] + $req["jgkPa"] * $req["jTrib"] + $req["kgkPa"] * $req["kTrib"] + $req["lgkPa"] * $req["lTrib"] + $req["mgkPa"] * $req["mTrib"] + 0,
-        'P1' => $req["hgkPa"] * $req["hP1"] + $req["igkPa"] * $req["iP1"] + $req["jgkPa"] * $req["jP1"] + $req["kgkPa"] * $req["kP1"] + $req["lgkPa"] * $req["lP1"] + $req["mgkPa"] * $req["mP1"] + 0,
-        'P2' => $req["hgkPa"] * $req["hP2"] + $req["igkPa"] * $req["iP2"] + $req["jgkPa"] * $req["jP2"] + $req["kgkPa"] * $req["kP2"] + $req["lgkPa"] * $req["lP2"] + $req["mgkPa"] * $req["mP2"] + 0,
-        'P3' => $req["hgkPa"] * $req["hP3"] + $req["igkPa"] * $req["iP3"] + $req["jgkPa"] * $req["jP3"] + $req["kgkPa"] * $req["kP3"] + $req["lgkPa"] * $req["lP3"] + $req["mgkPa"] * $req["mP3"] + 0,
-        'P4' => $req["hgkPa"] * $req["hP4"] + $req["igkPa"] * $req["iP4"] + $req["jgkPa"] * $req["jP4"] + $req["kgkPa"] * $req["kP4"] + $req["lgkPa"] * $req["lP4"] + $req["mgkPa"] * $req["mP4"] + 0,
-      ),
-      "Qroof" => array(
-        "w" => $req["hqkPa"] * $req["hTrib"],
-        'P1' => $req["hqkPa"] * $req["hP1"] + $req["q1"],
-        'P2' => $req["hqkPa"] * $req["hP2"] + $req["q2"],
-        'P3' => $req["hqkPa"] * $req["hP3"] + $req["q3"],
-        'P4' => $req["hqkPa"] * $req["hP4"] + $req["q4"]
-      ),
-      "Qfloor" => array(
-        "w" => $req["iqkPa"] * $req["iTrib"],
-        'P1' => $req["iqkPa"] * $req["iP1"] + $req["r1"],
-        'P2' => $req["iqkPa"] * $req["iP2"] + $req["r2"],
-        'P3' => $req["iqkPa"] * $req["iP3"] + $req["r3"],
-        'P4' => $req["iqkPa"] * $req["iP4"] + $req["r4"]
-      ),
-      "Qdeck" => array(
-        "w" => $req["jgkPa"] * $req["jTrib"],
-        'P1' => $req["jgkPa"] * $req["jP1"] + $req["s1"],
-        'P2' => $req["jgkPa"] * $req["jP2"] + $req["s2"],
-        'P3' => $req["jgkPa"] * $req["jP3"] + $req["s3"],
-        'P4' => $req["jgkPa"] * $req["jP4"] + $req["s4"]
-      ),
-      "Qwall" => array(
-        "w" => $req["mqkPa"] * $req["mTrib"],
-        'P1' => $req["mqkPa"] * $req["mP1"] + $req["qO1"],
-        'P2' => $req["mqkPa"] * $req["mP2"] + $req["qO2"],
-        'P3' => $req["mqkPa"] * $req["mP3"] + $req["qO3"],
-        'P4' => $req["mqkPa"] * $req["mP4"] + $req["qO4"]
-      ),
-    );
+    $targetBeam = $model->getTargetBeamType($req['C10'], $req['C11']);
+    $beamType = $targetBeam['beamType'];
 
-    $totalLoads1G = array(
-      "w" => 1.2 * $baseTotalLoads["G"]["w"] + 1.5 * ($baseTotalLoads["Qroof"]["w"] + $baseTotalLoads["Qfloor"]["w"] + $baseTotalLoads["Qdeck"]["w"] + $baseTotalLoads["Qwall"]["w"]),
-      "P1" => 1.2 * $baseTotalLoads["G"]["P1"] + 1.5 * ($baseTotalLoads["Qroof"]["P1"] + $baseTotalLoads["Qfloor"]["P1"] + $baseTotalLoads["Qdeck"]["P1"] + $baseTotalLoads["Qwall"]["P1"]),
-      "P2" => 1.2 * $baseTotalLoads["G"]["P2"] + 1.5 * ($baseTotalLoads["Qroof"]["P2"] + $baseTotalLoads["Qfloor"]["P2"] + $baseTotalLoads["Qdeck"]["P2"] + $baseTotalLoads["Qwall"]["P2"]),
-      "P3" => 1.2 * $baseTotalLoads["G"]["P3"] + 1.5 * ($baseTotalLoads["Qroof"]["P3"] + $baseTotalLoads["Qfloor"]["P3"] + $baseTotalLoads["Qdeck"]["P3"] + $baseTotalLoads["Qwall"]["P3"]),
-      "P4" => 1.2 * $baseTotalLoads["G"]["P4"] + 1.5 * ($baseTotalLoads["Qroof"]["P4"] + $baseTotalLoads["Qfloor"]["P4"] + $baseTotalLoads["Qdeck"]["P4"] + $baseTotalLoads["Qwall"]["P4"]),
-    );
+    $res['C27'] = $targetBeam['beamSize']->selfWt;
+    $res['I35'] = ($beamType->beamClass == "timber" || $beamType->beamClass == "glulam") && !isset($req['I34']) ? 2
+      : (($beamType->beamClass == "timber" || $beamType->beamClass == "glulam") && isset($req['I34']) ? 3
+        : ((str_contains($beamType->beamClass, 'lvl') || $beamType->beamClass == "flitch") && isset($req['I34']) ? "ERROR"
+          : (($beamType->beamClass == "fltch") ? 1.3
+            : 2)));
 
-    $W = (in_array($req["B"], ["VSG8", "VSG10", "timNo1", "gluLam8", "gluLam12", "gluLam17"]) && $req["V"] == "No") ? 2 : ((in_array($req["B"], ["VSG8", "VSG10", "timNo1", "gluLam8", "gluLam12", "gluLam17"]) && $req["V"] == "Yes") ? 3 : ((in_array($req["B"], ["lvlHyspan", "LVL - hyONE", "lvlOne"]) && $req["V"] == "Yes") ? "ERROR" : ($req["B"] == "flitchBeam" ? 1.3 : 2)));
+    $res['H46'] =  $req['I34'] == "No" ? $beamType->E / 1000000 : ($req['I34'] == "Yes" ? $beamType->EW / 1000000 : "");
 
-    $mStar = array(
-      "midspan" => array(
-        "w" => $totalLoads1G["w"] * ($req["D"] * $req["D"]) / 8,
-        "P1" => isset($req["a"]) ? 0 : ($totalLoads1G["P1"] / 2) * $req["a"],
-        "P2" => isset($req["b"]) ? 0 : ($totalLoads1G["P2"] / 2) * $req["b"],
-        "P3" => isset($req["c"]) ? 0 : ($totalLoads1G["P3"] / 2) * $req["c"],
-        "P4" => isset($req["d"]) ? 0 : ($totalLoads1G["P4"] / 2) * $req["d"],
-      ),
-      "P1" => array(
-        "w" => $totalLoads1G["w"] * $req["a"] * ($req["D"] - $req["a"]) / 2,
-        "P1" => isset($req["D"]) ? 0 : ($totalLoads1G["P1"] * $req["a"] * ($req["D"] - $req["a"]) / $req["D"]),
-        "P2" => isset($req["D"]) ? 0 : (($req["a"] <= $req["b"]) ? ($totalLoads1G["P2"] * ($req["D"] - $req["b"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["b"]) ? ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
-        "P3" => isset($req["D"]) ? 0 : (($req["a"] <= $req["c"]) ? ($totalLoads1G["P3"] * ($req["D"] - $req["c"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["c"]) ? ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
-        "P4" => isset($req["D"]) ? 0 : (($req["a"] <= $req["c"]) ? ($totalLoads1G["P4"] * ($req["D"] - $req["d"]) * $req["a"] / $req["D"]) : (($req["a"] > $req["d"]) ? ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["a"]) / $req["D"]) : "ERROR")),
-      ),
-      "P2" => array(
-        "w" => $totalLoads1G["w"] * $req["b"] * ($req["D"] - $req["b"]) / 2,
-        "P1" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["a"]) ? ($totalLoads1G["P1"] * ($req["D"] - $req["a"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["a"]) ? ($totalLoads1G["P1"] * $req["a"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
-        "P2" => ($req["D"] == 0) ? 0 : ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["b"]) / $req["D"]),
-        "P3" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["c"]) ? ($totalLoads1G["P3"] * ($req["D"] - $req["c"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["c"]) ? ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
-        "P4" => ($req["D"] == 0) ? 0 : (($req["b"] <= $req["d"]) ? ($totalLoads1G["P4"] * ($req["D"] - $req["d"]) * $req["b"] / $req["D"]) : (($req["b"] > $req["d"]) ? ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["b"]) / $req["D"]) : "ERROR")),
-      ),
-      "P3" => array(
-        "w" => $totalLoads1G["w"] * $req["c"] * ($req["D"] - $req["c"]) / 2,
-        "P1" => ($req["D"] == 0) ? 0 : (($req["c"] <= $req["a"]) ? ($totalLoads1G["P1"] * ($req["D"] - $req["a"]) * $req["c"] / $req["D"]) : (($req["c"] > $req["a"]) ? ($totalLoads1G["P1"] * $req["a"] * ($req["D"] - $req["c"]) / $req["D"]) : "ERROR")),
-        "P2" => ($req["D"] == 0) ? 0 : (($req["c"] <= $req["b"]) ? ($totalLoads1G["P2"] * ($req["D"] - $req["b"]) * $req["c"] / $req["D"]) : (($req["c"] > $req["b"]) ? ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["c"]) / $req["D"]) : "ERROR")),
-        "P3" => ($req["D"] == 0) ? 0 : ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["c"]) / $req["D"]),
-        "P4" => ($req["D"] == 0) ? 0 : (($req["c"] <= $req["d"]) ? ($totalLoads1G["P4"] * ($req["D"] - $req["d"]) * $req["c"] / $req["D"]) : (($req["c"] > $req["d"]) ? ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["c"]) / $req["D"]) : "ERROR")),
-      ),
-      "P4" => array(
-        "w" => $totalLoads1G["w"] * $req["d"] * ($req["D"] - $req["d"]) / 2,
-        "P1" => ($req["D"] == 0) ? 0 : (($req["d"] <= $req["a"]) ? ($totalLoads1G["P1"] * ($req["D"] - $req["a"]) * $req["d"] / $req["D"]) : (($req["d"] > $req["a"]) ? ($totalLoads1G["P1"] * $req["a"] * ($req["D"] - $req["d"]) / $req["D"]) : "ERROR")),
-        "P2" => ($req["D"] == 0) ? 0 : (($req["d"] <= $req["b"]) ? ($totalLoads1G["P2"] * ($req["D"] - $req["b"]) * $req["d"] / $req["D"]) : (($req["d"] > $req["b"]) ? ($totalLoads1G["P2"] * $req["b"] * ($req["D"] - $req["d"]) / $req["D"]) : "ERROR")),
-        "P3" => ($req["D"] == 0) ? 0 : (($req["d"] <= $req["c"]) ? ($totalLoads1G["P3"] * ($req["D"] - $req["c"]) * $req["d"] / $req["D"]) : (($req["d"] > $req["c"]) ? ($totalLoads1G["P3"] * $req["c"] * ($req["D"] - $req["d"]) / $req["D"]) : "ERROR")),
-        "P4" => ($req["D"] == 0) ? 0 : ($totalLoads1G["P4"] * $req["d"] * ($req["D"] - $req["d"]) / $req["D"]),
-      ),
-      "k2G" => array(
-        "w" => (in_array($req["B"], ["VSG8", "VSG10", "timNo1", "gluLam8", "gluLam12", "gluLam17"]) && $req["V"] == "No") ? 2 : ((in_array($req["B"], ["VSG8", "VSG10", "timNo1", "gluLam8", "gluLam12", "gluLam17"]) && $req["V"] == "Yes") ? 3 : ((in_array($req["B"], ["lvlHyspan", "LVL - hyONE", "lvlOne"]) && $req["V"] == "Yes") ? "ERROR" : ($req["B"] == "flitchBeam" ? 1.3 : 2))),
-        "P1" => ($req["W"] * $baseTotalLoads["G"]["w"] +
-          $req["W"] * $req["h(l)"] * $baseTotalLoads["Qroof"]["P1"] +
-          ($req["h(s)"] - $req["h(l)"]) * $baseTotalLoads["Qroof"]["P1"] +
-          $req["W"] * $req["i(l)"] * $baseTotalLoads["Qfloor"]["P1"] +
-          ($req["i(s)"] - $req["i(l)"]) * $baseTotalLoads["Qfloor"]["P1"] +
-          $req["W"] * $req["j(l)"] * $baseTotalLoads["Qdeck"]["P1"] +
-          ($req["j(s)"] - $req["j(l)"]) * $baseTotalLoads["Qdeck"]["P1"] +
-          $req["W"] * $req["m(l)"] * $baseTotalLoads["Qwall"]["P1"] +
-          ($req["m(s)"] - $req["m(l)"]) * $baseTotalLoads["Qwall"]["P1"]),
+    /* G - Qwall */
+    $res['O14'] = $req['B20'] * $req['F20'] + $req['B21'] * $req['F21'] + $req['B22'] * $req['F22'] + $req['B23'] * $req['F23'] + $req['B24'] * $req['F24'] + $req['B25'] * $req['F25'] + $res['C27'];
+    $res['P14'] = $req['C20'] * $req['F20'];
+    $res['Q14'] = $req['C21'] * $req['F21'];
+    $res['R14'] = $req['C22'] * $req['F22'];
+    $res['S14'] = $req['C25'] * $req['F25'];
 
-        "P2" => $req["W"] * $baseTotalLoads["G"]["P1"] +
-          $req["W"] * $req["h(l)"] * $baseTotalLoads["Qroof"]["P2"] +
-          ($req["h(s)"] - $req["h(l)"]) * $baseTotalLoads["Qroof"]["P2"] +
-          $req["W"] * $req["i(l)"] * $baseTotalLoads["Qfloor"]["P2"] +
-          ($req["i(s)"] - $req["i(l)"]) * $baseTotalLoads["Qfloor"]["P2"] +
-          $req["W"] * $req["j(l)"] * $baseTotalLoads["Qdeck"]["P2"] +
-          ($req["j(s)"] - $req["j(l)"]) * $baseTotalLoads["Qdeck"]["P2"] +
-          $req["W"] * $req["m(l)"] * $baseTotalLoads["Qwall"]["P2"] +
-          ($req["m(s)"] - $req["m(l)"]) * $$baseTotalLoads["Qwall"]["P2"],
+    /* ============================================= */
 
-        "P3" => $req["W"] * $req["h(l)"] * $baseTotalLoads["Qroof"]["P2"] +
-          ($req["h(s)"] - $req["h(l)"]) * $baseTotalLoads["Qroof"]["P2"] +
-          $req["W"] * $req["i(l)"] * $baseTotalLoads["Qfloor"]["P3"] +
-          ($req["i(s)"] - $req["i(l)"]) * $baseTotalLoads["Qfloor"]["P3"] +
-          $req["W"] * $req["j(l)"] * $baseTotalLoads["Qdeck"]["P3"] +
-          ($req["j(s)"] - $req["j(l)"]) * $baseTotalLoads["Qdeck"]["P3"] +
-          $req["W"] * $req["m(l)"] * $baseTotalLoads["Qwall"]["P3"] +
-          ($req["m(s)"] - $req["m(l)"]) * $$baseTotalLoads["Qwall"]["P3"],
+    $res['O15'] = $req['B20'] * $req['G20'] + $req['B21'] * $req['G21'] + $req['B22'] * $req['G22'] + $req['B23'] * $req['G23'] + $req['B24'] * $req['G24'] + $req['B25'] * $req['G25'] + $req['B31'];
+    $res['P15'] = $req['C20'] * $req['G20'] + $req['B32'];
+    $res['Q15'] = $req['C21'] * $req['G21'] + $req['B33'];
+    $res['R15'] = $req['C22'] * $req['G22'] + $req['B34'];
+    $res['S15'] = $req['C25'] * $req['G25'] + $req['B35'];
 
-        "P4" => $req["W"] * $req["h(l)"] * $baseTotalLoads["Qroof"]["P4"] +
-          ($req["h(s)"] - $req["h(l)"]) * $baseTotalLoads["Qroof"]["P4"] +
-          $req["W"] * $req["i(l)"] * $baseTotalLoads["Qfloor"]["P4"] +
-          ($req["i(s)"] - $req["i(l)"]) * $baseTotalLoads["Qfloor"]["P4"] +
-          $req["W"] * $req["j(l)"] * $baseTotalLoads["Qdeck"]["P4"] +
-          ($req["j(s)"] - $req["j(l)"]) * $baseTotalLoads["Qdeck"]["P4"] +
-          $req["W"] * $req["m(l)"] * $baseTotalLoads["Qwall"]["P4"] +
-          ($req["m(s)"] - $req["m(l)"]) * $$baseTotalLoads["Qwall"]["P4"],
-      ),
-    );
+    /* ============================================= */
 
-    $defl = array(
+    $res['O16'] = $req['B20'] * $req['H20'] + $req['B21'] * $req['H21'] + $req['B22'] * $req['H22'] + $req['B23'] * $req['H23'] + $req['B24'] * $req['H24'] + $req['B25'] * $req['H25'] + $req['C31'];
+    $res['P16'] = $req['C20'] * $req['H20'] + $req['C32'];
+    $res['Q16'] = $req['C21'] * $req['H21'] + $req['C33'];
+    $res['R16'] = $req['C22'] * $req['H22'] + $req['C34'];;
+    $res['S16'] = $req['C25'] * $req['H25'] + $req['C35'];
 
-    );
+    /* ============================================= */
 
-    $totalLoads = array(
-      [
-        'Gcol1' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Qroof' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Qfloor' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Qdeck' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Qwall' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        '1.2G' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Mstar-mid' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Mstar-p1' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Mstar-p2' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Mstar-p3' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'Mstar-p4' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'k2G' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-        'defl' => array(
-          ['text' => 'qwe',],
-          ['text' => '12321',],
-          ['text' => 'asd',],
-          ['text' => 'qwewq',],
-          ['text' => 'qwewq',],
-        ),
-      ]
-    );
+    $res['O17'] = $req['B20'] * $req['I20'] + $req['B21'] * $req['I21'] + $req['B22'] * $req['I22'] + $req['B23'] * $req['I23'] + $req['B24'] * $req['I24'] + $req['B25'] * $req['I25'] + $req['D31'];
+    $res['P17'] = $req['C20'] * $req['I20'] + $req['D32'];
+    $res['Q17'] = $req['C21'] * $req['I21'] + $req['D33'];
+    $res['R17'] = $req['C22'] * $req['I22'] + $req['D34'];;
+    $res['S17'] = $req['C25'] * $req['I25'] + $req['D35'];
 
-    $F = isset($req["E"]) ? "" : ($req["D"] * 1000) / $req["E"];
+    /* ============================================= */
 
-    $W = (($req["B"] == "VSG8" || $req["B"] == "VSG10" || $req["B"] == "timNo1" || $req["B"] == "gluLam8" || $req["B"] == "gluLam12" || $req["B"] == "gluLam17") && isset($req["V"])) ? 2 : ((($req["B"] == "VSG8" || $req["B"] == "VSG10" || $req["B"] == "timNo1" || $req["B"] == "gluLam8" || $req["B"] == "gluLam12" || $req["B"] == "gluLam17") && isset($req["V"])) ? 3 : ((($req["B"] == "lvlHyspan" || $req["B"] == "LVL - hyONE" || $req["B"] == "lvlOne" || $req["B"] == "flitchBeam") && isset($req["V"])) ? "ERROR" : ($req["B"] == isset($req["V"]))));
+    $res['O18'] = $req['B20'] * $req['J20'] + $req['B21'] * $req['J21'] + $req['B22'] * $req['J22'] + $req['B23'] * $req['J23'] + $req['B24'] * $req['J24'] + $req['B25'] * $req['J25'] + $req['E31'];
+    $res['P18'] = $req['C20'] * $req['J20'] + $req['E32'];
+    $res['Q18'] = $req['C21'] * $req['J21'] + $req['E33'];
+    $res['R18'] = $req['C22'] * $req['J22'] + $req['E34'];;
+    $res['S18'] = $req['C25'] * $req['J25'] + $req['E35'];
 
-    return $this->response->setJSON($this->request->getPost());
+    /* 12G + 1.5Q */
+    $res['T14'] = 1.2 * $res['O14'] + 1.5 * ($res['P14'] + $res['Q14'] + $res['R14'] + $res['S14']);
+    $res['T15'] = 1.2 * $res['O15'] + 1.5 * ($res['P15'] + $res['Q15'] + $res['R15'] + $res['S15']);
+    $res['T16'] = 1.2 * $res['O16'] + 1.5 * ($res['P16'] + $res['Q16'] + $res['R16'] + $res['S16']);
+    $res['T17'] = 1.2 * $res['O17'] + 1.5 * ($res['P17'] + $res['Q17'] + $res['R17'] + $res['S17']);
+    $res['T18'] = 1.2 * $res['O18'] + 1.5 * ($res['P18'] + $res['Q18'] + $res['R18'] + $res['S18']);
+
+    /* M star - k2G */
+    $res["U14"] = $res['T14'] * pow($req['C12'], 2) / 8;
+    $res["V14"] = $res['T14'] * $req['G27'] * ($req['C12'] - $req['G27']) / 2;
+    $res["W14"] = $res['T14'] * $req['H27'] * ($req['C12'] - $req['H27']) / 2;
+    $res["X14"] = $res['T14'] * $req['I27'] * ($req['C12'] - $req['I27']) / 2;
+    $res["Y14"] = $res['T14'] * $req['J27'] * ($req['C12'] - $req['J27']) / 2;
+    $res["Z14"] = $res['I35'] * $res['O14'] +
+      $res['I35'] * $req['E20'] * $res['P14'] +
+      ($req['D20'] - $req['E20']) * $res['P14'] +
+      $res['I35'] * $req['E21'] * $res['Q14'] +
+      ($req['D21'] - $req['E21']) * $res['Q14'] +
+      $res['I35'] * $req['E22'] * $res['R14'] +
+      ($req['D22'] - $req['E22']) * $res['R14'] +
+      $res['I35'] * $req['E25'] * $res['S14'] +
+      ($req['D25'] - $req['E25']) * $res['S14'];
+
+    /* ============================================= */
+
+    $res["U15"] = empty($req['G27']) ? 0 : ($res['T15'] / 2) * min($req['G27'], $req['C12'] - $req['G27']);
+    $res["V15"] = ($req['C12'] == 0) ? 0 : ($res['T15'] * $req['G27'] * ($req['C12'] - $req['G27']) / $req['C12']);
+    $res["W15"] = ($req['C12'] == 0) ? 0
+      : (($req['H27'] <= $req['G27']) ? $res['T15'] * ($req['C12'] - $req['G27']) * $req['H27'] / $req['C12']
+        : (($req['H27'] > $req['G27']) ? $res['T15'] * $req['G27'] * ($req['C12'] - $req['H27']) / $req['C12'] :
+          "ERROR"));
+    $res["X15"] = ($req['C12'] == 0) ? 0
+      : (($req['I27'] <= $req['G27']) ? $res['T15'] * ($req['C12'] - $req['G27']) * $req['I27'] / $req['C12']
+        : (($req['I27'] > $req['G27']) ? $res['T15'] * $req['G27'] * ($req['C12'] - $req['I27']) / $req['C12'] :
+          "ERROR"));
+    $res["Y15"] = ($req['C12'] == 0) ? 0
+      : (($req['J27'] <= $req['G27']) ? $res['T15'] * ($req['C12'] - $req['G27']) * $req['J27'] / $req['C12']
+        : (($req['J27'] > $req['G27']) ? $res['T15'] * $req['G27'] * ($req['C12'] - $req['J27']) / $req['C12'] :
+          "ERROR"));
+    $res["Z15"] = $res['I35'] * $res['O15'] +
+      $res['I35'] * $req['E20'] * $res['P15'] +
+      ($req['D20'] - $req['E20']) * $res['P15'] +
+      $res['I35'] * $req['E21'] * $res['Q15'] +
+      ($req['D21'] - $req['E21']) * $res['Q15'] +
+      $res['I35'] * $req['E22'] * $res['R15'] +
+      ($req['D22'] - $req['E22']) * $res['R15'] +
+      $res['I35'] * $req['E25'] * $res['S15'] +
+      ($req['D25'] - $req['E25']) * $res['S15'];
+
+    /* ============================================= */
+
+    $res['AD17'] = ($req['C11'] == "") ? ""
+      : (($req['C10'] == "flitch1")
+        ? 1.35 * sqrt($req['I31'] / $targetBeam['beamSize']->bT * sqrt(pow($targetBeam['beamSize']->dT / $targetBeam['beamSize']->bT, 2) - 1))
+        : 1.35 * sqrt($req['I31'] / $targetBeam['beamSize']->b * sqrt(pow($targetBeam['beamSize']->d / $targetBeam['beamSize']->b, 2) - 1))
+      );
+    $res['AF17'] = $res['AD17'] > 10 ? $res['AD17'] : 10;
+    $res['AI17'] = ($res['AF17'] > 25) ? 235.5 * ($res['AF17'] ** -1.937)
+      : (($res['AF17'] >= 10 && $res['AF17'] <= 25)
+        ? 0.21 + 0.175 * $res['AF17'] - 0.0116 * ($res['AF17'] ** 2) + ($res['AF17'] ** 3) / 5000
+        : "ERROR");
+    $res['AI18'] = ($res['AF17'] > 25) ? 251.4 * ($res['AF17'] ** -1.933)
+      : (($res['AF17'] >= 10 && $res['AF17'] <= 25)
+        ? 0.45 + 0.1237 * $res['AF17'] - 0.0082 * ($res['AF17'] ** 2) + ($res['AF17'] ** 3) / 7500
+        : "ERROR");
+
+    /* ============================================= */
+
+    $res["U16"] = empty($req['H27']) ? 0 : ($res['T16'] / 2) * min($req['H27'], $req['C12'] - $req['H27']);
+    $res["V16"] = ($req['C12'] == 0) ? 0
+      : (($req['G27'] <= $req['H27']) ? $res['T16'] * ($req['C12'] - $req['H27']) * $req['G27'] / $req['C12']
+        : (($req['G27'] > $req['H27']) ? $res['T16'] * $req['H27'] * ($req['C12'] - $req['G27']) / $req['C12'] :
+          "ERROR"));
+    $res["W16"] = ($req['C12'] == 0) ? 0 : ($res['T16'] * $req['H27'] * ($req['C12'] - $req['H27']) / $req['C12']);
+    $res["X16"] = ($req['C12'] == 0) ? 0
+      : (($req['I27'] <= $req['H27']) ? $res['T16'] * ($req['C12'] - $req['H27']) * $req['I27'] / $req['C12']
+        : (($req['I27'] > $req['H27']) ? $res['T16'] * $req['H27'] * ($req['C12'] - $req['I27']) / $req['C12'] :
+          "ERROR"));
+    $res["Y16"] = ($req['C12'] == 0) ? 0
+      : (($req['J27'] <= $req['H27']) ? $res['T16'] * ($req['C12'] - $req['H27']) * $req['J27'] / $req['C12']
+        : (($req['J27'] > $req['H27']) ? $res['T16'] * $req['H27'] * ($req['C12'] - $req['J27']) / $req['C12'] :
+          "ERROR"));
+    $res["Z16"] = $res['I35'] * $res['O16'] +
+      $res['I35'] * $req['E20'] * $res['P16'] +
+      ($req['D20'] - $req['E20']) * $res['P16'] +
+      $res['I35'] * $req['E21'] * $res['Q16'] +
+      ($req['D21'] - $req['E21']) * $res['Q16'] +
+      $res['I35'] * $req['E22'] * $res['R16'] +
+      ($req['D22'] - $req['E22']) * $res['R16'] +
+      $res['I35'] * $req['E25'] * $res['S16'] +
+      ($req['D25'] - $req['E25']) * $res['S16'];
+
+    /* ============================================= */
+
+    $res["U17"] = empty($req['I27']) ? 0 : ($res['T17'] / 2) * min($req['I27'], $req['C12'] - $req['I27']);
+    $res["V17"] = ($req['C12'] == 0) ? 0
+      : (($req['G27'] <= $req['I27']) ? $res['T17'] * ($req['C12'] - $req['I27']) * $req['G27'] / $req['C12']
+        : (($req['G27'] > $req['I27']) ? $res['T17'] * $req['I27'] * ($req['C12'] - $req['G27']) / $req['C12'] :
+          "ERROR"));
+    $res["W17"] = ($req['C12'] == 0) ? 0
+      : (($req['H27'] <= $req['I27']) ? $res['T17'] * ($req['C12'] - $req['I27']) * $req['H27'] / $req['C12']
+        : (($req['H27'] > $req['I27']) ? $res['T17'] * $req['I27'] * ($req['C12'] - $req['H27']) / $req['C12'] :
+          "ERROR"));
+    $res["X17"] = ($req['C12'] == 0) ? 0 : ($res['T17'] * $req['I27'] * ($req['C12'] - $req['I27']) / $req['C12']);
+    $res["Y17"] = ($req['C12'] == 0) ? 0
+      : (($req['J27'] <= $req['I27']) ? $res['T17'] * ($req['C12'] - $req['I27']) * $req['J27'] / $req['C12']
+        : (($req['J27'] > $req['I27']) ? $res['T17'] * $req['I27'] * ($req['C12'] - $req['J27']) / $req['C12'] :
+          "ERROR"));
+    $res["Z17"] = $res['I35'] * $res['O17'] +
+      $res['I35'] * $req['E20'] * $res['P17'] +
+      ($req['D20'] - $req['E20']) * $res['P17'] +
+      $res['I35'] * $req['E21'] * $res['Q17'] +
+      ($req['D21'] - $req['E21']) * $res['Q17'] +
+      $res['I35'] * $req['E22'] * $res['R17'] +
+      ($req['D22'] - $req['E22']) * $res['R17'] +
+      $res['I35'] * $req['E25'] * $res['S17'] +
+      ($req['D25'] - $req['E25']) * $res['S17'];
+
+    /* ============================================= */
+
+    $res["U18"] = empty($req['J27']) ? 0 : ($res['T18'] / 2) * min($req['J27'], $req['C12'] - $req['J27']);
+    $res["V18"] = ($req['C12'] == 0) ? 0
+      : (($req['G27'] <= $req['J27']) ? $res['T18'] * ($req['C12'] - $req['J27']) * $req['G27'] / $req['C12']
+        : (($req['G27'] > $req['J27']) ? $res['T18'] * $req['J27'] * ($req['C12'] - $req['G27']) / $req['C12'] :
+          "ERROR"));
+    $res["W18"] = ($req['C12'] == 0) ? 0
+      : (($req['H27'] <= $req['J27']) ? $res['T18'] * ($req['C12'] - $req['J27']) * $req['H27'] / $req['C12']
+        : (($req['H27'] > $req['J27']) ? $res['T18'] * $req['J27'] * ($req['C12'] - $req['H27']) / $req['C12'] :
+          "ERROR"));
+    $res["X18"] = ($req['C12'] == 0) ? 0
+      : (($req['I27'] <= $req['J27']) ? $res['T18'] * ($req['C12'] - $req['J27']) * $req['I27'] / $req['C12']
+        : (($req['I27'] > $req['J27']) ? $res['T18'] * $req['J27'] * ($req['C12'] - $req['I27']) / $req['C12'] :
+          "ERROR"));
+    $res["Y18"] = ($req['C12'] == 0) ? 0 : ($res['T18'] * $req['J27'] * ($req['C12'] - $req['J27']) / $req['C12']);
+    $res["Z18"] = $res['I35'] * $res['O18'] +
+      $res['I35'] * $req['E20'] * $res['P18'] +
+      ($req['D20'] - $req['E20']) * $res['P18'] +
+      $res['I35'] * $req['E21'] * $res['Q18'] +
+      ($req['D21'] - $req['E21']) * $res['Q18'] +
+      $res['I35'] * $req['E22'] * $res['R18'] +
+      ($req['D22'] - $req['E22']) * $res['R18'] +
+      $res['I35'] * $req['E25'] * $res['S18'] +
+      ($req['D25'] - $req['E25']) * $res['S18'];
+
+    /* ============================================= */
+
+    /* defl mids */
+    $res['AA14'] = $req['C12'] == "" ? 0 : (5 * $res['Z14'] * pow($req['C12'], 4) / (384 * $res['H46'] * 1000000 * $targetBeam['beamSize']->I)) * 1000;
+    $res['AA15'] = $req['C12'] == "" ? 0 : ($res['Z15'] * min($req['G27'], $req['C12'] - $req['G27']) *
+      (3 * pow($req['C12'], 2) - 4 * pow(min($req['G27'], $req['C12'] - $req['G27']), 2)) * 1000 /
+      (48 * $res['H46'] * 1000000 * $targetBeam['beamSize']->I));
+    $res['AA16'] = $req['C12'] == "" ? 0 : ($res['Z16'] * min($req['H27'], $req['C12'] - $req['H27']) *
+      (3 * pow($req['C12'], 2) - 4 * pow(min($req['H27'], $req['C12'] - $req['H27']), 2)) * 1000 /
+      (48 * $res['H46'] * 1000000 * $targetBeam['beamSize']->I));
+    $res['AA17'] = $req['C12'] == "" ? 0 : ($res['Z17'] * min($req['I27'], $req['C12'] - $req['I27']) *
+      (3 * pow($req['C12'], 2) - 4 * pow(min($req['I27'], $req['C12'] - $req['I27']), 2)) * 1000 /
+      (48 * $res['H46'] * 1000000 * $targetBeam['beamSize']->I));
+    $res['AA18'] = $req['C12'] == "" ? 0 : ($res['Z18'] * min($req['J27'], $req['C12'] - $req['J27']) *
+      (3 * pow($req['C12'], 2) - 4 * pow(min($req['J27'], $req['C12'] - $req['J27']), 2)) * 1000 /
+      (48 * $res['H46'] * 1000000 * $targetBeam['beamSize']->I));
+
+    /* ============================================= */
+
+    /* sum m-star */
+
+    $res['U19'] = array_sum(array($res['U14'], $res['U15'], $res['U16'], $res['U17'], $res['U18']));
+    $res['V19'] = array_sum(array($res['V14'], $res['V15'], $res['V16'], $res['V17'], $res['V18']));
+    $res['W19'] = array_sum(array($res['W14'], $res['W15'], $res['W16'], $res['W17'], $res['W18']));
+    $res['X19'] = array_sum(array($res['X14'], $res['X15'], $res['X16'], $res['X17'], $res['X18']));
+    $res['Y19'] = array_sum(array($res['Y14'], $res['Y15'], $res['Y16'], $res['Y17'], $res['Y18']));
+
+    /* ============================================= */
+
+    $res['C14'] = ($req['D13'] === "") ? "" : ($req['C12'] * 1000 / $req['D13']);
+
+    $res['B39'] = (isset($req['C12']) && $req['C12'] != "") ? $res['O14'] * $req['C12'] / 2 +
+      $res['O15'] * ($req['C12'] - $req['G27']) / $req['C12'] +
+      $res['O16'] * ($req['C12'] - $req['H27']) / $req['C12'] +
+      $res['O17'] * ($req['C12'] - $req['I27']) / $req['C12'] +
+      $res['O18'] * ($req['C12'] - $req['J27']) / $req['C12'] : 0;
+
+    /* ============================================= */
+
+    $res['C39'] = (isset($req['C12']) && $req['C12'] != "") ? $res['P14'] * $req['C12'] / 2 +
+      $res['P15'] * ($req['C12'] - $req['G27']) / $req['C12'] +
+      $res['P16'] * ($req['C12'] - $req['H27']) / $req['C12'] +
+      $res['P17'] * ($req['C12'] - $req['I27']) / $req['C12'] +
+      $res['P18'] * ($req['C12'] - $req['J27']) / $req['C12'] : 0;
+
+    /* ============================================= */
+
+    $res['D39'] = (isset($req['C12']) && $req['C12'] != "") ? $res['Q14'] * $req['C12'] / 2 +
+      $res['Q15'] * ($req['C12'] - $req['G27']) / $req['C12'] +
+      $res['Q16'] * ($req['C12'] - $req['H27']) / $req['C12'] +
+      $res['Q17'] * ($req['C12'] - $req['I27']) / $req['C12'] +
+      $res['Q18'] * ($req['C12'] - $req['J27']) / $req['C12'] : 0;
+
+    /* ============================================= */
+
+    $res['E39'] = (isset($req['C12']) && $req['C12'] != "") ? $res['R14'] * $req['C12'] / 2 +
+      $res['R15'] * ($req['C12'] - $req['G27']) / $req['C12'] +
+      $res['R16'] * ($req['C12'] - $req['H27']) / $req['C12'] +
+      $res['R17'] * ($req['C12'] - $req['I27']) / $req['C12'] +
+      $res['R18'] * ($req['C12'] - $req['J27']) / $req['C12'] : 0;
+
+    /* ============================================= */
+
+    $res['F39'] = (isset($req['C12']) && $req['C12'] != "") ? $res['S14'] * $req['C12'] / 2 +
+      $res['S15'] * ($req['C12'] - $req['G27']) / $req['C12'] +
+      $res['S16'] * ($req['C12'] - $req['H27']) / $req['C12'] +
+      $res['S17'] * ($req['C12'] - $req['I27']) / $req['C12'] +
+      $res['S18'] * ($req['C12'] - $req['J27']) / $req['C12'] : 0;
+
+    /* ============================================= */
+
+    $res['B40'] = $res['O14'] * $req['C12'] / 2 +
+      $res['O15'] * $req['G27'] / $req['C12'] +
+      $res['O16'] * $req['H27'] / $req['C12'] +
+      $res['O17'] * $req['I27'] / $req['C12'] +
+      $res['O18'] * $req['J27'] / $req['C12'];
+
+    /* ============================================= */
+
+    $res['C40'] = $res['P14'] * $req['C12'] / 2 +
+      $res['P15'] * $req['G27'] / $req['C12'] +
+      $res['P16'] * $req['H27'] / $req['C12'] +
+      $res['P17'] * $req['I27'] / $req['C12'] +
+      $res['P18'] * $req['J27'] / $req['C12'];
+
+    /* ============================================= */
+
+    $res['D40'] = $res['Q14'] * $req['C12'] / 2 +
+      $res['Q15'] * $req['G27'] / $req['C12'] +
+      $res['Q16'] * $req['H27'] / $req['C12'] +
+      $res['Q17'] * $req['I27'] / $req['C12'] +
+      $res['Q18'] * $req['J27'] / $req['C12'];
+
+    /* ============================================= */
+
+    $res['E40'] = $res['R14'] * $req['C12'] / 2 +
+      $res['R15'] * $req['G27'] / $req['C12'] +
+      $res['R16'] * $req['H27'] / $req['C12'] +
+      $res['R17'] * $req['I27'] / $req['C12'] +
+      $res['R18'] * $req['J27'] / $req['C12'];
+
+    /* ============================================= */
+
+    $res['F40'] = $res['S14'] * $req['C12'] / 2 +
+      $res['S15'] * $req['G27'] / $req['C12'] +
+      $res['S16'] * $req['H27'] / $req['C12'] +
+      $res['S17'] * $req['I27'] / $req['C12'] +
+      $res['S18'] * $req['J27'] / $req['C12'];
+
+    /* ============================================= */
+
+    $res['H43'] = (str_contains($req['C10'], 'lvl'))
+      ? (95 / (1000 * $targetBeam['beamSize']->d)) ** 0.154
+      : "";
+
+    $res['G39'] = 1.2 * $res['B39'] + 1.5 * ($res['C39'] + $res['D39'] + $res['E39'] + $res['F39']);
+    $res['G40'] = 1.2 * $res['B40'] + 1.5 * ($res['C40'] + $res['D40'] + $res['E40'] + $res['F40']);
+
+    $res['I38'] = max(array($res['U19'], $res['V19'], $res['W19'], $res['X19'], $res['Y19']));
+    $res['I39'] = $res['I38'] == $res['U19'] ? "at midspan" : ($res['I38'] == $res['V19'] ? "at P1" : ($res['I38'] == $res['W19'] ? "at P2" : ($res['I38'] == $res['X19'] ? "at P3" : ($res['I38'] == $res['Y19'] ? "at P4" : "ERROR"))));
+
+    $res['I40'] = max(array($res['G39'], $res['G40']));
+    $res['G41'] = "at support";
+
+    $res['B44'] = (str_contains($req['C10'], 'lvl') || str_contains($req['C10'], 'flitch')) ? 0.9 : ($req['C10'] == 'custom' ? $req['AE22'] : 0.8);
+    $res['E44'] = $req['I33'];
+    $res['H44'] = $req['I34'] == "No" ? $res['AI17'] : ($req['I34'] == "Yes" ? $res['AI18'] : "");
+
+    $res['B45'] = 1;
+    $res['E45'] = 1;
+
+    $res['B46'] = $req['I34'] == "No" ? $beamType->fb / 1000 : ($req['I34'] == "Yes" ? $beamType->fbW / 1000 : "");
+    $res['E46'] = $req['I34'] == "No" ? $beamType->fs / 1000 : ($req['I34'] == "Yes" ? $beamType->fsW / 1000 : "");
+    $res['H46'] = ($req['I34'] == "No")
+      ? $beamType->E / 1000000
+      : (($req['I34'] == "Yes")
+        ? $beamType->EW / 1000000
+        : ""
+      );
+
+    $res['B47'] = $targetBeam['beamSize']->A * pow(1000, 2);
+    $res['E47'] = $targetBeam['beamSize']->Z * pow(1000, 3);
+    $res['H47'] = $targetBeam['beamSize']->I * pow(1000, 4);
+
+    $res['C50'] = ($res['H43'] == "")
+      ? ($res['B44'] * $res['E44'] * $res['B45'] * $res['E45'] * $res['H44'] * $res['B46'] * $res['E47'] / (1000 * 1000))
+      : ($res['B44'] * $res['E44'] * $res['B45'] * $res['E45'] * $res['H44'] * $res['H43'] * $res['B46'] * $res['E47'] / (1000 * 1000));
+    $res['E50'] = $res['C50'] > $res['I38'] ? "OK" : "NOT OK";
+
+    $res['H50'] = ($beamType->beamClass == 'flitch')
+      ? ($res['B44'] * $res['E44'] * $res['E46'] * $res['B47'] / 1000)
+      : ($res['B44'] * $res['E44'] * $res['B45'] * $res['E45'] * $res['E46'] * $res['B47'] * 2 / 3000);
+    $res['J50'] = $res['H50'] > $res['I40'] ? 'OK' : 'NOT OK';
+
+    $res['C52'] = array_sum([
+      $res['AA14'],
+      $res['AA15'],
+      $res['AA16'],
+      $res['AA17'],
+      $res['AA18']
+    ]);
+    $res['E52'] = $res['C52'] < $res['C14'] ? 'OK' : 'NOT OK';
+
+    $res['H52'] = ($req['C12'] == 0)
+      ? 0
+      : 1000 * (($req['C12'] * 1000) ** 3) / (48 * $res['H46'] * 1000 * $res['H47']);
+    $res['J52'] = $res['H52'] < $req['C15'] ? 'OK' : 'NOT OK';
+
+    dd($res);
+    return $this->response->setJSON($res);
   }
 }

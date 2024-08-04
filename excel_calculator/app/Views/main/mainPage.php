@@ -19,7 +19,7 @@ $props = isset($formProperties) ? $formProperties : []
       </strong>
     </div>
   </div>
-  <form id="form">
+  <form id="form" action="/timber-beam" method="POST">
     <div class="col-xl-12 py-3">
       <div class="d-flex gap-2 align-items-center justify-content-between">
         <div class="btn-group btn-group-sm" role="group" aria-label="">
@@ -161,50 +161,29 @@ $props = isset($formProperties) ? $formProperties : []
   <div id="url" class="d-none"><?= $props['url'] ?></div>
 </div>
 <script>
-  $(document).ready(function () {
-    $('#form').on('submit', function (e) {
-      e.preventDefault(); // Prevent the default form submission
-      const url = document.getElementById('url').innerHTML;
-      // ajax serialize()
-      console.log(url)
-      $.ajax({
-        type: 'POST',
-        url: `${url}`, // Your form action URL
-        data: $(this).serialize(), // Serialize the form data
-        success: function (response) {
-          // Handle the response from the server
-          alert('Form submitted successfully!');
-          console.log(response); // You can log the response for debugging
-        },
-        error: function (xhr, status, error) {
-          // Handle errors
-          alert('Form submission failed! Please input Data or Import File');
-          console.log(xhr.responseText); // Log the error response for debugging
-        }
-      });
-
-      // ajax event
-      // var form = e.target;
-      // var formData = new FormData(form);
-      // $.ajax({
-      //     type: 'POST',
-      //     url: form.action, // Use the form's action URL
-      //     data: formData, // Send the FormData object
-      //     processData: false, // Prevent jQuery from automatically processing the data
-      //     contentType: false, // Prevent jQuery from setting the content type
-      //     success: function (response) {
-      //         // Handle the response from the server
-      //         alert('Form submitted successfully!');
-      //         console.log(response); // You can log the response for debugging
-      //     },
-      //     error: function (xhr, status, error) {
-      //         // Handle errors
-      //         alert('Form submission failed!');
-      //         console.log(xhr.responseText); // Log the error response for debugging
-      //     }
-      // });
-    });
-  });
+  // $(document).ready(function () {
+  //   $('#form').on('submit', function (e) {
+  //     e.preventDefault(); // Prevent the default form submission
+  //     const url = document.getElementById('url').innerHTML;
+  //     // ajax serialize()
+  //     console.log(url)
+  //     $.ajax({
+  //       type: 'POST',
+  //       url: `${url}`, // Your form action URL
+  //       data: $(this).serialize(), // Serialize the form data
+  //       success: function (response) {
+  //         // Handle the response from the server
+  //         alert('Form submitted successfully!');
+  //         console.log(response); // You can log the response for debugging
+  //       },
+  //       error: function (xhr, status, error) {
+  //         // Handle errors
+  //         alert('Form submission failed! Please input Data or Import File');
+  //         console.log(xhr.responseText); // Log the error response for debugging
+  //       }
+  //     });
+  //   });
+  // });
 </script>
 
 <style>
