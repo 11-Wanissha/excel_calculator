@@ -18,15 +18,21 @@ class TimberBeamController extends BaseController
               'menuTitle' => '1. Variable',
               'input' => array(
                 [
-                  'inputType' => 'text',
+                  'inputType' => 'file',
                   'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
+                  'label' => 'Import File', // required
+                  'id' => 'file', // required
+                  'name' => 'file',
+                ],
+                [
+                  'inputType' => 'text',
+            
                   'label' => 'Beam ID', // required
                   'id' => 'C8', // required
                   'name' => 'C8',
                 ],
                 [
                   'inputType' => 'dropdown',
-                  'slot' => 1,
                   'label' => 'Beam Type', // required
                   'selectOption' => "โปรดเลือก",
                   'id' => 'C10', // required
@@ -299,47 +305,47 @@ class TimberBeamController extends BaseController
                       ),
                       'G(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B20" name="B20" value="0.4"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B20" name="B20" value="0.4"  /',
                         ]
                       ),
                       'Q(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C20" name="C20" value="0.25"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C20" name="C20" value="0.25"  /',
                         ]
                       ),
                       'Ψs' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D20" name="D20" value="0.7"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D20" name="D20" value="0.7"  /',
                         ]
                       ),
                       'Ψl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E20" name="E20" value="0"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E20" name="E20" value="0"  /',
                         ]
                       ),
                       'wTrib.Width(m)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="F20" name="F20" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
                         ]
                       ),
                       'P1Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="G20" name="G20" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
                         ]
                       ),
                       'P2Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="H20" name="H20" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
                         ]
                       ),
                       'P3Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="I20" name="I20" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
                         ]
                       ),
                       'P4Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="J20" name="J20" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
                         ]
                       ),
                     ],
@@ -351,47 +357,47 @@ class TimberBeamController extends BaseController
                       ),
                       'G(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B21" name="B21" value="0.4"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B21" name="B21" value="0.4"  /',
                         ]
                       ),
                       'Q(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C21" name="C21" value="1.5"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C21" name="C21" value="1.5"  /',
                         ]
                       ),
                       'Ψs' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D21" name="D21" value="0.7"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D21" name="D21" value="0.7"  /',
                         ]
                       ),
                       'Ψl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E21" name="E21" value="0.4"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E21" name="E21" value="0.4"  /',
                         ]
                       ),
                       'wTrib.Width(m)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="F21" name="F21" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="F21" name="F21" value=""  /',
                         ]
                       ),
                       'P1Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="G21" name="G21" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="G21" name="G21" value=""  /',
                         ]
                       ),
                       'P2Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="H21" name="H21" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="H21" name="H21" value=""  /',
                         ]
                       ),
                       'P3Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="I21" name="I21" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="I21" name="I21" value=""  /',
                         ]
                       ),
                       'P4Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="J21" name="J21" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="J21" name="J21" value=""  /',
                         ]
                       ),
                     ],
@@ -403,47 +409,47 @@ class TimberBeamController extends BaseController
                       ),
                       'G(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B22" name="B22" value="0.4"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B22" name="B22" value="0.4"  /',
                         ]
                       ),
                       'Q(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C22" name="C22" value="1.5"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C22" name="C22" value="1.5"  /',
                         ]
                       ),
                       'Ψs' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D22" name="D22" value="0.7"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D22" name="D22" value="0.7"  /',
                         ]
                       ),
                       'Ψl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E22" name="E22" value="0.4"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E22" name="E22" value="0.4"  /',
                         ]
                       ),
                       'wTrib.Width(m)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="F22" name="F22" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="F22" name="F22" value=""  /',
                         ]
                       ),
                       'P1Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="G22" name="G22" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="G22" name="G22" value=""  /',
                         ]
                       ),
                       'P2Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="H22" name="H22" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="H22" name="H22" value=""  /',
                         ]
                       ),
                       'P3Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="I22" name="I22" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="I22" name="I22" value=""  /',
                         ]
                       ),
                       'P4Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="J22" name="J22" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="J22" name="J22" value=""  /',
                         ]
                       ),
                     ],
@@ -455,7 +461,7 @@ class TimberBeamController extends BaseController
                       ),
                       'G(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B23" name="B23" value="0.3"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B23" name="B23" value="0.3"  /',
                         ]
                       ),
                       'Q(kPa)' => array(
@@ -475,27 +481,27 @@ class TimberBeamController extends BaseController
                       ),
                       'wTrib.Width(m)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="F23" name="F23" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="F23" name="F23" value=""  /',
                         ]
                       ),
                       'P1Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="G23" name="G23" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="G23" name="G23" value=""  /',
                         ]
                       ),
                       'P2Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="H23" name="H23" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="H23" name="H23" value=""  /',
                         ]
                       ),
                       'P3Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="I23" name="I23" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="I23" name="I23" value=""  /',
                         ]
                       ),
                       'P4Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="J23" name="J23" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="J23" name="J23" value=""  /',
                         ]
                       ),
                     ],
@@ -507,7 +513,7 @@ class TimberBeamController extends BaseController
                       ),
                       'G(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B24" name="B24" value="0.4"  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B24" name="B24" value="0.4"  /',
                         ]
                       ),
                       'Q(kPa)' => array(
@@ -527,27 +533,27 @@ class TimberBeamController extends BaseController
                       ),
                       'wTrib.Width(m)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="F24" name="F24" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="F24" name="F24" value=""  /',
                         ]
                       ),
                       'P1Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="G24" name="G24" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="G24" name="G24" value=""  /',
                         ]
                       ),
                       'P2Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="H24" name="H24" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="H24" name="H24" value=""  /',
                         ]
                       ),
                       'P3Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="I24" name="I24" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="I24" name="I24" value=""  /',
                         ]
                       ),
                       'P4Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="J24" name="J24" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="J24" name="J24" value=""  /',
                         ]
                       ),
                     ],
@@ -559,47 +565,47 @@ class TimberBeamController extends BaseController
                       ),
                       'G(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B25" name="B25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B25" name="B25" value=""  /',
                         ]
                       ),
                       'Q(kPa)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C25" name="C25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C25" name="C25" value=""  /',
                         ]
                       ),
                       'Ψs' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D25" name="D25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D25" name="D25" value=""  /',
                         ]
                       ),
                       'Ψl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E25" name="E25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E25" name="E25" value=""  /',
                         ]
                       ),
                       'wTrib.Width(m)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="F25" name="F25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="F25" name="F25" value=""  /',
                         ]
                       ),
                       'P1Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="G25" name="G25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="G25" name="G25" value=""  /',
                         ]
                       ),
                       'P2Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="H25" name="H25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="H25" name="H25" value=""  /',
                         ]
                       ),
                       'P3Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="I25" name="I25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="I25" name="I25" value=""  /',
                         ]
                       ),
                       'P4Trib.Area(m^2)' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="J25" name="J25" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="J25" name="J25" value=""  /',
                         ]
                       ),
                     ],
@@ -680,22 +686,22 @@ class TimberBeamController extends BaseController
                       ),
                       'P1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B31" name="B31" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B31" name="B31" value=""  /',
                         ]
                       ),
                       'P2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C31" name="C31" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C31" name="C31" value=""  /',
                         ]
                       ),
                       'P3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D31" name="D31" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D31" name="D31" value=""  /',
                         ]
                       ),
                       'P4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E31" name="E31" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E31" name="E31" value=""  /',
                         ]
                       ),
                     ],
@@ -707,22 +713,22 @@ class TimberBeamController extends BaseController
                       ),
                       'P1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B32" name="B32" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B32" name="B32" value=""  /',
                         ]
                       ),
                       'P2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C32" name="C32" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C32" name="C32" value=""  /',
                         ]
                       ),
                       'P3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D32" name="D32" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D32" name="D32" value=""  /',
                         ]
                       ),
                       'P4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E32" name="E32" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E32" name="E32" value=""  /',
                         ]
                       ),
                     ],
@@ -734,22 +740,22 @@ class TimberBeamController extends BaseController
                       ),
                       'P1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B33" name="B33" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B33" name="B33" value=""  /',
                         ]
                       ),
                       'P2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C33" name="C33" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C33" name="C33" value=""  /',
                         ]
                       ),
                       'P3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D33" name="D33" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D33" name="D33" value=""  /',
                         ]
                       ),
                       'P4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E33" name="E33" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E33" name="E33" value=""  /',
                         ]
                       ),
                     ],
@@ -761,22 +767,22 @@ class TimberBeamController extends BaseController
                       ),
                       'P1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B34" name="B34" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B34" name="B34" value=""  /',
                         ]
                       ),
                       'P2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C34" name="C34" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C34" name="C34" value=""  /',
                         ]
                       ),
                       'P3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D34" name="D34" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D34" name="D34" value=""  /',
                         ]
                       ),
                       'P4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E34" name="E34" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E34" name="E34" value=""  /',
                         ]
                       ),
                     ],
@@ -788,22 +794,22 @@ class TimberBeamController extends BaseController
                       ),
                       'P1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B35" name="B35" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B35" name="B35" value=""  /',
                         ]
                       ),
                       'P2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C35" name="C35" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C35" name="C35" value=""  /',
                         ]
                       ),
                       'P3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D35" name="D35" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D35" name="D35" value=""  /',
                         ]
                       ),
                       'P4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E35" name="E35" value=""  /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E35" name="E35" value=""  /',
                         ]
                       ),
                     ],
@@ -890,32 +896,32 @@ class TimberBeamController extends BaseController
                       ),
                       'G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B39" name="B39" value=""  disabled/',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B39" name="B39" value=""  disabled/',
                         ]
                       ),
                       'Q1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C39" name="C39" value=""  disabled/',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C39" name="C39" value=""  disabled/',
                         ]
                       ),
                       'Q2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D39" name="D39" value=""  disabled/',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D39" name="D39" value=""  disabled/',
                         ]
                       ),
                       'Q3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E39" name="E39" value=""  disabled/',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E39" name="E39" value=""  disabled/',
                         ]
                       ),
                       'Q4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="F39" name="F39" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="F39" name="F39" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="G39" name="G39" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="G39" name="G39" value="" disabled /',
                         ]
                       ),
                     ],
@@ -927,32 +933,32 @@ class TimberBeamController extends BaseController
                       ),
                       'G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="B40" name="B40" value=""  disabled/',
+                          'text' => '<input type="number" step="any"  class="form-control" id="B40" name="B40" value=""  disabled/',
                         ]
                       ),
                       'Q1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="C40" name="C40" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="C40" name="C40" value="" disabled /',
                         ]
                       ),
                       'Q2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="D40" name="D40" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="D40" name="D40" value="" disabled /',
                         ]
                       ),
                       'Q3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="E40" name="E40" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="E40" name="E40" value="" disabled /',
                         ]
                       ),
                       'Q4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="F40" name="F40" value=""  disabled/',
+                          'text' => '<input type="number" step="any"  class="form-control" id="F40" name="F40" value=""  disabled/',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="G40" name="G40" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="G40" name="G40" value="" disabled /',
                         ]
                       ),
                     ],
@@ -1142,68 +1148,68 @@ class TimberBeamController extends BaseController
                       ),
                       'Gcol1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="O14" name="O14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="O14" name="O14" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="P14" name="P14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="P14" name="P14" value="" disabled /',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Q14" name="Q14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Q14" name="Q14" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="R14" name="R14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="R14" name="R14" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="S14" name="S14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="S14" name="S14" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="T14" name="T14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="T14" name="T14" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="U14" name="U14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="U14" name="U14" value="" disabled /',
                           'id' => 'U14',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="V14" name="V14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="V14" name="V14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="W14" name="W14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="W14" name="W14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="X14" name="X14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="X14" name="X14" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Y14" name="Y14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Y14" name="Y14" value="" disabled /',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Z14" name="Z14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Z14" name="Z14" value="" disabled /',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="AA14" name="AA14" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="AA14" name="AA14" value="" disabled /',
                         ]
                       ),
                     ],
@@ -1215,72 +1221,72 @@ class TimberBeamController extends BaseController
                       ),
                       'Gcol1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="O15" name="O15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="O15" name="O15" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="P15" name="P15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="P15" name="P15" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Q15" name="Q15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Q15" name="Q15" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="R15" name="R15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="R15" name="R15" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="S15" name="S15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="S15" name="S15" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="T15" name="T15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="T15" name="T15" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="U15" name="U15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="U15" name="U15" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="V15" name="V15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="V15" name="V15" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="W15" name="W15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="W15" name="W15" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="X15" name="X15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="X15" name="X15" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Y15" name="Y15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Y15" name="Y15" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Z15" name="Z15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Z15" name="Z15" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="AA15" name="AA15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="AA15" name="AA15" value="" disabled /',
                         ]
                       ),
                     ],
@@ -1292,72 +1298,72 @@ class TimberBeamController extends BaseController
                       ),
                       'Gcol1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="O16" name="O16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="O16" name="O16" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="P16" name="P16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="P16" name="P16" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Q16" name="Q16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Q16" name="Q16" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="R16" name="R16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="R16" name="R16" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="S16" name="S16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="S16" name="S16" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="T16" name="T16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="T16" name="T16" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="U16" name="U16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="U16" name="U16" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="V16" name="V16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="V16" name="V16" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="W16" name="W16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="W16" name="W16" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="X16" name="X16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="X16" name="X16" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Y16" name="Y16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Y16" name="Y16" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Z16" name="Z16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Z16" name="Z16" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="AA16" name="AA16" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="AA16" name="AA16" value="" disabled /',
                         ]
                       ),
                     ],
@@ -1369,72 +1375,72 @@ class TimberBeamController extends BaseController
                       ),
                       'Gcol1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="O17" name="O17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="O17" name="O17" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="P17" name="P17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="P17" name="P17" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Q17" name="Q17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Q17" name="Q17" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="R17" name="R17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="R17" name="R17" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="S17" name="S17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="S17" name="S17" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="T17" name="T17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="T17" name="T17" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="U17" name="U17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="U17" name="U17" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="V17" name="V17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="V17" name="V17" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="W17" name="W17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="W17" name="W17" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="X17" name="X17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="X17" name="X17" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Y17" name="Y17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Y17" name="Y17" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Z17" name="Z15" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Z17" name="Z15" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="AA17" name="AA17" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="AA17" name="AA17" value="" disabled /',
                         ]
                       ),
                     ],
@@ -1446,72 +1452,72 @@ class TimberBeamController extends BaseController
                       ),
                       'Gcol1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="O18" name="O18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="O18" name="O18" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="P18" name="P18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="P18" name="P18" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Q18" name="Q18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Q18" name="Q18" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="R18" name="R18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="R18" name="R18" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="S18" name="S18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="S18" name="S18" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="T18" name="T18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="T18" name="T18" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="U18" name="U18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="U18" name="U18" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="V18" name="V18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="V18" name="V18" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="W18" name="W18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="W18" name="W18" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="X18" name="X18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="X18" name="X18" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Y18" name="Y18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Y18" name="Y18" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Z18" name="Z18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Z18" name="Z18" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="AA18" name="AA18" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="AA18" name="AA18" value="" disabled /',
                         ]
                       ),
                     ],
@@ -1523,72 +1529,72 @@ class TimberBeamController extends BaseController
                       ),
                       'Gcol1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="O19" name="O19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="O19" name="O19" value="" disabled /',
                         ],
                       ),
                       'Qroof' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="P19" name="P19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="P19" name="P19" value="" disabled /',
                           'id' => 'P15',
                         ]
                       ),
                       'Qfloor' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Q19" name="Q19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Q19" name="Q19" value="" disabled /',
                         ]
                       ),
                       'Qdeck' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="R19" name="R19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="R19" name="R19" value="" disabled /',
                         ]
                       ),
                       'Qwall' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="S19" name="S19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="S19" name="S19" value="" disabled /',
                         ]
                       ),
                       '1.2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="T19" name="T19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="T19" name="T19" value="" disabled /',
                         ]
                       ),
                       'Mstar-mid' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="U19" name="U19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="U19" name="U19" value="" disabled /',
                           'id' => 'U15',
                         ]
                       ),
                       'Mstar-p1' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="V19" name="V19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="V19" name="V19" value="" disabled /',
                         ]
                       ),
                       'Mstar-p2' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="W19" name="W19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="W19" name="W19" value="" disabled /',
                           'id' => 'W15',
                         ]
                       ),
                       'Mstar-p3' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="X19" name="X19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="X19" name="X19" value="" disabled /',
                         ]
                       ),
                       'Mstar-p4' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Y19" name="Y19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Y19" name="Y19" value="" disabled /',
                           'id' => 'Y15',
                         ]
                       ),
                       'k2G' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="Z19" name="Z19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="Z19" name="Z19" value="" disabled /',
                           'id' => 'Z15',
                         ]
                       ),
                       'defl' => array(
                         [
-                          'text' => '<input type="number" class="form-control" id="AA19" name="AA19" value="" disabled /',
+                          'text' => '<input type="number" step="any"  class="form-control" id="AA19" name="AA19" value="" disabled /',
                         ]
                       ),
                     ],

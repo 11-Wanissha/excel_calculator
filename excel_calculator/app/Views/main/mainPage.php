@@ -158,8 +158,39 @@ $props = isset($formProperties) ? $formProperties : []
       <?php endforeach; ?>
     </div>
   </form>
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast-success" class="toast align-items-center text-white bg-success border-0" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Success
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast-err" class="toast align-items-center text-white bg-danger border-0" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Form submission failed! Please input Data or Import File and try again
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
   <div id="url" class="d-none"><?= $props['url'] ?></div>
 </div>
+<script>
+  document.getElementById('liveToastBtn').addEventListener('click', function () {
+    var toastElement = document.getElementById('liveToast');
+    var toast = new bootstrap.Toast(toastElement);
+    toast.show();
+  });
+</script>
 <script>
   $(document).ready(function () {
     $('#form').on('submit', function (e) {
@@ -172,13 +203,17 @@ $props = isset($formProperties) ? $formProperties : []
         url: `${url}`, // Your form action URL
         data: $(this).serialize(), // Serialize the form data
         success: function (response) {
-          // Handle the response from the server
-          alert('Form submitted successfully!');
-          console.log(response); // You can log the response for debugging
+          for (let data in response.data) {
+            document.getElementById(data).innerHTML = response.data[data];
+          }
+          var toastElement = document.getElementById('liveToast-success');
+          var toast = new bootstrap.Toast(toastElement);
+          toast.show();
         },
         error: function (xhr, status, error) {
-          // Handle errors
-          alert('Form submission failed! Please input Data or Import File');
+          var toastElement = document.getElementById('liveToast-err');
+          var toast = new bootstrap.Toast(toastElement);
+          toast.show();
           console.log(xhr.responseText); // Log the error response for debugging
         }
       });
