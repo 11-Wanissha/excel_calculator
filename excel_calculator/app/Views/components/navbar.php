@@ -36,6 +36,7 @@
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="https://mymockweb.online/tank">Water tank calculator</a></li>
 							<li><a class="dropdown-item" href="https://mymockweb.online/soakage">Soakage calculator</a></li>
+							<li><a class="dropdown-item" href="https://mymockweb.online/soakage">Timber Beam calculator</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">

@@ -9,7 +9,7 @@ class TimberBeamController extends BaseController
   public function renderer()
   {
     $formProperties = [
-      'title' => 'Calculator',
+      'title' => 'Timber Beam Calculator',
       'url' => '/timber-beam',
       'secTion' => array(
         [
@@ -871,16 +871,16 @@ class TimberBeamController extends BaseController
                       'label' => "Q1",
                     ],
                     [
-                      'id' => "Q1",
-                      'label' => "Q1",
+                      'id' => "Q2",
+                      'label' => "Q2",
                     ],
                     [
-                      'id' => "Q1",
-                      'label' => "Q1",
+                      'id' => "Q3",
+                      'label' => "Q3",
                     ],
                     [
-                      'id' => "Q1",
-                      'label' => "Q1",
+                      'id' => "Q4",
+                      'label' => "Q4",
                     ],
                     [
                       'id' => "1.2G",
@@ -1062,6 +1062,7 @@ class TimberBeamController extends BaseController
                   'id' => 'H47', // required
                   'disabled' => true,
                   'type' => 'number',
+                  'slot' => 1,
                 ],
                 [
                   'inputType' => 'text',
@@ -1078,7 +1079,6 @@ class TimberBeamController extends BaseController
                   'name' => 'E50', // required
                   'id' => 'E50', // required
                   'disabled' => true,
-                  'unit' => 'kNm',
                 ],
                 [
                   'inputType' => 'text',
@@ -1095,7 +1095,6 @@ class TimberBeamController extends BaseController
                   'name' => 'J50', // required
                   'id' => 'J50', // required
                   'disabled' => true,
-                  'unit' => 'kNm',
                 ],
                 [
                   'inputType' => 'text',
@@ -1112,7 +1111,6 @@ class TimberBeamController extends BaseController
                   'name' => 'E52', // required
                   'id' => 'E52', // required
                   'disabled' => true,
-                  'unit' => 'kNm',
                 ],
                 [
                   'inputType' => 'text',
@@ -1129,7 +1127,6 @@ class TimberBeamController extends BaseController
                   'name' => 'J52', // required
                   'id' => 'J52', // required
                   'disabled' => true,
-                  'unit' => 'kNm',
                 ],
               ),
             ],

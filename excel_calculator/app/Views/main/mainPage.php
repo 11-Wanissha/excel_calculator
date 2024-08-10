@@ -26,7 +26,18 @@ $props = isset($formProperties) ? $formProperties : []
           <button type="button" class="btn btn-outline-secondary" disabled="">Share</button>
           <button type="button" class="btn btn-outline-secondary" id="export">Export</button>
         </div>
-        <button type="submit" class="btn btn-primary px-5 me-4">Submit</button>
+        <button type="submit" class="btn btn-primary px-5 me-4" id="submitBtn">Submit</button>
+        <div id="loadingSpinner" style="display: none;">
+          <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -185,32 +196,42 @@ $props = isset($formProperties) ? $formProperties : []
   <div id="url" class="d-none"><?= $props['url'] ?></div>
 </div>
 <script>
-  document.getElementById('liveToastBtn').addEventListener('click', function () {
-    var toastElement = document.getElementById('liveToast');
-    var toast = new bootstrap.Toast(toastElement);
-    toast.show();
-  });
-</script>
-<script>
   $(document).ready(function () {
     $('#form').on('submit', function (e) {
       e.preventDefault(); // Prevent the default form submission
       const url = document.getElementById('url').innerHTML;
-      // ajax serialize()
-      console.log(url)
+      $('#submitBtn').hide();
+
+      // Show the loading spinner
+      $('#loadingSpinner').show();
       $.ajax({
         type: 'POST',
         url: `${url}`, // Your form action URL
         data: $(this).serialize(), // Serialize the form data
         success: function (response) {
-          for (let data in response.data) {
-            document.getElementById(data).innerHTML = response.data[data];
+          $('#loadingSpinner').hide();
+          // Show the loading spinner
+          $('#submitBtn').show();
+          for (let data in response) {
+            let element = document.querySelector("#" + data);
+            let tdElement = document.querySelector('td.overflow input#' + data);
+            if (tdElement) {
+              tdElement.value = response[data];
+            }
+            else if (element) {
+              element.value = response[data];
+            } else {
+              console.warn(`No element found with ID: ${data}`);
+            }
           }
           var toastElement = document.getElementById('liveToast-success');
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
         },
         error: function (xhr, status, error) {
+          $('#loadingSpinner').hide();
+          // Show the loading spinner
+          $('#submitBtn').show();
           var toastElement = document.getElementById('liveToast-err');
           var toast = new bootstrap.Toast(toastElement);
           toast.show();

@@ -16,7 +16,7 @@
 
     <!-- external css -->
     <link rel="stylesheet" href="<?= base_url('assets/css/main.css') ?>">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url('assets/js/jquery.js'); ?>"></script>
 </head>
 
 <body>
