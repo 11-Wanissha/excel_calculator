@@ -286,4 +286,14 @@ class TimberBeam
                 "beamSize" => $size,
             ];
     }
+
+    public function getBeamType()
+    {
+        return $this->beamType;
+    }
+
+    public function getBeamSize()
+    {
+        return $this->beamSize;
+    }
 }

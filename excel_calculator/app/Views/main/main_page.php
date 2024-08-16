@@ -10,7 +10,7 @@ $count = 0;
 $props = new stdClass();
 $props = isset($formProperties) ? $formProperties : []
 
-  ?>
+?>
 <div class="mb-5">
   <div class="bg-blue">
     <div class="h5 p-5 text-center">
@@ -97,7 +97,7 @@ $props = isset($formProperties) ? $formProperties : []
                             }
                             ?>
                           </div>
-                        <?php endforeach;
+                      <?php endforeach;
                       endif; ?>
                       <div>
                         <?php if (isset($menu['subMenu']) && !empty($menu['subMenu'])): ?>
@@ -196,8 +196,10 @@ $props = isset($formProperties) ? $formProperties : []
   <div id="url" class="d-none"><?= $props['url'] ?></div>
 </div>
 <script>
-  $(document).ready(function () {
-    $('#form').on('submit', function (e) {
+  const importUrl = <?= json_encode($props['importUrl']) ?>
+
+  $(document).ready(function() {
+    $('#form').on('submit', function(e) {
       e.preventDefault(); // Prevent the default form submission
       const url = document.getElementById('url').innerHTML;
       $('#submitBtn').hide();
@@ -208,7 +210,7 @@ $props = isset($formProperties) ? $formProperties : []
         type: 'POST',
         url: `${url}`, // Your form action URL
         data: $(this).serialize(), // Serialize the form data
-        success: function (response) {
+        success: function(response) {
           $('#loadingSpinner').hide();
           // Show the loading spinner
           $('#submitBtn').show();
@@ -217,8 +219,7 @@ $props = isset($formProperties) ? $formProperties : []
             let tdElement = document.querySelector('td.overflow input#' + data);
             if (tdElement) {
               tdElement.value = response[data];
-            }
-            else if (element) {
+            } else if (element) {
               element.value = response[data];
             } else {
               console.warn(`No element found with ID: ${data}`);
@@ -228,7 +229,7 @@ $props = isset($formProperties) ? $formProperties : []
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
         },
-        error: function (xhr, status, error) {
+        error: function(xhr, status, error) {
           $('#loadingSpinner').hide();
           // Show the loading spinner
           $('#submitBtn').show();
@@ -239,6 +240,49 @@ $props = isset($formProperties) ? $formProperties : []
         }
       });
     });
+
+    $('#file').on('change', function() {
+      $('#loadingSpinner').show();
+
+      const fileEl = $('#file')[0]
+      const file = fileEl.files[0]
+
+      if (!file) return
+
+      const formData = new FormData()
+      formData.append('file', file)
+
+       $.ajax({
+        url: importUrl,
+        type: 'POST',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          $('#loadingSpinner').hide();
+          
+          for (let data in response) {
+            let element = document.querySelector("#" + data);
+            let tdElement = document.querySelector('td.overflow input#' + data);
+            if (tdElement) {
+              tdElement.value = response[data];
+            } else if (element) {
+              element.value = response[data];
+            } else {
+              console.warn(`No element found with ID: ${data}`);
+            }
+          }
+          var toastElement = document.getElementById('liveToast-success');
+          var toast = new bootstrap.Toast(toastElement);
+          toast.show();
+        },
+        error: function(xhr, status, error) {
+          $('#loadingSpinner').hide();
+          console.log(error)
+        }
+      })
+    })
   });
 </script>
 

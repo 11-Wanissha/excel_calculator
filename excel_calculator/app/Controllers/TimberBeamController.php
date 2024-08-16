@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\TimberBeam;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 class TimberBeamController extends BaseController
 {
@@ -11,6 +13,7 @@ class TimberBeamController extends BaseController
     $formProperties = [
       'title' => 'Timber Beam Calculator',
       'url' => '/timber-beam',
+      'importUrl' => '/timber-beam-import',
       'secTion' => array(
         [
           'menu' => array(
@@ -26,7 +29,7 @@ class TimberBeamController extends BaseController
                 ],
                 [
                   'inputType' => 'text',
-            
+
                   'label' => 'Beam ID', // required
                   'id' => 'C8', // required
                   'name' => 'C8',
@@ -1676,8 +1679,11 @@ class TimberBeamController extends BaseController
       ),
     ];
 
-    return view('main/mainPage', [
-      "formProperties" => $formProperties
+    $model = new TimberBeam();
+
+    return view('pages/timber_beam', [
+      "formProperties" => $formProperties,
+      "beamSize" => $model->getBeamSize()
     ]);
   }
 
@@ -2061,5 +2067,46 @@ class TimberBeamController extends BaseController
     $res['J52'] = $res['H52'] < $req['C15'] ? 'OK' : 'NOT OK';
 
     return $this->response->setJSON($res);
+  }
+
+  public function import()
+  {
+    $file = $this->request->getFile('file');
+
+    if (!$file || !$file->isValid() || $file->hasMoved()) {
+      return $this->response->setJSON(['success' => false, 'message' => 'No file was uploaded.']);
+    }
+
+    $reader = new Xlsx();
+    $sheet = $reader->load($file->getTempName());
+    $worksheet = $sheet->getActiveSheet();
+
+    $fields = ['C8', 'C12', 'B23', 'B24', 'D13', 'C15', 'I31', 'I33', 'B45', 'E45'];
+
+    $rangeFields = [
+      $worksheet->rangeToArray('B20:E22', null, true, true, true),
+      $worksheet->rangeToArray('B25:E25', null, true, true, true),
+      $worksheet->rangeToArray('F20:J25', null, true, true, true),
+      $worksheet->rangeToArray('G27:J27', null, true, true, true),
+      $worksheet->rangeToArray('B31:E35', null, true, true, true),
+    ];
+
+    $cells = [];
+
+    foreach ($fields as $field) {
+      $cell = $worksheet->getCell($field)->getValue();
+      $cells[$field] = $cell;
+    }
+
+    foreach ($rangeFields as $range) {
+      foreach ($range as $row => $columns) {
+        foreach ($columns as $col => $value) {
+          $cellReference = $col . $row;
+          $cells[$cellReference] = $value;
+        }
+      }
+    }
+
+    return $this->response->setJSON($cells);
   }
 }
