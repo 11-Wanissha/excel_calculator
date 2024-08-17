@@ -1674,6 +1674,153 @@ class TimberBeamController extends BaseController
                 ]
               )
             ],
+            [
+              'menuTitle' => '7. BEAM INFORMATION',
+              'input' => array(
+                [
+                  'slot' => 1,
+                  'inputType' => 'table',
+                  'column' => array(
+                    [
+                      'id' => 'material',
+                      'label' => 'Material',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'type',
+                      'label' => 'Type',
+                      'width' => '200px',
+                    ],
+                    [
+                      'id' => 'size',
+                      'label' => 'Size',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'fb',
+                      'label' => 'fb',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'fs',
+                      'label' => 'fs',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'E',
+                      'label' => 'E',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'fb-wet',
+                      'label' => 'fb (wet)',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'fs-wet',
+                      'label' => 'fs (wet)',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'E-wet',
+                      'label' => 'E (wet)',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'self-wt',
+                      'label' => 'Self Wt',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'b',
+                      'label' => 'b',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'd',
+                      'label' => 'd',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'A',
+                      'label' => 'A',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'Z',
+                      'label' => 'Z',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'I',
+                      'label' => 'I',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'b-flitch',
+                      'label' => 'b (flitch)',
+                      'width' => '100px',
+                    ],
+                    [
+                      'id' => 'd-flitch',
+                      'label' => 'd (flitch)',
+                      'width' => '100px',
+                    ],
+                  ),
+                  'row' => array([
+                    'material' => array(['text' => '<input type="text" step="any"  class="form-control text-capitalize" id="AC14" name="AC14" value="" disabled /']),
+                    'type' => array(['text' => '<input type="text" step="any"  class="form-control" id="AD14" name="AD14" value="" disabled /']),
+                    'size' => array(['text' => '<input type="text" step="any"  class="form-control" id="AE14" name="AE14" value="" disabled /']),
+                    'fb' => array(['text' => '<input type="number" step="any"  class="form-control" id="AF14" name="AF14" value="" disabled /']),
+                    'fs' => array(['text' => '<input type="number" step="any"  class="form-control" id="AG14" name="AG14" value="" disabled /']),
+                    'E' => array(['text' => '<input type="number" step="any"  class="form-control" id="AH14" name="AH14" value="" disabled /']),
+                    'fb-wet' => array(['text' => '<input type="number" step="any"  class="form-control" id="AI14" name="AI14" value="" disabled /']),
+                    'fs-wet' => array(['text' => '<input type="number" step="any"  class="form-control" id="AJ14" name="AJ14" value="" disabled /']),
+                    'E-wet' => array(['text' => '<input type="number" step="any"  class="form-control" id="AK14" name="AK14" value="" disabled /']),
+                    'self-wt' => array(['text' => '<input type="number" step="any"  class="form-control" id="AL14" name="AL14" value="" disabled /']),
+                    'b' => array(['text' => '<input type="number" step="any"  class="form-control" id="AM14" name="AM14" value="" disabled /']),
+                    'd' => array(['text' => '<input type="number" step="any"  class="form-control" id="AN14" name="AN14" value="" disabled /']),
+                    'A' => array(['text' => '<input type="number" step="any"  class="form-control" id="AO14" name="AO14" value="" disabled /']),
+                    'Z' => array(['text' => '<input type="number" step="any"  class="form-control" id="AP14" name="AP14" value="" disabled /']),
+                    'I' => array(['text' => '<input type="number" step="any"  class="form-control" id="AQ14" name="AQ14" value="" disabled /']),
+                    'b-flitch' => array(['text' => '<input type="number" step="any"  class="form-control" id="AR14" name="AR14" value="" disabled /']),
+                    'd-flitch' => array(['text' => '<input type="number" step="any"  class="form-control" id="AS14" name="AS14" value="" disabled /']),
+                  ])
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => 'EQ3.5',
+                  'id' => 'AD17',
+                  'name' => 'AD17',
+                  'disabled' => true,
+                  'type' => 'number',
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => 'S1',
+                  'id' => 'AF17',
+                  'name' => 'AF17',
+                  'disabled' => true,
+                  'type' => 'number',
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => 'k8 - dry',
+                  'id' => 'AI17',
+                  'name' => 'AI17',
+                  'disabled' => true,
+                  'type' => 'number',
+                ],
+                [
+                  'inputType' => 'text',
+                  'label' => 'k8 - wet',
+                  'id' => 'AI18',
+                  'name' => 'AI18',
+                  'disabled' => true,
+                  'type' => 'number',
+                ],
+              )
+            ]
           )
         ],
       ),
@@ -1707,9 +1854,9 @@ class TimberBeamController extends BaseController
     $beamType = $targetBeam['beamType'];
 
     $res['C27'] = $targetBeam['beamSize']->selfWt;
-    $res['I35'] = ($beamType->beamClass == "timber" || $beamType->beamClass == "glulam") && !isset($req['I34']) ? 2
-      : (($beamType->beamClass == "timber" || $beamType->beamClass == "glulam") && isset($req['I34']) ? 3
-        : ((str_contains($beamType->beamClass, 'lvl') || $beamType->beamClass == "flitch") && isset($req['I34']) ? "ERROR"
+    $res['I35'] = ($beamType->beamClass == "timber" || $beamType->beamClass == "glulam") && $req['I34'] == "No" ? 2
+      : (($beamType->beamClass == "timber" || $beamType->beamClass == "glulam") && $req['I34'] == "Yes" ? 3
+        : ((str_contains($beamType->beamClass, 'lvl') || $beamType->beamClass == "flitch") && $req['I34'] == "Yes" ? "ERROR"
           : (($beamType->beamClass == "fltch") ? 1.3
             : 2)));
 
@@ -1767,6 +1914,7 @@ class TimberBeamController extends BaseController
     $res["W14"] = $res['T14'] * $req['H27'] * ($req['C12'] - $req['H27']) / 2;
     $res["X14"] = $res['T14'] * $req['I27'] * ($req['C12'] - $req['I27']) / 2;
     $res["Y14"] = $res['T14'] * $req['J27'] * ($req['C12'] - $req['J27']) / 2;
+
     $res["Z14"] = $res['I35'] * $res['O14'] +
       $res['I35'] * $req['E20'] * $res['P14'] +
       ($req['D20'] - $req['E20']) * $res['P14'] +
@@ -1899,7 +2047,6 @@ class TimberBeamController extends BaseController
       ($req['D25'] - $req['E25']) * $res['S18'];
 
     /* ============================================= */
-
     /* defl mids */
     $res['AA14'] = $req['C12'] == "" ? 0 : (5 * $res['Z14'] * pow($req['C12'], 4) / (384 * $res['H46'] * 1000000 * $targetBeam['beamSize']->I)) * 1000;
     $res['AA15'] = $req['C12'] == "" ? 0 : ($res['Z15'] * min($req['G27'], $req['C12'] - $req['G27']) *
@@ -2020,7 +2167,7 @@ class TimberBeamController extends BaseController
     $res['I39'] = $res['I38'] == $res['U19'] ? "at midspan" : ($res['I38'] == $res['V19'] ? "at P1" : ($res['I38'] == $res['W19'] ? "at P2" : ($res['I38'] == $res['X19'] ? "at P3" : ($res['I38'] == $res['Y19'] ? "at P4" : "ERROR"))));
 
     $res['I40'] = max(array($res['G39'], $res['G40']));
-    $res['G41'] = "at support";
+    $res['I41'] = "at support";
 
     $res['B44'] = (str_contains($req['C10'], 'lvl') || str_contains($req['C10'], 'flitch')) ? 0.9 : ($req['C10'] == 'custom' ? $req['AE22'] : 0.8);
     $res['E44'] = $req['I33'];
@@ -2065,6 +2212,25 @@ class TimberBeamController extends BaseController
       ? 0
       : 1000 * (($req['C12'] * 1000) ** 3) / (48 * $res['H46'] * 1000 * $res['H47']);
     $res['J52'] = $res['H52'] < $req['C15'] ? 'OK' : 'NOT OK';
+
+    $res['AC14'] = $targetBeam['beamType']->beamClass;
+    $res['AD14'] = $targetBeam['beamType']->name;
+    $res['AE14'] = $targetBeam['beamSize']->size;
+    $res['AF14'] = $targetBeam['beamType']->fb;
+    $res['AG14'] = $targetBeam['beamType']->fs;
+    $res['AH14'] = $targetBeam['beamType']->E;
+    $res['AI14'] = $targetBeam['beamType']->fbW;
+    $res['AJ14'] = $targetBeam['beamType']->fsW;
+    $res['AK14'] = $targetBeam['beamType']->EW;
+
+    $res['AL14'] = $targetBeam['beamSize']->selfWt;
+    $res['AM14'] = $targetBeam['beamSize']->b;
+    $res['AN14'] = $targetBeam['beamSize']->d;
+    $res['AO14'] = $targetBeam['beamSize']->A;
+    $res['AP14'] = $targetBeam['beamSize']->Z;
+    $res['AQ14'] = $targetBeam['beamSize']->I;
+    $res['AR14'] = $targetBeam['beamSize']->bT;
+    $res['AS14'] = $targetBeam['beamSize']->dT;
 
     return $this->response->setJSON($res);
   }

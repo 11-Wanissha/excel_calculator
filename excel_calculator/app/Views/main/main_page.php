@@ -26,7 +26,7 @@ $props = isset($formProperties) ? $formProperties : []
           <button type="button" class="btn btn-outline-secondary" disabled="">Share</button>
           <button type="button" class="btn btn-outline-secondary" id="export">Export</button>
         </div>
-        <button type="submit" class="btn btn-primary px-5 me-4" id="submitBtn">Submit</button>
+        <button type="submit" class="btn btn-primary px-5 me-4" id="submitBtn">Calculate</button>
         <div id="loadingSpinner" style="display: none;">
           <div class="spinner-grow text-danger" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -243,6 +243,7 @@ $props = isset($formProperties) ? $formProperties : []
 
     $('#file').on('change', function() {
       $('#loadingSpinner').show();
+      $('#submitBtn').hide();
 
       const fileEl = $('#file')[0]
       const file = fileEl.files[0]
@@ -261,6 +262,7 @@ $props = isset($formProperties) ? $formProperties : []
         processData: false,
         success: function(response) {
           $('#loadingSpinner').hide();
+          $('#submitBtn').show();
           
           for (let data in response) {
             let element = document.querySelector("#" + data);
@@ -279,6 +281,7 @@ $props = isset($formProperties) ? $formProperties : []
         },
         error: function(xhr, status, error) {
           $('#loadingSpinner').hide();
+          $('#submitBtn').show();
           console.log(error)
         }
       })
