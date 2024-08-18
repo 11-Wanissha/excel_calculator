@@ -218,9 +218,9 @@ $props = isset($formProperties) ? $formProperties : []
             let element = document.querySelector("#" + data);
             let tdElement = document.querySelector('td.overflow input#' + data);
             if (tdElement) {
-              tdElement.value = response[data];
+              tdElement.value = response[data]
             } else if (element) {
-              element.value = response[data];
+              element.value = response[data]
             } else {
               console.warn(`No element found with ID: ${data}`);
             }
@@ -253,7 +253,7 @@ $props = isset($formProperties) ? $formProperties : []
       const formData = new FormData()
       formData.append('file', file)
 
-       $.ajax({
+      $.ajax({
         url: importUrl,
         type: 'POST',
         data: formData,
@@ -263,14 +263,14 @@ $props = isset($formProperties) ? $formProperties : []
         success: function(response) {
           $('#loadingSpinner').hide();
           $('#submitBtn').show();
-          
+
           for (let data in response) {
             let element = document.querySelector("#" + data);
             let tdElement = document.querySelector('td.overflow input#' + data);
             if (tdElement) {
-              tdElement.value = response[data];
+              tdElement.value = response[data]
             } else if (element) {
-              element.value = response[data];
+              element.value = response[data]
             } else {
               console.warn(`No element found with ID: ${data}`);
             }

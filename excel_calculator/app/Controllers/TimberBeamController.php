@@ -2232,6 +2232,12 @@ class TimberBeamController extends BaseController
     $res['AR14'] = $targetBeam['beamSize']->bT;
     $res['AS14'] = $targetBeam['beamSize']->dT;
 
+    foreach ($res as $key => $val) {
+      if (is_numeric($val)) {
+        $res[$key] =  number_format((float)$val, 5, '.', '');
+      }
+    }
+
     return $this->response->setJSON($res);
   }
 
