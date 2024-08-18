@@ -169,7 +169,7 @@ $props = isset($formProperties) ? $formProperties : []
       <?php endforeach; ?>
     </div>
   </form>
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
     <div id="liveToast-success" class="toast align-items-center text-white bg-success border-0" role="alert"
       aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
@@ -181,7 +181,7 @@ $props = isset($formProperties) ? $formProperties : []
       </div>
     </div>
   </div>
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
     <div id="liveToast-err" class="toast align-items-center text-white bg-danger border-0" role="alert"
       aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
