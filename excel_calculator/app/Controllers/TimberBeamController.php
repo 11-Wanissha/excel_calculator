@@ -250,53 +250,59 @@ class TimberBeamController extends BaseController
                     [
                       'id' => "name",
                       'label' => "",
+                      
                     ],
                     [
                       'id' => "G(kPa)",
                       'label' => "G (kPa)",
                       'unit' => 'kPa',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => "Q(kPa)",
                       'label' => "Q (kPa)",
                       'unit' => 'kPa',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => "Ψs",
                       'label' => "Ψs",
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => "Ψl",
                       'label' => "Ψl",
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => "wTrib.Width(m)",
                       'label' => "w Trib. Width(m)",
-                      'unit' => 'm'
+                      'unit' => 'm',
+                      
                     ],
                     [
                       'id' => "P1Trib.Area(m^2)",
                       'label' => "P1 Trib. Area (m^2)",
-                      'unit' => 'm^2'
+                      'unit' => 'm^2',
+                      
                     ],
                     [
                       'id' => "P2Trib.Area(m^2)",
                       'label' => "P2 Trib. Area (m^2)",
-                      'unit' => 'm^2'
+                      'unit' => 'm^2',
+                      
                     ],
                     [
                       'id' => "P3Trib.Area(m^2)",
                       'label' => "P3 Trib. Area (m^2)",
-                      'unit' => 'm^2'
+                      'unit' => 'm^2',
+                      
                     ],
                     [
                       'id' => "P4Trib.Area(m^2)",
                       'label' => "P4 Trib. Area (m^2)",
-                      'unit' => 'm^2'
+                      'unit' => 'm^2',
+                      
                     ],
                   ), // required
                   'row' => array(
@@ -821,10 +827,6 @@ class TimberBeamController extends BaseController
                 ],
               ),
             ],
-          ),
-        ],
-        [
-          'menu' => array(
             [
               'menuTitle' => '4. RESULTS (kN)',
               'input' => array(
@@ -970,6 +972,10 @@ class TimberBeamController extends BaseController
                 ],
               ),
             ],
+          ),
+        ],
+        [
+          'menu' => array(
             [
               'menuTitle' => '5. BEAM ANALYSIS',
               'input' => array(
@@ -1603,72 +1609,71 @@ class TimberBeamController extends BaseController
                     [
                       'id' => 'name',
                       'label' => '',
-                      'width' => '50px',
                     ],
                     [
                       'id' => 'Gcol1',
                       'label' => 'G',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Qroof',
                       'label' => 'QRoof',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Qfloor',
                       'label' => 'Qfloor',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Qdeck',
                       'label' => 'Qdeck',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Qwall',
                       'label' => 'Qwall',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => '1.2G',
                       'label' => '1.2G+1.5Q',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Mstar-mid',
                       'label' => 'M* (midspan)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Mstar-p1',
                       'label' => 'M* (P1)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Mstar-p2',
                       'label' => 'M* (P2)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Mstar-p3',
                       'label' => 'M* (P3)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Mstar-p4',
                       'label' => 'M* (P4)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'k2G',
                       'label' => 'k2G+k2ΨlQ+(Ψs-Ψl)Q',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'defl',
                       'label' => 'defl mids (mm)',
-                      'width' => '100px',
+                      
                     ],
                   )
                 ]
@@ -1684,87 +1689,86 @@ class TimberBeamController extends BaseController
                     [
                       'id' => 'material',
                       'label' => 'Material',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'type',
                       'label' => 'Type',
-                      'width' => '200px',
                     ],
                     [
                       'id' => 'size',
                       'label' => 'Size',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'fb',
                       'label' => 'fb',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'fs',
                       'label' => 'fs',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'E',
                       'label' => 'E',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'fb-wet',
                       'label' => 'fb (wet)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'fs-wet',
                       'label' => 'fs (wet)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'E-wet',
                       'label' => 'E (wet)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'self-wt',
                       'label' => 'Self Wt',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'b',
                       'label' => 'b',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'd',
                       'label' => 'd',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'A',
                       'label' => 'A',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'Z',
                       'label' => 'Z',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'I',
                       'label' => 'I',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'b-flitch',
                       'label' => 'b (flitch)',
-                      'width' => '100px',
+                      
                     ],
                     [
                       'id' => 'd-flitch',
                       'label' => 'd (flitch)',
-                      'width' => '100px',
+                      
                     ],
                   ),
                   'row' => array([

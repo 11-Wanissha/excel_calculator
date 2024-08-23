@@ -17,6 +17,8 @@
     <!-- external css -->
     <link rel="stylesheet" href="<?= base_url('assets/css/main.css') ?>">
     <script src="<?= base_url('assets/js/jquery.js'); ?>"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>

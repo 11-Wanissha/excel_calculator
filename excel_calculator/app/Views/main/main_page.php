@@ -10,7 +10,7 @@ $count = 0;
 $props = new stdClass();
 $props = isset($formProperties) ? $formProperties : []
 
-?>
+  ?>
 <div class="mb-5">
   <div class="bg-blue">
     <div class="h5 p-5 text-center">
@@ -41,9 +41,15 @@ $props = isset($formProperties) ? $formProperties : []
       </div>
     </div>
     <div class="row">
+      <div class="ps-3">
+        <div class="form-check form-switch">
+          <input class="form-check-input px-4 py-2" type="checkbox" id="Row">
+          <label class="form-check-label ps-3" for="Row">Row</label>
+        </div>
+      </div>
       <!-- ข้อมูลการ์ดฝั่งซ้าย ขวา -->
       <?php foreach ($props['secTion'] as $secTion): ?>
-        <div class="col-xl-6 col-sm-12 col-md-12 col-xs-12">
+        <div class="col-xl-6 col-sm-12 col-md-12 col-xs-12 pt-2 isRow">
           <div class="accordion">
             <!-- section ข้อๆ -->
             <?php foreach ($secTion['menu'] as $menu): ?>
@@ -97,7 +103,7 @@ $props = isset($formProperties) ? $formProperties : []
                             }
                             ?>
                           </div>
-                      <?php endforeach;
+                        <?php endforeach;
                       endif; ?>
                       <div>
                         <?php if (isset($menu['subMenu']) && !empty($menu['subMenu'])): ?>
@@ -198,8 +204,8 @@ $props = isset($formProperties) ? $formProperties : []
 <script>
   const importUrl = <?= json_encode($props['importUrl']) ?>
 
-  $(document).ready(function() {
-    $('#form').on('submit', function(e) {
+  $(document).ready(function () {
+    $('#form').on('submit', function (e) {
       e.preventDefault(); // Prevent the default form submission
       const url = document.getElementById('url').innerHTML;
       $('#submitBtn').hide();
@@ -210,7 +216,7 @@ $props = isset($formProperties) ? $formProperties : []
         type: 'POST',
         url: `${url}`, // Your form action URL
         data: $(this).serialize(), // Serialize the form data
-        success: function(response) {
+        success: function (response) {
           $('#loadingSpinner').hide();
           // Show the loading spinner
           $('#submitBtn').show();
@@ -229,7 +235,7 @@ $props = isset($formProperties) ? $formProperties : []
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
           $('#loadingSpinner').hide();
           // Show the loading spinner
           $('#submitBtn').show();
@@ -240,15 +246,74 @@ $props = isset($formProperties) ? $formProperties : []
         }
       });
     });
+    $('.fullscreen-btn').click(function () {
+      let index = $('.fullscreen-btn').index(this);
+      let element = $('.table-responsive').eq(index)[0];
 
-    $('#file').on('change', function() {
+      if (document.fullscreenElement) {
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+          document.msExitFullscreen();
+        }
+      } else {
+        // Enter fullscreen
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) { // Firefox
+          element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+          element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) { // IE/Edge
+          element.msRequestFullscreen();
+        }
+      }
+    });
+
+    // Listen for fullscreen change to toggle button text/icon
+    document.addEventListener('fullscreenchange', function () {
+      $('.fullscreen-btn').each(function (index, button) {
+        if (document.fullscreenElement) {
+          $(button).html('<img src="<?= base_url('assets/expand.png'); ?>" alt="Exit" width="20px"> Exit');
+        } else {
+          $(button).html('<img src="<?= base_url('assets/expand.png'); ?>" alt="Full Screen" width="20px"> Full Screen');
+        }
+      });
+    });
+    $('#Row').on('click', function () {
+      var divElements = document.querySelectorAll('.isRow');
+      divElements.forEach(function (div) {  // Loop through each div element
+        if (this.checked) {
+          div.classList.remove('col-xl-6');
+          div.classList.add('col-xl-12');
+        } else {
+          div.classList.remove('col-xl-12');
+          div.classList.add('col-xl-6');
+        }
+      }, this);
+    });
+    $('#btnImport').on('click', function () {
       $('#loadingSpinner').show();
       $('#submitBtn').hide();
 
       const fileEl = $('#file')[0]
       const file = fileEl.files[0]
 
-      if (!file) return
+      if (!file) {
+        $('#loadingSpinner').hide();
+        $('#submitBtn').show();
+        var toastElement = document.getElementById('liveToast-err');
+        var toastBody = toastElement.querySelector('.toast-body');
+        toastBody.textContent = 'Please Input File First';
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        return;
+      }
 
       const formData = new FormData()
       formData.append('file', file)
@@ -260,7 +325,7 @@ $props = isset($formProperties) ? $formProperties : []
         cache: false,
         contentType: false,
         processData: false,
-        success: function(response) {
+        success: function (response) {
           $('#loadingSpinner').hide();
           $('#submitBtn').show();
 
@@ -279,13 +344,13 @@ $props = isset($formProperties) ? $formProperties : []
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
           $('#loadingSpinner').hide();
           $('#submitBtn').show();
           console.log(error)
         }
       })
-    })
+    });
   });
 </script>
 
