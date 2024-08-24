@@ -13,7 +13,7 @@ $props = [
         <thead>
             <tr class='text-center'>
                 <?php foreach ($props['column'] as $col): ?>
-                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" title=" <?= $col['label'] ?>">
+                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" title=" <?= $col['label'] ?>" style="min-width: 100px">
                         <?php
                         if (isset($col['unit'])) {
                             echo $col['label'] . '<br>' . $col['unit'];

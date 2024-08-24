@@ -201,6 +201,11 @@ $props = isset($formProperties) ? $formProperties : []
   </div>
   <div id="url" class="d-none"><?= $props['url'] ?></div>
 </div>
+<style>
+  input{
+    width: auto;
+  }
+</style>
 <script>
   const importUrl = <?= json_encode($props['importUrl']) ?>
 
@@ -224,9 +229,13 @@ $props = isset($formProperties) ? $formProperties : []
             let element = document.querySelector("#" + data);
             let tdElement = document.querySelector('td.overflow input#' + data);
             if (tdElement) {
-              tdElement.value = response[data]
+              tdElement.value = response[data];
+              tdElement.style.width = "auto";
+              tdElement.style.background = "tranparent";
             } else if (element) {
-              element.value = response[data]
+              element.value = response[data];
+              element.style.width = (element.value.length + 1) + 'em';
+              element.style.background = "tranparent";
             } else {
               console.warn(`No element found with ID: ${data}`);
             }
@@ -315,7 +324,7 @@ $props = isset($formProperties) ? $formProperties : []
         return;
       }
 
-      const formData = new FormData()
+      const formData = new FormData();
       formData.append('file', file)
 
       $.ajax({

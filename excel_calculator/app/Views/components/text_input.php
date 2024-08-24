@@ -12,7 +12,7 @@ $props = [
 ]
     ?>
 <div class="h-100 w-auto">
-    <label for="<?= $props['name'] ?>" class="col-sm-3 col-form-label form-label w-100 overflow"
+    <label for="<?= $props['name'] ?>" class="col-sm-3 col-form-label form-label w-100 overflow pb-0 pt-2"
         title=" <?= $props['label'] ?>">
         <?= $props['label'] ?>
     </label>

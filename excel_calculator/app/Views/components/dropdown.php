@@ -13,7 +13,7 @@ $props = [
 ?>
 
 
-<label for="<?= $props['id'] ?>" class="col-sm-3 col-form-label form-label w-100  overflow" title=" <?= $props['label'] ?>">
+<label for="<?= $props['id'] ?>" class="col-sm-3 col-form-label form-label w-100  overflow pb-0 pt-2" title=" <?= $props['label'] ?>">
     <?= $props['label'] ?>
 </label>
 <select name="<?= $props['id'] ?>" class="form-select" id="<?= $props['id'] ?>" aria-label="<?= $props['id'] ?>" <?php if ($props['disabled']) echo 'disabled'; ?> <?php if ($props['required']) echo 'required'; ?>>
