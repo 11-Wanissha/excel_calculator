@@ -250,59 +250,59 @@ class TimberBeamController extends BaseController
                     [
                       'id' => "name",
                       'label' => "",
-                      
+
                     ],
                     [
                       'id' => "G(kPa)",
                       'label' => "G (kPa)",
                       'unit' => 'kPa',
-                      
+
                     ],
                     [
                       'id' => "Q(kPa)",
                       'label' => "Q (kPa)",
                       'unit' => 'kPa',
-                      
+
                     ],
                     [
                       'id' => "Ψs",
                       'label' => "Ψs",
-                      
+
                     ],
                     [
                       'id' => "Ψl",
                       'label' => "Ψl",
-                      
+
                     ],
                     [
                       'id' => "wTrib.Width(m)",
                       'label' => "w Trib. Width(m)",
                       'unit' => 'm',
-                      
+
                     ],
                     [
                       'id' => "P1Trib.Area(m^2)",
                       'label' => "P1 Trib. Area (m^2)",
                       'unit' => 'm^2',
-                      
+
                     ],
                     [
                       'id' => "P2Trib.Area(m^2)",
                       'label' => "P2 Trib. Area (m^2)",
                       'unit' => 'm^2',
-                      
+
                     ],
                     [
                       'id' => "P3Trib.Area(m^2)",
                       'label' => "P3 Trib. Area (m^2)",
                       'unit' => 'm^2',
-                      
+
                     ],
                     [
                       'id' => "P4Trib.Area(m^2)",
                       'label' => "P4 Trib. Area (m^2)",
                       'unit' => 'm^2',
-                      
+
                     ],
                   ), // required
                   'row' => array(
@@ -827,6 +827,11 @@ class TimberBeamController extends BaseController
                 ],
               ),
             ],
+
+          ),
+        ],
+        [
+          'menu' => array(
             [
               'menuTitle' => '4. RESULTS (kN)',
               'input' => array(
@@ -972,10 +977,6 @@ class TimberBeamController extends BaseController
                 ],
               ),
             ],
-          ),
-        ],
-        [
-          'menu' => array(
             [
               'menuTitle' => '5. BEAM ANALYSIS',
               'input' => array(
@@ -1613,67 +1614,67 @@ class TimberBeamController extends BaseController
                     [
                       'id' => 'Gcol1',
                       'label' => 'G',
-                      
+
                     ],
                     [
                       'id' => 'Qroof',
                       'label' => 'QRoof',
-                      
+
                     ],
                     [
                       'id' => 'Qfloor',
                       'label' => 'Qfloor',
-                      
+
                     ],
                     [
                       'id' => 'Qdeck',
                       'label' => 'Qdeck',
-                      
+
                     ],
                     [
                       'id' => 'Qwall',
                       'label' => 'Qwall',
-                      
+
                     ],
                     [
                       'id' => '1.2G',
                       'label' => '1.2G+1.5Q',
-                      
+
                     ],
                     [
                       'id' => 'Mstar-mid',
                       'label' => 'M* (midspan)',
-                      
+
                     ],
                     [
                       'id' => 'Mstar-p1',
                       'label' => 'M* (P1)',
-                      
+
                     ],
                     [
                       'id' => 'Mstar-p2',
                       'label' => 'M* (P2)',
-                      
+
                     ],
                     [
                       'id' => 'Mstar-p3',
                       'label' => 'M* (P3)',
-                      
+
                     ],
                     [
                       'id' => 'Mstar-p4',
                       'label' => 'M* (P4)',
-                      
+
                     ],
                     [
                       'id' => 'k2G',
                       'label' => 'k2G+k2ΨlQ+(Ψs-Ψl)Q',
-                      
+
                     ],
                     [
                       'id' => 'defl',
                       'label' => 'defl mids (mm)',
-                      
+
                     ],
                   )
                 ]
@@ -1689,7 +1690,7 @@ class TimberBeamController extends BaseController
                     [
                       'id' => 'material',
                       'label' => 'Material',
-                      
+
                     ],
                     [
                       'id' => 'type',
@@ -1698,77 +1699,77 @@ class TimberBeamController extends BaseController
                     [
                       'id' => 'size',
                       'label' => 'Size',
-                      
+
                     ],
                     [
                       'id' => 'fb',
                       'label' => 'fb',
-                      
+
                     ],
                     [
                       'id' => 'fs',
                       'label' => 'fs',
-                      
+
                     ],
                     [
                       'id' => 'E',
                       'label' => 'E',
-                      
+
                     ],
                     [
                       'id' => 'fb-wet',
                       'label' => 'fb (wet)',
-                      
+
                     ],
                     [
                       'id' => 'fs-wet',
                       'label' => 'fs (wet)',
-                      
+
                     ],
                     [
                       'id' => 'E-wet',
                       'label' => 'E (wet)',
-                      
+
                     ],
                     [
                       'id' => 'self-wt',
                       'label' => 'Self Wt',
-                      
+
                     ],
                     [
                       'id' => 'b',
                       'label' => 'b',
-                      
+
                     ],
                     [
                       'id' => 'd',
                       'label' => 'd',
-                      
+
                     ],
                     [
                       'id' => 'A',
                       'label' => 'A',
-                      
+
                     ],
                     [
                       'id' => 'Z',
                       'label' => 'Z',
-                      
+
                     ],
                     [
                       'id' => 'I',
                       'label' => 'I',
-                      
+
                     ],
                     [
                       'id' => 'b-flitch',
                       'label' => 'b (flitch)',
-                      
+
                     ],
                     [
                       'id' => 'd-flitch',
                       'label' => 'd (flitch)',
-                      
+
                     ],
                   ),
                   'row' => array([
