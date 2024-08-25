@@ -2238,7 +2238,7 @@ class TimberBeamController extends BaseController
 
     foreach ($res as $key => $val) {
       if (is_numeric($val)) {
-        $res[$key] =  number_format((float)$val, 5, '.', '');
+        $res[$key] =  number_format((float)$val, 3, '.', '');
       }
     }
 
