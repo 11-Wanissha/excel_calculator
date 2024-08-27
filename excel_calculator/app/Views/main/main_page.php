@@ -61,8 +61,8 @@ $props = isset($formProperties) ? $formProperties : []
                     <?= $menu['menuTitle'] ?>
                   </button>
                 </h2>
-                <div id="section-<?= $count ?>" class="accordion-collapse collapse" aria-labelledby="section-<?= $count ?>"
-                  data-bs-parent="#section-<?= $count ?>" style="">
+                <div id="section-<?= $count ?>" class="accordion-collapse collapse <?= $count=== 0 ? 'show' : '' ?>" aria-labelledby="section-<?= $count ?>"
+                  data-bs-parent="#section-<?= $count ?>" style=""> 
                   <div class="accordion-body">
                     <?php ++$count ?>
                     <!-- input ต่างๆ -->
@@ -228,14 +228,17 @@ $props = isset($formProperties) ? $formProperties : []
           for (let data in response) {
             let element = document.querySelector("#" + data);
             let tdElement = document.querySelector('td.overflow input#' + data);
-            if (tdElement) {
+            let tdNoInputElement = document.querySelector('td.overflow p#' + data);
+            if(tdNoInputElement !== null){
+              tdNoInputElement.innerHTML = response[data];
+              tdNoInputElement.style.width = "auto";
+            }
+            else if (tdElement) {
               tdElement.value = response[data];
               tdElement.style.width = "auto";
-              tdElement.style.background = "tranparent";
             } else if (element) {
               element.value = response[data];
-              element.style.width = (element.value.length + 1) + 'em';
-              element.style.background = "tranparent";
+              element.style.width = "auto";
             } else {
               console.warn(`No element found with ID: ${data}`);
             }
@@ -341,10 +344,14 @@ $props = isset($formProperties) ? $formProperties : []
           for (let data in response) {
             let element = document.querySelector("#" + data);
             let tdElement = document.querySelector('td.overflow input#' + data);
-            if (tdElement) {
-              tdElement.value = response[data]
+            let tdNoInputElement = document.querySelector('td.overflow p#' + data);
+            if(tdNoInputElement !== null){
+              tdNoInputElement.innerHTML = response[data];
+            }
+            else if (tdElement) {
+              tdElement.value = response[data];
             } else if (element) {
-              element.value = response[data]
+              element.value = response[data];
             } else {
               console.warn(`No element found with ID: ${data}`);
             }

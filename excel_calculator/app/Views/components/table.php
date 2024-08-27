@@ -9,23 +9,23 @@ $props = [
     <button id="expandTable" class="btn mt-2 mb-1 fullscreen-btn btn-sm bg-white" type="button">
         <img src="<?= base_url('assets/expand.png'); ?>" alt="Full Screen" width="20px"> Full Screen
     </button>
-    <table class="table  border table-sm align-middle">
+    <table class="table  border table-striped table-sm align-middle">
         <thead>
             <tr class='text-center'>
                 <?php foreach ($props['column'] as $col): ?>
-                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" title=" <?= $col['label'] ?>" style="min-width: 100px">
+                    <th class="overflow text-center" scope="col" key="<?= $col['id'] ?>" title=" <?= $col['label'] ?>" <?= isset($col['width']) ? "style='min-width: {$col['width']} !important;'" : '' ?>>
                         <?php
                         if (isset($col['unit'])) {
                             echo $col['label'] . '<br>' . $col['unit'];
                         } else {
-                            echo "<div class='pb-3'>" . $col['label'] . "</div>";
+                            echo "<div class='pb-3'> " . $col['label'] . "</div>";
                         }
                         ?>
                     </th>
                 <?php endforeach; ?>
             </tr class='text-center'>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             <?php if ($props['row'] == null): ?>
                 <tr class='text-center'>
                     <td colspan="<?= count($columns) ?>">No data available</td>
@@ -43,7 +43,7 @@ $props = [
                                 $class = 'overflow ' . $row[$col['id']][0]['textColor'];
                             }
                             ?>
-                            <td class="<?= $class ?>" title="<?= $row[$col['id']][0]['text'] ?>"><?= $row[$col['id']][0]['text'] ?>
+                            <td class="<?= $class ?>" title="<?= htmlspecialchars($row[$col['id']][0]['text'], ENT_QUOTES, 'UTF-8')?>"><?= $row[$col['id']][0]['text'] ?>
                             </td>
                         <?php endforeach; ?>
                     </tr>
