@@ -8,9 +8,8 @@
 $count = 0;
 
 $props = new stdClass();
-$props = isset($formProperties) ? $formProperties : []
-
-  ?>
+$props = isset($formProperties) ? $formProperties : [];
+?>
 <div class="mb-5">
   <div class="bg-blue">
     <div class="h5 p-5 text-center">
@@ -61,9 +60,12 @@ $props = isset($formProperties) ? $formProperties : []
                     <?= $menu['menuTitle'] ?>
                   </button>
                 </h2>
-                <div id="section-<?= $count ?>" class="accordion-collapse collapse <?= $count=== 0 ? 'show' : '' ?>" aria-labelledby="section-<?= $count ?>"
-                  data-bs-parent="#section-<?= $count ?>" style=""> 
+                <div id="section-<?= $count ?>" class="accordion-collapse collapse <?= $count === 0 ? 'show' : '' ?>"
+                  aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>">
                   <div class="accordion-body">
+                    <?php if (isset($menu['canvas'])): ?>
+                      <?= $menu['canvas']; ?>
+                    <?php endif; ?>
                     <?php ++$count ?>
                     <!-- input ต่างๆ -->
                     <div class="row align-items-end">
@@ -95,7 +97,7 @@ $props = isset($formProperties) ? $formProperties : []
                                 'column' => (isset($input['column']) ? $input['column'] : ''),
                                 'row' => (isset($input['row']) ? $input['row'] : ''),
                               ]);
-                            } else {
+                            } else if ($input['inputType'] == "file") {
                               echo view('components/file_input', [
                                 'id' => (isset($input['id']) ? $input['id'] : ''),
                                 'label' => (isset($input['label']) ? $input['label'] : '')
@@ -118,7 +120,7 @@ $props = isset($formProperties) ? $formProperties : []
                                   </button>
                                 </h2>
                                 <div id="section-<?= $count ?>" class="accordion-collapse collapse"
-                                  aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>" style="">
+                                  aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>">
                                   <div class="accordion-body">
                                     <div class="row align-items-end">
                                       <?php foreach ($subMenu['input'] as $input): ?>
@@ -173,7 +175,6 @@ $props = isset($formProperties) ? $formProperties : []
           </div>
         </div>
       <?php endforeach; ?>
-    </div>
   </form>
   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
     <div id="liveToast-success" class="toast align-items-center text-white bg-success border-0" role="alert"
@@ -202,8 +203,14 @@ $props = isset($formProperties) ? $formProperties : []
   <div id="url" class="d-none"><?= $props['url'] ?></div>
 </div>
 <style>
-  input{
+  input {
     width: auto;
+  }
+
+  #renderCanvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
   }
 </style>
 <script>
@@ -229,7 +236,7 @@ $props = isset($formProperties) ? $formProperties : []
             let element = document.querySelector("#" + data);
             let tdElement = document.querySelector('td.overflow input#' + data);
             let tdNoInputElement = document.querySelector('td.overflow p#' + data);
-            if(tdNoInputElement !== null){
+            if (tdNoInputElement !== null) {
               tdNoInputElement.innerHTML = response[data];
               tdNoInputElement.style.width = "auto";
             }
@@ -345,7 +352,7 @@ $props = isset($formProperties) ? $formProperties : []
             let element = document.querySelector("#" + data);
             let tdElement = document.querySelector('td.overflow input#' + data);
             let tdNoInputElement = document.querySelector('td.overflow p#' + data);
-            if(tdNoInputElement !== null){
+            if (tdNoInputElement !== null) {
               tdNoInputElement.innerHTML = response[data];
             }
             else if (tdElement) {

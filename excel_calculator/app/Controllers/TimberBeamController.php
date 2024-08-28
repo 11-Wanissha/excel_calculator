@@ -1590,73 +1590,73 @@ class TimberBeamController extends BaseController
                     [
                       'id' => 'name',
                       'label' => '',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Gcol1',
                       'label' => 'G',
-                      'width' =>'100px',
+                      'width' => '100px',
 
                     ],
                     [
                       'id' => 'Qroof',
                       'label' => 'QRoof',
-                     'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Qfloor',
                       'label' => 'Qfloor',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Qdeck',
                       'label' => 'Qdeck',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Qwall',
                       'label' => 'Qwall',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => '1.2G',
                       'label' => '1.2G+1.5Q',
-                     'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-mid',
                       'label' => 'M* (midspan)',
-                     'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-p1',
                       'label' => 'M* (P1)',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-p2',
                       'label' => 'M* (P2)',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-p3',
                       'label' => 'M* (P3)',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'Mstar-p4',
                       'label' => 'M* (P4)',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'k2G',
                       'label' => 'k2G+k2ΨlQ+(Ψs-Ψl)Q',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                     [
                       'id' => 'defl',
                       'label' => 'defl mids (mm)',
-                      'width' =>'100px',
+                      'width' => '100px',
                     ],
                   )
                 ]
@@ -1771,25 +1771,27 @@ class TimberBeamController extends BaseController
 
                     ],
                   ),
-                  'row' => array([
-                    'material' => array(['text' => '<p id="AC14" name="AC14">0</p>']),
-                    'type' => array(['text' => '<p id="AD14" name="AD14">0</p>']),
-                    'size' => array(['text' => '<p id="AE14" name="AE14">0</p>']),
-                    'fb' => array(['text' => '<p id="AF14" name="AF14">0</p>']),
-                    'fs' => array(['text' => '<p id="AG14" name="AG14">0</p>']),
-                    'E' => array(['text' => '<p id="AH14" name="AH14">0</p>']),
-                    'fb-wet' => array(['text' => '<p id="AI14" name="AI14">0</p>']),
-                    'fs-wet' => array(['text' => '<p id="AJ14" name="AJ14">0</p>']),
-                    'E-wet' => array(['text' => '<p id="AK14" name="AK14">0</p>']),
-                    'self-wt' => array(['text' => '<p id="AL14" name="AL14">0</p>']),
-                    'b' => array(['text' => '<p id="AM14" name="AM14">0</p>']),
-                    'd' => array(['text' => '<p id="AN14" name="AN14">0</p>']),
-                    'A' => array(['text' => '<p id="AO14" name="AO14">0</p>']),
-                    'Z' => array(['text' => '<p id="AP14" name="AP14">0</p>']),
-                    'I' => array(['text' => '<p id="AQ14" name="AQ14">0</p>']),
-                    'b-flitch' => array(['text' => '<p id="AR14" name="AR14">0</p>']),
-                    'd-flitch' => array(['text' => '<p id="AS14" name="AS14">0</p>']),
-                  ])
+                  'row' => array(
+                    [
+                      'material' => array(['text' => '<p id="AC14" name="AC14">0</p>']),
+                      'type' => array(['text' => '<p id="AD14" name="AD14">0</p>']),
+                      'size' => array(['text' => '<p id="AE14" name="AE14">0</p>']),
+                      'fb' => array(['text' => '<p id="AF14" name="AF14">0</p>']),
+                      'fs' => array(['text' => '<p id="AG14" name="AG14">0</p>']),
+                      'E' => array(['text' => '<p id="AH14" name="AH14">0</p>']),
+                      'fb-wet' => array(['text' => '<p id="AI14" name="AI14">0</p>']),
+                      'fs-wet' => array(['text' => '<p id="AJ14" name="AJ14">0</p>']),
+                      'E-wet' => array(['text' => '<p id="AK14" name="AK14">0</p>']),
+                      'self-wt' => array(['text' => '<p id="AL14" name="AL14">0</p>']),
+                      'b' => array(['text' => '<p id="AM14" name="AM14">0</p>']),
+                      'd' => array(['text' => '<p id="AN14" name="AN14">0</p>']),
+                      'A' => array(['text' => '<p id="AO14" name="AO14">0</p>']),
+                      'Z' => array(['text' => '<p id="AP14" name="AP14">0</p>']),
+                      'I' => array(['text' => '<p id="AQ14" name="AQ14">0</p>']),
+                      'b-flitch' => array(['text' => '<p id="AR14" name="AR14">0</p>']),
+                      'd-flitch' => array(['text' => '<p id="AS14" name="AS14">0</p>']),
+                    ]
+                  )
                 ],
                 [
                   'inputType' => 'text',
@@ -1824,6 +1826,10 @@ class TimberBeamController extends BaseController
                   'type' => 'number',
                 ],
               )
+            ],
+            [
+              'menuTitle' => '8. Graphic',
+              'canvas' => '<canvas id="renderCanvas"></canvas>',
             ]
           )
         ],
@@ -1864,7 +1870,7 @@ class TimberBeamController extends BaseController
           : (($beamType->beamClass == "fltch") ? 1.3
             : 2)));
 
-    $res['H46'] =  $req['I34'] == "No" ? $beamType->E / 1000000 : ($req['I34'] == "Yes" ? $beamType->EW / 1000000 : "");
+    $res['H46'] = $req['I34'] == "No" ? $beamType->E / 1000000 : ($req['I34'] == "Yes" ? $beamType->EW / 1000000 : "");
 
     /* G - Qwall */
     $res['O14'] = $req['B20'] * $req['F20'] + $req['B21'] * $req['F21'] + $req['B22'] * $req['F22'] + $req['B23'] * $req['F23'] + $req['B24'] * $req['F24'] + $req['B25'] * $req['F25'] + $res['C27'];
@@ -1886,7 +1892,8 @@ class TimberBeamController extends BaseController
     $res['O16'] = $req['B20'] * $req['H20'] + $req['B21'] * $req['H21'] + $req['B22'] * $req['H22'] + $req['B23'] * $req['H23'] + $req['B24'] * $req['H24'] + $req['B25'] * $req['H25'] + $req['C31'];
     $res['P16'] = $req['C20'] * $req['H20'] + $req['C32'];
     $res['Q16'] = $req['C21'] * $req['H21'] + $req['C33'];
-    $res['R16'] = $req['C22'] * $req['H22'] + $req['C34'];;
+    $res['R16'] = $req['C22'] * $req['H22'] + $req['C34'];
+    ;
     $res['S16'] = $req['C25'] * $req['H25'] + $req['C35'];
 
     /* ============================================= */
@@ -1894,7 +1901,8 @@ class TimberBeamController extends BaseController
     $res['O17'] = $req['B20'] * $req['I20'] + $req['B21'] * $req['I21'] + $req['B22'] * $req['I22'] + $req['B23'] * $req['I23'] + $req['B24'] * $req['I24'] + $req['B25'] * $req['I25'] + $req['D31'];
     $res['P17'] = $req['C20'] * $req['I20'] + $req['D32'];
     $res['Q17'] = $req['C21'] * $req['I21'] + $req['D33'];
-    $res['R17'] = $req['C22'] * $req['I22'] + $req['D34'];;
+    $res['R17'] = $req['C22'] * $req['I22'] + $req['D34'];
+    ;
     $res['S17'] = $req['C25'] * $req['I25'] + $req['D35'];
 
     /* ============================================= */
@@ -1902,7 +1910,8 @@ class TimberBeamController extends BaseController
     $res['O18'] = $req['B20'] * $req['J20'] + $req['B21'] * $req['J21'] + $req['B22'] * $req['J22'] + $req['B23'] * $req['J23'] + $req['B24'] * $req['J24'] + $req['B25'] * $req['J25'] + $req['E31'];
     $res['P18'] = $req['C20'] * $req['J20'] + $req['E32'];
     $res['Q18'] = $req['C21'] * $req['J21'] + $req['E33'];
-    $res['R18'] = $req['C22'] * $req['J22'] + $req['E34'];;
+    $res['R18'] = $req['C22'] * $req['J22'] + $req['E34'];
+    ;
     $res['S18'] = $req['C25'] * $req['J25'] + $req['E35'];
 
     /* 12G + 1.5Q */
@@ -2238,7 +2247,7 @@ class TimberBeamController extends BaseController
 
     foreach ($res as $key => $val) {
       if (is_numeric($val)) {
-        $res[$key] =  number_format((float)$val, 3, '.', '');
+        $res[$key] = number_format((float) $val, 3, '.', '');
       }
     }
 

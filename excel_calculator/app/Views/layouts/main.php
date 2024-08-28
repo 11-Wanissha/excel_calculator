@@ -19,6 +19,9 @@
     <script src="<?= base_url('assets/js/jquery.js'); ?>"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- babylon -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
 </head>
 
 <body>
@@ -32,6 +35,9 @@
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+        }
+        .bor{
+            border: 1px solid red;
         }
     </style>
 </body>
