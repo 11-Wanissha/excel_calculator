@@ -60,7 +60,8 @@ $props = isset($formProperties) ? $formProperties : [];
                     <?= $menu['menuTitle'] ?>
                   </button>
                 </h2>
-                <div id="section-<?= $count ?>" class="accordion-collapse collapse <?= $count === 0 ? 'show' : '' ?>"
+                <div id="section-<?= $count ?>"
+                  class="accordion-collapse collapse <?= $count === 0 || $count === $props['lastIndex'] ? 'show' : '' ?>"
                   aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>">
                   <div class="accordion-body">
                     <?php if (isset($menu['canvas'])): ?>
@@ -176,31 +177,31 @@ $props = isset($formProperties) ? $formProperties : [];
         </div>
       <?php endforeach; ?>
   </form>
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
-    <div id="liveToast-success" class="toast align-items-center text-white bg-success border-0" role="alert"
-      aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body">
-          Success
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-          aria-label="Close"></button>
-      </div>
-    </div>
-  </div>
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
-    <div id="liveToast-err" class="toast align-items-center text-white bg-danger border-0" role="alert"
-      aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body">
-          Form submission failed! Please input Data or Import File and try again
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-          aria-label="Close"></button>
-      </div>
-    </div>
-  </div>
   <div id="url" class="d-none"><?= $props['url'] ?></div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
+  <div id="liveToast-success" class="toast align-items-center text-white bg-success border-0" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Success
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+        aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
+  <div id="liveToast-err" class="toast align-items-center text-white bg-danger border-0" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Form submission failed! Please input Data or Import File and try again
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+        aria-label="Close"></button>
+    </div>
+  </div>
 </div>
 <style>
   input {
@@ -213,15 +214,34 @@ $props = isset($formProperties) ? $formProperties : [];
     touch-action: none;
   }
 </style>
+<script src="<?= base_url('assets/js/' . $props['url'] . '.js') ?>"></script>
 <script>
-  const importUrl = <?= json_encode($props['importUrl']) ?>
-
+  const importUrl = <?= json_encode($props['importUrl']) ?>;
+  const canvas = document.getElementById("renderCanvas"); // Get the canvas element
+  let engine;
+  let scene
+  if (canvas) {
+    engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+    scene = createScene(); //Call the createScene function
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    // Register a render loop to repeatedly render the scene
+    engine.runRenderLoop(function () {
+      scene.render();
+    });
+    // Watch for browser/canvas resize events
+    window.addEventListener("resize", function () {
+      engine.resize();
+    });
+    canvas.addEventListener('wheel', function (event) {
+      event.preventDefault();
+    });
+  }
   $(document).ready(function () {
     $('#form').on('submit', function (e) {
       e.preventDefault(); // Prevent the default form submission
       const url = document.getElementById('url').innerHTML;
       $('#submitBtn').hide();
-
       // Show the loading spinner
       $('#loadingSpinner').show();
       $.ajax({
@@ -249,6 +269,9 @@ $props = isset($formProperties) ? $formProperties : [];
             } else {
               console.warn(`No element found with ID: ${data}`);
             }
+          }
+          if (canvas) {
+            reGenerate(response);
           }
           var toastElement = document.getElementById('liveToast-success');
           var toast = new bootstrap.Toast(toastElement);

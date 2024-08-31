@@ -14,6 +14,7 @@ class TimberBeamController extends BaseController
       'title' => 'Timber Beam Calculator',
       'url' => '/timber-beam',
       'importUrl' => '/timber-beam-import',
+      'lastIndex' => 8,
       'secTion' => array(
         [
           'menu' => array(
@@ -1829,7 +1830,7 @@ class TimberBeamController extends BaseController
             ],
             [
               'menuTitle' => '8. Graphic',
-              'canvas' => '<canvas id="renderCanvas"></canvas>',
+              'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
             ]
           )
         ],
