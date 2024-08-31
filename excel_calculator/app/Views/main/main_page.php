@@ -176,6 +176,7 @@ $props = isset($formProperties) ? $formProperties : [];
           </div>
         </div>
       <?php endforeach; ?>
+    </div>
   </form>
   <div id="url" class="d-none"><?= $props['url'] ?></div>
 </div>
