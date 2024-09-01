@@ -206,8 +206,8 @@ function reGenerate(response) {
   const P2 = response["W19"];
   const P3 = response["X19"];
   const P4 = response["Y19"];
-  const R1 = 0;
-  const R2 = 0;
+  const R1 = response["G39"];
+  const R2 = response["G40"];
   scene.dispose();
   scene = createScene(length, a, b, c, d, P1, P2, P3, P4, R1, R2);
 }
