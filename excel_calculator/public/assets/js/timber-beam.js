@@ -13,6 +13,7 @@ const createScene = function (
 ) {
   const scale = length * 2.5;
   const cameraView = length < 2 ? 5 : scale;
+  const allValue = (a === b && b === c && c === d);
   const textSize =
     "bold " +
     (length < 5 ? "30" : length < 10 ? "44" : "50") +
@@ -145,10 +146,10 @@ const createScene = function (
     return label;
   };
   const line = [
-    createLine("lineP1", a, true, true, false, a <= 0 ? 0.45 : 0.45),
-    createLine("lineP2", b, true, true, false, b <= 0 ? 0.75 : 0.45),
-    createLine("lineP3", c, true, true, false, c <= 0 ? 1.05 : 0.45),
-    createLine("lineP4", d, true, true, false, d <= 0 ? 1.35 : 0.45),
+    createLine("lineP1", a, true, true, false, a <= 0 || allValue || checkValueEqual ? 0.45 : 0.45),
+    createLine("lineP2", b, true, true, false, b <= 0 || allValue || checkValueEqual  ? 0.75 : 0.45),
+    createLine("lineP3", c, true, true, false, c <= 0 || allValue || checkValueEqual  ? 1.05 : 0.45),
+    createLine("lineP4", d, true, true, false, d <= 0 || allValue || checkValueEqual ? 1.35 : 0.45),
     createLine("lineR1", R1, false),
     createLine("lineR2", R2, false, false),
     createLine("a", a, true, true, true, 0.8),
@@ -210,4 +211,7 @@ function reGenerate(response) {
   const R2 = response["G40"];
   scene.dispose();
   scene = createScene(length, a, b, c, d, P1, P2, P3, P4, R1, R2);
+}
+function checkValueEqual(value,first,second,third){
+  return value === first || value === second || value === third;
 }

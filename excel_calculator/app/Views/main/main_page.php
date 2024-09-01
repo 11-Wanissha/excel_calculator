@@ -220,7 +220,8 @@ $props = isset($formProperties) ? $formProperties : [];
   const importUrl = <?= json_encode($props['importUrl']) ?>;
   const canvas = document.getElementById("renderCanvas"); // Get the canvas element
   let engine;
-  let scene
+  let scene;
+  let click = false;
   if (canvas) {
     engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
     scene = createScene(); //Call the createScene function
@@ -241,6 +242,15 @@ $props = isset($formProperties) ? $formProperties : [];
   $(document).ready(function () {
     $('#form').on('submit', function (e) {
       e.preventDefault(); // Prevent the default form submission
+      if(click){
+        var toastElement = document.getElementById('liveToast-err');
+        var toastBody = toastElement.querySelector('.toast-body');
+        toastBody.textContent = 'Please Wait';
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        return;
+      }
+      click = true;
       const url = document.getElementById('url').innerHTML;
       $('#submitBtn').hide();
       // Show the loading spinner
@@ -277,6 +287,7 @@ $props = isset($formProperties) ? $formProperties : [];
           var toastElement = document.getElementById('liveToast-success');
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
+          click = false;
         },
         error: function (xhr, status, error) {
           $('#loadingSpinner').hide();
@@ -286,6 +297,7 @@ $props = isset($formProperties) ? $formProperties : [];
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
           console.log(xhr.responseText); // Log the error response for debugging
+          click = false;
         }
       });
     });
@@ -343,7 +355,15 @@ $props = isset($formProperties) ? $formProperties : [];
     $('#btnImport').on('click', function () {
       $('#loadingSpinner').show();
       $('#submitBtn').hide();
-
+      if(click){
+        var toastElement = document.getElementById('liveToast-err');
+        var toastBody = toastElement.querySelector('.toast-body');
+        toastBody.textContent = 'Please Wait';
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        return;
+      }
+      click = true;
       const fileEl = $('#file')[0]
       const file = fileEl.files[0]
 
@@ -390,11 +410,13 @@ $props = isset($formProperties) ? $formProperties : [];
           var toastElement = document.getElementById('liveToast-success');
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
+          click = false;
         },
         error: function (xhr, status, error) {
           $('#loadingSpinner').hide();
           $('#submitBtn').show();
           console.log(error)
+          click = false;
         }
       })
     });

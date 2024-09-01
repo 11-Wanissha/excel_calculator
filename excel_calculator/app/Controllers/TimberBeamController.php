@@ -279,6 +279,182 @@ class TimberBeamController extends BaseController
                       'width' => '100px',
 
                     ],
+                  ), // required
+                  'row' => array(
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Roof',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="B20" name="B20" value="0.4"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="C20" name="C20" value="0.25"  /',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="D20" name="D20" value="0.7"  /',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="E20" name="E20" value="0"  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Floor',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="B21" name="B21" value="0.4"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="C21" name="C21" value="1.5"  /',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="D21" name="D21" value="0.7"  /',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="E21" name="E21" value="0.4"  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Deck',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="B22" name="B22" value="0.4"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="C22" name="C22" value="1.5"  /',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="D22" name="D22" value="0.7"  /',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="E22" name="E22" value="0.4"  /',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Int Wall',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="B23" name="B23" value="0.3"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Ex Wall',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="B24" name="B24" value="0.4"  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Other',
+                        ]
+                      ),
+                      'G(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="B25" name="B25" value=""  /',
+                        ]
+                      ),
+                      'Q(kPa)' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="C25" name="C25" value=""  /',
+                        ]
+                      ),
+                      'Ψs' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="D25" name="D25" value=""  /',
+                        ]
+                      ),
+                      'Ψl' => array(
+                        [
+                          'text' => '<input type="number" step="any"  class="form-control" id="E25" name="E25" value=""  /',
+                        ]
+                      ),
+                    ],
+                  ), // required
+                  'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                ],
+                [
+                  'inputType' => 'table',
+                  'column' => array(
+                    [
+                      'id' => "name",
+                      'label' => "",
+                      'width' => '100px',
+
+                    ],
                     [
                       'id' => "wTrib.Width(m)",
                       'label' => "w Trib. Width(m)",
@@ -317,26 +493,6 @@ class TimberBeamController extends BaseController
                           'text' => 'Roof',
                         ]
                       ),
-                      'G(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="B20" name="B20" value="0.4"  /',
-                        ]
-                      ),
-                      'Q(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="C20" name="C20" value="0.25"  /',
-                        ]
-                      ),
-                      'Ψs' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="D20" name="D20" value="0.7"  /',
-                        ]
-                      ),
-                      'Ψl' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="E20" name="E20" value="0"  /',
-                        ]
-                      ),
                       'wTrib.Width(m)' => array(
                         [
                           'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
@@ -367,26 +523,6 @@ class TimberBeamController extends BaseController
                       'name' => array(
                         [
                           'text' => 'Floor',
-                        ]
-                      ),
-                      'G(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="B21" name="B21" value="0.4"  /',
-                        ]
-                      ),
-                      'Q(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="C21" name="C21" value="1.5"  /',
-                        ]
-                      ),
-                      'Ψs' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="D21" name="D21" value="0.7"  /',
-                        ]
-                      ),
-                      'Ψl' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="E21" name="E21" value="0.4"  /',
                         ]
                       ),
                       'wTrib.Width(m)' => array(
@@ -421,26 +557,6 @@ class TimberBeamController extends BaseController
                           'text' => 'Deck',
                         ]
                       ),
-                      'G(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="B22" name="B22" value="0.4"  /',
-                        ]
-                      ),
-                      'Q(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="C22" name="C22" value="1.5"  /',
-                        ]
-                      ),
-                      'Ψs' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="D22" name="D22" value="0.7"  /',
-                        ]
-                      ),
-                      'Ψl' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="E22" name="E22" value="0.4"  /',
-                        ]
-                      ),
                       'wTrib.Width(m)' => array(
                         [
                           'text' => '<input type="number" step="any"  class="form-control" id="F22" name="F22" value=""  /',
@@ -471,26 +587,6 @@ class TimberBeamController extends BaseController
                       'name' => array(
                         [
                           'text' => 'Int Wall',
-                        ]
-                      ),
-                      'G(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="B23" name="B23" value="0.3"  /',
-                        ]
-                      ),
-                      'Q(kPa)' => array(
-                        [
-                          'text' => '',
-                        ]
-                      ),
-                      'Ψs' => array(
-                        [
-                          'text' => '',
-                        ]
-                      ),
-                      'Ψl' => array(
-                        [
-                          'text' => '',
                         ]
                       ),
                       'wTrib.Width(m)' => array(
@@ -525,26 +621,6 @@ class TimberBeamController extends BaseController
                           'text' => 'Ex Wall',
                         ]
                       ),
-                      'G(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="B24" name="B24" value="0.4"  /',
-                        ]
-                      ),
-                      'Q(kPa)' => array(
-                        [
-                          'text' => '',
-                        ]
-                      ),
-                      'Ψs' => array(
-                        [
-                          'text' => '',
-                        ]
-                      ),
-                      'Ψl' => array(
-                        [
-                          'text' => '',
-                        ]
-                      ),
                       'wTrib.Width(m)' => array(
                         [
                           'text' => '<input type="number" step="any"  class="form-control" id="F24" name="F24" value=""  /',
@@ -575,26 +651,6 @@ class TimberBeamController extends BaseController
                       'name' => array(
                         [
                           'text' => 'Other',
-                        ]
-                      ),
-                      'G(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="B25" name="B25" value=""  /',
-                        ]
-                      ),
-                      'Q(kPa)' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="C25" name="C25" value=""  /',
-                        ]
-                      ),
-                      'Ψs' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="D25" name="D25" value=""  /',
-                        ]
-                      ),
-                      'Ψl' => array(
-                        [
-                          'text' => '<input type="number" step="any"  class="form-control" id="E25" name="E25" value=""  /',
                         ]
                       ),
                       'wTrib.Width(m)' => array(
@@ -1193,36 +1249,6 @@ class TimberBeamController extends BaseController
                           'text' => '<p id="U14" name="U14">0</p>',
                         ]
                       ),
-                      'Mstar-p1' => array(
-                        [
-                          'text' => '<p id="V14" name="V14">0</p>',
-                        ]
-                      ),
-                      'Mstar-p2' => array(
-                        [
-                          'text' => '<p id="W14" name="W14">0</p>',
-                        ]
-                      ),
-                      'Mstar-p3' => array(
-                        [
-                          'text' => '<p id="X14" name="X14">0</p>',
-                        ]
-                      ),
-                      'Mstar-p4' => array(
-                        [
-                          'text' => '<p id="Y14" name="Y14">0</p>',
-                        ]
-                      ),
-                      'k2G' => array(
-                        [
-                          'text' => '<p id="Z14" name="Z14">0</p>',
-                        ]
-                      ),
-                      'defl' => array(
-                        [
-                          'text' => '<p id="AA14" name="AA14">0</p>',
-                        ]
-                      ),
                     ],
                     [
                       'name' => array(
@@ -1265,36 +1291,6 @@ class TimberBeamController extends BaseController
                           'text' => '<p id="U15" name="U15">0</p>',
                         ]
                       ),
-                      'Mstar-p1' => array(
-                        [
-                          'text' => '<p id="V15" name="V15">0</p>',
-                        ]
-                      ),
-                      'Mstar-p2' => array(
-                        [
-                          'text' => '<p id="W15" name="W15">0</p>',
-                        ]
-                      ),
-                      'Mstar-p3' => array(
-                        [
-                          'text' => '<p id="X15" name="X15">0</p>',
-                        ]
-                      ),
-                      'Mstar-p4' => array(
-                        [
-                          'text' => '<p id="Y15" name="Y15">0</p>',
-                        ]
-                      ),
-                      'k2G' => array(
-                        [
-                          'text' => '<p id="Z15" name="Z15">0</p>',
-                        ]
-                      ),
-                      'defl' => array(
-                        [
-                          'text' => '<p id="AA15" name="AA15">0</p>',
-                        ]
-                      ),
                     ],
                     [
                       'name' => array(
@@ -1335,36 +1331,6 @@ class TimberBeamController extends BaseController
                       'Mstar-mid' => array(
                         [
                           'text' => '<p id="U16" name="U16">0</p>',
-                        ]
-                      ),
-                      'Mstar-p1' => array(
-                        [
-                          'text' => '<p id="V16" name="V16">0</p>',
-                        ]
-                      ),
-                      'Mstar-p2' => array(
-                        [
-                          'text' => '<p id="W16" name="W16">0</p>',
-                        ]
-                      ),
-                      'Mstar-p3' => array(
-                        [
-                          'text' => '<p id="X16" name="X16">0</p>',
-                        ]
-                      ),
-                      'Mstar-p4' => array(
-                        [
-                          'text' => '<p id="Y16" name="Y16">0</p>',
-                        ]
-                      ),
-                      'k2G' => array(
-                        [
-                          'text' => '<p id="Z16" name="Z16">0</p>',
-                        ]
-                      ),
-                      'defl' => array(
-                        [
-                          'text' => '<p id="AA16" name="AA16">0</p>',
                         ]
                       ),
                     ],
@@ -1410,36 +1376,6 @@ class TimberBeamController extends BaseController
                           'text' => '<p id="U17" name="U17">0</p>',
                         ]
                       ),
-                      'Mstar-p1' => array(
-                        [
-                          'text' => '<p id="V17" name="V17">0</p>',
-                        ]
-                      ),
-                      'Mstar-p2' => array(
-                        [
-                          'text' => '<p id="W17" name="W17">0</p>',
-                        ]
-                      ),
-                      'Mstar-p3' => array(
-                        [
-                          'text' => '<p id="X17" name="X17">0</p>',
-                        ]
-                      ),
-                      'Mstar-p4' => array(
-                        [
-                          'text' => '<p id="Y17" name="Y17">0</p>',
-                        ]
-                      ),
-                      'k2G' => array(
-                        [
-                          'text' => '<p id="Z17" name="Z15">0</p>',
-                        ]
-                      ),
-                      'defl' => array(
-                        [
-                          'text' => '<p id="AA17" name="AA17">0</p',
-                        ]
-                      ),
                     ],
                     [
                       'name' => array(
@@ -1480,36 +1416,6 @@ class TimberBeamController extends BaseController
                       'Mstar-mid' => array(
                         [
                           'text' => '<p id="U18" name="U18">0</p>',
-                        ]
-                      ),
-                      'Mstar-p1' => array(
-                        [
-                          'text' => '<p id="V18" name="V18">0</p>',
-                        ]
-                      ),
-                      'Mstar-p2' => array(
-                        [
-                          'text' => '<p id="W18" name="W18">0</p>',
-                        ]
-                      ),
-                      'Mstar-p3' => array(
-                        [
-                          'text' => '<p id="X18" name="X18">0</p>',
-                        ]
-                      ),
-                      'Mstar-p4' => array(
-                        [
-                          'text' => '<p id="Y18" name="Y18">0</p>',
-                        ]
-                      ),
-                      'k2G' => array(
-                        [
-                          'text' => '<p id="Z18" name="Z18">0</p>',
-                        ]
-                      ),
-                      'defl' => array(
-                        [
-                          'text' => '<p id="AA18" name="AA18">0</p>',
                         ]
                       ),
                     ],
@@ -1553,36 +1459,6 @@ class TimberBeamController extends BaseController
                         [
                           'text' => '<p id="U19" name="U19">0</p>',
                           'id' => 'U15',
-                        ]
-                      ),
-                      'Mstar-p1' => array(
-                        [
-                          'text' => '<p id="V19" name="V19">0</p>',
-                        ]
-                      ),
-                      'Mstar-p2' => array(
-                        [
-                          'text' => '<p id="W19" name="W19">0</p>',
-                        ]
-                      ),
-                      'Mstar-p3' => array(
-                        [
-                          'text' => '<p id="X19" name="X19">0</p>',
-                        ]
-                      ),
-                      'Mstar-p4' => array(
-                        [
-                          'text' => '<p id="Y19" name="Y19">0</p>',
-                        ]
-                      ),
-                      'k2G' => array(
-                        [
-                          'text' => '<p id="Z19" name="Z19">0</p>',
-                        ]
-                      ),
-                      'defl' => array(
-                        [
-                          'text' => '<p id="AA19" name="AA19">0</p>',
                         ]
                       ),
                     ],
@@ -1629,6 +1505,241 @@ class TimberBeamController extends BaseController
                       'label' => 'M* (midspan)',
                       'width' => '100px',
                     ],
+                  )
+                ],
+                [
+                  'slot' => 1,
+                  'inputType' => 'table',
+                  'row' => array(
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'w',
+                        ],
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<p id="V14" name="V14">0</p>',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                          'text' => '<p id="W14" name="W14">0</p>',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<p id="X14" name="X14">0</p>',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<p id="Y14" name="Y14">0</p>',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<p id="Z14" name="Z14">0</p>',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                          'text' => '<p id="AA14" name="AA14">0</p>',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'P1',
+                        ],
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<p id="V15" name="V15">0</p>',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                          'text' => '<p id="W15" name="W15">0</p>',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<p id="X15" name="X15">0</p>',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<p id="Y15" name="Y15">0</p>',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<p id="Z15" name="Z15">0</p>',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                          'text' => '<p id="AA15" name="AA15">0</p>',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'P2',
+                        ],
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<p id="V16" name="V16">0</p>',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                          'text' => '<p id="W16" name="W16">0</p>',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<p id="X16" name="X16">0</p>',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<p id="Y16" name="Y16">0</p>',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<p id="Z16" name="Z16">0</p>',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                          'text' => '<p id="AA16" name="AA16">0</p>',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'P3',
+                        ],
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<p id="V17" name="V17">0</p>',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                          'text' => '<p id="W17" name="W17">0</p>',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<p id="X17" name="X17">0</p>',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<p id="Y17" name="Y17">0</p>',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<p id="Z17" name="Z15">0</p>',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                          'text' => '<p id="AA17" name="AA17">0</p',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'P4',
+                        ],
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<p id="V18" name="V18">0</p>',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                          'text' => '<p id="W18" name="W18">0</p>',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<p id="X18" name="X18">0</p>',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<p id="Y18" name="Y18">0</p>',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<p id="Z18" name="Z18">0</p>',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                          'text' => '<p id="AA18" name="AA18">0</p>',
+                        ]
+                      ),
+                    ],
+                    [
+                      'name' => array(
+                        [
+                          'text' => 'Sum',
+                        ],
+                      ),
+                      'Mstar-p1' => array(
+                        [
+                          'text' => '<p id="V19" name="V19">0</p>',
+                        ]
+                      ),
+                      'Mstar-p2' => array(
+                        [
+                          'text' => '<p id="W19" name="W19">0</p>',
+                        ]
+                      ),
+                      'Mstar-p3' => array(
+                        [
+                          'text' => '<p id="X19" name="X19">0</p>',
+                        ]
+                      ),
+                      'Mstar-p4' => array(
+                        [
+                          'text' => '<p id="Y19" name="Y19">0</p>',
+                        ]
+                      ),
+                      'k2G' => array(
+                        [
+                          'text' => '<p id="Z19" name="Z19">0</p>',
+                        ]
+                      ),
+                      'defl' => array(
+                        [
+                          'text' => '<p id="AA19" name="AA19">0</p>',
+                        ]
+                      ),
+                    ],
+                  ),
+                  'column' => array(
+                    [
+                      'id' => 'name',
+                      'label' => '',
+                      'width' => '100px',
+                    ],
                     [
                       'id' => 'Mstar-p1',
                       'label' => 'M* (P1)',
@@ -1660,7 +1771,7 @@ class TimberBeamController extends BaseController
                       'width' => '100px',
                     ],
                   )
-                ]
+                  ],
               )
             ],
             [
@@ -1723,6 +1834,25 @@ class TimberBeamController extends BaseController
                       'width' => '50px',
 
                     ],
+                  ),
+                  'row' => array(
+                    [
+                      'material' => array(['text' => '<p id="AC14" name="AC14">0</p>']),
+                      'type' => array(['text' => '<p id="AD14" name="AD14">0</p>']),
+                      'size' => array(['text' => '<p id="AE14" name="AE14">0</p>']),
+                      'fb' => array(['text' => '<p id="AF14" name="AF14">0</p>']),
+                      'fs' => array(['text' => '<p id="AG14" name="AG14">0</p>']),
+                      'E' => array(['text' => '<p id="AH14" name="AH14">0</p>']),
+                      'fb-wet' => array(['text' => '<p id="AI14" name="AI14">0</p>']),
+                      'fs-wet' => array(['text' => '<p id="AJ14" name="AJ14">0</p>']),
+                      'E-wet' => array(['text' => '<p id="AK14" name="AK14">0</p>']),
+                    ]
+                  )
+                ],
+                [
+                  'slot' => 1,
+                  'inputType' => 'table',
+                  'column' => array(
                     [
                       'id' => 'self-wt',
                       'label' => 'Self Wt',
@@ -1774,15 +1904,6 @@ class TimberBeamController extends BaseController
                   ),
                   'row' => array(
                     [
-                      'material' => array(['text' => '<p id="AC14" name="AC14">0</p>']),
-                      'type' => array(['text' => '<p id="AD14" name="AD14">0</p>']),
-                      'size' => array(['text' => '<p id="AE14" name="AE14">0</p>']),
-                      'fb' => array(['text' => '<p id="AF14" name="AF14">0</p>']),
-                      'fs' => array(['text' => '<p id="AG14" name="AG14">0</p>']),
-                      'E' => array(['text' => '<p id="AH14" name="AH14">0</p>']),
-                      'fb-wet' => array(['text' => '<p id="AI14" name="AI14">0</p>']),
-                      'fs-wet' => array(['text' => '<p id="AJ14" name="AJ14">0</p>']),
-                      'E-wet' => array(['text' => '<p id="AK14" name="AK14">0</p>']),
                       'self-wt' => array(['text' => '<p id="AL14" name="AL14">0</p>']),
                       'b' => array(['text' => '<p id="AM14" name="AM14">0</p>']),
                       'd' => array(['text' => '<p id="AN14" name="AN14">0</p>']),
