@@ -19,7 +19,7 @@ echo view("/main/main_page", [
         return beamSize[target]
     }
 
-    function renderBeamSizeOptions(el, options) {        
+    function renderBeamSizeOptions(el, options) {
         el.innerHTML = ''
 
         const staticOption = document.createElement('option')

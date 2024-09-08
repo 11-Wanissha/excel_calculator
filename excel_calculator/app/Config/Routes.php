@@ -17,3 +17,4 @@ $routes->get('/main', 'Home::main');
 $routes->get('/timber-beam', 'TimberBeamController::renderer');
 $routes->post('/timber-beam', 'TimberBeamController::calculator');
 $routes->post('/timber-beam-import', 'TimberBeamController::import');
+$routes->post('/timber-beam-export', 'TimberBeamController::export');

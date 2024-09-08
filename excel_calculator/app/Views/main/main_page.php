@@ -106,7 +106,7 @@ $props = isset($formProperties) ? $formProperties : [];
                             }
                             ?>
                           </div>
-                        <?php endforeach;
+                      <?php endforeach;
                       endif; ?>
                       <div>
                         <?php if (isset($menu['subMenu']) && !empty($menu['subMenu'])): ?>
@@ -218,31 +218,34 @@ $props = isset($formProperties) ? $formProperties : [];
 <script src="<?= base_url('assets/js/' . $props['url'] . '.js') ?>"></script>
 <script>
   const importUrl = <?= json_encode($props['importUrl']) ?>;
+  const exportUrl = <?= json_encode($props['exportUrl']) ?>;
   const canvas = document.getElementById("renderCanvas"); // Get the canvas element
   let engine;
   let scene;
   let click = false;
+
+  let latestCalculatedData = {}
   if (canvas) {
     engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
     scene = createScene(); //Call the createScene function
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     // Register a render loop to repeatedly render the scene
-    engine.runRenderLoop(function () {
+    engine.runRenderLoop(function() {
       scene.render();
     });
     // Watch for browser/canvas resize events
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize", function() {
       engine.resize();
     });
-    canvas.addEventListener('wheel', function (event) {
+    canvas.addEventListener('wheel', function(event) {
       event.preventDefault();
     });
   }
-  $(document).ready(function () {
-    $('#form').on('submit', function (e) {
+  $(document).ready(function() {
+    $('#form').on('submit', function(e) {
       e.preventDefault(); // Prevent the default form submission
-      if(click){
+      if (click) {
         var toastElement = document.getElementById('liveToast-err');
         var toastBody = toastElement.querySelector('.toast-body');
         toastBody.textContent = 'Please Wait';
@@ -259,7 +262,8 @@ $props = isset($formProperties) ? $formProperties : [];
         type: 'POST',
         url: `${url}`, // Your form action URL
         data: $(this).serialize(), // Serialize the form data
-        success: function (response) {
+        success: function(response) {
+          latestCalculatedData = response
           $('#loadingSpinner').hide();
           // Show the loading spinner
           $('#submitBtn').show();
@@ -270,8 +274,7 @@ $props = isset($formProperties) ? $formProperties : [];
             if (tdNoInputElement !== null) {
               tdNoInputElement.innerHTML = response[data];
               tdNoInputElement.style.width = "auto";
-            }
-            else if (tdElement) {
+            } else if (tdElement) {
               tdElement.value = response[data];
               tdElement.style.width = "auto";
             } else if (element) {
@@ -289,7 +292,7 @@ $props = isset($formProperties) ? $formProperties : [];
           toast.show();
           click = false;
         },
-        error: function (xhr, status, error) {
+        error: function(xhr, status, error) {
           $('#loadingSpinner').hide();
           // Show the loading spinner
           $('#submitBtn').show();
@@ -301,7 +304,7 @@ $props = isset($formProperties) ? $formProperties : [];
         }
       });
     });
-    $('.fullscreen-btn').click(function () {
+    $('.fullscreen-btn').click(function() {
       let index = $('.fullscreen-btn').index(this);
       let element = $('.table-responsive').eq(index)[0];
 
@@ -331,8 +334,8 @@ $props = isset($formProperties) ? $formProperties : [];
     });
 
     // Listen for fullscreen change to toggle button text/icon
-    document.addEventListener('fullscreenchange', function () {
-      $('.fullscreen-btn').each(function (index, button) {
+    document.addEventListener('fullscreenchange', function() {
+      $('.fullscreen-btn').each(function(index, button) {
         if (document.fullscreenElement) {
           $(button).html('<img src="<?= base_url('assets/expand.png'); ?>" alt="Exit" width="20px"> Exit');
         } else {
@@ -340,9 +343,9 @@ $props = isset($formProperties) ? $formProperties : [];
         }
       });
     });
-    $('#Row').on('click', function () {
+    $('#Row').on('click', function() {
       var divElements = document.querySelectorAll('.isRow');
-      divElements.forEach(function (div) {  // Loop through each div element
+      divElements.forEach(function(div) { // Loop through each div element
         if (this.checked) {
           div.classList.remove('col-xl-6');
           div.classList.add('col-xl-12');
@@ -352,10 +355,10 @@ $props = isset($formProperties) ? $formProperties : [];
         }
       }, this);
     });
-    $('#btnImport').on('click', function () {
+    $('#btnImport').on('click', function() {
       $('#loadingSpinner').show();
       $('#submitBtn').hide();
-      if(click){
+      if (click) {
         var toastElement = document.getElementById('liveToast-err');
         var toastBody = toastElement.querySelector('.toast-body');
         toastBody.textContent = 'Please Wait';
@@ -388,7 +391,7 @@ $props = isset($formProperties) ? $formProperties : [];
         cache: false,
         contentType: false,
         processData: false,
-        success: function (response) {
+        success: function(response) {
           $('#loadingSpinner').hide();
           $('#submitBtn').show();
 
@@ -398,8 +401,7 @@ $props = isset($formProperties) ? $formProperties : [];
             let tdNoInputElement = document.querySelector('td.overflow p#' + data);
             if (tdNoInputElement !== null) {
               tdNoInputElement.innerHTML = response[data];
-            }
-            else if (tdElement) {
+            } else if (tdElement) {
               tdElement.value = response[data];
             } else if (element) {
               element.value = response[data];
@@ -412,13 +414,80 @@ $props = isset($formProperties) ? $formProperties : [];
           toast.show();
           click = false;
         },
-        error: function (xhr, status, error) {
+        error: function(xhr, status, error) {
           $('#loadingSpinner').hide();
           $('#submitBtn').show();
           console.log(error)
           click = false;
         }
       })
+    });
+
+    $('#export').on('click', function() {
+      try {
+        $('#loadingSpinner').show();
+        $('#submitBtn').hide();
+        if (click) {
+          var toastElement = document.getElementById('liveToast-err');
+          var toastBody = toastElement.querySelector('.toast-body');
+          toastBody.textContent = 'Please Wait';
+          var toast = new bootstrap.Toast(toastElement);
+          toast.show();
+          return;
+        }
+
+        const formEl = document.forms.form
+        const formData = new FormData(formEl)
+
+        formData.delete('file')
+
+        const finalFormData = JSON.stringify({
+          ...Object.fromEntries(formData),
+          ...latestCalculatedData
+        })
+
+        $.ajax({
+          url: exportUrl,
+          type: 'POST',
+          data: finalFormData,
+          cache: false,
+          contentType: "application/json",
+          processData: false,
+          success: function(response) {
+            $('#loadingSpinner').hide();
+            $('#submitBtn').show();
+            console.log(response)
+
+            click = false;
+            const byteCharacters = atob(response.content);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+              byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], {
+              type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            });
+
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = response.filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          },
+          error: function(xhr, status, error) {
+            click = false;
+            $('#loadingSpinner').hide();
+            $('#submitBtn').show();
+          }
+        })
+      } catch (e) {
+        click = false;
+        console.log(e)
+        $('#loadingSpinner').hide();
+        $('#submitBtn').show();
+      }
     });
   });
 </script>
