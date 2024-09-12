@@ -15,6 +15,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx as Writer;
 use App\Libraries\MainLib;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
 
 /**
  * Class BaseController
@@ -70,12 +71,12 @@ abstract class BaseController extends Controller
 
         $sheet = $spreadsheet->getActiveSheet();
 
-        $sheet->getColumnDimension('A')->setWidth(20.0);
+        $sheet->getColumnDimension('A')->setWidth(16.0);
         foreach (range('B', 'Z') as $column) {
-            $sheet->getColumnDimension($column)->setAutoSize(true);
+            $sheet->getColumnDimension($column)->setWidth(12.0);
         }
 
-        $sheet->getStyle('B:Z')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A:Z')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT)->setVertical(Alignment::VERTICAL_CENTER);
 
         $loopIndex = 1;
         $alphabet = range('A', 'Z');
@@ -86,8 +87,9 @@ abstract class BaseController extends Controller
 
             if ($index != 0) $loopIndex++;
 
+            $sheet->mergeCells("A{$loopIndex}:H{$loopIndex}");
             $sheet->setCellValue("A{$loopIndex}", $menu['menuTitle'] ?? '-');
-            $sheet->getStyle("A{$loopIndex}:Z{$loopIndex}")
+            $sheet->getStyle("A{$loopIndex}:H{$loopIndex}")
                 ->getFill()
                 ->setFillType(Fill::FILL_SOLID)
                 ->getStartColor()
@@ -104,6 +106,7 @@ abstract class BaseController extends Controller
                     case $types[0]:
                         if (!isset($input['id'])) break;
 
+                        $unit = isset($input['unit']) ? $input['unit'] : null;
                         $finalData = isset($dataset[$input['id']]) ? $dataset[$input['id']] : null;
 
                         if (!isset($finalData)) {
@@ -128,6 +131,10 @@ abstract class BaseController extends Controller
 
                         $sheet->setCellValue("A{$loopIndex}", $input['label'] ?? '-');
                         $sheet->setCellValue("B{$loopIndex}", $finalData);
+
+                        if ($unit) {
+                            $sheet->setCellValue("C{$loopIndex}", $unit);
+                        }
                         break;
 
                     case $types[1]:
@@ -136,9 +143,15 @@ abstract class BaseController extends Controller
 
                         if (isset($input['column'])) {
                             foreach ($input['column'] as $index => $col) {
+                                if ($alphabetIndex > 7) {
+                                    $alphabetIndex = 0;
+                                    // $loopIndex++;
+                                }
+
                                 $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $col['label']);
                                 $styles = $sheet->getStyle("{$alphabet[$alphabetIndex]}{$loopIndex}");
                                 $styles->getFont()->setBold(true);
+                                $styles->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
                                 $styles->getBorders()->applyFromArray([
                                     'allBorders' => [
                                         'borderStyle' => Border::BORDER_THIN,
@@ -158,9 +171,13 @@ abstract class BaseController extends Controller
 
                                 foreach ($row as $key => $cell) {
                                     $id = $lib->getTableCellId($cell, 'text');
+                                    if ($alphabetIndex > 7) {
+                                        $alphabetIndex = 0;
+                                        // $loopIndex++;
+                                    }
 
                                     if ($id == '') {
-                                        $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $cell[0]['text']);
+                                        $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $cell[0]['text'] ?? '0');
                                         $styles = $sheet->getStyle("{$alphabet[$alphabetIndex]}{$loopIndex}");
                                         $styles->getBorders()->applyFromArray([
                                             'allBorders' => [
@@ -213,8 +230,9 @@ abstract class BaseController extends Controller
                 foreach ($menu['subMenu'] as $subMenu) {
                     if ($index != 0) $loopIndex++;
 
+                    $sheet->mergeCells("A{$loopIndex}:H{$loopIndex}");
                     $sheet->setCellValue("A{$loopIndex}", $subMenu['subMenuTitle'] ?? '-');
-                    $sheet->getStyle("A{$loopIndex}:Z{$loopIndex}")
+                    $sheet->getStyle("A{$loopIndex}:H{$loopIndex}")
                         ->getFill()
                         ->setFillType(Fill::FILL_SOLID)
                         ->getStartColor()
@@ -345,8 +363,12 @@ abstract class BaseController extends Controller
         $combinedMenu = $lib->combineArray('menu', $fromProperties['secTion']);
 
         $spreadsheet = $this->renderExcel($combinedMenu, $exportData);
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setShowGridlines(false);
+        $sheet->getStyle('A1:G150')->getFont()->setName('DejaVu Sans')->setSize(9);
 
-        $writer = new Writer($spreadsheet);
+        // $writer = new Writer($spreadsheet);
+        $writer = new Dompdf($spreadsheet);
 
         $tempFile = tempnam(sys_get_temp_dir(), 'temp');
         $writer->save($tempFile);
@@ -357,10 +379,10 @@ abstract class BaseController extends Controller
 
         unlink($tempFile);
 
-        header('Content-Type: application/json');
+        header('Content-Type: application/pdf');
 
         return json_encode([
-            'filename' => "{$title}.xlsx",
+            'filename' => "{$title}.pdf",
             'content' => $base64,
         ]);
     }
