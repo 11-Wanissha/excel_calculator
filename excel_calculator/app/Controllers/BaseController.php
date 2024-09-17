@@ -9,9 +9,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
-use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx as Writer;
 use App\Libraries\MainLib;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
@@ -77,6 +75,8 @@ abstract class BaseController extends Controller
         }
 
         $sheet->getStyle('A:Z')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT)->setVertical(Alignment::VERTICAL_CENTER);
+        $sheet->setShowGridlines(false);
+        $sheet->getStyle('A1:H150')->getFont()->setName('DejaVu Sans')->setSize(9);
 
         $loopIndex = 1;
         $alphabet = range('A', 'Z');
@@ -89,12 +89,18 @@ abstract class BaseController extends Controller
 
             $sheet->mergeCells("A{$loopIndex}:H{$loopIndex}");
             $sheet->setCellValue("A{$loopIndex}", $menu['menuTitle'] ?? '-');
-            $sheet->getStyle("A{$loopIndex}:H{$loopIndex}")
+            $sheet->getStyle("A{$loopIndex}:I{$loopIndex}")
                 ->getFill()
                 ->setFillType(Fill::FILL_SOLID)
                 ->getStartColor()
                 ->setARGB('FFD0E0D0');
             $sheet->getStyle("A{$loopIndex}")->getFont()->setBold(true);
+
+            $sheet->getStyle("I{$loopIndex}")
+                ->getFill()
+                ->setFillType(Fill::FILL_SOLID)
+                ->getStartColor()
+                ->setARGB('FFFFFFFF');
 
             $loopIndex++;
 
@@ -232,12 +238,18 @@ abstract class BaseController extends Controller
 
                     $sheet->mergeCells("A{$loopIndex}:H{$loopIndex}");
                     $sheet->setCellValue("A{$loopIndex}", $subMenu['subMenuTitle'] ?? '-');
-                    $sheet->getStyle("A{$loopIndex}:H{$loopIndex}")
+                    $sheet->getStyle("A{$loopIndex}:I{$loopIndex}")
                         ->getFill()
                         ->setFillType(Fill::FILL_SOLID)
                         ->getStartColor()
                         ->setARGB('FFD0E0D0');
                     $sheet->getStyle("A{$loopIndex}")->getFont()->setBold(true);
+
+                    $sheet->getStyle("I{$loopIndex}")
+                        ->getFill()
+                        ->setFillType(Fill::FILL_SOLID)
+                        ->getStartColor()
+                        ->setARGB('FFFFFFFF');
 
                     $loopIndex++;
                     foreach ($subMenu['input'] as $input) {
@@ -354,6 +366,7 @@ abstract class BaseController extends Controller
                 }
             }
         }
+
         return $spreadsheet;
     }
 
@@ -364,8 +377,6 @@ abstract class BaseController extends Controller
 
         $spreadsheet = $this->renderExcel($combinedMenu, $exportData);
         $sheet = $spreadsheet->getActiveSheet();
-        $sheet->setShowGridlines(false);
-        $sheet->getStyle('A1:G150')->getFont()->setName('DejaVu Sans')->setSize(9);
 
         // $writer = new Writer($spreadsheet);
         $writer = new Dompdf($spreadsheet);
