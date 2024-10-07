@@ -197,7 +197,7 @@ $props = isset($formProperties) ? $formProperties : [];
     aria-live="assertive" aria-atomic="true">
     <div class="d-flex">
       <div class="toast-body">
-        Form submission failed! Please input Data or Import File and try again
+        Form submission failed! Please input Data or try again
       </div>
       <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
         aria-label="Close"></button>
@@ -230,10 +230,7 @@ $props = isset($formProperties) ? $formProperties : [];
     scene = createScene(); //Call the createScene function
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    // Register a render loop to repeatedly render the scene
-    engine.runRenderLoop(function () {
-      scene.render();
-    });
+    scene.render();
     // Watch for browser/canvas resize events
     window.addEventListener("resize", function () {
       engine.resize();
@@ -376,7 +373,7 @@ $props = isset($formProperties) ? $formProperties : [];
         $('#submitBtn').show();
         var toastElement = document.getElementById('liveToast-err');
         var toastBody = toastElement.querySelector('.toast-body');
-        toastBody.textContent = 'Please Input File First';
+        toastBody.textContent = 'Please Import File First';
         var toast = new bootstrap.Toast(toastElement);
         toast.show();
         click = false;
@@ -487,10 +484,10 @@ $props = isset($formProperties) ? $formProperties : [];
       } catch (e) {
         click = false;
         var toastElement = document.getElementById('liveToast-err');
-          var toastBody = toastElement.querySelector('.toast-body');
-          toastBody.textContent = 'Something Error Please try again';
-          var toast = new bootstrap.Toast(toastElement);
-          toast.show();
+        var toastBody = toastElement.querySelector('.toast-body');
+        toastBody.textContent = 'Something Error Please try again';
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
         $('#loadingSpinner').hide();
         $('#submitBtn').show();
       }

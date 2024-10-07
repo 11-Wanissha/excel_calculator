@@ -1,5 +1,5 @@
 const createScene = function (
-  length = 0.5,
+  length = 0,
   a = 0,
   b = 0,
   c = 0,
@@ -13,7 +13,6 @@ const createScene = function (
 ) {
   const scale = length * 2.5;
   const cameraView = length < 2 ? 5 : scale;
-  const allValue = (a === b && b === c && c === d);
   const textSize =
     "bold " +
     (length < 5 ? "30" : length < 10 ? "44" : "50") +
@@ -46,7 +45,7 @@ const createScene = function (
   );
 
   const box = BABYLON.MeshBuilder.CreateBox("box", {});
-  box.scaling.set(scale, 0.3, 1);
+  box.scaling.set(scale, 1, 0.3);
   box.material = woodMaterial;
   box.position.y = 0.15;
   const linePoints = [
@@ -64,7 +63,7 @@ const createScene = function (
     if (horizon) {
       points = [
         new BABYLON.Vector3(-(box.scaling.x / 2), 0, 0), // Start at the box's start
-        new BABYLON.Vector3(-(box.scaling.x / 2) + xOffset * 2.45, 0, 0) // End at xOffset
+        new BABYLON.Vector3(-(box.scaling.x / 2) + xOffset * 2.4, 0, 0) // End at xOffset
       ];
       const tube = BABYLON.MeshBuilder.CreateLines(
         name,
@@ -100,7 +99,7 @@ const createScene = function (
       } else {
         tubeMaterial.diffuseColor = BABYLON.Color3.Green();
         // Position the tube
-        tube.position.y = box.scaling.y / 2 - 1;
+        tube.position.y = box.scaling.y / 2 - 1.6;
         if (left) {
           tube.position.x = -(box.scaling.x / 2) + 0;
         } else {
@@ -146,16 +145,16 @@ const createScene = function (
     return label;
   };
   const line = [
-    createLine("lineP1", a, true, true, false, a <= 0 || allValue || checkValueEqual ? 0.45 : 0.45),
-    createLine("lineP2", b, true, true, false, b <= 0 || allValue || checkValueEqual  ? 0.75 : 0.45),
-    createLine("lineP3", c, true, true, false, c <= 0 || allValue || checkValueEqual  ? 1.05 : 0.45),
-    createLine("lineP4", d, true, true, false, d <= 0 || allValue || checkValueEqual ? 1.35 : 0.45),
+    createLine("lineP1", a, true, true, false,  0.7),
+    createLine("lineP2", b, true, true, false,  0.95),
+    createLine("lineP3", c, true, true, false,  1.2),
+    createLine("lineP4", d, true, true, false, 1.4),
     createLine("lineR1", R1, false),
     createLine("lineR2", R2, false, false),
-    createLine("a", a, true, true, true, 0.8),
-    createLine("b", b, true, true, true, 1.5),
-    createLine("c", c, true, true, true, 1.9),
-    createLine("d", d, true, true, true, 2.2)
+    createLine("a", a, true, true, true, 1.1),
+    createLine("b", b, true, true, true, 1.75),
+    createLine("c", c, true, true, true, 2),
+    createLine("d", d, true, true, true, 2.25)
   ];
   const labels = [
     createLabel("P1", "P1 : " + P1),
@@ -211,7 +210,7 @@ function reGenerate(response) {
   const R2 = response["G40"];
   scene.dispose();
   scene = createScene(length, a, b, c, d, P1, P2, P3, P4, R1, R2);
-}
-function checkValueEqual(value,first,second,third){
-  return value === first || value === second || value === third;
+  engine.runRenderLoop(function () {
+    scene.render();
+  });
 }

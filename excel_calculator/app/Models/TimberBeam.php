@@ -89,7 +89,7 @@ class TimberBeam
                                 [
                                     'inputType' => 'dropdown',
                                     'label' => 'Beam Type', // required
-                                    'selectOption' => "โปรดเลือก",
+                                    'selectOption' => "Please Select",
                                     'id' => 'C10', // required
                                     'disabled' => false,
                                     // required
@@ -145,7 +145,7 @@ class TimberBeam
                                     'inputType' => 'dropdown',
                                     'id' => 'C11', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
                                     'label' => "Beam Size",
-                                    'selectOption' => "โปรดเลือก",
+                                    'selectOption' => "Please Select",
                                     'disabled' => false,
                                     // required
                                     'option' => array(
