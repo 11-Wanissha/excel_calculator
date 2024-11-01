@@ -18,3 +18,8 @@ $routes->get('/timber-beam', 'TimberBeamController::renderer');
 $routes->post('/timber-beam', 'TimberBeamController::calculator');
 $routes->post('/timber-beam-import', 'TimberBeamController::import');
 $routes->post('/timber-beam-export', 'TimberBeamController::export');
+
+$routes->get('/propped-cantilever-beam', 'ProppedCantileverBeamController::renderer');
+$routes->post('/propped-cantilever-beam', 'ProppedCantileverBeamController::calculate');
+$routes->post('/propped-cantilever-beam-import', 'ProppedCantileverBeamController::import');
+$routes->post('/propped-cantilever-beam-export', 'ProppedCantileverBeamController::export');
