@@ -19,185 +19,12 @@ class ProppedCantileverBeam
             'secTion' => array(
                 [
                     'menu' => array(
+                          
                         [
-                            'menuTitle' => '1. Variable',
-                            'input' => array(
-                                [
-                                    'inputType' => 'file',
-                                    'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
-                                    'label' => 'Import File', // required
-                                    'id' => 'file', // required
-                                    'name' => 'file',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'Beam ID', // required
-                                    'id' => 'C8', // required
-                                    'name' => 'C8',
-                                ],
-                                [
-                                    'inputType' => 'dropdown',
-                                    'label' => 'Beam Type', // required
-                                    'selectOption' => "Please Select",
-                                    'id' => 'C10', // required
-                                    'disabled' => false,
-                                    // required
-                                    'option' => array(
-                                        [
-                                            'optionName' => "Timber - VSG8",
-                                            'value' => "timber1",
-                                            'selected' => true,
-                                        ],
-                                        [
-                                            'optionName' => "Timber - VSG10",
-                                            'value' => "timber2",
-                                        ],
-                                        [
-                                            'optionName' => "Timber - No 1 Framing",
-                                            'value' => "timber3",
-                                        ],
-                                        [
-                                            'optionName' => "Glulam8",
-                                            'value' => "glulam1",
-                                        ],
-                                        [
-                                            'optionName' => "Glulam12",
-                                            'value' => "glulam2",
-                                        ],
-                                        [
-                                            'optionName' => "Glulam17",
-                                            'value' => "glulam3",
-                                        ],
-                                        [
-                                            'optionName' => "LVL - hySPAN",
-                                            'value' => "lvl1",
-                                        ],
-                                        [
-                                            'optionName' => "LVL - hy90",
-                                            'value' => "lvl2",
-                                        ],
-                                        [
-                                            'optionName' => "LVL - hyONE",
-                                            'value' => "lvl3",
-                                        ],
-                                        [
-                                            'optionName' => "Flitch Beam",
-                                            'value' => "flitch1",
-                                        ],
-                                        [
-                                            'optionName' => "CUSTOM",
-                                            'value' => "custom1",
-                                        ],
-                                    ),
-                                ],
-                                [
-                                    'inputType' => 'dropdown',
-                                    'id' => 'C11', // required id กับ name จะใช้ตัวเดียวกัน ใส่เป็น text ได้
-                                    'label' => "Beam Size",
-                                    'selectOption' => "Please Select",
-                                    'disabled' => false,
-                                    // required
-                                    'option' => array(
-                                        [
-                                            'optionName' => "90*45",
-                                            'value' => "1",
-                                        ],
-                                        [
-                                            'optionName' => "140*45",
-                                            'value' => "2",
-                                        ],
-                                        [
-                                            'optionName' => "190*45",
-                                            'value' => "3",
-                                        ],
-                                        [
-                                            'optionName' => "240x45",
-                                            'value' => "4",
-                                        ],
-                                        [
-                                            'optionName' => "290x45",
-                                            'value' => "5",
-                                        ],
-                                        [
-                                            'optionName' => "2/90x45",
-                                            'value' => "6",
-                                        ],
-                                        [
-                                            'optionName' => "2/140x45",
-                                            'value' => "7",
-                                        ],
-                                        [
-                                            'optionName' => "2/190x45",
-                                            'value' => "8",
-                                        ],
-                                        [
-                                            'optionName' => "2/240x45",
-                                            'value' => "9",
-                                        ],
-                                        [
-                                            'optionName' => "2/290x45",
-                                            'value' => "10",
-                                        ],
-                                        [
-                                            'optionName' => "3/90x45",
-                                            'value' => "11",
-                                        ],
-                                        [
-                                            'optionName' => "3/140x45",
-                                            'value' => "12",
-                                        ],
-                                        [
-                                            'optionName' => "3/190x45",
-                                            'value' => "13",
-                                        ],
-                                        [
-                                            'optionName' => "3/240x45",
-                                            'value' => "14",
-                                        ],
-                                        [
-                                            'optionName' => "3/290x45",
-                                            'value' => "15",
-                                        ],
-                                    ),
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'Span L', // required
-                                    'id' => 'C12', // required
-                                    'name' => 'C12',
-                                    'unit' => 'm',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'span/', // required
-                                    'id' => 'D13', // required
-                                    'name' => 'D13',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'Deflection Limit', // required
-                                    'id' => 'C14', // required
-                                    'name' => 'C14',
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'Vibration Limit', // required
-                                    'id' => 'C15', // required
-                                    'name' => 'C15',
-                                    'unit' => 'mm',
-                                    'type' => 'number',
-                                ],
-                            ),
-                        ],
-                        [
-                            'menuTitle' => '2. LOADS',
+                            'menuTitle' => '1. LOADS',
                             'subMenu' => array(
                                 [
-                                    'subMenuTitle' => '2.1 Distance to P Loads',
+                                    'subMenuTitle' => '1.1 Point loads',
                                     'input' => array(
                                         [
                                             'inputType' => 'text',
@@ -233,216 +60,476 @@ class ProppedCantileverBeam
                                         ],
                                     ),
                                 ],
+                                [
+                                    'subMenuTitle' => '1.2 Point loads: ULS',
+                                    'input' => array([
+                                        'inputType' => 'table',
+                                        'column' => array(
+                                            [
+                                                'id' => "name",
+                                                'label' => "loads",
+                                                'width' => '100px',
+
+                                            ],
+                                            [
+                                                'id' => "wTrib.Width(m)",
+                                                'label' => "w Trib. Width(m)",
+                                                'unit' => 'm',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P1Trib.Area(m^2)",
+                                                'label' => "P1 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P2Trib.Area(m^2)",
+                                                'label' => "P2 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P3Trib.Area(m^2)",
+                                                'label' => "P3 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P4Trib.Area(m^2)",
+                                                'label' => "P4 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                        ), // required
+                                        'row' => array(
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'Roof',
+                                                    ]
+                                                ),
+                                                'wTrib.Width(m)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P1Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P2Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P3Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P4Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            
+                                        ), // required
+                                        'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    ]
+                                        
+                                    ),
+                                    
+                                ],
+                                [
+                                    'subMenuTitle' => '1.3 Point loads: SLS',
+                                    'input' => array([
+                                        'inputType' => 'table',
+                                        'column' => array(
+                                            [
+                                                'id' => "name",
+                                                'label' => "loads",
+                                                'width' => '100px',
+
+                                            ],
+                                            [
+                                                'id' => "wTrib.Width(m)",
+                                                'label' => "w Trib. Width(m)",
+                                                'unit' => 'm',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P1Trib.Area(m^2)",
+                                                'label' => "P1 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P2Trib.Area(m^2)",
+                                                'label' => "P2 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P3Trib.Area(m^2)",
+                                                'label' => "P3 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P4Trib.Area(m^2)",
+                                                'label' => "P4 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                        ), // required
+                                        'row' => array(
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'Roof',
+                                                    ]
+                                                ),
+                                                'wTrib.Width(m)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P1Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P2Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P3Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P4Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            
+                                        ), // required
+                                        'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    ]
+                                        
+                                    ),
+                                    
+                                ],
+                                [
+                                    'subMenuTitle' => '1.4 Distributed loads',
+                                    'input' => array([
+                                        'inputType' => 'table',
+                                        'column' => array(
+                                            [
+                                                'id' => "name",
+                                                'label' => "loads",
+                                                'width' => '100px',
+
+                                            ],
+                                            [
+                                                'id' => "wTrib.Width(m)",
+                                                'label' => "w Trib. Width(m)",
+                                                'unit' => 'm',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P1Trib.Area(m^2)",
+                                                'label' => "P1 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P2Trib.Area(m^2)",
+                                                'label' => "P2 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P3Trib.Area(m^2)",
+                                                'label' => "P3 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P4Trib.Area(m^2)",
+                                                'label' => "P4 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                        ), // required
+                                        'row' => array(
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'Roof',
+                                                    ]
+                                                ),
+                                                'wTrib.Width(m)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P1Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P2Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P3Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P4Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            
+                                        ), // required
+                                        'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    ]
+                                        
+                                    ),
+                                    
+                                ],
+                                [
+                                    'subMenuTitle' => '1.5 Distributed loads: ',
+                                    'input' => array([
+                                        'inputType' => 'table',
+                                        'column' => array(
+                                            [
+                                                'id' => "name",
+                                                'label' => "loads",
+                                                'width' => '100px',
+
+                                            ],
+                                            [
+                                                'id' => "wTrib.Width(m)",
+                                                'label' => "w Trib. Width(m)",
+                                                'unit' => 'm',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P1Trib.Area(m^2)",
+                                                'label' => "P1 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P2Trib.Area(m^2)",
+                                                'label' => "P2 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P3Trib.Area(m^2)",
+                                                'label' => "P3 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P4Trib.Area(m^2)",
+                                                'label' => "P4 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                        ), // required
+                                        'row' => array(
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'Roof',
+                                                    ]
+                                                ),
+                                                'wTrib.Width(m)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P1Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P2Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P3Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P4Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            
+                                        ), // required
+                                        'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    ]
+                                        
+                                    ),
+                                    
+                                ],
+                                [
+                                    'subMenuTitle' => '1.6 Distributed loads: SLS',
+                                    'input' => array([
+                                        'inputType' => 'table',
+                                        'column' => array(
+                                            [
+                                                'id' => "name",
+                                                'label' => "loads",
+                                                'width' => '100px',
+
+                                            ],
+                                            [
+                                                'id' => "wTrib.Width(m)",
+                                                'label' => "w Trib. Width(m)",
+                                                'unit' => 'm',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P1Trib.Area(m^2)",
+                                                'label' => "P1 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P2Trib.Area(m^2)",
+                                                'label' => "P2 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P3Trib.Area(m^2)",
+                                                'label' => "P3 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "P4Trib.Area(m^2)",
+                                                'label' => "P4 Trib. Area (m^2)",
+                                                'unit' => 'm^2',
+                                                'width' => '100px',
+                                            ],
+                                        ), // required
+                                        'row' => array(
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'Roof',
+                                                    ]
+                                                ),
+                                                'wTrib.Width(m)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P1Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P2Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P3Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                    ]
+                                                ),
+                                                'P4Trib.Area(m^2)' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            
+                                        ), // required
+                                        'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    ]
+                                        
+                                    ),
+                                    
+                                ],
                             ),
                             'input' => array(
                                 [
-                                    'inputType' => 'text',
-                                    'label' => 'Self Weight G', // required
-                                    'id' => 'C27', // required
-                                    'name' => 'C27',
-                                    'type' => 'number',
-                                    'unit' => 'kN/m',
-                                    'disabled' => true,
-                                    'slot' => 1,
-                                ],
-                                [
                                     'inputType' => 'table',
                                     'column' => array(
+                                        
                                         [
-                                            'id' => "name",
-                                            'label' => "",
+                                            'id' => "C10",
+                                            'label' => "Ψs Short term factor",
                                             'width' => '100px',
 
                                         ],
                                         [
-                                            'id' => "G(kPa)",
-                                            'label' => "G (kPa)",
-                                            'unit' => 'kPa',
+                                            'id' => "C11",
+                                            'label' => "Ψl Long term factor",
                                             'width' => '100px',
 
                                         ],
                                         [
-                                            'id' => "Q(kPa)",
-                                            'label' => "Q (kPa)",
-                                            'unit' => 'kPa',
-                                            'width' => '100px',
-
-                                        ],
-                                        [
-                                            'id' => "Ψs",
-                                            'label' => "Ψs",
+                                            'id' => "C12",
+                                            'label' => "Ψc Combination factor",
                                             'width' => '100px',
                                         ],
                                         [
-                                            'id' => "Ψl",
-                                            'label' => "Ψl",
+                                            'id' => "C13",
+                                            'label' => "Ψe Earthquake combination factor",
                                             'width' => '100px',
 
                                         ],
                                     ), // required
                                     'row' => array(
                                         [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Roof',
-                                                ]
-                                            ),
-                                            'G(kPa)' => array(
+                                        
+                                            'C10' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="B20" name="B20" value="0.4"  /',
                                                 ]
                                             ),
-                                            'Q(kPa)' => array(
+                                            'C11' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="C20" name="C20" value="0.25"  /',
                                                 ]
                                             ),
-                                            'Ψs' => array(
+                                            'C12' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="D20" name="D20" value="0.7"  /',
                                                 ]
                                             ),
-                                            'Ψl' => array(
+                                            'C13' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="E20" name="E20" value="0"  /',
                                                 ]
                                             ),
                                         ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Floor',
-                                                ]
-                                            ),
-                                            'G(kPa)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B21" name="B21" value="0.4"  /',
-                                                ]
-                                            ),
-                                            'Q(kPa)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="C21" name="C21" value="1.5"  /',
-                                                ]
-                                            ),
-                                            'Ψs' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="D21" name="D21" value="0.7"  /',
-                                                ]
-                                            ),
-                                            'Ψl' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="E21" name="E21" value="0.4"  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Deck',
-                                                ]
-                                            ),
-                                            'G(kPa)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B22" name="B22" value="0.4"  /',
-                                                ]
-                                            ),
-                                            'Q(kPa)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="C22" name="C22" value="1.5"  /',
-                                                ]
-                                            ),
-                                            'Ψs' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="D22" name="D22" value="0.7"  /',
-                                                ]
-                                            ),
-                                            'Ψl' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="E22" name="E22" value="0.4"  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Int Wall',
-                                                ]
-                                            ),
-                                            'G(kPa)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B23" name="B23" value="0.3"  /',
-                                                ]
-                                            ),
-                                            'Q(kPa)' => array(
-                                                [
-                                                    'text' => '',
-                                                ]
-                                            ),
-                                            'Ψs' => array(
-                                                [
-                                                    'text' => '',
-                                                ]
-                                            ),
-                                            'Ψl' => array(
-                                                [
-                                                    'text' => '',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Ex Wall',
-                                                ]
-                                            ),
-                                            'G(kPa)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B24" name="B24" value="0.4"  /',
-                                                ]
-                                            ),
-                                            'Q(kPa)' => array(
-                                                [
-                                                    'text' => '',
-                                                ]
-                                            ),
-                                            'Ψs' => array(
-                                                [
-                                                    'text' => '',
-                                                ]
-                                            ),
-                                            'Ψl' => array(
-                                                [
-                                                    'text' => '',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Other',
-                                                ]
-                                            ),
-                                            'G(kPa)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B25" name="B25" value=""  /',
-                                                ]
-                                            ),
-                                            'Q(kPa)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="C25" name="C25" value=""  /',
-                                                ]
-                                            ),
-                                            'Ψs' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="D25" name="D25" value=""  /',
-                                                ]
-                                            ),
-                                            'Ψl' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="E25" name="E25" value=""  /',
-                                                ]
-                                            ),
-                                        ],
+                                        
                                     ), // required
                                     'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
                                 ],
@@ -451,7 +538,7 @@ class ProppedCantileverBeam
                                     'column' => array(
                                         [
                                             'id' => "name",
-                                            'label' => "",
+                                            'label' => "loads",
                                             'width' => '100px',
 
                                         ],
