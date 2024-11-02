@@ -124,36 +124,37 @@ $props = isset($formProperties) ? $formProperties : [];
                                   aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>">
                                   <div class="accordion-body">
                                     <div class="row align-items-end">
-                                      <?php foreach ($subMenu['input'] as $input): ?>
-                                        <?php $check = (isset($input['slot']) && $input['slot'] == 1) ? 'col-12' : 'col-6'; ?>
+                                      <?php foreach ($subMenu['input'] as $subInput): ?>
+                                        <?php $check = (isset($subInput['slot']) && $subInput['slot'] == 1) ? 'col-12' : 'col-6'; ?>
                                         <div class="<?= $check ?> mb-2">
                                           <?php
-                                          if ($input['inputType'] == "text") {
+                                          if ($subInput['inputType'] == "text") {
                                             echo view('components/text_input', [
-                                              'id' => (isset($input['id']) ? $input['id'] : ''),
-                                              'label' => (isset($input['label']) ? $input['label'] : ''),
-                                              'name' => (isset($input['name']) ? $input['name'] : ''),
-                                              'unit' => (isset($input['unit']) ? $input['unit'] : ''),
-                                              'disabled' => (isset($input['disabled']) ? $input['disabled'] : false),
-                                              'value' => (isset($input['value']) ? $input['value'] : ''),
-                                              'type' => (isset($input['type']) ? $input['type'] : 'text'),
+                                              'id' => (isset($subInput['id']) ? $subInput['id'] : ''),
+                                              'label' => (isset($subInput['label']) ? $subInput['label'] : ''),
+                                              'name' => (isset($subInput['name']) ? $subInput['name'] : ''),
+                                              'unit' => (isset($subInput['unit']) ? $subInput['unit'] : ''),
+                                              'disabled' => (isset($subInput['disabled']) ? $subInput['disabled'] : false),
+                                              'value' => (isset($subInput['value']) ? $subInput['value'] : ''),
+                                              'type' => (isset($subInput['type']) ? $subInput['type'] : 'text'),
                                             ]);
-                                          } else if ($input['inputType'] == "dropdown") {
+                                          } else if ($subInput['inputType'] == "dropdown") {
                                             echo view('components/dropdown', [
-                                              'id' => (isset($input['id']) ? $input['id'] : ''), // required
-                                              'label' => (isset($input['label']) ? $input['label'] : ''),
-                                              'selectOption' => (isset($input['selectOption']) ? $input['selectOption'] : '--- Please Select ---'),
-                                              'disabled' => (isset($input['disabled']) ? $input['disabled'] : false),
+                                              'id' => (isset($subInput['id']) ? $input['id'] : ''), // required
+                                              'label' => (isset($subInput['label']) ? $subInput['label'] : ''),
+                                              'selectOption' => (isset($subInput['selectOption']) ? $subInput['selectOption'] : '--- Please Select ---'),
+                                              'disabled' => (isset($subInput['disabled']) ? $subInput['disabled'] : false),
+                                              'option' => (isset($subInput['option']) ? $subInput['option'] : '')
                                             ]);
-                                          } else if ($input['inputType'] == "table") {
+                                          } else if ($subInput['inputType'] == "table") {
                                             echo view('components/table', [
-                                              'column' => $input['column'],
-                                              'row' => $input['row']
+                                              'column' => $subInput['column'],
+                                              'row' => $subInput['row']
                                             ]);
                                           } else {
                                             echo view('components/file_input', [
-                                              'id' => (isset($input['id']) ? $input['id'] : ''),
-                                              'label' => (isset($input['label']) ? $input['label'] : '')
+                                              'id' => (isset($subInput['id']) ? $subInput['id'] : ''),
+                                              'label' => (isset($subInput['label']) ? $subInput['label'] : '')
                                             ]);
                                           }
                                           ?>
@@ -208,7 +209,10 @@ $props = isset($formProperties) ? $formProperties : [];
   input {
     width: auto;
   }
-
+  td.overflow p{
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
   #renderCanvas {
     width: 100%;
     height: 100%;
@@ -295,7 +299,7 @@ $props = isset($formProperties) ? $formProperties : [];
           $('#submitBtn').show();
           var toastElement = document.getElementById('liveToast-err');
           var toastBody = toastElement.querySelector('.toast-body');
-          toastBody.textContent = 'Form submission failed! Please input Data or Import File and try again';
+          toastBody.textContent = 'Form submission failed! Please input Data';
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
           click = false;
@@ -373,7 +377,7 @@ $props = isset($formProperties) ? $formProperties : [];
         $('#submitBtn').show();
         var toastElement = document.getElementById('liveToast-err');
         var toastBody = toastElement.querySelector('.toast-body');
-        toastBody.textContent = 'Please Import File First';
+        toastBody.textContent = 'Please Import File';
         var toast = new bootstrap.Toast(toastElement);
         toast.show();
         click = false;
