@@ -25,40 +25,177 @@ class ProppedCantileverBeam
                             'subMenu' => array(
                                 [
                                     'subMenuTitle' => '1.1 Point loads',
-                                    'input' => array(
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'a', // required
-                                            'name' => 'G27', // required
-                                            'unit' => 'm',
-                                            'id' => 'G27', // required
-                                            'type' => 'number'
-                                        ],
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'b', // required
-                                            'name' => 'H27', // required
-                                            'unit' => 'm',
-                                            'id' => 'H27', // required
-                                            'type' => 'number'
-                                        ],
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'c', // required
-                                            'name' => 'I27', // required
-                                            'unit' => 'm',
-                                            'id' => 'I27', // required
-                                            'type' => 'number'
-                                        ],
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'd', // required
-                                            'name' => 'J27', // required
-                                            'unit' => 'm',
-                                            'id' => 'J27', // required
-                                            'type' => 'number'
-                                        ],
+                                    'input' => array([
+                                        'inputType' => 'table',
+                                        'column' => array(
+                                            [
+                                                'id' => "name",
+                                                'label' => "loads",
+                                                'width' => '100px',
+
+                                            ],
+                                            [
+                                                'id' => "C17",
+                                                'label' => "G",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "D17",
+                                                'label' => "Q",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "E17",
+                                                'label' => "Wu",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "F17",
+                                                'label' => "Eu",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "G17",
+                                                'label' => "Su",
+                                                'width' => '100px',
+                                            ],
+                                        ), // required
+                                        'row' => array(
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'P1',
+                                                    ]
+                                                ),
+                                                'C17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C18" name="C18" value=""  /',
+                                                    ]
+                                                ),
+                                                'D17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D18" name="D18" value=""  /',
+                                                    ]
+                                                ),
+                                                'E17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E18" name="E18" value=""  /',
+                                                    ]
+                                                ),
+                                                'F17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F18" name="F18" value=""  /',
+                                                    ]
+                                                ),
+                                                'G17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G18" name="G18" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'P2',
+                                                    ]
+                                                ),
+                                                'C17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C19" name="C19" value=""  /',
+                                                    ]
+                                                ),
+                                                'D17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D19" name="D19" value=""  /',
+                                                    ]
+                                                ),
+                                                'E17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E19" name="E19" value=""  /',
+                                                    ]
+                                                ),
+                                                'F17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F19" name="F19" value=""  /',
+                                                    ]
+                                                ),
+                                                'G17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G19" name="G19" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'P3',
+                                                    ]
+                                                ),
+                                                'C17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C20" name="C20" value=""  /',
+                                                    ]
+                                                ),
+                                                'D17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D20" name="D20" value=""  /',
+                                                    ]
+                                                ),
+                                                'E17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E20" name="E20" value=""  /',
+                                                    ]
+                                                ),
+                                                'F17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                    ]
+                                                ),
+                                                'G17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'P4',
+                                                    ]
+                                                ),
+                                                'C17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C21" name="C21" value=""  /',
+                                                    ]
+                                                ),
+                                                'D17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D21" name="D21" value=""  /',
+                                                    ]
+                                                ),
+                                                'E17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E21" name="E21" value=""  /',
+                                                    ]
+                                                ),
+                                                'F17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F21" name="F21" value=""  /',
+                                                    ]
+                                                ),
+                                                'G17' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G21" name="G21" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            
+                                        ), // required
+                                        'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    ]
+                                        
                                     ),
+                                    
                                 ],
                                 [
                                     'subMenuTitle' => '1.2 Point loads: ULS',
@@ -72,33 +209,43 @@ class ProppedCantileverBeam
 
                                             ],
                                             [
-                                                'id' => "wTrib.Width(m)",
-                                                'label' => "w Trib. Width(m)",
-                                                'unit' => 'm',
+                                                'id' => "C25",
+                                                'label' => "1.35G",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P1Trib.Area(m^2)",
-                                                'label' => "P1 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "D25",
+                                                'label' => "1.2G+1.5Q",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P2Trib.Area(m^2)",
-                                                'label' => "P2 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "E25",
+                                                'label' => "1.2G+1.5ψlQ",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P3Trib.Area(m^2)",
-                                                'label' => "P3 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "F25",
+                                                'label' => "1.2G+ψcQ+Wu",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P4Trib.Area(m^2)",
-                                                'label' => "P4 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "G25",
+                                                'label' => "0.9G+Wu",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "H25",
+                                                'label' => "G+ψEQ+Eu",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "I25",
+                                                'label' => "1.2G+ψcQ+Su",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "J25",
+                                                'label' => "Puls",
                                                 'width' => '100px',
                                             ],
                                         ), // required
@@ -106,32 +253,188 @@ class ProppedCantileverBeam
                                             [
                                                 'name' => array(
                                                     [
-                                                        'text' => 'Roof',
+                                                        'text' => 'P1',
                                                     ]
                                                 ),
-                                                'wTrib.Width(m)' => array(
+                                                'C25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C26" name="C26" value=""  /',
                                                     ]
                                                 ),
-                                                'P1Trib.Area(m^2)' => array(
+                                                'D25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D26" name="D26" value=""  /',
                                                     ]
                                                 ),
-                                                'P2Trib.Area(m^2)' => array(
+                                                'E25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E26" name="E26" value=""  /',
                                                     ]
                                                 ),
-                                                'P3Trib.Area(m^2)' => array(
+                                                'F25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F26" name="F26" value=""  /',
                                                     ]
                                                 ),
-                                                'P4Trib.Area(m^2)' => array(
+                                                'G25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G26" name="G26" value=""  /',
+                                                    ]
+                                                ),
+                                                'H25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H26" name="H26" value=""  /',
+                                                    ]
+                                                ),
+                                                'I25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I26" name="I26" value=""  /',
+                                                    ]
+                                                ),
+                                                'J25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J26" name="J26" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'P2',
+                                                    ]
+                                                ),
+                                                'C25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C27" name="C27" value=""  /',
+                                                    ]
+                                                ),
+                                                'D25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D27" name="D27" value=""  /',
+                                                    ]
+                                                ),
+                                                'E25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E27" name="E27" value=""  /',
+                                                    ]
+                                                ),
+                                                'F25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F27" name="F27" value=""  /',
+                                                    ]
+                                                ),
+                                                'G25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G27" name="G27" value=""  /',
+                                                    ]
+                                                ),
+                                                'H25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H27" name="H27" value=""  /',
+                                                    ]
+                                                ),
+                                                'I25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I27" name="I27" value=""  /',
+                                                    ]
+                                                ),
+                                                'J25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J27" name="J27" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'P3',
+                                                    ]
+                                                ),
+                                                'C25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C28" name="C28" value=""  /',
+                                                    ]
+                                                ),
+                                                'D25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D28" name="D28" value=""  /',
+                                                    ]
+                                                ),
+                                                'E25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E28" name="E28" value=""  /',
+                                                    ]
+                                                ),
+                                                'F25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F28" name="F28" value=""  /',
+                                                    ]
+                                                ),
+                                                'G25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G28" name="G28" value=""  /',
+                                                    ]
+                                                ),
+                                                'H25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H28" name="H28" value=""  /',
+                                                    ]
+                                                ),
+                                                'I25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I28" name="I28" value=""  /',
+                                                    ]
+                                                ),
+                                                'J25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J28" name="J28" value=""  /',
+                                                    ]
+                                                ),
+                                            ],
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'P4',
+                                                    ]
+                                                ),
+                                                'C25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C29" name="C29" value=""  /',
+                                                    ]
+                                                ),
+                                                'D25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D29" name="D29" value=""  /',
+                                                    ]
+                                                ),
+                                                'E25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E29" name="E29" value=""  /',
+                                                    ]
+                                                ),
+                                                'F25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F29" name="F29" value=""  /',
+                                                    ]
+                                                ),
+                                                'G25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G29" name="G29" value=""  /',
+                                                    ]
+                                                ),
+                                                'H25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H29" name="H29" value=""  /',
+                                                    ]
+                                                ),
+                                                'I25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I29" name="I29" value=""  /',
+                                                    ]
+                                                ),
+                                                'J25' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J29" name="J29" value=""  /',
                                                     ]
                                                 ),
                                             ],
@@ -150,73 +453,69 @@ class ProppedCantileverBeam
                                         'column' => array(
                                             [
                                                 'id' => "name",
-                                                'label' => "loads",
+                                                'label' => "Psls",
                                                 'width' => '100px',
 
                                             ],
                                             [
-                                                'id' => "wTrib.Width(m)",
-                                                'label' => "w Trib. Width(m)",
-                                                'unit' => 'm',
+                                                'id' => "C32",
+                                                'label' => "G+ψlQ",
                                                 'width' => '100px',
                                             ],
-                                            [
-                                                'id' => "P1Trib.Area(m^2)",
-                                                'label' => "P1 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
-                                                'width' => '100px',
-                                            ],
-                                            [
-                                                'id' => "P2Trib.Area(m^2)",
-                                                'label' => "P2 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
-                                                'width' => '100px',
-                                            ],
-                                            [
-                                                'id' => "P3Trib.Area(m^2)",
-                                                'label' => "P3 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
-                                                'width' => '100px',
-                                            ],
-                                            [
-                                                'id' => "P4Trib.Area(m^2)",
-                                                'label' => "P4 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
-                                                'width' => '100px',
-                                            ],
+                                            
                                         ), // required
                                         'row' => array(
                                             [
                                                 'name' => array(
                                                     [
-                                                        'text' => 'Roof',
+                                                        'text' => 'P1',
                                                     ]
                                                 ),
-                                                'wTrib.Width(m)' => array(
+                                                'C32' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C33" name="C33" value=""  /',
                                                     ]
                                                 ),
-                                                'P1Trib.Area(m^2)' => array(
+                                                
+                                            ],
+                                            [
+                                                'name' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                        'text' => 'P2',
                                                     ]
                                                 ),
-                                                'P2Trib.Area(m^2)' => array(
+                                                'C32' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C34" name="C34" value=""  /',
                                                     ]
                                                 ),
-                                                'P3Trib.Area(m^2)' => array(
+                                                
+                                            ],
+                                            [
+                                                'name' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                        'text' => 'P3',
                                                     ]
                                                 ),
-                                                'P4Trib.Area(m^2)' => array(
+                                                'C32' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C35" name="C35" value=""  /',
                                                     ]
                                                 ),
+                                                
+                                            ],
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'P4',
+                                                    ]
+                                                ),
+                                                'C32' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C36" name="C36" value=""  /',
+                                                    ]
+                                                ),
+                                                
                                             ],
                                             
                                         ), // required
@@ -238,33 +537,28 @@ class ProppedCantileverBeam
 
                                             ],
                                             [
-                                                'id' => "wTrib.Width(m)",
-                                                'label' => "w Trib. Width(m)",
-                                                'unit' => 'm',
+                                                'id' => "C40",
+                                                'label' => "G",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P1Trib.Area(m^2)",
-                                                'label' => "P1 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "D40",
+                                                'label' => "Q",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P2Trib.Area(m^2)",
-                                                'label' => "P2 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "E40",
+                                                'label' => "Wu",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P3Trib.Area(m^2)",
-                                                'label' => "P3 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "F40",
+                                                'label' => "Eu",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P4Trib.Area(m^2)",
-                                                'label' => "P4 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "G40",
+                                                'label' => "Su",
                                                 'width' => '100px',
                                             ],
                                         ), // required
@@ -272,32 +566,32 @@ class ProppedCantileverBeam
                                             [
                                                 'name' => array(
                                                     [
-                                                        'text' => 'Roof',
+                                                        'text' => 'q',
                                                     ]
                                                 ),
-                                                'wTrib.Width(m)' => array(
+                                                'C40' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C41" name="C41" value=""  /',
                                                     ]
                                                 ),
-                                                'P1Trib.Area(m^2)' => array(
+                                                'D40' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D41" name="D41" value=""  /',
                                                     ]
                                                 ),
-                                                'P2Trib.Area(m^2)' => array(
+                                                'E40' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E41" name="E41" value=""  /',
                                                     ]
                                                 ),
-                                                'P3Trib.Area(m^2)' => array(
+                                                'F40' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F41" name="F41" value=""  /',
                                                     ]
                                                 ),
-                                                'P4Trib.Area(m^2)' => array(
+                                                'G40' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G41" name="G41" value=""  /',
                                                     ]
                                                 ),
                                             ],
@@ -316,38 +610,48 @@ class ProppedCantileverBeam
                                         'column' => array(
                                             [
                                                 'id' => "name",
-                                                'label' => "loads",
+                                                'label' => "case",
                                                 'width' => '100px',
 
                                             ],
                                             [
-                                                'id' => "wTrib.Width(m)",
-                                                'label' => "w Trib. Width(m)",
-                                                'unit' => 'm',
+                                                'id' => "C46",
+                                                'label' => "1.35G",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P1Trib.Area(m^2)",
-                                                'label' => "P1 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "D46",
+                                                'label' => "1.2G+1.5Q",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P2Trib.Area(m^2)",
-                                                'label' => "P2 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "E46",
+                                                'label' => "1.2G+1.5ψlQ",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P3Trib.Area(m^2)",
-                                                'label' => "P3 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "F46",
+                                                'label' => "1.2G+ψcQ+Wu",
                                                 'width' => '100px',
                                             ],
                                             [
-                                                'id' => "P4Trib.Area(m^2)",
-                                                'label' => "P4 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
+                                                'id' => "G46",
+                                                'label' => "0.9G+Wu",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "H46",
+                                                'label' => "G+ψEQ+Eu",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "I46",
+                                                'label' => "1.2G+ψcQ+Su",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "J46",
+                                                'label' => "quls",
                                                 'width' => '100px',
                                             ],
                                         ), // required
@@ -355,32 +659,47 @@ class ProppedCantileverBeam
                                             [
                                                 'name' => array(
                                                     [
-                                                        'text' => 'Roof',
+                                                        'text' => '',
                                                     ]
                                                 ),
-                                                'wTrib.Width(m)' => array(
+                                                'C46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C47" name="C47" value=""  /',
                                                     ]
                                                 ),
-                                                'P1Trib.Area(m^2)' => array(
+                                                'D46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D47" name="D47" value=""  /',
                                                     ]
                                                 ),
-                                                'P2Trib.Area(m^2)' => array(
+                                                'E46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E47" name="E47" value=""  /',
                                                     ]
                                                 ),
-                                                'P3Trib.Area(m^2)' => array(
+                                                'F46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F47" name="F47" value=""  /',
                                                     ]
                                                 ),
-                                                'P4Trib.Area(m^2)' => array(
+                                                'G46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="G47" name="G47" value=""  /',
+                                                    ]
+                                                ),
+                                                'H46' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="H47" name="H47" value=""  /',
+                                                    ]
+                                                ),
+                                                'I46' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="I47" name="I47" value=""  /',
+                                                    ]
+                                                ),
+                                                'J46' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="J47" name="J47" value=""  /',
                                                     ]
                                                 ),
                                             ],
@@ -393,79 +712,36 @@ class ProppedCantileverBeam
                                     
                                 ],
                                 [
-                                    'subMenuTitle' => '1.6 Distributed loads: SLS',
+                                    'subMenuTitle' => '1.6 Distributed loads',
                                     'input' => array([
                                         'inputType' => 'table',
                                         'column' => array(
                                             [
                                                 'id' => "name",
-                                                'label' => "loads",
+                                                'label' => "qsls",
                                                 'width' => '100px',
 
                                             ],
                                             [
-                                                'id' => "wTrib.Width(m)",
-                                                'label' => "w Trib. Width(m)",
-                                                'unit' => 'm',
+                                                'id' => "C51",
+                                                'label' => "G+ψlQ",
                                                 'width' => '100px',
                                             ],
-                                            [
-                                                'id' => "P1Trib.Area(m^2)",
-                                                'label' => "P1 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
-                                                'width' => '100px',
-                                            ],
-                                            [
-                                                'id' => "P2Trib.Area(m^2)",
-                                                'label' => "P2 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
-                                                'width' => '100px',
-                                            ],
-                                            [
-                                                'id' => "P3Trib.Area(m^2)",
-                                                'label' => "P3 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
-                                                'width' => '100px',
-                                            ],
-                                            [
-                                                'id' => "P4Trib.Area(m^2)",
-                                                'label' => "P4 Trib. Area (m^2)",
-                                                'unit' => 'm^2',
-                                                'width' => '100px',
-                                            ],
+                                            
                                         ), // required
                                         'row' => array(
                                             [
                                                 'name' => array(
                                                     [
-                                                        'text' => 'Roof',
+                                                        'text' => '',
                                                     ]
                                                 ),
-                                                'wTrib.Width(m)' => array(
+                                                'C51' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C52" name="C52" value=""  /',
                                                     ]
                                                 ),
-                                                'P1Trib.Area(m^2)' => array(
-                                                    [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
-                                                    ]
-                                                ),
-                                                'P2Trib.Area(m^2)' => array(
-                                                    [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
-                                                    ]
-                                                ),
-                                                'P3Trib.Area(m^2)' => array(
-                                                    [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
-                                                    ]
-                                                ),
-                                                'P4Trib.Area(m^2)' => array(
-                                                    [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
-                                                    ]
-                                                ),
+                                                
                                             ],
                                             
                                         ), // required
@@ -533,446 +809,252 @@ class ProppedCantileverBeam
                                     ), // required
                                     'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
                                 ],
+                                
+                            ),
+                        ],
+                        [
+                            'menuTitle' => '2. Any',
+                            'subMenu' => array(
+                                [
+                                    'subMenuTitle' => '2.1 Point loads',
+                                    'input' => array([
+                                        'inputType' => 'table',
+                                        'column' => array(
+                                            
+                                            [
+                                                'id' => "C14any",
+                                                'label' => "Puls",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "D14any",
+                                                'label' => "Psls",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "E14any",
+                                                'label' => "a(m)",
+                                                'width' => '100px',
+                                            ],
+                                            [
+                                                'id' => "F14any",
+                                                'label' => "b(m)",
+                                                'width' => '100px',
+                                            ],
+                                            
+                                        ), // required
+                                        'row' => array(
+                                            [
+                                                
+                                                'C14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C15any" name="C15any" value=""  /',
+                                                    ]
+                                                ),
+                                                'D14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D15any" name="D15any" value=""  /',
+                                                    ]
+                                                ),
+                                                'E14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E15any" name="E15any" value=""  /',
+                                                    ]
+                                                ),
+                                                'F14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F15any" name="F15any" value=""  /',
+                                                    ]
+                                                ),
+                                                
+                                            ],
+                                            [
+                                                
+                                                'C14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C16any" name="C16any" value=""  /',
+                                                    ]
+                                                ),
+                                                'D14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D16any" name="D16any" value=""  /',
+                                                    ]
+                                                ),
+                                                'E14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E16any" name="E16any" value=""  /',
+                                                    ]
+                                                ),
+                                                'F14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F16any" name="F16any" value=""  /',
+                                                    ]
+                                                ),
+                                                
+                                            ],
+                                            [
+                                                
+                                                'C14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C17any" name="C17any" value=""  /',
+                                                    ]
+                                                ),
+                                                'D14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D17any" name="D17any" value=""  /',
+                                                    ]
+                                                ),
+                                                'E14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E17any" name="E17any" value=""  /',
+                                                    ]
+                                                ),
+                                                'F14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F17any" name="F17any" value=""  /',
+                                                    ]
+                                                ),
+                                                
+                                            ],
+                                            [
+                                                
+                                                'C14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="C18any" name="C18any" value=""  /',
+                                                    ]
+                                                ),
+                                                'D14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D18any" name="D18any" value=""  /',
+                                                    ]
+                                                ),
+                                                'E14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="E18any" name="E18any" value=""  /',
+                                                    ]
+                                                ),
+                                                'F14any' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="F18any" name="F18any" value=""  /',
+                                                    ]
+                                                ),
+                                                
+                                            ],
+                                            
+                                        ), // required
+                                        'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    ]
+                                        
+                                    ),
+                                    
+                                ],
+                                [
+                                    'subMenuTitle' => '2.2 Distributed loads',
+                                    'input' => array([
+                                        'inputType' => 'table',
+                                        'column' => array(
+                                            [
+                                                'id' => "name",
+                                                'label' => "",
+                                                'width' => '100px',
+
+                                            ],
+                                            [
+                                                'id' => "D20",
+                                                'label' => "(kN/m)",
+                                                'width' => '100px',
+                                            ],
+                                            
+                                            
+                                        ), // required
+                                        'row' => array(
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'quls',
+                                                    ]
+                                                ),
+                                                'D20' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D21" name="D21" value=""  /',
+                                                    ]
+                                                ),
+                                                
+                                            ],
+                                            [
+                                                'name' => array(
+                                                    [
+                                                        'text' => 'qsls',
+                                                    ]
+                                                ),
+                                                'D20' => array(
+                                                    [
+                                                        'text' => '<input type="number" step="any"  class="form-control" id="D22" name="D22" value=""  /',
+                                                    ]
+                                                ),
+                                                
+                                            ],
+                                            
+                                            
+                                        ), // required
+                                        'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    ]
+                                        
+                                    ),
+                                    
+                                ],
+                                
+                                
+                            ),
+                            'input' => array(
                                 [
                                     'inputType' => 'table',
                                     'column' => array(
+                                        
                                         [
-                                            'id' => "name",
-                                            'label' => "loads",
+                                            'id' => "D7",
+                                            'label' => "Length of span (m)",
                                             'width' => '100px',
 
                                         ],
                                         [
-                                            'id' => "wTrib.Width(m)",
-                                            'label' => "w Trib. Width(m)",
-                                            'unit' => 'm',
+                                            'id' => "D8",
+                                            'label' => "Inertia (mm4)",
                                             'width' => '100px',
+
                                         ],
                                         [
-                                            'id' => "P1Trib.Area(m^2)",
-                                            'label' => "P1 Trib. Area (m^2)",
-                                            'unit' => 'm^2',
+                                            'id' => "D9",
+                                            'label' => "Elasticity modulus (MPa)",
                                             'width' => '100px',
                                         ],
-                                        [
-                                            'id' => "P2Trib.Area(m^2)",
-                                            'label' => "P2 Trib. Area (m^2)",
-                                            'unit' => 'm^2',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => "P3Trib.Area(m^2)",
-                                            'label' => "P3 Trib. Area (m^2)",
-                                            'unit' => 'm^2',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => "P4Trib.Area(m^2)",
-                                            'label' => "P4 Trib. Area (m^2)",
-                                            'unit' => 'm^2',
-                                            'width' => '100px',
-                                        ],
+                                        
                                     ), // required
                                     'row' => array(
                                         [
-                                            'name' => array(
+                                        
+                                            'D7' => array(
                                                 [
-                                                    'text' => 'Roof',
+                                                    'text' => '<input type="number" step="any"  class="form-control" id="C7" name="C7" value="0.4"  /',
                                                 ]
                                             ),
-                                            'wTrib.Width(m)' => array(
+                                            'D8' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
+                                                    'text' => '<input type="number" step="any"  class="form-control" id="C8" name="C8" value="0.25"  /',
                                                 ]
                                             ),
-                                            'P1Trib.Area(m^2)' => array(
+                                            'D9' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
+                                                    'text' => '<input type="number" step="any"  class="form-control" id="C9" name="C9" value="0.7"  /',
                                                 ]
                                             ),
-                                            'P2Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
-                                                ]
-                                            ),
-                                            'P3Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
-                                                ]
-                                            ),
-                                            'P4Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
-                                                ]
-                                            ),
+                                            
                                         ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Floor',
-                                                ]
-                                            ),
-                                            'wTrib.Width(m)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="F21" name="F21" value=""  /',
-                                                ]
-                                            ),
-                                            'P1Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="G21" name="G21" value=""  /',
-                                                ]
-                                            ),
-                                            'P2Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H21" name="H21" value=""  /',
-                                                ]
-                                            ),
-                                            'P3Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="I21" name="I21" value=""  /',
-                                                ]
-                                            ),
-                                            'P4Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="J21" name="J21" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Deck',
-                                                ]
-                                            ),
-                                            'wTrib.Width(m)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="F22" name="F22" value=""  /',
-                                                ]
-                                            ),
-                                            'P1Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="G22" name="G22" value=""  /',
-                                                ]
-                                            ),
-                                            'P2Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H22" name="H22" value=""  /',
-                                                ]
-                                            ),
-                                            'P3Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="I22" name="I22" value=""  /',
-                                                ]
-                                            ),
-                                            'P4Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="J22" name="J22" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Int Wall',
-                                                ]
-                                            ),
-                                            'wTrib.Width(m)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="F23" name="F23" value=""  /',
-                                                ]
-                                            ),
-                                            'P1Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="G23" name="G23" value=""  /',
-                                                ]
-                                            ),
-                                            'P2Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H23" name="H23" value=""  /',
-                                                ]
-                                            ),
-                                            'P3Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="I23" name="I23" value=""  /',
-                                                ]
-                                            ),
-                                            'P4Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="J23" name="J23" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Ex Wall',
-                                                ]
-                                            ),
-                                            'wTrib.Width(m)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="F24" name="F24" value=""  /',
-                                                ]
-                                            ),
-                                            'P1Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="G24" name="G24" value=""  /',
-                                                ]
-                                            ),
-                                            'P2Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H24" name="H24" value=""  /',
-                                                ]
-                                            ),
-                                            'P3Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="I24" name="I24" value=""  /',
-                                                ]
-                                            ),
-                                            'P4Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="J24" name="J24" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Other',
-                                                ]
-                                            ),
-                                            'wTrib.Width(m)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="F25" name="F25" value=""  /',
-                                                ]
-                                            ),
-                                            'P1Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="G25" name="G25" value=""  /',
-                                                ]
-                                            ),
-                                            'P2Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H25" name="H25" value=""  /',
-                                                ]
-                                            ),
-                                            'P3Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="I25" name="I25" value=""  /',
-                                                ]
-                                            ),
-                                            'P4Trib.Area(m^2)' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="J25" name="J25" value=""  /',
-                                                ]
-                                            ),
-                                        ],
+                                        
                                     ), // required
                                     'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
                                 ],
-                            ),
-                        ],
-                        [
-                            'menuTitle' => '3. ADDITIONAL UNFACTORED LOADS (kN)',
-                            'input' => array(
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'Maximum segment length between Full lateral restraints', // required
-                                    'name' => 'I31', // required
-                                    'unit' => 'm',
-                                    'id' => 'I31', // required
-                                    'type' => 'number',
-                                    'value' => '1',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'k1', // required
-                                    'name' => 'I33', // required
-                                    'value' => '0.8',
-                                    'id' => 'I33', // required
-                                    'type' => 'number'
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'is timber wet ?', // required
-                                    'id' => 'I34', // required
-                                    'name' => 'I34', // required
-                                    'type' => 'checkbox',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'k2', // required
-                                    'name' => 'I35', // required
-                                    'id' => 'I35', // required
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'table',
-                                    'column' => array(
-                                        [
-                                            'id' => "name",
-                                            'label' => "",
-                                        ],
-                                        [
-                                            'id' => "P1",
-                                            'label' => "P1",
-                                            'unit' => 'p1'
-                                        ],
-                                        [
-                                            'id' => "P2",
-                                            'label' => "P2",
-                                            'unit' => 'p2'
-                                        ],
-                                        [
-                                            'id' => "P3",
-                                            'label' => "P3",
-                                            'unit' => 'p3'
-                                        ],
-                                        [
-                                            'id' => "P4",
-                                            'label' => "P4",
-                                            'unit' => 'p4'
-                                        ],
-                                    ), // required
-                                    'row' => array(
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'G',
-                                                ]
-                                            ),
-                                            'P1' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B31" name="B31" value=""  /',
-                                                ]
-                                            ),
-                                            'P2' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="C31" name="C31" value=""  /',
-                                                ]
-                                            ),
-                                            'P3' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="D31" name="D31" value=""  /',
-                                                ]
-                                            ),
-                                            'P4' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="E31" name="E31" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Q (Roof)',
-                                                ]
-                                            ),
-                                            'P1' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B32" name="B32" value=""  /',
-                                                ]
-                                            ),
-                                            'P2' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="C32" name="C32" value=""  /',
-                                                ]
-                                            ),
-                                            'P3' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="D32" name="D32" value=""  /',
-                                                ]
-                                            ),
-                                            'P4' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="E32" name="E32" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Q (Floor)',
-                                                ]
-                                            ),
-                                            'P1' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B33" name="B33" value=""  /',
-                                                ]
-                                            ),
-                                            'P2' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="C33" name="C33" value=""  /',
-                                                ]
-                                            ),
-                                            'P3' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="D33" name="D33" value=""  /',
-                                                ]
-                                            ),
-                                            'P4' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="E33" name="E33" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Q (Deck)',
-                                                ]
-                                            ),
-                                            'P1' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B34" name="B34" value=""  /',
-                                                ]
-                                            ),
-                                            'P2' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="C34" name="C34" value=""  /',
-                                                ]
-                                            ),
-                                            'P3' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="D34" name="D34" value=""  /',
-                                                ]
-                                            ),
-                                            'P4' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="E34" name="E34" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Q (Other)',
-                                                ]
-                                            ),
-                                            'P1' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B35" name="B35" value=""  /',
-                                                ]
-                                            ),
-                                            'P2' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="C35" name="C35" value=""  /',
-                                                ]
-                                            ),
-                                            'P3' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="D35" name="D35" value=""  /',
-                                                ]
-                                            ),
-                                            'P4' => array(
-                                                [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="E35" name="E35" value=""  /',
-                                                ]
-                                            ),
-                                        ],
-                                    ), // required
-                                    'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
-                                ],
+                                
                             ),
                         ],
 
@@ -980,959 +1062,99 @@ class ProppedCantileverBeam
                 ],
                 [
                     'menu' => array(
+                        
                         [
-                            'menuTitle' => '4. RESULTS (kN)',
-                            'input' => array(
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'M*', // required
-                                    'name' => 'I38', // required
-                                    'id' => 'I38', // required
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => '', // required
-                                    'name' => 'I39', // required
-                                    'id' => 'I39', // required
-                                    'disabled' => true,
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'V*', // required
-                                    'name' => 'I40', // required
-                                    'id' => 'I40', // required
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => '', // required
-                                    'name' => 'I41', // required
-                                    'id' => 'I41', // required
-                                    'disabled' => true,
-                                ],
-                                [
-                                    'inputType' => 'table',
-                                    'column' => array(
-                                        [
-                                            'id' => "name",
-                                            'label' => "",
-                                        ],
-                                        [
-                                            'id' => "G",
-                                            'label' => "G",
-                                        ],
-                                        [
-                                            'id' => "Q1",
-                                            'label' => "Q1",
-                                        ],
-                                        [
-                                            'id' => "Q2",
-                                            'label' => "Q2",
-                                        ],
-                                        [
-                                            'id' => "Q3",
-                                            'label' => "Q3",
-                                        ],
-                                        [
-                                            'id' => "Q4",
-                                            'label' => "Q4",
-                                        ],
-                                        [
-                                            'id' => "1.2G",
-                                            'label' => "1.2G+1.5Q",
-                                        ],
-                                    ), // required
-                                    'row' => array(
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'R1',
-                                                ]
-                                            ),
-                                            'G' => array(
-                                                [
-                                                    'text' => '<p id="B39" name="B39">0</p>',
-                                                ]
-                                            ),
-                                            'Q1' => array(
-                                                [
-                                                    'text' => '<p id="C39" name="C39">0</p>',
-                                                ]
-                                            ),
-                                            'Q2' => array(
-                                                [
-                                                    'text' => '<p id="D39" name="D39">0</p>',
-                                                ]
-                                            ),
-                                            'Q3' => array(
-                                                [
-                                                    'text' => '<p id="E39" name="E39">0</p>',
-                                                ]
-                                            ),
-                                            'Q4' => array(
-                                                [
-                                                    'text' => '<p id="F39" name="F39">0</p>',
-                                                ]
-                                            ),
-                                            '1.2G' => array(
-                                                [
-                                                    'text' => '<p id="G39" name="G39">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'R2',
-                                                ]
-                                            ),
-                                            'G' => array(
-                                                [
-                                                    'text' => '<p id="B40" name="B40">0</p>',
-                                                ]
-                                            ),
-                                            'Q1' => array(
-                                                [
-                                                    'text' => '<p id="C40" name="C40">0</p>',
-                                                ]
-                                            ),
-                                            'Q2' => array(
-                                                [
-                                                    'text' => '<p id="D40" name="D40">0</p>',
-                                                ]
-                                            ),
-                                            'Q3' => array(
-                                                [
-                                                    'text' => '<p id="E40" name="E40">0</p>',
-                                                ]
-                                            ),
-                                            'Q4' => array(
-                                                [
-                                                    'text' => '<p id="F40" name="F40">0</p>',
-                                                ]
-                                            ),
-                                            '1.2G' => array(
-                                                [
-                                                    'text' => '<p id="G40" name="G40">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                    ), // required
-                                    'slot' => 1, // ถ้าใส่ มันจะเต็มทั้งแถว
-                                ],
-                            ),
-                        ],
-                        [
-                            'menuTitle' => '5. BEAM ANALYSIS',
-                            'input' => array(
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'φ', // required
-                                    'name' => 'B44', // required
-                                    'id' => 'B44', // required
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'k1', // required
-                                    'name' => 'E44', // required
-                                    'id' => 'E44', // required
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'k8', // required
-                                    'name' => 'H44', // required
-                                    'id' => 'H44', // required
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'k4', // required
-                                    'name' => 'B45', // required
-                                    'id' => 'B45', // required
-                                    'value' => '1',
-                                    'type' => 'number'
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'k5', // required
-                                    'name' => 'E45', // required
-                                    'id' => 'E45', // required
-                                    'value' => '1',
-                                    'type' => 'number'
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'f(b)', // required
-                                    'name' => 'B46', // required
-                                    'id' => 'B46', // required
-                                    'disabled' => true,
-                                    'unit' => 'MPa',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'f(s)', // required
-                                    'name' => 'E46', // required
-                                    'id' => 'E46', // required
-                                    'disabled' => true,
-                                    'unit' => 'MPa',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'E', // required
-                                    'name' => 'H46', // required
-                                    'id' => 'H46', // required
-                                    'disabled' => true,
-                                    'unit' => 'GPa',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'A', // required
-                                    'name' => 'B47', // required
-                                    'id' => 'B47', // required
-                                    'disabled' => true,
-                                    'unit' => 'mm^2',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'Z', // required
-                                    'name' => 'E47', // required
-                                    'id' => 'E47', // required
-                                    'disabled' => true,
-                                    'unit' => 'mm^3',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'I', // required
-                                    'name' => 'H47', // required
-                                    'id' => 'H47', // required
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                    'slot' => 1,
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'φM(x)', // required
-                                    'name' => 'C50', // required
-                                    'id' => 'C50', // required
-                                    'disabled' => true,
-                                    'unit' => 'kNm',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => '', // required
-                                    'name' => 'E50', // required
-                                    'id' => 'E50', // required
-                                    'disabled' => true,
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'φV', // required
-                                    'name' => 'H50', // required
-                                    'id' => 'H50', // required
-                                    'disabled' => true,
-                                    'unit' => 'kN',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => '', // required
-                                    'name' => 'J50', // required
-                                    'id' => 'J50', // required
-                                    'disabled' => true,
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'SLS δ', // required
-                                    'name' => 'C52', // required
-                                    'id' => 'C52', // required
-                                    'disabled' => true,
-                                    'unit' => 'mm^4',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => '', // required
-                                    'name' => 'E52', // required
-                                    'id' => 'E52', // required
-                                    'disabled' => true,
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'Vibration δ', // required
-                                    'name' => 'H52', // required
-                                    'id' => 'H52', // required
-                                    'disabled' => true,
-                                    'unit' => 'mm',
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => '', // required
-                                    'name' => 'J52', // required
-                                    'id' => 'J52', // required
-                                    'disabled' => true,
-                                ],
-                            ),
-                        ],
-                        [
-                            'menuTitle' => '6. TOTAL LOADS',
-                            'input' => array(
-                                [
-                                    'slot' => 1,
-                                    'inputType' => 'table',
-                                    'row' => array(
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'w',
-                                                ],
-                                            ),
-                                            'Gcol1' => array(
-                                                [
-                                                    'text' => '<p id="O14" name="O14">0</p>',
-                                                ],
-                                            ),
-                                            'Qroof' => array(
-                                                [
-                                                    'text' => '<p id="P14" name="P14">0</p>',
-                                                ]
-                                            ),
-                                            'Qfloor' => array(
-                                                [
-                                                    'text' => '<p id="Q14" name="Q14">0</p>',
-                                                ]
-                                            ),
-                                            'Qdeck' => array(
-                                                [
-                                                    'text' => '<p id="R14" name="R14">0</p>',
-                                                ]
-                                            ),
-                                            'Qwall' => array(
-                                                [
-                                                    'text' => '<p id="S14" name="S14">0</p>',
-                                                ]
-                                            ),
-                                            '1.2G' => array(
-                                                [
-                                                    'text' => '<p id="T14" name="T14">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-mid' => array(
-                                                [
-                                                    'text' => '<p id="U14" name="U14">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'P1',
-                                                ],
-                                            ),
-                                            'Gcol1' => array(
-                                                [
-                                                    'text' => '<p id="O15" name="O15">0</p>',
-                                                ],
-                                            ),
-                                            'Qroof' => array(
-                                                [
-                                                    'text' => '<p id="P15" name="P15">0</p>',
-                                                ]
-                                            ),
-                                            'Qfloor' => array(
-                                                [
-                                                    'text' => '<p id="Q15" name="Q15">0</p>',
-                                                ]
-                                            ),
-                                            'Qdeck' => array(
-                                                [
-                                                    'text' => '<p id="R15" name="R15">0</p>',
-                                                ]
-                                            ),
-                                            'Qwall' => array(
-                                                [
-                                                    'text' => '<p id="S15" name="S15">0</p>',
-                                                ]
-                                            ),
-                                            '1.2G' => array(
-                                                [
-                                                    'text' => '<p id="T15" name="T15">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-mid' => array(
-                                                [
-                                                    'text' => '<p id="U15" name="U15">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'P2',
-                                                ],
-                                            ),
-                                            'Gcol1' => array(
-                                                [
-                                                    'text' => '<p id="O16" name="O16">0</p>',
-                                                ],
-                                            ),
-                                            'Qroof' => array(
-                                                [
-                                                    'text' => '<p id="P16" name="P16">0</p>',
-                                                ]
-                                            ),
-                                            'Qfloor' => array(
-                                                [
-                                                    'text' => '<p id="Q16" name="Q16">0</p>',
-                                                ]
-                                            ),
-                                            'Qdeck' => array(
-                                                [
-                                                    'text' => '<p id="R16" name="R16">0</p>',
-                                                ]
-                                            ),
-                                            'Qwall' => array(
-                                                [
-                                                    'text' => '<p id="S16" name="S16">0</p>',
-                                                ]
-                                            ),
-                                            '1.2G' => array(
-                                                [
-                                                    'text' => '<p id="T16" name="T16">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-mid' => array(
-                                                [
-                                                    'text' => '<p id="U16" name="U16">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'P3',
-                                                ],
-                                            ),
-                                            'Gcol1' => array(
-                                                [
-                                                    'text' => '<p id="O17" name="O17">0</p>',
-                                                ],
-                                            ),
-                                            'Qroof' => array(
-                                                [
-                                                    'text' => '<p id="P17" name="P17">0</p>',
-                                                    'id' => 'P15',
-                                                ]
-                                            ),
-                                            'Qfloor' => array(
-                                                [
-                                                    'text' => '<p id="Q17" name="Q17">0</p>',
-                                                ]
-                                            ),
-                                            'Qdeck' => array(
-                                                [
-                                                    'text' => '<p id="R17" name="R17">0</p>',
-                                                ]
-                                            ),
-                                            'Qwall' => array(
-                                                [
-                                                    'text' => '<p id="S17" name="S17">0</p>',
-                                                ]
-                                            ),
-                                            '1.2G' => array(
-                                                [
-                                                    'text' => '<p id="T17" name="T17">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-mid' => array(
-                                                [
-                                                    'text' => '<p id="U17" name="U17">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'P4',
-                                                ],
-                                            ),
-                                            'Gcol1' => array(
-                                                [
-                                                    'text' => '<p id="O18" name="O18">0</p>',
-                                                ],
-                                            ),
-                                            'Qroof' => array(
-                                                [
-                                                    'text' => '<p id="P18" name="P18">0</p>',
-                                                ]
-                                            ),
-                                            'Qfloor' => array(
-                                                [
-                                                    'text' => '<p id="Q18" name="Q18">0</p>',
-                                                ]
-                                            ),
-                                            'Qdeck' => array(
-                                                [
-                                                    'text' => '<p id="R18" name="R18">0</p>',
-                                                ]
-                                            ),
-                                            'Qwall' => array(
-                                                [
-                                                    'text' => '<p id="S18" name="S18">0</p>',
-                                                ]
-                                            ),
-                                            '1.2G' => array(
-                                                [
-                                                    'text' => '<p id="T18" name="T18">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-mid' => array(
-                                                [
-                                                    'text' => '<p id="U18" name="U18">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Sum',
-                                                ],
-                                            ),
-                                            'Gcol1' => array(
-                                                [
-                                                    'text' => '<p id="O19" name="O19">0</p>',
-                                                ],
-                                            ),
-                                            'Qroof' => array(
-                                                [
-                                                    'text' => '<p id="P19" name="P19">0</p>',
-                                                ]
-                                            ),
-                                            'Qfloor' => array(
-                                                [
-                                                    'text' => '<p id="Q19" name="Q19">0</p>',
-                                                ]
-                                            ),
-                                            'Qdeck' => array(
-                                                [
-                                                    'text' => '<p id="R19" name="R19">0</p>',
-                                                ]
-                                            ),
-                                            'Qwall' => array(
-                                                [
-                                                    'text' => '<p id="S19" name="S19">0</p>',
-                                                ]
-                                            ),
-                                            '1.2G' => array(
-                                                [
-                                                    'text' => '<p id="T19" name="T19">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-mid' => array(
-                                                [
-                                                    'text' => '<p id="U19" name="U19">0</p>',
-                                                    'id' => 'U15',
-                                                ]
-                                            ),
-                                        ],
-                                    ),
-                                    'column' => array(
-                                        [
-                                            'id' => 'name',
-                                            'label' => '',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Gcol1',
-                                            'label' => 'G',
-                                            'width' => '100px',
-
-                                        ],
-                                        [
-                                            'id' => 'Qroof',
-                                            'label' => 'QRoof',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Qfloor',
-                                            'label' => 'Qfloor',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Qdeck',
-                                            'label' => 'Qdeck',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Qwall',
-                                            'label' => 'Qwall',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => '1.2G',
-                                            'label' => '1.2G+1.5Q',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Mstar-mid',
-                                            'label' => 'M* (midspan)',
-                                            'width' => '100px',
-                                        ],
-                                    )
-                                ],
-                                [
-                                    'slot' => 1,
-                                    'inputType' => 'table',
-                                    'row' => array(
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'w',
-                                                ],
-                                            ),
-                                            'Mstar-p1' => array(
-                                                [
-                                                    'text' => '<p id="V14" name="V14">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p2' => array(
-                                                [
-                                                    'text' => '<p id="W14" name="W14">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p3' => array(
-                                                [
-                                                    'text' => '<p id="X14" name="X14">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p4' => array(
-                                                [
-                                                    'text' => '<p id="Y14" name="Y14">0</p>',
-                                                ]
-                                            ),
-                                            'k2G' => array(
-                                                [
-                                                    'text' => '<p id="Z14" name="Z14">0</p>',
-                                                ]
-                                            ),
-                                            'defl' => array(
-                                                [
-                                                    'text' => '<p id="AA14" name="AA14">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'P1',
-                                                ],
-                                            ),
-                                            'Mstar-p1' => array(
-                                                [
-                                                    'text' => '<p id="V15" name="V15">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p2' => array(
-                                                [
-                                                    'text' => '<p id="W15" name="W15">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p3' => array(
-                                                [
-                                                    'text' => '<p id="X15" name="X15">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p4' => array(
-                                                [
-                                                    'text' => '<p id="Y15" name="Y15">0</p>',
-                                                ]
-                                            ),
-                                            'k2G' => array(
-                                                [
-                                                    'text' => '<p id="Z15" name="Z15">0</p>',
-                                                ]
-                                            ),
-                                            'defl' => array(
-                                                [
-                                                    'text' => '<p id="AA15" name="AA15">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'P2',
-                                                ],
-                                            ),
-                                            'Mstar-p1' => array(
-                                                [
-                                                    'text' => '<p id="V16" name="V16">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p2' => array(
-                                                [
-                                                    'text' => '<p id="W16" name="W16">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p3' => array(
-                                                [
-                                                    'text' => '<p id="X16" name="X16">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p4' => array(
-                                                [
-                                                    'text' => '<p id="Y16" name="Y16">0</p>',
-                                                ]
-                                            ),
-                                            'k2G' => array(
-                                                [
-                                                    'text' => '<p id="Z16" name="Z16">0</p>',
-                                                ]
-                                            ),
-                                            'defl' => array(
-                                                [
-                                                    'text' => '<p id="AA16" name="AA16">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'P3',
-                                                ],
-                                            ),
-                                            'Mstar-p1' => array(
-                                                [
-                                                    'text' => '<p id="V17" name="V17">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p2' => array(
-                                                [
-                                                    'text' => '<p id="W17" name="W17">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p3' => array(
-                                                [
-                                                    'text' => '<p id="X17" name="X17">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p4' => array(
-                                                [
-                                                    'text' => '<p id="Y17" name="Y17">0</p>',
-                                                ]
-                                            ),
-                                            'k2G' => array(
-                                                [
-                                                    'text' => '<p id="Z17" name="Z15">0</p>',
-                                                ]
-                                            ),
-                                            'defl' => array(
-                                                [
-                                                    'text' => '<p id="AA17" name="AA17">0</p',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'P4',
-                                                ],
-                                            ),
-                                            'Mstar-p1' => array(
-                                                [
-                                                    'text' => '<p id="V18" name="V18">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p2' => array(
-                                                [
-                                                    'text' => '<p id="W18" name="W18">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p3' => array(
-                                                [
-                                                    'text' => '<p id="X18" name="X18">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p4' => array(
-                                                [
-                                                    'text' => '<p id="Y18" name="Y18">0</p>',
-                                                ]
-                                            ),
-                                            'k2G' => array(
-                                                [
-                                                    'text' => '<p id="Z18" name="Z18">0</p>',
-                                                ]
-                                            ),
-                                            'defl' => array(
-                                                [
-                                                    'text' => '<p id="AA18" name="AA18">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                        [
-                                            'name' => array(
-                                                [
-                                                    'text' => 'Sum',
-                                                ],
-                                            ),
-                                            'Mstar-p1' => array(
-                                                [
-                                                    'text' => '<p id="V19" name="V19">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p2' => array(
-                                                [
-                                                    'text' => '<p id="W19" name="W19">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p3' => array(
-                                                [
-                                                    'text' => '<p id="X19" name="X19">0</p>',
-                                                ]
-                                            ),
-                                            'Mstar-p4' => array(
-                                                [
-                                                    'text' => '<p id="Y19" name="Y19">0</p>',
-                                                ]
-                                            ),
-                                            'k2G' => array(
-                                                [
-                                                    'text' => '<p id="Z19" name="Z19">0</p>',
-                                                ]
-                                            ),
-                                            'defl' => array(
-                                                [
-                                                    'text' => '<p id="AA19" name="AA19">0</p>',
-                                                ]
-                                            ),
-                                        ],
-                                    ),
-                                    'column' => array(
-                                        [
-                                            'id' => 'name',
-                                            'label' => '',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Mstar-p1',
-                                            'label' => 'M* (P1)',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Mstar-p2',
-                                            'label' => 'M* (P2)',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Mstar-p3',
-                                            'label' => 'M* (P3)',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'Mstar-p4',
-                                            'label' => 'M* (P4)',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'k2G',
-                                            'label' => 'k2G+k2ΨlQ+(Ψs-Ψl)Q',
-                                            'width' => '100px',
-                                        ],
-                                        [
-                                            'id' => 'defl',
-                                            'label' => 'defl mids (mm)',
-                                            'width' => '100px',
-                                        ],
-                                    )
-                                ],
-                            )
-                        ],
-                        [
-                            'menuTitle' => '7. BEAM INFORMATION',
+                            'menuTitle' => '3. result',
                             'input' => array(
                                 [
                                     'slot' => 1,
                                     'inputType' => 'table',
                                     'column' => array(
                                         [
-                                            'id' => 'material',
-                                            'label' => 'Material',
-                                            'width' => '50px',
+                                            'id' => 'mmaxuls',
+                                            'label' => 'Mmax(ULS)',
+                                            'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'type',
-                                            'label' => 'Type',
-                                            'width' => '50px',
+                                            'id' => 'mminuls',
+                                            'label' => 'Mmin(ULS)',
+                                            'width' => '150px',
                                         ],
                                         [
-                                            'id' => 'size',
-                                            'label' => 'Size',
-                                            'width' => '50px',
+                                            'id' => 'mauls',
+                                            'label' => 'Ma(ULS)',
+                                            'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'fb',
-                                            'label' => 'fb',
-                                            'width' => '50px',
+                                            'id' => 'mal4uls',
+                                            'label' => 'M at L/4(ULS)',
+                                            'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'fs',
-                                            'label' => 'fs',
-                                            'width' => '50px',
+                                            'id' => 'mal2uls',
+                                            'label' => 'M at L/2(ULS)',
+                                            'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'E',
-                                            'label' => 'E',
-                                            'width' => '50px',
+                                            'id' => 'ma3l4uls',
+                                            'label' => 'M ar 3L/4(ULS)',
+                                            'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'fb-wet',
-                                            'label' => 'fb (wet)',
-                                            'width' => '50px',
+                                            'id' => 'mmaxsls',
+                                            'label' => 'Mmax(SLS)',
+                                            'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'fs-wet',
-                                            'label' => 'fs (wet)',
-                                            'width' => '50px',
+                                            'id' => 'mminsls',
+                                            'label' => 'Mmin(SLS)',
+                                            'width' => '150px',
+                                        ],
+                                        [
+                                            'id' => 'masls',
+                                            'label' => 'Ma(SLS)',
+                                            'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'E-wet',
-                                            'label' => 'E (wet)',
-                                            'width' => '50px',
+                                            'id' => 'mal4sls',
+                                            'label' => 'M at L/4(SLS)',
+                                            'width' => '150px',
+
+                                        ],
+                                        [
+                                            'id' => 'mal2sls',
+                                            'label' => 'M at L/2(SLS)',
+                                            'width' => '150px',
+
+                                        ],
+                                        [
+                                            'id' => 'ma3l4sls',
+                                            'label' => 'M ar 3L/4(SLS)',
+                                            'width' => '150px',
 
                                         ],
                                     ),
                                     'row' => array(
                                         [
-                                            'material' => array(['text' => '<p id="AC14" name="AC14">0</p>']),
-                                            'type' => array(['text' => '<p id="AD14" name="AD14">0</p>']),
-                                            'size' => array(['text' => '<p id="AE14" name="AE14">0</p>']),
-                                            'fb' => array(['text' => '<p id="AF14" name="AF14">0</p>']),
-                                            'fs' => array(['text' => '<p id="AG14" name="AG14">0</p>']),
-                                            'E' => array(['text' => '<p id="AH14" name="AH14">0</p>']),
-                                            'fb-wet' => array(['text' => '<p id="AI14" name="AI14">0</p>']),
-                                            'fs-wet' => array(['text' => '<p id="AJ14" name="AJ14">0</p>']),
-                                            'E-wet' => array(['text' => '<p id="AK14" name="AK14">0</p>']),
+                                            'mmaxuls' => array(['text' => '<p id="L25" name="L25">0</p>']),
+                                            'mminuls' => array(['text' => '<p id="L26" name="L26">0</p>']),
+                                            'mauls' => array(['text' => '<p id="L27" name="L27">0</p>']),
+                                            'mal4uls' => array(['text' => '<p id="L28" name="L28">0</p>']),
+                                            'mal2uls' => array(['text' => '<p id="L29" name="L29">0</p>']),
+                                            'ma3l4uls' => array(['text' => '<p id="L29" name="L29">0</p>']),
+                                            'mmaxsls' => array(['text' => '<p id="M25" name="M25">0</p>']),
+                                            'mminsls' => array(['text' => '<p id="M26" name="M26">0</p>']),
+                                            'masls' => array(['text' => '<p id="M27" name="M27">0</p>']),
+                                            'mal4sls' => array(['text' => '<p id="M28" name="M28">0</p>']),
+                                            'mal2sls' => array(['text' => '<p id="M29" name="M29">0</p>']),
+                                            'ma3l4sls' => array(['text' => '<p id="M30" name="M30">0</p>']),
                                         ]
                                     )
                                 ],
@@ -1941,107 +1163,104 @@ class ProppedCantileverBeam
                                     'inputType' => 'table',
                                     'column' => array(
                                         [
-                                            'id' => 'self-wt',
-                                            'label' => 'Self Wt',
+                                            'id' => 'vmaxuls',
+                                            'label' => 'Vmax(ULS)',
                                             'width' => '50px',
 
                                         ],
                                         [
-                                            'id' => 'b',
-                                            'label' => 'b',
+                                            'id' => 'vminuls',
+                                            'label' => 'Vmin(ULS)',
                                             'width' => '50px',
 
                                         ],
                                         [
-                                            'id' => 'd',
-                                            'label' => 'd',
+                                            'id' => 'rauls',
+                                            'label' => 'Ra(ULS)',
                                             'width' => '50px',
 
                                         ],
                                         [
-                                            'id' => 'A',
-                                            'label' => 'A',
+                                            'id' => 'rbuls',
+                                            'label' => 'Rb(ULS)',
                                             'width' => '50px',
 
                                         ],
                                         [
-                                            'id' => 'Z',
-                                            'label' => 'Z',
+                                            'id' => 'vmaxsls',
+                                            'label' => 'Vmax(SLS)',
                                             'width' => '50px',
 
                                         ],
                                         [
-                                            'id' => 'I',
-                                            'label' => 'I',
+                                            'id' => 'vminsls',
+                                            'label' => 'Vmin(SLS)',
                                             'width' => '50px',
 
                                         ],
                                         [
-                                            'id' => 'b-flitch',
-                                            'label' => 'b (flitch)',
+                                            'id' => 'rasls',
+                                            'label' => 'Ra(SLS)',
                                             'width' => '50px',
 
                                         ],
                                         [
-                                            'id' => 'd-flitch',
-                                            'label' => 'd (flitch)',
+                                            'id' => 'rbsls',
+                                            'label' => 'Rb(SLS)',
                                             'width' => '50px',
 
                                         ],
                                     ),
                                     'row' => array(
                                         [
-                                            'self-wt' => array(['text' => '<p id="AL14" name="AL14">0</p>']),
-                                            'b' => array(['text' => '<p id="AM14" name="AM14">0</p>']),
-                                            'd' => array(['text' => '<p id="AN14" name="AN14">0</p>']),
-                                            'A' => array(['text' => '<p id="AO14" name="AO14">0</p>']),
-                                            'Z' => array(['text' => '<p id="AP14" name="AP14">0</p>']),
-                                            'I' => array(['text' => '<p id="AQ14" name="AQ14">0</p>']),
-                                            'b-flitch' => array(['text' => '<p id="AR14" name="AR14">0</p>']),
-                                            'd-flitch' => array(['text' => '<p id="AS14" name="AS14">0</p>']),
+                                            'vmaxuls' => array(['text' => '<p id="L37" name="L37">0</p>']),
+                                            'vminuls' => array(['text' => '<p id="L38" name="L38">0</p>']),
+                                            'rauls' => array(['text' => '<p id="L39" name="L39">0</p>']),
+                                            'rbuls' => array(['text' => '<p id="L40" name="L40">0</p>']),
+                                            'vmaxsls' => array(['text' => '<p id="M37" name="M37">0</p>']),
+                                            'vminsls' => array(['text' => '<p id="M38" name="M38">0</p>']),
+                                            'rasls' => array(['text' => '<p id="M39" name="M39">0</p>']),
+                                            'rbsls' => array(['text' => '<p id="M40" name="M40">0</p>']),
                                         ]
                                     )
                                 ],
                                 [
-                                    'inputType' => 'text',
-                                    'label' => 'EQ3.5',
-                                    'id' => 'AD17',
-                                    'name' => 'AD17',
-                                    'disabled' => true,
-                                    'type' => 'number',
+                                    'slot' => 1,
+                                    'inputType' => 'table',
+                                    'column' => array(
+                                        [
+                                            'id' => 'deflectionuls',
+                                            'label' => 'Deflection(ULS)',
+                                            'width' => '50px',
+
+                                        ],
+                                        [
+                                            'id' => 'deflectionsls',
+                                            'label' => 'Deflection(SLS)',
+                                            'width' => '50px',
+
+                                        ],
+                                        
+                                    ),
+                                    'row' => array(
+                                        [
+                                            'deflectionuls' => array(['text' => '<p id="L51" name="L51">0</p>']),
+                                            'deflectionsls' => array(['text' => '<p id="M51" name="M51">0</p>']),
+                                            
+                                        ]
+                                    )
                                 ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'S1',
-                                    'id' => 'AF17',
-                                    'name' => 'AF17',
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'k8 - dry',
-                                    'id' => 'AI17',
-                                    'name' => 'AI17',
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
-                                [
-                                    'inputType' => 'text',
-                                    'label' => 'k8 - wet',
-                                    'id' => 'AI18',
-                                    'name' => 'AI18',
-                                    'disabled' => true,
-                                    'type' => 'number',
-                                ],
+                                
                             )
                         ],
+                        
                         [
-                            'menuTitle' => '8. Graphic',
+                            'menuTitle' => '4. Graphic',
                             'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
                         ]
                     )
                 ],
+                
             ),
         ];
 
