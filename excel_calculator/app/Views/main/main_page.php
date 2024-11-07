@@ -140,7 +140,7 @@ $props = isset($formProperties) ? $formProperties : [];
                                             ]);
                                           } else if ($subInput['inputType'] == "dropdown") {
                                             echo view('components/dropdown', [
-                                              'id' => (isset($subInput['id']) ? $input['id'] : ''), // required
+                                              'id' => (isset($subInput['id']) ? $subInput['id'] : ''), // required
                                               'label' => (isset($subInput['label']) ? $subInput['label'] : ''),
                                               'selectOption' => (isset($subInput['selectOption']) ? $subInput['selectOption'] : '--- Please Select ---'),
                                               'disabled' => (isset($subInput['disabled']) ? $subInput['disabled'] : false),
@@ -209,10 +209,12 @@ $props = isset($formProperties) ? $formProperties : [];
   input {
     width: auto;
   }
-  td.overflow p{
+
+  td.overflow p {
     margin-top: 8px;
     margin-bottom: 8px;
   }
+
   #renderCanvas {
     width: 100%;
     height: 100%;
@@ -299,7 +301,8 @@ $props = isset($formProperties) ? $formProperties : [];
           $('#submitBtn').show();
           var toastElement = document.getElementById('liveToast-err');
           var toastBody = toastElement.querySelector('.toast-body');
-          toastBody.textContent = 'Form submission failed! Please input Data';
+          var response = JSON.parse(xhr.responseText);
+          toastBody.textContent = response.error || 'Form submission failed! Please input Data';
           var toast = new bootstrap.Toast(toastElement);
           toast.show();
           click = false;

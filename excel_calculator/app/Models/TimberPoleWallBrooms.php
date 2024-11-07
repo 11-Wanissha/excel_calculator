@@ -57,21 +57,25 @@ class SedData
 
 class TimberGradeData
 {
-    public $gradeData;
+    private $gradeData;
     public function __construct()
     {
         $this->gradeData = array(
-            'Green' => array(
+            'Green' => [
                 'grade' => 'fb',
                 'VSG10' => 11.7,
                 'VSG8' => 11.7
-            ),
-            'Dry' => array(
+            ],
+            'Dry' => [
                 'grade' => 'fb',
                 'VSG10' => 20,
                 'VSG8' => 14
-            ),
+            ],
         );
+    }
+    public function getValue($moisture, $vsg)
+    {
+        return $this->gradeData[$moisture][$vsg];
     }
 }
 
@@ -180,7 +184,7 @@ class DataTable
             ],
         );
     }
-    public function getAll()
+    public function getData()
     {
         return $this->dataTable;
     }
@@ -200,9 +204,77 @@ class DataTable
 
 class TimberPoleWallBrooms
 {
+    private $timberGradeData;
     private $dataSet;
     private $fromProperties;
     public function __construct()
+    {
+        $this->timberGradeData = new TimberGradeData();
+        $this->dataSet = new DataTable();
+        $this->dataSet = $this->dataSet->getData();
+    }
+    public function getData()
+    {
+        return $this->dataSet;
+    }
+    public function calculatedDataSet($b25, $d25, $f56)
+    {
+        //calulated Z
+        foreach ($this->dataSet as $index => $dataSetValue) {
+            $this->dataSet[$index]['Z'] = isset($dataSetValue['d']) ? $dataSetValue['b'] * pow($dataSetValue['d'], 2) / 6 : ((M_PI / 8 - 8 / (9 * M_PI)) * pow($dataSetValue['b'] / 2, 4)) / ($dataSetValue['b'] / 2 - (2 * $dataSetValue['b']) / (3 * M_PI));
+        }
+
+        //calculated Strenght by plank	
+        $numberArr = [0.8, 2 * 0.8, 3 * 0.8, 0.8, 2 * 0.8, 3 * 0.8, 0.8, 2 * 0.8, 2 * 0.8];
+        $countIndex = 0;
+        $smallData = new SmallDataSet();
+        $smallData = $smallData->getAll();
+        foreach ($this->dataSet as $index => $dataSetValue) {
+            switch ($dataSetValue['size']) {
+                case 0:
+                    $this->dataSet[$index]['mnStaticPlank'] = $numberArr[$countIndex] * $b25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $f56 * ($dataSetValue['Z'] / pow(1000, 2));
+                    $this->dataSet[$index]['mnSeismicPlank'] = $numberArr[$countIndex] * $d25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $f56 * ($dataSetValue['Z'] / pow(1000, 2));
+                    $countIndex++;
+                    break;
+                case 1:
+                    $this->dataSet[$index]['mnStaticPlank'] = 0.8 * $b25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $smallData['normal'] * ($dataSetValue['Z'] / pow(1000, 2));
+                    $this->dataSet[$index]['mnSeismicPlank'] = 0.8 * $d25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $smallData['normal'] * ($dataSetValue['Z'] / pow(1000, 2));
+                    break;
+                case 2:
+                    $this->dataSet[$index]['mnStaticPlank'] = 0.8 * $b25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $smallData['high'] * ($dataSetValue['Z'] / pow(1000, 2));
+                    $this->dataSet[$index]['mnSeismicPlank'] = 0.8 * $d25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $smallData['high'] * ($dataSetValue['Z'] / pow(1000, 2));
+                    break;
+                default:
+                    break;
+            }
+        }
+        $numberArr = [];
+        $smallData = null;
+        $countIndex = null;
+
+        //calculated Strenght by meter	
+        foreach ($this->dataSet as $index => $dataSetValue) {
+            $this->dataSet[$index]['mnStaticMeter'] = round($dataSetValue['mnStaticPlank'] * (1000 / $dataSetValue['b']), 1);
+            $this->dataSet[$index]['mnSeismicMeter'] = round($dataSetValue['mnSeismicPlank'] * (1000 / $dataSetValue['b']), 1);
+        }
+        return true;
+    }
+    public function getValueDataset($adopt, $isStatic)
+    {
+        switch ($isStatic) {
+            case 0:
+                return $this->dataSet[$adopt]['mnSeismicMeter'];
+            case 1:
+                return $this->dataSet[$adopt]['mnStaticMeter'];
+            default:
+                break;
+        }
+    }
+    public function getValue($moisture, $vsg)
+    {
+        return $this->timberGradeData->getValue($moisture, $vsg);
+    }
+    public function getFromProperties()
     {
         $sedData = new SedData();
         $optionData = new DataTable();
@@ -309,14 +381,6 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'θ', // required Formula is ATAN(B18)
-                                    'id' => 'B19', // required
-                                    'name' => 'B19',
-                                    'type' => 'number',
-                                    'disabled' => true,
-                                ],
-                                [
-                                    'inputType' => 'text',
                                     'label' => 'Static Load factor (SF)', // required
                                     'id' => 'B20', // required
                                     'name' => 'B20',
@@ -338,6 +402,7 @@ class TimberPoleWallBrooms
                                     'name' => 'B22',
                                     'type' => 'number',
                                     'disabled' => true,
+                                    'slot' => 1,
                                 ],
                             ),
                         ],
@@ -460,6 +525,7 @@ class TimberPoleWallBrooms
                                     'id' => 'B28', // required
                                     'name' => 'B28',
                                     'type' => 'number',
+                                    'unit' => 'MPa',
                                     'disabled' => true,
                                     'slot' => 1,
                                 ],
@@ -515,7 +581,7 @@ class TimberPoleWallBrooms
                                                     ),
                                                     'ok' => array(
                                                         [
-                                                            'text' => '<p id="K59" name="K59">0</p>',
+                                                            'text' => '<p id="K59" name="K59">-</p>',
                                                         ]
                                                     ),
                                                 ],
@@ -553,7 +619,7 @@ class TimberPoleWallBrooms
                                                     ),
                                                     'ok' => array(
                                                         [
-                                                            'text' => '<p id="K60" name="K60">0</p>',
+                                                            'text' => '<p id="K60" name="K60">-</p>',
                                                         ]
                                                     ),
                                                 ],
@@ -615,7 +681,7 @@ class TimberPoleWallBrooms
                                                     ),
                                                     'ok' => array(
                                                         [
-                                                            'text' => '<p id="K63" name="K63">0</p>',
+                                                            'text' => '<p id="K63" name="K63">-</p>',
                                                         ]
                                                     ),
                                                 ],
@@ -653,7 +719,7 @@ class TimberPoleWallBrooms
                                                     ),
                                                     'ok' => array(
                                                         [
-                                                            'text' => '<p id="K64" name="K64">0</p>',
+                                                            'text' => '<p id="K64" name="K64">-</p>',
                                                         ]
                                                     ),
                                                 ],
@@ -715,7 +781,7 @@ class TimberPoleWallBrooms
                                                     ),
                                                     'ok' => array(
                                                         [
-                                                            'text' => '<p id="K67" name="K67">0</p>',
+                                                            'text' => '<p id="K67" name="K67">-</p>',
                                                         ]
                                                     ),
                                                 ],
@@ -753,7 +819,7 @@ class TimberPoleWallBrooms
                                                     ),
                                                     'ok' => array(
                                                         [
-                                                            'text' => '<p id="K68" name="K68">0</p>',
+                                                            'text' => '<p id="K68" name="K68">-</p>',
                                                         ]
                                                     ),
                                                 ],
@@ -763,7 +829,7 @@ class TimberPoleWallBrooms
                                             'inputType' => 'dropdown',
                                             'label' => 'Adopt', // required
                                             'selectOption' => "Please Select",
-                                            'id' => 'E65', // required
+                                            'id' => 'E69', // required
                                             'disabled' => false,
                                             // required
                                             'option' => $optionData->getName(),
@@ -965,7 +1031,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'φMn,static=φkfbZ=φ·k1·k8·k20·k21·k22·fb·Z',
+                                                    'text' => 'φMn,seismic=φkfbZ=φ·k1·k8·k20·k21·k22·fb·Z',
                                                 ]
                                             ),
                                             'value' => array(
@@ -1147,62 +1213,14 @@ class TimberPoleWallBrooms
                                 ],
                             ),
                         ],
-                        [
-                            'menuTitle' => '6. Graphic',
-                            'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
-                        ]
+                        // [
+                        //     'menuTitle' => '6. Graphic',
+                        //     'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
+                        // ]
                     ),
                 ],
             ),
         ];
-
-    }
-    public function calculatedDataSet($b25, $d25, $f56)
-    {
-        $this->dataSet = new DataTable();
-        $this->dataSet = $this->dataSet->getAll();
-        //calulated Z
-        foreach ($this->dataSet as $index => $dataSetValue) {
-            $this->dataSet[$index]['Z'] = isset($dataSetValue['d']) ? round($dataSetValue['b'] * (pow($dataSetValue['d'], 2)) / 6) : round(((M_PI / 8 - 8 / (9 * M_PI)) * pow($dataSetValue['b'] / 2, 4)) / ($dataSetValue['b'] / 2 - (2 * $dataSetValue['b']) / (3 * M_PI)));
-        }
-
-        // calculated Strenght by plank	
-        $numberArr = [0.8, 2 * 0.8, 3 * 0.8, 0.8, 2 * 0.8, 3 * 0.8, 0.8, 2 * 0.8, 2 * 0.8];
-        $smallData = new SmallDataSet();
-        $smallData = $smallData->getAll();
-        foreach ($this->dataSet as $index => $dataSetValue) {
-            switch ($dataSetValue['size']) {
-                case 0:
-                    $this->dataSet[$index]['mnStaticPlank'] = round($numberArr[$index] * $b25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $f56 * ($dataSetValue['Z'] / pow(1000, 2)), 1);
-                    $this->dataSet[$index]['mnSeismicPlank'] = round($numberArr[$index] * $d25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $f56 * ($dataSetValue['Z'] / pow(1000, 2)), 1);
-                    break;
-                case 1:
-                    $this->dataSet[$index]['mnStaticPlank'] = round(0.8 * $b25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $smallData['normal'] * ($dataSetValue['Z'] / pow(1000, 2)), 1);
-                    $this->dataSet[$index]['mnSeismicPlank'] = round(0.8 * $d25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $smallData['normal'] * ($dataSetValue['Z'] / pow(1000, 2)), 1);
-                    break;
-                case 2:
-                    $this->dataSet[$index]['mnStaticPlank'] = round(0.8 * $b25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $smallData['high'] * ($dataSetValue['Z'] / pow(1000, 2)), 1);
-                    $this->dataSet[$index]['mnSeismicPlank'] = round(0.8 * $d25 * $smallData['k4'] * $smallData['k5'] * $smallData['k8'] * $smallData['high'] * ($dataSetValue['Z'] / pow(1000, 2)), 1);
-                    break;
-                default:
-                    break;
-            }
-        }
-        $numberArr = [];
-        $smallData = null;
-
-        //calculated Strenght by meter	
-        foreach ($this->dataSet as $index => $dataSetValue) {
-            $this->dataSet[$index]['mnStaticMeter'] = round($dataSetValue['mnStaticPlank'] * (1000 / $dataSetValue['b']), 1);
-            $this->dataSet[$index]['mnSeismicMeter'] = round($dataSetValue['mnSeismicPlank'] * (1000 / $dataSetValue['b']), 1);
-        }
-    }
-    public function getDataset()
-    {
-        return $this->dataSet;
-    }
-    public function getFromProperties()
-    {
         return $this->fromProperties;
     }
 }
