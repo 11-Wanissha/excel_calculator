@@ -23,3 +23,8 @@ $routes->get('/propped-cantilever-beam', 'ProppedCantileverBeamController::rende
 $routes->post('/propped-cantilever-beam', 'ProppedCantileverBeamController::calculate');
 $routes->post('/propped-cantilever-beam-import', 'ProppedCantileverBeamController::import');
 $routes->post('/propped-cantilever-beam-export', 'ProppedCantileverBeamController::export');
+/* router for timber-pole-wall-brooms path */
+$routes->get('/timber-pole-retaining-wall-brooms', 'TimberPoleWallBroomsController::renderer');
+$routes->post('/timber-pole-retaining-wall-brooms', 'TimberPoleWallBroomsController::calculator');
+$routes->post('/timber-pole-retaining-wall-brooms-import', 'TimberPoleWallBroomsController::import');
+$routes->post('/timber-pole-retaining-wall-brooms-export', 'TimberPoleWallBroomsController::export');
