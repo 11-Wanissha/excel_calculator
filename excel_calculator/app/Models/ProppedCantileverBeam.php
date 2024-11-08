@@ -1073,14 +1073,14 @@ class ProppedCantileverBeam
                                     'inputType' => 'table',
                                     'column' => array(
                                         [
-                                            'id' => 'mmaxuls',
-                                            'label' => 'Mmax(ULS)',
+                                            'id' => 'mminuls',
+                                            'label' => 'Mmin(ULS)',
                                             'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'mminuls',
-                                            'label' => 'Mmin(ULS)',
+                                            'id' => 'mmaxuls',
+                                            'label' => 'Mmax(ULS)',
                                             'width' => '150px',
                                         ],
                                         [
@@ -1108,14 +1108,14 @@ class ProppedCantileverBeam
 
                                         ],
                                         [
-                                            'id' => 'mmaxsls',
-                                            'label' => 'Mmax(SLS)',
+                                            'id' => 'mminsls',
+                                            'label' => 'Mmin(SLS)',
                                             'width' => '150px',
 
                                         ],
                                         [
-                                            'id' => 'mminsls',
-                                            'label' => 'Mmin(SLS)',
+                                            'id' => 'mmaxsls',
+                                            'label' => 'Mmax(SLS)',
                                             'width' => '150px',
                                         ],
                                         [
@@ -1145,14 +1145,14 @@ class ProppedCantileverBeam
                                     ),
                                     'row' => array(
                                         [
-                                            'mmaxuls' => array(['text' => '<p id="L25" name="L25">0</p>']),
-                                            'mminuls' => array(['text' => '<p id="L26" name="L26">0</p>']),
+                                            'mminuls' => array(['text' => '<p id="L25" name="L25">0</p>']),
+                                            'mmaxuls' => array(['text' => '<p id="L26" name="L26">0</p>']),
                                             'mauls' => array(['text' => '<p id="L27" name="L27">0</p>']),
                                             'mal4uls' => array(['text' => '<p id="L28" name="L28">0</p>']),
                                             'mal2uls' => array(['text' => '<p id="L29" name="L29">0</p>']),
-                                            'ma3l4uls' => array(['text' => '<p id="L29" name="L29">0</p>']),
-                                            'mmaxsls' => array(['text' => '<p id="M25" name="M25">0</p>']),
-                                            'mminsls' => array(['text' => '<p id="M26" name="M26">0</p>']),
+                                            'ma3l4uls' => array(['text' => '<p id="L30" name="L30">0</p>']),
+                                            'mminsls' => array(['text' => '<p id="M25" name="M25">0</p>']),
+                                            'mmaxsls' => array(['text' => '<p id="M26" name="M26">0</p>']),
                                             'masls' => array(['text' => '<p id="M27" name="M27">0</p>']),
                                             'mal4sls' => array(['text' => '<p id="M28" name="M28">0</p>']),
                                             'mal2sls' => array(['text' => '<p id="M29" name="M29">0</p>']),

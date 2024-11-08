@@ -25,7 +25,8 @@ class ProppedCantileverBeamController extends BaseController
         // Assuming you’re receiving POST data for calculation
         $req = $this->request->getPost();
         $res = [];
-        
+        $cal = [];
+        $value = 0;
         // Point loads: ULS P1------------------------------------/////
         $res['C26'] = isset($req['C18']) ? $req['C18'] * 1.35 : throw new ErrorException("error"); 
         $res['D26'] = isset($req['C18']) && isset($req['D18']) ? $req['C18'] * 1.2 + 1.5 * $req['D18'] : throw new ErrorException("error"); 
@@ -111,8 +112,498 @@ class ProppedCantileverBeamController extends BaseController
         // Distributed loads 2.2 ------------------------------------/////
         $res['D21any'] =  $res['J47']  ; 
         $res['D22any'] =  $res['C52']  ; 
-        // Perform calculations or any data processing here
+        // distance
+        for ($i = 6; $i <= 106; $i++) {
+          $res["P{$i}any"] = (string)$value; // เก็บค่าเป็น string
+          $value++; // เพิ่มค่าทีละ 1
+        }
+        $res["Q6any"]='0';
+        $res["Q7any"]=$req['C7any']/100;
+        // Distributed Loads P0
+        $res["J7any"]=$req['C7any']*1000;
+        for ($i = 8; $i <= 106; $i++) {
+          $res["Q{$i}any"] = round($res["Q7any"] * $res["P{$i}any"], 1); 
+        
+        }
+        for ($i = 6; $i <= 106; $i++) {
+          $res["R{$i}any"] = $res["Q{$i}any"]*1000; // เก็บค่าเป็น string
+          
+        }
+        //M ULS p0
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AC{$i}any"] = -((3 * $res['D21any'] * $req["C7any"] / 8) * ($req["C7any"] - $res["Q{$i}any"]) 
+                          - ($res['D21any'] * pow($req["C7any"] - $res["Q{$i}any"], 2) / 2)); 
+          
+        }
+        //V ULS p0
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AD{$i}any"] = -((-3 * $res['D21any'] * $req["C7any"] / 8) + $res['D21any'] * ($req["C7any"] - $res["Q{$i}any"]));
+          
+        }
+        //D ULS p0
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AE{$i}any"] = 
+              -(
+                  $res['D21any'] * ($res['J7any'] - $res["R{$i}any"]) * 
+                  (pow($res['J7any'], 3) - 3 * $res['J7any'] * pow($res['J7any'] - $res["R{$i}any"], 2) + 2 * pow($res['J7any'] - $res["R{$i}any"], 3))
+              ) / (48 * $req['C8any'] * $req['C9any']);
+          
+        }
+        //M SLS p0
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AG{$i}any"]  = ($res['D21any'] == 0) ? 0 : $res["AC{$i}any"] * $res['D22any'] / $res['D21any'];
+          
+        }
+        //V SLS p0
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AH{$i}any"]  = ($res['D21any'] == 0) ? 0 : $res["AD{$i}any"] * $res['D22any'] / $res['D21any'];
+          
+        }
+        //D SLS p0
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AI{$i}any"]  = ($res['D21any'] == 0) ? 0 : $res["AE{$i}any"] * $res['D22any'] / $res['D21any'];
+          
+        }
 
+        // Distributed Loads P1
+        $res["I14any"]=$res['F14any']*1000;
+        $res["I15any"]=$res['F15any']*1000;
+        $res["I16any"]=$res['F16any']*1000;
+        $res["I17any"]=$res['F17any']*1000;
+        //M ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AN{$i}any"]  = -(
+            ($res["Q{$i}any"] <= $req['E14any']) ? 
+            (
+                (-$res['C14any'] * $res['F14any'] * (pow($req['C7any'], 2) - pow($res['F14any'], 2)) / (2 * pow($req['C7any'], 2))) +
+                ($res['C14any'] - ($res['C14any'] * pow($req['E14any'], 2)) * ($res['F14any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3))) * $res["Q{$i}any"]
+            ) :
+            (
+                (-$res['C14any'] * $res['F14any'] * (pow($req['C7any'], 2) - pow($res['F14any'], 2)) / (2 * pow($req['C7any'], 2))) +
+                ($res['C14any'] - ($res['C14any'] * pow($req['E14any'], 2)) * ($res['F14any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3))) * $res["Q{$i}any"] -
+                $res['C14any'] * ($res["Q{$i}any"] - $req['E14any'])
+            )
+        );
+          
+        }
+
+        //V
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AO{$i}any"]  = ($res["Q{$i}any"] <= $req['E14any']) 
+          ? -($res['C14any'] - $res['C14any'] * pow($req['E14any'], 2) * ($res['F14any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)))
+          : ($res['C14any'] * pow($req['E14any'], 2) * ($res['F14any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)));
+          
+        }
+
+        //D
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AP{$i}any"] = 
+          (($res['J7any'] - $res["R{$i}any"]) <= $res['I14any']) 
+          ? (
+              (
+                  ($res['C14any'] * $res['I14any'] * pow($res["R{$i}any"], 2) *
+                  (2 * $res['J7any'] * pow($res['I14any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I14any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+                  / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
+              ) + (
+                  -$res['C14any'] * pow(($res['I14any'] - ($res['J7any'] - $res["R{$i}any"])), 3)
+                  / (6 * $req['C8any'] * $req['C9any'])
+              )
+          ) : (
+              (
+                  $res['C14any'] * $res['I14any'] * pow($res["R{$i}any"], 2) *
+                  (2 * $res['J7any'] * pow($res['I14any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I14any'], 2) * ($res['J7any'] - $res["R{$i}any"]))
+              ) / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
+          );
+          
+          // คูณ 1000 หลังจากคำนวณเสร็จ
+          $res["AP{$i}any"] *= 1000;
+        }
+
+        // Distributed Loads P2
+        
+        //M ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AR{$i}any"]  = -(
+            ($res["Q{$i}any"] <= $req["E15any"]) 
+            ? (
+                ((-$res["C15any"] * $res["F15any"] * (pow($req["C7any"], 2) - pow($res["F15any"], 2)) / (2 * pow($req["C7any"], 2))) + 
+                ($res["C15any"] - ($res["C15any"] * pow($req["E15any"], 2)) * ($res["F15any"] + 2 * $req["C7any"]) / (2 * pow($req["C7any"], 3))) * $res["Q{$i}any"])
+            ) : (
+                ((-$res["C15any"] * $res["F15any"] * (pow($req["C7any"], 2) - pow($res["F15any"], 2)) / (2 * pow($req["C7any"], 2))) + 
+                ($res["C15any"] - ($res["C15any"] * pow($req["E15any"], 2)) * ($res["F15any"] + 2 * $req["C7any"]) / (2 * pow($req["C7any"], 3))) * $res["Q{$i}any"]) - 
+                $res["C15any"] * ($res["Q{$i}any"] - $req["E15any"])
+            )
+        );
+          
+        }
+        //V ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AS{$i}any"]  = ($res["Q{$i}any"] <= $req["E15any"]) 
+          ? -($res["C15any"] - ($res["C15any"] * pow($req["E15any"], 2) * ($res["F15any"] + 2 * $req["C7any"]) / (2 * pow($req["C7any"], 3))))
+          : ($res["C15any"] * pow($req["E15any"], 2) * ($res["F15any"] + 2 * $req["C7any"]) / (2 * pow($req["C7any"], 3)));
+          
+        }
+        //d ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AT{$i}any"] = 
+              (($res['J7any'] - $res["R{$i}any"]) <= $res['I15any']) 
+              ? (
+                  (($res['C15any'] * $res['I15any'] * pow($res["R{$i}any"], 2) * 
+                    (2 * $res['J7any'] * pow($res['I15any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I15any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+                    / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])) +
+                  (-$res['C15any'] * pow($res['I15any'] - ($res['J7any'] - $res["R{$i}any"]), 3) 
+                    / (6 * $req['C8any'] * $req['C9any']))
+              ) : (
+                  ($res['C15any'] * $res['I15any'] * pow($res["R{$i}any"], 2) * 
+                   (2 * $res['J7any'] * pow($res['I15any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I15any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+                   / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
+              ) ;
+            $res["AT{$i}any"] *= 1000;
+       }
+
+        // Distributed Loads P3
+        //M ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AV{$i}any"] = 
+              -(($res["Q{$i}any"] <= $req['E16any']) 
+              ? (
+                  (-$res['C16any'] * $res['F16any'] * (pow($req['C7any'], 2) - pow($res['F16any'], 2)) / (2 * pow($req['C7any'], 2))) +
+                  ($res['C16any'] - ($res['C16any'] * pow($req['E16any'], 2) * ($res['F16any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)))) * $res["Q{$i}any"]
+              ) : (
+                  (-$res['C16any'] * $res['F16any'] * (pow($req['C7any'], 2) - pow($res['F16any'], 2)) / (2 * pow($req['C7any'], 2))) +
+                  ($res['C16any'] - ($res['C16any'] * pow($req['E16any'], 2) * ($res['F16any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)))) * $res["Q{$i}any"] - 
+                  $res['C16any'] * ($res["Q{$i}any"] - $req['E16any'])
+              ));
+        }
+        //V ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AW{$i}any"] = 
+              ($res["Q{$i}any"] <= $req['E16any']) 
+              ? -($res['C16any'] - ($res['C16any'] * pow($req['E16any'], 2) * ($res['F16any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3))))
+              : ($res['C16any'] * pow($req['E16any'], 2) * ($res['F16any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)));
+        }
+        //D ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AX{$i}any"] = 
+              (($res['J7any'] - $res["R{$i}any"]) <= $res['I16any']) 
+              ? (
+                  (
+                      ($res['C16any'] * $res['I16any'] * pow($res["R{$i}any"], 2) * 
+                      (2 * $res['J7any'] * pow($res['I16any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I16any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+                      / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
+                  ) + (
+                      -$res['C16any'] * pow(($res['I16any'] - ($res['J7any'] - $res["R{$i}any"])), 3)
+                      / (6 * $req['C8any'] * $req['C9any'])
+                  )
+              ) : (
+                  ($res['C16any'] * $res['I16any'] * pow($res["R{$i}any"], 2) * 
+                  (2 * $res['J7any'] * pow($res['I16any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I16any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+                  / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
+              );
+
+              $res["AX{$i}any"] *= 1000;
+        }
+        // Distributed Loads P4
+        //M ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["AZ{$i}any"] = 
+              -(
+                  ($res["Q{$i}any"] <= $req['E17any']) 
+                  ? (
+                      (-$res['C17any'] * $res['F17any'] * ($req['C7any']**2 - $res['F17any']**2) / (2 * $req['C7any']**2)) +
+                      ($res['C17any'] - ($res['C17any'] * $req['E17any']**2 * ($res['F17any'] + 2 * $req['C7any']) / (2 * $req['C7any']**3))) * $res["Q{$i}any"]
+                  ) : (
+                      (-$res['C17any'] * $res['F17any'] * ($req['C7any']**2 - $res['F17any']**2) / (2 * $req['C7any']**2)) +
+                      ($res['C17any'] - ($res['C17any'] * $req['E17any']**2 * ($res['F17any'] + 2 * $req['C7any']) / (2 * $req['C7any']**3))) * $res["Q{$i}any"] -
+                      $res['C17any'] * ($res["Q{$i}any"] - $req['E17any'])
+                  )
+              );
+        }
+        //V ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["BA{$i}any"] = 
+              ($res["Q{$i}any"] <= $req['E17any']) 
+              ? -($res['C17any'] - $res['C17any'] * pow($req['E17any'], 2) * ($res['F17any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)))
+              : $res['C17any'] * pow($req['E17any'], 2) * ($res['F17any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3));
+        }
+
+        //D ULS
+        for ($i = 6; $i <= 106; $i++) {
+          $res["BB{$i}any"] = 
+              (($res['J7any'] - $res["R{$i}any"]) <= $res['I17any']) 
+              ? (
+                  (
+                      ($res['C17any'] * $res['I17any'] * pow($res["R{$i}any"], 2) * 
+                      (2 * $res['J7any'] * pow($res['I17any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I17any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+                      / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
+                  ) + (
+                      -$res['C17any'] * pow(($res['I17any'] - ($res['J7any'] - $res["R{$i}any"])), 3)
+                      / (6 * $req['C8any'] * $req['C9any'])
+                  )
+              ) : (
+                  ($res['C17any'] * $res['I17any'] * pow($res["R{$i}any"], 2) * 
+                  (2 * $res['J7any'] * pow($res['I17any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I17any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+                  / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
+              ) ;
+              $res["BB{$i}any"] *= 1000;
+        }
+        // Distributed Loads total
+        //M total
+        for ($i = 6; $i <= 106; $i++) {
+          $res["BD{$i}any"] = $res["AN{$i}any"] + $res["AR{$i}any"] + $res["AV{$i}any"] + $res["AZ{$i}any"];
+        }
+      
+        //V total
+        for ($i = 6; $i <= 106; $i++) {
+          $res["BE{$i}any"] = $res["AO{$i}any"] + $res["AS{$i}any"] + $res["AW{$i}any"] + $res["BA{$i}any"];
+        }
+      
+        //D total
+        for ($i = 6; $i <= 106; $i++) {
+          $res["BF{$i}any"] = $res["AP{$i}any"] + $res["AT{$i}any"] + $res["AX{$i}any"] + $res["BB{$i}any"];
+      }
+
+      // Distributed Loads SLS P1
+      //M
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BI{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $res["AN{$i}any"];
+      }
+      //V
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BJ{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $res["AO{$i}any"];
+      }
+    
+      //D
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BK{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $res["AP{$i}any"];
+      }
+
+      // Distributed Loads SLS P2
+      //M 
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BM{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $res["AR{$i}any"];
+      }
+      //V 
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BN{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $res["AS{$i}any"];
+      }
+      //D
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BO{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $res["AT{$i}any"];
+      }
+
+      // Distributed Loads SLS P3
+      //M 
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BQ{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $res["AV{$i}any"];
+      }
+      //V 
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BR{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $res["AW{$i}any"];
+      }
+      //D 
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BS{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $res["AX{$i}any"];
+      }
+    
+      // Distributed Loads SLS P4
+      //M 
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BU{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $res["AZ{$i}any"];
+      }
+      //V
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BV{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $res["BA{$i}any"];
+      }
+      //D 
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BW{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $res["BB{$i}any"];
+      }
+
+      // Distributed Loads SLS total
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BY{$i}any"] = $res["BI{$i}any"] + $res["BM{$i}any"] + $res["BQ{$i}any"] + $res["BU{$i}any"];
+      } 
+      for ($i = 6; $i <= 106; $i++) {
+        $res["BZ{$i}any"] = $res["BJ{$i}any"] + $res["BN{$i}any"] + $res["BR{$i}any"] + $res["BV{$i}any"];
+      }
+      for ($i = 6; $i <= 106; $i++) {
+        $res["CA{$i}any"] = $res["BK{$i}any"] + $res["BO{$i}any"] + $res["BS{$i}any"] + $res["BW{$i}any"];
+      }
+      
+      //ULS Demands
+
+      for ($i = 6; $i <= 106; $i++) {
+        $res["T{$i}any"] = $res["AC{$i}any"] + $res["BD{$i}any"];
+      }
+
+      for ($i = 6; $i <= 106; $i++) {
+        $res["U{$i}any"] = $res["AD{$i}any"] + $res["BE{$i}any"];
+      }
+    
+      for ($i = 6; $i <= 106; $i++) {
+        $res["V{$i}any"] = $res["AE{$i}any"] + $res["BF{$i}any"];
+     }
+     //SLS Demands
+
+     for ($i = 6; $i <= 106; $i++) {
+      $res["X{$i}any"] = $res["AG{$i}any"] + $res["BY{$i}any"];
+    }
+
+    for ($i = 6; $i <= 106; $i++) {
+      $res["Y{$i}any"] = $res["AH{$i}any"] + $res["BZ{$i}any"];
+    }
+
+    for ($i = 6; $i <= 106; $i++) {
+      $res["Z{$i}any"] = $res["AI{$i}any"] + $res["CA{$i}any"];
+    }
+      /////cal
+    
+
+    $res["L25"] = null; // Initialize variable to hold min value
+    for ($i = 6; $i <= 106; $i++) {
+        $currentValue = $res["T{$i}any"]; // Get the value for Tany at index $i
+        if ($res["L25"] === null || $currentValue < $res["L25"]) {
+            $res["L25"] = $currentValue; // Update min value
+        }
+    }
+    // Round the result to 1 decimal place and multiply by -1
+        $res["L25"] = round($res["L25"], 1) * -1;
+    
+
+    $res["L26"] = null; // Initialize variable to hold max value
+    for ($i = 6; $i <= 106; $i++) {
+        $currentValue = $res["T{$i}any"]; // Get the value for Tany at index $i
+        if ($res["L26"] === null || $currentValue > $res["L26"]) {
+            $res["L26"] = $currentValue; // Update max value
+        }
+    }
+    // Round the result to 1 decimal place and multiply by -1
+        $res["L26"] = round($res["L26"], 1) * -1;
+    
+
+    $res["M25"] = null; // Initialize variable to hold min value
+    for ($i = 6; $i <= 106; $i++) {
+        $currentValue = $res["X{$i}any"]; // Get the value for Xany at index $i
+        if ($res["M25"] === null || $currentValue < $res["M25"]) {
+            $res["M25"] = $currentValue; // Update min value
+        }
+    }
+    // Round the result to 1 decimal place and multiply by -1
+        $res["M25"] = round($res["M25"], 1) * -1;
+    
+
+    $res["M26"] = null; // Initialize variable to hold max value
+    for ($i = 6; $i <= 106; $i++) {
+        $currentValue = $res["X{$i}any"]; // Get the value for Xany at index $i
+        if ($res["M26"] === null || $currentValue > $res["M26"]) {
+            $res["M26"] = $currentValue; // Update max value
+        }
+    }
+    // Round the result to 1 decimal place and multiply by -1
+        $res["M26"] = round($res["M26"], 1) * -1;
+    
+
+    // Assigning specific values to cells and multiply by -1
+    $res["L27"] = round($res["T6any"], 1) * -1;
+    $res["L28"] = round($res["T31any"], 1) * -1;
+    $res["L29"] = round($res["T56any"], 1) * -1;
+    $res["M27"] = round($res["X6any"], 1) * -1;
+    $res["M28"] = round($res["X31any"], 1) * -1;
+    $res["M29"] = round($res["X56any"], 1) * -1;
+    $res["M30"] = round($res["X81any"], 1)* -1;
+    $res["L30"] = round($res["T81any"], 1)* -1;
+
+
+    
+
+    $res["L37"] = null; // Initialize variable to hold max value
+    for ($i = 6; $i <= 106; $i++) {
+        $currentValue = $res["U{$i}any"]; // Get the value for Xany at index $i
+        if ($res["L37"] === null || $currentValue > $res["L37"]) {
+            $res["L37"] = $currentValue; // Update max value
+        }
+    }
+    // Round the result to 1 decimal place and multiply by -1
+        $res["L37"] = round($res["L37"], 1) ;
+        
+     
+
+     $res["L38"] = null; // Initialize variable to hold max value
+     for ($i = 6; $i <= 106; $i++) {
+         $currentValue = $res["U{$i}any"]; // Get the value for Xany at index $i
+         if ($res["L38"] === null || $currentValue < $res["L38"]) {
+             $res["L38"] = $currentValue; // Update max value
+         }
+     }
+
+    // Round the result to 1 decimal place and multiply by -1
+        $res["L38"] = round($res["L38"], 1) ;
+     
+
+    $res["M37"] = null; // Initialize variable to hold max value
+    for ($i = 6; $i <= 106; $i++) {
+        $currentValue = $res["Y{$i}any"]; // Get the value for Xany at index $i
+        if ($res["M37"] === null || $currentValue > $res["M37"]) {
+            $res["M37"] = $currentValue; // Update max value
+        }
+    }
+    // Round the result to 1 decimal place and multiply by -1
+        $res["M37"] = round($res["M37"], 1) ;
+     
+
+     $res["M38"] = null; // Initialize variable to hold max value
+     for ($i = 6; $i <= 106; $i++) {
+         $currentValue = $res["Y{$i}any"]; // Get the value for Xany at index $i
+         if ($res["M38"] === null || $currentValue < $res["M38"]) {
+             $res["M38"] = $currentValue; // Update max value
+         }
+     }
+    // Round the result to 1 decimal place and multiply by -1
+        $res["M38"] = round($res["M38"], 1) ;
+    
+    // คำนวณค่า absolute และเก็บลงใน L39 และ L40, พร้อมปัดทศนิยม 1 ตำแหน่ง
+    $res["L39"] = round(abs($res["U6any"]), 1);
+    $res["L40"] = round(abs($res["U106any"]), 1);
+
+    // คัดลอกค่าใน Y6any และ Y106any ไปเก็บใน M39 และ M40, พร้อมปัดทศนิยม 1 ตำแหน่ง
+    $res["M39"] = round($res["Y6any"], 1);
+    $res["M40"] = round($res["Y106any"], 1);
+    
+    $res["L51"] = null; // Initialize variable to hold max value
+     for ($i = 6; $i <= 106; $i++) {
+         $currentValue = $res["V{$i}any"]; // Get the value for Xany at index $i
+         if ($res["L51"] === null || $currentValue < $res["L51"]) {
+             $res["L51"] = $currentValue; // Update max value
+         }
+     }
+    // Round the result to 1 decimal place and multiply by -1
+        $res["L51"] = round($res["L51"], 1)*-1 ;
+    
+        $res["M51"] = null; // Initialize variable to hold max value
+        for ($i = 6; $i <= 106; $i++) {
+            $currentValue = $res["Z{$i}any"]; // Get the value for Xany at index $i
+            if ($res["M51"] === null || $currentValue < $res["M51"]) {
+                $res["M51"] = $currentValue; // Update max value
+            }
+        }
+       // Round the result to 1 decimal place and multiply by -1
+           $res["M51"] = round($res["M51"], 1)*-1 ;
+    
+           $keys = [
+              "C26", "D26", "E26", "F26", "G26", "H26", "I26", "J26",
+              "C27", "D27", "E27", "F27", "G27", "H27", "I27", "J27",
+              "C28", "D28", "E28", "F28", "G28", "H28", "I28", "J28",
+              "C29", "D29", "E29", "F29", "G29", "H29", "I29", "J29"
+          ];
+          
+          // Loop through and round each value to 2 decimal places
+          foreach ($keys as $key) {
+              if (isset($res[$key])) {
+                  $res[$key] = round($res[$key], 2);
+              }
+          }
+      
         // Pass data to view (or JSON response if needed)
         return $this->response->setJSON($res);
     }
