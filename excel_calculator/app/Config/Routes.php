@@ -22,3 +22,9 @@ $routes->post('/timber-beam-export', 'TimberBeamController::export');
 /* router for pole retaining wall path */
 $routes->get('/pole-retaining-wall', 'PoleRetainingWallController::renderer');
 $routes->post('/pole-retaining-wall', 'PoleRetainingWallController::calculator');
+
+/* router for timber-pole-wall-brooms path */
+$routes->get('/timber-pole-retaining-wall-brooms', 'TimberPoleWallBroomsController::renderer');
+$routes->post('/timber-pole-retaining-wall-brooms', 'TimberPoleWallBroomsController::calculator');
+$routes->post('/timber-pole-retaining-wall-brooms-import', 'TimberPoleWallBroomsController::import');
+$routes->post('/timber-pole-retaining-wall-brooms-export', 'TimberPoleWallBroomsController::export');
