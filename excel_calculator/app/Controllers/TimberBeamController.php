@@ -3,9 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\TimberBeam;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx as Reader;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx as Writer;
 
 class TimberBeamController extends BaseController
 {

@@ -106,7 +106,7 @@ $props = isset($formProperties) ? $formProperties : [];
                             }
                             ?>
                           </div>
-                        <?php endforeach;
+                      <?php endforeach;
                       endif; ?>
                       <div>
                         <?php if (isset($menu['subMenu']) && !empty($menu['subMenu'])): ?>
@@ -232,15 +232,15 @@ $props = isset($formProperties) ? $formProperties : [];
     canvas.height = window.innerHeight;
     scene.render();
     // Watch for browser/canvas resize events
-    window.addEventListener("resize", function () {
+    window.addEventListener("resize", function() {
       engine.resize();
     });
-    canvas.addEventListener('wheel', function (event) {
+    canvas.addEventListener('wheel', function(event) {
       event.preventDefault();
     });
   }
-  $(document).ready(function () {
-    $('#form').on('submit', function (e) {
+  $(document).ready(function() {
+    $('#form').on('submit', function(e) {
       e.preventDefault(); // Prevent the default form submission
       if (click) {
         var toastElement = document.getElementById('liveToast-err');
@@ -259,7 +259,7 @@ $props = isset($formProperties) ? $formProperties : [];
         type: 'POST',
         url: `${url}`, // Your form action URL
         data: $(this).serialize(), // Serialize the form data
-        success: function (response) {
+        success: function(response) {
           latestCalculatedData = response
           $('#loadingSpinner').hide();
           // Show the loading spinner
@@ -289,7 +289,7 @@ $props = isset($formProperties) ? $formProperties : [];
           toast.show();
           click = false;
         },
-        error: function (xhr, status, error) {
+        error: function(xhr, status, error) {
           $('#loadingSpinner').hide();
           // Show the loading spinner
           $('#submitBtn').show();
@@ -302,7 +302,7 @@ $props = isset($formProperties) ? $formProperties : [];
         }
       });
     });
-    $('.fullscreen-btn').click(function () {
+    $('.fullscreen-btn').click(function() {
       let index = $('.fullscreen-btn').index(this);
       let element = $('.table-responsive').eq(index)[0];
 
@@ -332,8 +332,8 @@ $props = isset($formProperties) ? $formProperties : [];
     });
 
     // Listen for fullscreen change to toggle button text/icon
-    document.addEventListener('fullscreenchange', function () {
-      $('.fullscreen-btn').each(function (index, button) {
+    document.addEventListener('fullscreenchange', function() {
+      $('.fullscreen-btn').each(function(index, button) {
         if (document.fullscreenElement) {
           $(button).html('<img src="<?= base_url('assets/expand.png'); ?>" alt="Exit" width="20px"> Exit');
         } else {
@@ -341,9 +341,9 @@ $props = isset($formProperties) ? $formProperties : [];
         }
       });
     });
-    $('#Row').on('click', function () {
+    $('#Row').on('click', function() {
       var divElements = document.querySelectorAll('.isRow');
-      divElements.forEach(function (div) { // Loop through each div element
+      divElements.forEach(function(div) { // Loop through each div element
         if (this.checked) {
           div.classList.remove('col-xl-6');
           div.classList.add('col-xl-12');
@@ -353,7 +353,7 @@ $props = isset($formProperties) ? $formProperties : [];
         }
       }, this);
     });
-    $('#btnImport').on('click', function () {
+    $('#btnImport').on('click', function() {
       $('#loadingSpinner').show();
       $('#submitBtn').hide();
       if (click) {
@@ -390,7 +390,7 @@ $props = isset($formProperties) ? $formProperties : [];
         cache: false,
         contentType: false,
         processData: false,
-        success: function (response) {
+        success: function(response) {
           $('#loadingSpinner').hide();
           $('#submitBtn').show();
 
@@ -413,7 +413,7 @@ $props = isset($formProperties) ? $formProperties : [];
           toast.show();
           click = false;
         },
-        error: function (xhr, status, error) {
+        error: function(xhr, status, error) {
           $('#loadingSpinner').hide();
           $('#submitBtn').show();
           console.log(error)
@@ -422,7 +422,7 @@ $props = isset($formProperties) ? $formProperties : [];
       })
     });
 
-    $('#export').on('click', function () {
+    $('#export').on('click', function() {
       try {
         $('#loadingSpinner').show();
         $('#submitBtn').hide();
@@ -452,7 +452,7 @@ $props = isset($formProperties) ? $formProperties : [];
           cache: false,
           contentType: "application/json",
           processData: false,
-          success: function (response) {
+          success: function(response) {
             $('#loadingSpinner').hide();
             $('#submitBtn').show();
             console.log(response)
@@ -475,7 +475,7 @@ $props = isset($formProperties) ? $formProperties : [];
             link.click();
             document.body.removeChild(link);
           },
-          error: function (xhr, status, error) {
+          error: function(xhr, status, error) {
             click = false;
             $('#loadingSpinner').hide();
             $('#submitBtn').show();
