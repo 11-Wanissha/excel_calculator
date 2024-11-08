@@ -21,6 +21,13 @@ class PoleRetainingWall
                             'menuTitle' => '1. Cantilever Wall Parameters',
                             'input' => array(
                                 [
+                                    'inputType' => 'file',
+                                    'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    'label' => 'Import File', // required
+                                    'id' => 'file', // required
+                                    'name' => 'file',
+                                ],
+                                [
                                     'inputType' => 'text',
                                     'label' => 'Wall height',
                                     'id' => 'B10',
@@ -252,7 +259,8 @@ class PoleRetainingWall
                                     'name' => 'J33',
                                     'unit' => 'm',
                                     'id' => 'J33',
-                                    'type' => 'number'
+                                    'type' => 'number',
+                                    'disabled' => true
                                 ],
                                 [
                                     'inputType' => 'text',
@@ -260,7 +268,8 @@ class PoleRetainingWall
                                     'name' => 'F35',
                                     'unit' => 'm',
                                     'id' => 'F35',
-                                    'type' => 'number'
+                                    'type' => 'number',
+                                    'disabled' => true
                                 ],
                             ),
                         ],
@@ -298,7 +307,7 @@ class PoleRetainingWall
                                             'name' => 'B42',
                                             'id' => 'B42',
                                             'type' => 'number',
-                                            'value' => '0.06'
+                                            'disabled' => true
                                         ],
                                     )
                                 ],
@@ -327,7 +336,7 @@ class PoleRetainingWall
                                             'name' => 'G41',
                                             'id' => 'G41',
                                             'type' => 'number',
-                                            'value' => '3.5',
+                                            'disabled' => true,
                                             'unit' => 'degree'
                                         ],
                                     )
@@ -482,21 +491,39 @@ class PoleRetainingWall
                                     'input' => array(
                                         [
                                             'inputType' => 'text',
+                                            'label' => 'E',
+                                            'id' => 'E93',
+                                            'name' => 'E93',
+                                            'type' => 'number',
+                                            'unit' => 'GPa',
+                                            'disabled' => true
+                                        ],
+                                        [
+                                            'inputType' => 'text',
+                                            'label' => 'k<sub>20</sub>',
+                                            'id' => 'H93',
+                                            'name' => 'H93',
+                                            'type' => 'number',
+                                            'unit' => 'mm',
+                                            'disabled' => true
+                                        ],
+                                        [
+                                            'inputType' => 'text',
                                             'label' => 'Assessing deflection under unfactored soil load only',
-                                            'slot' => 1,
                                             'id' => 'B95',
                                             'name' => 'B95',
                                             'type' => 'number',
-                                            'unit' => 'mm'
+                                            'unit' => 'mm',
+                                            'disabled' => true
                                         ],
                                         [
                                             'inputType' => 'text',
                                             'label' => '% of H',
-                                            'slot' => 1,
                                             'id' => 'E95',
                                             'name' => 'E95',
                                             'type' => 'number',
-                                            'unit' => '%'
+                                            'unit' => '%',
+                                            'disabled' => true
                                         ],
                                     )
                                 ]
@@ -529,8 +556,8 @@ class PoleRetainingWall
                                     'id' => 'F85',
                                     'name' => 'F85',
                                     'type' => 'number',
-                                    'value' => 1,
-                                    'disabled' => true
+                                    'value' => '1',
+                                    'readonly' => true
                                 ],
                                 [
                                     'inputType' => 'text',
@@ -542,8 +569,8 @@ class PoleRetainingWall
                                 [
                                     'inputType' => 'text',
                                     'label' => 'k1 (Seismic Case)',
-                                    'id' => 'B85',
-                                    'name' => 'B85',
+                                    'id' => 'J85',
+                                    'name' => 'J85',
                                     'type' => 'number',
                                 ],
                                 [
@@ -553,6 +580,10 @@ class PoleRetainingWall
                                     'name' => 'C86',
                                     'selectOption' => 'Please Select',
                                     'option' => array(
+                                        [
+                                            'optionName' => 'Specify method',
+                                            'value' => '',
+                                        ],
                                         [
                                             'optionName' => 'Shaving',
                                             'value' => 'shaving'
@@ -643,9 +674,8 @@ class PoleRetainingWall
                                         [
                                             'inputType' => 'text',
                                             'label' => 'Number of whaler, #',
-                                            'id' => 'whaler1',
-                                            'name' => 'whaler1',
-                                            'disabled' => true,
+                                            'id' => 'J98',
+                                            'name' => 'J98',
                                             'value' => '1',
                                             'type' => 'number',
                                         ],
@@ -702,11 +732,11 @@ class PoleRetainingWall
                                         [
                                             'inputType' => 'text',
                                             'label' => 'f<sub>b</sub>',
-                                            'id' => 'j99',
-                                            'disabled' => true,
-                                            'name' => 'j99',
+                                            'id' => 'J99',
+                                            'name' => 'J99',
                                             'type' => 'number',
-                                            'unit' => 'Mpa'
+                                            'unit' => 'Mpa',
+                                            'disabled' => true,
                                         ],
                                         [
                                             'inputType' => 'table',
@@ -752,11 +782,10 @@ class PoleRetainingWall
                                         [
                                             'inputType' => 'text',
                                             'label' => 'Number of whaler, #',
-                                            'id' => 'whaler2',
-                                            'name' => 'whaler2',
+                                            'id' => 'J107',
+                                            'name' => 'J107',
                                             'value' => '2',
                                             'type' => 'number',
-                                            'disabled' => true,
                                         ],
                                         [
                                             'inputType' => 'text',
@@ -811,8 +840,8 @@ class PoleRetainingWall
                                         [
                                             'inputType' => 'text',
                                             'label' => 'f<sub>b</sub>',
-                                            'id' => 'j108',
-                                            'name' => 'j108',
+                                            'id' => 'J108',
+                                            'name' => 'J108',
                                             'type' => 'number',
                                             'disabled' => true,
                                             'unit' => 'Mpa'
@@ -861,10 +890,9 @@ class PoleRetainingWall
                                         [
                                             'inputType' => 'text',
                                             'label' => 'Number of whaler, #',
-                                            'id' => 'whaler3',
-                                            'name' => 'whaler3',
+                                            'id' => 'J116',
+                                            'name' => 'J116',
                                             'value' => '3',
-                                            'disabled' => true,
                                             'type' => 'number',
                                         ],
                                         [
@@ -920,8 +948,8 @@ class PoleRetainingWall
                                         [
                                             'inputType' => 'text',
                                             'label' => 'f<sub>b</sub>',
-                                            'id' => 'j117',
-                                            'name' => 'j117',
+                                            'id' => 'J117',
+                                            'name' => 'J117',
                                             'type' => 'number',
                                             'unit' => 'Mpa',
                                             'disabled' => true,

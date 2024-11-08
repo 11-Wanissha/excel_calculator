@@ -96,7 +96,7 @@ class PoleRetainingWallController extends BaseController
         ) * $res['B11'];
 
         $res['F86'] = $res['C86'] == "peeling" ? 0.9 : ($res['C86'] == "shaving" ? 0.85 : "Specify method");
-        $res['F87'] = $res['C87'] == "High" ? 52 : 38;
+        $res['F87'] = $res['C87'] == "high" ? 52 : 38;
         $res['J87'] = $res['B17'];
         $res['B90'] = $res['B84'] * $res['J84'] * $res['B85'] * $res['F86'] *
             $res['F84'] * $res['F85'] * $res['F87'] * 1000 * pi() *
@@ -121,7 +121,7 @@ class PoleRetainingWallController extends BaseController
             $res['B29'] * $res['B27'] * ($res['B26'] * $res['B15'] + $res['B20'] * $res['B98']) :
             $res['B29'] * $res['B27'] * $res['B20'] * $res['B98'];
         $res['D104'] = $res['D103'] * pow($res['B11'], 2) / 8;
-        $res['D105'] = $res['F98'] == "Plank" ?
+        $res['B105'] = $res['F98'] == "plank" ?
             $res['B84'] * $res['J84'] * $res['B85'] * $res['J99'] * 1000 * $res['J98'] *
             pow(($res['B99'] / 1000), 2) / 6 : ($res['F98'] == "round" ?
                 $res['B84'] * $res['J84'] * $res['B85'] * $res['F86'] * $res['F84'] * $res['F85'] *
@@ -199,5 +199,60 @@ class PoleRetainingWallController extends BaseController
         }
 
         return $this->response->setJSON($res);
+    }
+
+    public function import()
+    {
+        $file = $this->request->getFile('file');
+
+        if (!$file || !$file->isValid() || $file->hasMoved()) {
+            return $this->response->setJSON(['success' => false, 'message' => 'No file was uploaded.']);
+        }
+
+        $reader = new Reader();
+        $sheet = $reader->load($file->getTempName());
+        $worksheet = $sheet->getActiveSheet();
+
+        $fields = ['B33', 'B72', 'H72', 'B84', 'B85', 'F84', 'J84', 'J85', 'J98', 'J107', 'J116'];
+
+        $rangeFields = [
+            $worksheet->rangeToArray('B10:B20', null, true, true, true),
+            $worksheet->rangeToArray('B24:B29', null, true, true, true),
+            $worksheet->rangeToArray('H24:H26', null, true, true, true),
+            $worksheet->rangeToArray('H28:H29', null, true, true, true),
+            $worksheet->rangeToArray('B39:B41', null, true, true, true),
+            $worksheet->rangeToArray('G39:G40', null, true, true, true),
+            $worksheet->rangeToArray('B98:B99', null, true, true, true),
+            $worksheet->rangeToArray('B107:B108', null, true, true, true),
+            $worksheet->rangeToArray('B116:B117', null, true, true, true),
+        ];
+
+        $cells = [];
+
+        foreach ($fields as $field) {
+            $cell = $worksheet->getCell($field)->getValue();
+            $cells[$field] = $cell;
+        }
+
+        foreach ($rangeFields as $range) {
+            foreach ($range as $row => $columns) {
+                foreach ($columns as $col => $value) {
+                    $cellReference = $col . $row;
+                    $cells[$cellReference] = $value;
+                }
+            }
+        }
+
+        return $this->response->setJSON($cells);
+    }
+
+    public function export()
+    {
+        $req = $this->request->getJSON(true);
+        $model = new PoleRetainingWall();
+
+        $exportResult = $this->defaultExportInterface($model->getFormProperties(), $req, "timber-pole-retaining-wall-design");
+
+        return $this->response->setJSON($exportResult);
     }
 }
