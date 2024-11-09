@@ -103,6 +103,8 @@ $props = isset($formProperties) ? $formProperties : [];
                                 'id' => (isset($input['id']) ? $input['id'] : ''),
                                 'label' => (isset($input['label']) ? $input['label'] : '')
                               ]);
+                            } else if ($input['inputType'] == "canvas") {
+                              echo $input['text'];
                             }
                             ?>
                           </div>
@@ -151,6 +153,8 @@ $props = isset($formProperties) ? $formProperties : [];
                                               'column' => $subInput['column'],
                                               'row' => $subInput['row']
                                             ]);
+                                          } else if ($input['inputType'] == "canvas") {
+                                            echo $input['text'];
                                           } else {
                                             echo view('components/file_input', [
                                               'id' => (isset($subInput['id']) ? $subInput['id'] : ''),
@@ -180,6 +184,7 @@ $props = isset($formProperties) ? $formProperties : [];
     </div>
   </form>
   <div id="url" class="d-none"><?= $props['url'] ?></div>
+  <div id="submit-function" class="d-none"><?= isset($props['submitFunction']) ? $props['submitFunction'] : '' ?></div>
 </div>
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 99999">
   <div id="liveToast-success" class="toast align-items-center text-white bg-success border-0" role="alert"
@@ -258,6 +263,7 @@ $props = isset($formProperties) ? $formProperties : [];
       }
       click = true;
       const url = document.getElementById('url').innerHTML;
+      const external = document.getElementById('submit-function').innerHTML;
       $('#submitBtn').hide();
       // Show the loading spinner
       $('#loadingSpinner').show();
@@ -265,8 +271,8 @@ $props = isset($formProperties) ? $formProperties : [];
         type: 'POST',
         url: `${url}`, // Your form action URL
         data: $(this).serialize(), // Serialize the form data
-        success: function(response) {
-          latestCalculatedData = response
+        success: function (response) {
+          latestCalculatedData = response;
           $('#loadingSpinner').hide();
           // Show the loading spinner
           $('#submitBtn').show();
@@ -279,13 +285,16 @@ $props = isset($formProperties) ? $formProperties : [];
               tdNoInputElement.style.width = "auto";
             } else if (tdElement) {
               tdElement.value = response[data];
-              tdElement.style.width = "auto";
+              // tdElement.style.width = "auto";
             } else if (element) {
               element.value = response[data];
-              element.style.width = "auto";
+              // element.style.width = "auto";
             } else {
               console.warn(`No element found with ID: ${data}`);
             }
+          }
+          if (external) {
+            externalFunction(response);
           }
           if (canvas) {
             reGenerate(response);
