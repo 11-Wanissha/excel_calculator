@@ -285,10 +285,10 @@ $props = isset($formProperties) ? $formProperties : [];
               tdNoInputElement.style.width = "auto";
             } else if (tdElement) {
               tdElement.value = response[data];
-              tdElement.style.width = "auto";
+              // tdElement.style.width = "auto";
             } else if (element) {
               element.value = response[data];
-              element.style.width = "auto";
+              // element.style.width = "auto";
             } else {
               console.warn(`No element found with ID: ${data}`);
             }
