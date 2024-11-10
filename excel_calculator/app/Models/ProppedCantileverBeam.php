@@ -16,6 +16,7 @@ class ProppedCantileverBeam
             'importUrl' => '/propped-cantilever-beam-import',
             'exportUrl' => '/propped-cantilever-beam-export',
             'lastIndex' => 8,
+            'submitFunction'=>  true,
             'secTion' => array(
                 [
                     'menu' => array(
@@ -1161,6 +1162,11 @@ class ProppedCantileverBeam
                                     )
                                 ],
                                 [
+                                    'inputType' => 'canvas',
+                                    'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    'text' => '<canvas id="myChartMoment"></canvas>', // required
+                                ],
+                                [
                                     'slot' => 1,
                                     'inputType' => 'table',
                                     'column' => array(
@@ -1227,6 +1233,11 @@ class ProppedCantileverBeam
                                     )
                                 ],
                                 [
+                                    'inputType' => 'canvas',
+                                    'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    'text' => '<canvas id="myChartShear"></canvas>', // required
+                                ],
+                                [
                                     'slot' => 1,
                                     'inputType' => 'table',
                                     'column' => array(
@@ -1251,6 +1262,11 @@ class ProppedCantileverBeam
                                             
                                         ]
                                     )
+                                ],
+                                [
+                                    'inputType' => 'canvas',
+                                    'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    'text' => '<canvas id="myChartDeflection"></canvas>', // required
                                 ],
                                 
                             )

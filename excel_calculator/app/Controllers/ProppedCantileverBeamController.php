@@ -591,6 +591,7 @@ class ProppedCantileverBeamController extends BaseController
            $res["M51"] = round($res["M51"], 1)*-1 ;
     
            $keys = [
+              "C47", "D47", "E47", "F47", "G47", "H47", "I47", "J47",
               "C26", "D26", "E26", "F26", "G26", "H26", "I26", "J26",
               "C27", "D27", "E27", "F27", "G27", "H27", "I27", "J27",
               "C28", "D28", "E28", "F28", "G28", "H28", "I28", "J28",
