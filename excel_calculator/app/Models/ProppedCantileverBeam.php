@@ -27,6 +27,7 @@ class ProppedCantileverBeam
                                 [
                                     'subMenuTitle' => '1.1 Point loads',
                                     'input' => array([
+                                        
                                         'inputType' => 'table',
                                         'column' => array(
                                             [
@@ -756,6 +757,13 @@ class ProppedCantileverBeam
                                 ],
                             ),
                             'input' => array(
+                                [
+                                    'inputType' => 'file',
+                                    'slot' => 1,  // ถ้าใส่ มันจะเต็มทั้งแถว
+                                    'label' => 'Import File', // required
+                                    'id' => 'file', // required
+                                    'name' => 'file',
+                                ],
                                 [
                                     'inputType' => 'table',
                                     'column' => array(

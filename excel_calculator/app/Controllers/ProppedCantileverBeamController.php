@@ -611,6 +611,41 @@ class ProppedCantileverBeamController extends BaseController
 
     public function import()
     {
+      $file = $this->request->getFile('file');
+
+      if (!$file || !$file->isValid() || $file->hasMoved()) {
+        return $this->response->setJSON(['success' => false, 'message' => 'No file was uploaded.']);
+      }
+
+      $reader = new Reader();
+      $sheet = $reader->load($file->getTempName());
+      $worksheet = $sheet->getActiveSheet();
+
+      $fields = ['C10', 'C11', 'C12', 'C13'];
+
+      $rangeFields = [
+        $worksheet->rangeToArray('C18:G21', null, true, true, true),
+        $worksheet->rangeToArray('C41:G41', null, true, true, true),
+       
+      ];
+
+      $cells = [];
+
+      foreach ($fields as $field) {
+        $cell = $worksheet->getCell($field)->getValue();
+        $cells[$field] = $cell;
+      }
+
+      foreach ($rangeFields as $range) {
+        foreach ($range as $row => $columns) {
+          foreach ($columns as $col => $value) {
+            $cellReference = $col . $row;
+            $cells[$cellReference] = $value;
+          }
+        }
+      }
+
+      return $this->response->setJSON($cells);
         // Implement import functionality here
     }
 
