@@ -29,7 +29,9 @@ class PileCapacityController extends BaseController
             $AB23 = 0.85 - 0.004 * ($req['G20'] - 55);
         }
 
-        //Cal AB25 (Ast)
+        $res['G25'] = pi() * pow($req['G24'], 2) / 4 * $req['G23'];
+
+        // Cal AB25 (Ast)
         $AB25 = $req['G23'] * pi() * pow($req['G24'] / 1000, 2) / 4;
 
         //Cal AB26 (AG)
@@ -60,23 +62,23 @@ class PileCapacityController extends BaseController
         $AB34 = min(0.4, $AB28 / $AB29);
 
         //Call AB35 (ps min)
-        $AB35 = max(((1 - $AB34) * $AB30 * $AB31 * $AB33) / (2.4 * $AB32 * 0.85 * $AB31 * 1000 * $AB26) - 0.0084,0);
+        $AB35 = max(((1 - $AB34) * $AB30 * $AB31 * $AB33) / (2.4 * $AB32 * 0.85 * $AB31 * 1000 * $AB26) - 0.0084, 0);
 
         //Call AF26 (d")
         $AF26 = ($req['G9'] - $req['G28'] * 2 - $req['G27']) / 1000;
 
         $AI26 = $req['G9'];
-        $AI27 = 2*$req['G9'];
-        $AI28 = 3*$req['G9'];
+        $AI27 = 2 * $req['G9'];
+        $AI28 = 3 * $req['G9'];
 
         //Call AJ23 (Pn)
         $AJ23 = ($req['G58'] * $req['G20'] * (pow($req['G9'], 2) * 3.1415 / 4)) / 1000;
 
         //Call AJ23 (Pn)
-        $AJ24 = (0.85 * $req['G20'] * ((pow($req['G9'], 2) * 3.1415 / 4) - $res['G25']) + ($req['G18'] * $req['G25'])) / 1000;
+        $AJ24 = (0.85 * $req['G20'] * ((pow($req['G9'], 2) * 3.1415 / 4) - $res['G25']) + ($req['G18'] * $res['G25'])) / 1000;
 
 
-        //vb min & vb max
+        // //vb min & vb max
         $X18 = 0.08 * sqrt($req['G20']);
         $X19 = 0.2 * sqrt($req['G20']);
         $X22 = $req['N23'];
@@ -98,7 +100,7 @@ class PileCapacityController extends BaseController
         $X25 = (3.1415 * pow($req['G9'] - 2 * $req['G28'] - 2 * $req['G27'], 2)) / 4;
 
         //Call X20 (vb)
-        $X20 = (0.07 + 10 * ((0.33 * $req['G25']) / $X25)) * sqrt($req['G20']);
+        $X20 = (0.07 + 10 * ((0.33 * $res['G25']) / $X25)) * sqrt($req['G20']);
 
         $X26 = min($X20, max($X19, $X18));
 
@@ -118,11 +120,10 @@ class PileCapacityController extends BaseController
         $X29 = max(3 * $req['G9'], 2 * $Y28);
 
         //Call X31 (d")
-        $X31 = $req['G9']- (2 * $req['G28']);
+        $X31 = $req['G9'] - (2 * $req['G28']);
 
         //Call left
 
-        $res['G25'] = pi() * pow($req['G24'], 2) / 4 * $req['G23'];
         $res['G31'] = pi() * pow($req['G27'], 2) / 4;
         $res['G35'] = ($req['G13'] * $req['G12'] * pi() * pow($req['G10'], 2)) / (4 * 1000);
         $res['G36'] = ($req['G15'] * $req['G14'] * pi() * $req['G9'] * $req['G11']) / 1000;
@@ -131,7 +132,7 @@ class PileCapacityController extends BaseController
         $res['I38'] = ($res['G38'] > $maxValue) ? 'OK' : 'NOT OK';
         $res['G39'] = $res['G36'];
         $res['I39'] = (abs($req['N16']) < $res['G39']) ? 'OK' : 'NOT OK';
-        $res['G44'] = $req['G43'] * $AB23 * ((0.85 * $req['G20'] * ((pow($req['G9'], 2) * 3.1415) / 4 - $res['G25'])) + ($req['g18'] * $res['G25'])) / 1000;
+        $res['G44'] = $req['G43'] * $AB23 * ((0.85 * $req['G20'] * ((pow($req['G9'], 2) * 3.1415) / 4 - $res['G25'])) + ($req['G18'] * $res['G25'])) / 1000;
         $res['I44'] = ($res['G44'] > max($req['N12'], $req['N15'])) ? "OK" : "NOT OK";
 
         //Call (ps (provided)) G47
@@ -144,13 +145,13 @@ class PileCapacityController extends BaseController
         $res['G48'] = $AB25 / $AB26;
 
         //Call ps min G49
-        $res['G49'] = $AB35 ;
+        $res['G49'] = $AB35;
 
         //Call ps min G50
         $res['G50'] = ($AB25 / (155 * $AF26)) * ($req['G18'] / $req['G19']) / ($req['G24'] / 1000);
 
         //Call pt min G51
-        $res['G51'] = 0.008* $AB26;
+        $res['G51'] = 0.008 * $AB26;
 
         //Call pt max G52
         $res['G52'] = 0.08;
@@ -172,8 +173,7 @@ class PileCapacityController extends BaseController
         }
 
         //Call I48
-        if ($res['G48'] < $res['G52'] && $res['G48'] < $res['G53'] && $res['G48'] > $res['G51'])
-        {
+        if ($res['G48'] < $res['G52'] && $res['G48'] < $res['G53'] && $res['G48'] > $res['G51']) {
             $res['I48'] = "OK";
         } else {
             $res['I48'] = "NOT OK";
@@ -193,7 +193,7 @@ class PileCapacityController extends BaseController
         $res['G64'] = ($req['N20'] / 0.75) * 1000 / $X25;
 
         //Call G65 Max nominal shear stress
-        $res['G65'] = max(0.2 * $res['G20'], 8);
+        $res['G65'] = max(0.2 * $req['G20'], 8);
 
         //Call G66 Shear resisted by concrete
         $res['G66'] = ($X23 * $X24 * $X26 * $X25) / 1000;
@@ -232,9 +232,9 @@ class PileCapacityController extends BaseController
         $condition = 0.033 * $sqrtG20 * $AB27 * 1000000;
 
         if ($res['G67'] > $condition) {
-            $O31 = min($req['G9'] / 4, $req['G9'] / 3, 10 * $req['G24']);
+            $res['O31'] = min($req['G9'] / 4, $req['G9'] / 3, 10 * $req['G24']);
         } else {
-            $O31 = min($req['G9'] / 3, 10 * $req['G24']);
+            $res['O31'] = min($req['G9'] / 3, 10 * $req['G24']);
         }
 
 
@@ -244,5 +244,50 @@ class PileCapacityController extends BaseController
             $res['Q30'] = "NOT OK";
         }
         return $this->response->setJSON($res);
+    }
+
+    public function import()
+    {
+        $file = $this->request->getFile('file');
+
+        if (!$file || !$file->isValid() || $file->hasMoved()) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => "File was not upload or something wrong with file"]);
+        }
+
+        $reader = new Reader();
+        $sheet = $reader->load($file->getTempName());
+        $worksheet = $sheet->getActiveSheet();
+
+        $fields = ['G43', 'G58', 'B23', 'G63'];
+
+        $rangeFields = [
+            $worksheet->rangeToArray('G9:G30', null, true, true, true),
+            $worksheet->rangeToArray('N12:N23', null, true, true, true),
+        ];
+
+        $cells = [];
+
+        foreach ($fields as $field) {
+            $cell = $worksheet->getCell($field)->getValue();
+            $cells[$field] = $cell;
+        }
+
+        foreach ($rangeFields as $range) {
+            foreach ($range as $row => $columns) {
+                foreach ($columns as $col => $value) {
+                    $cellReference = $col . $row;
+                    $cells[$cellReference] = $value;
+                }
+            }
+        }
+
+        return $this->response->setJSON($cells);
+    }
+    public function export()
+    {
+        $req = $this->request->getJSON(true);
+        $model = new PileCapacity();
+        $exportResult = $this->defaultExportInterface($model->getFromProperties(), $req, "rc-pile-capacity-report");
+        return $this->response->setJSON($exportResult);
     }
 }
