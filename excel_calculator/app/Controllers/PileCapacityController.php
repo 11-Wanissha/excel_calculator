@@ -23,6 +23,95 @@ class PileCapacityController extends BaseController
 
         //Structural Calculation Table\
         // Cal AB25 (alpha)
+        if (!isset($req['G9']) || $req['G9'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input Diameter (D)']);
+        }
+
+        if (!isset($req['G10']) || $req['G10'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input Bell Diameter (B)']);
+        }
+
+        if (!isset($req['G11']) || $req['G11'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input Embedment to firm bearing (L)']);
+        }
+
+        if (!isset($req['G12']) || $req['G12'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input Geotech Ultimate End Bearing (qb)']);
+        }
+
+        if (!isset($req['G13']) || $req['G13'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input End bearing reduction factor (øb)']);
+        }
+        
+        if (!isset($req['G14']) || $req['G14'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input Geotech Ultimate Skin friction (qs)']);
+        }
+
+        if (!isset($req['G15']) || $req['G15'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input Skin friction reduction factor (øs)']);
+        }
+
+        if (!isset($req['G16']) || $req['G16'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input Combination factor (øc)']);
+        }
+
+        if (!isset($req['G18']) || $req['G18'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Main Bar yield stress ']);
+        }
+        if (!isset($req['G19']) || $req['G19'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Spiral yield stress ']);
+        }
+        if (!isset($req['G20']) || $req['G20'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Concrete strength ']);
+        }
+        if (!isset($req['G21']) || $req['G21'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Aggregate size ']);
+        }
+        if (!isset($req['G23']) || $req['G23'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Number of main bars']);
+        }
+        if (!isset($req['G24']) || $req['G24'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Diameter of main bars']);
+        }
+        if (!isset($req['G27']) || $req['G27'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Diameter of spiral ']);
+        }
+        if (!isset($req['G28']) || $req['G28'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Cover']);
+        }
+        if (!isset($req['G29']) || $req['G29'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Spacing/pitch in PPHZ']);
+        }
+        if (!isset($req['G30']) || $req['G30'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Spacing/pitch outside PPHZ']);
+        }
+        if (!isset($req['G43']) || $req['G43'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Comp. strength reduction factor']);
+        }
+        if (!isset($req['G58']) || $req['G58'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Tension strength reduction factor']);
+        }
+        if (!isset($req['G63']) || $req['G63'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Shear strength reduction factor']);
+        }
+        if (!isset($req['N12']) || $req['N12'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Max Axial Load - Gravity Load Case']);
+        }
+        if (!isset($req['N15']) || $req['N15'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Max Axial Load - Lateral Load Case']);
+        }
+        if (!isset($req['N16']) || $req['N16'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Min Axial Load - Lateral Load Case ']);
+        }
+        if (!isset($req['N20']) || $req['N20'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Max Shear Force - All Load Cases ']);
+        }
+        if (!isset($req['N23']) || $req['N23'] === '') {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Please input Corresponding min axial load']);
+        }
+
+
+
         if ($req['G20'] < 55) {
             $AB23 = 0.85;
         } else {
