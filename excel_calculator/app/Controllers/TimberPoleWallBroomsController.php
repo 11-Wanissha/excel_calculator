@@ -186,7 +186,7 @@ class TimberPoleWallBroomsController extends BaseController
         if ($res['B22'] !== "NAN!")
             $res['F52'] = $res['C38'] * ($res['F45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['F49']);
 
-        $res['B10'] = $res['D51'];
+        $res['B10'] = round($res['D51'],2);
         $res['I40'] = $res['E40'] > $res['D52'] ? 'OK!' : 'NG!';
         if ($res['B22'] !== "NAN!")
             $res['I41'] = $res['E41'] > $res['F52'] ? 'OK!' : 'NG!';

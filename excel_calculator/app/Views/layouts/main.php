@@ -22,6 +22,9 @@
 
     <!-- babylon -->
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
