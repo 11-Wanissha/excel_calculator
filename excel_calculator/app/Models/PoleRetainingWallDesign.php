@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-class PoleRetainingWall extends BaseModel
+class PoleRetainingWallDesign extends BaseModel
 {
     public function __construct()
     {
         $this->formProperties = [
             'title' => 'Timber Pole Retaining Wall Design',
             'url' => '/pole-retaining-wall',
-            'importUrl' => '/pole-retaining-wall-import',
-            'exportUrl' => '/pole-retaining-wall-export',
+            'importUrl' => '/pole-retaining-wall-design-import',
+            'exportUrl' => '/pole-retaining-wall-design-export',
             'lastIndex' => 7,
             'secTion' => array(
                 [
@@ -581,7 +581,7 @@ class PoleRetainingWall extends BaseModel
                                     'option' => array(
                                         [
                                             'optionName' => 'Specify method',
-                                            'value' => '',
+                                            'value' => 'specify',
                                         ],
                                         [
                                             'optionName' => 'Shaving',

@@ -83,7 +83,6 @@ abstract class BaseController extends Controller
 
         $sheet->getStyle('A:Z')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT)->setVertical(Alignment::VERTICAL_CENTER);
         $sheet->setShowGridlines(false);
-        $sheet->getStyle('A1:H150')->getFont()->setName('DejaVu Sans')->setSize(9);
 
         $loopIndex = 1;
         $alphabet = range('A', 'Z');
@@ -394,6 +393,8 @@ abstract class BaseController extends Controller
         foreach (range('1', $highestRow) as $row) {
             $sheet->getRowDimension($row)->setRowHeight(height: 20);
         }
+
+        $sheet->getStyle("A1:H{$highestRow}")->getFont()->setName('DejaVu Sans')->setSize(9);
 
         return $spreadsheet;
     }

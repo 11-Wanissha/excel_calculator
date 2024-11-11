@@ -2,16 +2,16 @@
 
 namespace App\Controllers;
 
-use App\Models\PoleRetainingWall;
+use App\Models\PoleRetainingWallDesign;
 use Exception;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx as Reader;
 
 
-class PoleRetainingWallController extends BaseController
+class PoleRetainingWallDesignController extends BaseController
 {
     public function __construct()
     {
-        $this->model = new PoleRetainingWall();
+        $this->model = new PoleRetainingWallDesign();
     }
 
     public function renderer()
