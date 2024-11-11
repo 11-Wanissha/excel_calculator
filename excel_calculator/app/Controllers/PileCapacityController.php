@@ -42,7 +42,7 @@ class PileCapacityController extends BaseController
         if (!isset($req['G13']) || $req['G13'] === '') {
             return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input End bearing reduction factor (øb)']);
         }
-        
+
         if (!isset($req['G14']) || $req['G14'] === '') {
             return $this->response->setStatusCode(400)->setJSON(['error' => 'Please Input Geotech Ultimate Skin friction (qs)']);
         }
@@ -118,19 +118,33 @@ class PileCapacityController extends BaseController
             $AB23 = 0.85 - 0.004 * ($req['G20'] - 55);
         }
 
+        // ตรวจสอบการหาร 0 สำหรับ G23
+        if ($req['G23'] == 0) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero. Please check your inputs."]);
+        }
         $res['G25'] = pi() * pow($req['G24'], 2) / 4 * $req['G23'];
 
-        // Cal AB25 (Ast)
-        $AB25 = $req['G23'] * pi() * pow($req['G24'] / 1000, 2) / 4;
-
-        //Cal AB26 (AG)
+        // ตรวจสอบการหาร 0 สำหรับ AB26 ในการคำนวณ AB28
         $AB26 = pi() * pow($req['G9'] / 1000, 2) / 4;
-
-        //Cal AB27 (AC)
-        $AB27 = (pi() * pow($req['G9'] - $req['G28'] * 2 - 2 * $req['G27'], 2)) / (4 * 1000000);
-
-        //Call AB28 (pt)
+        if ($AB26 == 0) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero . Please check your inputs."]);
+        }
+        $AB25 = $req['G23'] * pi() * pow($req['G24'] / 1000, 2) / 4;
         $AB28 = $AB25 / $AB26;
+
+        // ตรวจสอบการหาร 0 สำหรับ G20 ในการคำนวณ AB29
+        if ($req['G20'] == 0) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero  Please check your inputs."]);
+        }
+        $AB29 = $req['G18'] / (0.85 * $req['G20']);
+
+        // ตรวจสอบการหาร 0 สำหรับ AB27 ในการคำนวณ AB30
+        $AB27 = (pi() * pow($req['G9'] - $req['G28'] * 2 - 2 * $req['G27'], 2)) / (4 * 1000000);
+        if ($AB27 == 0) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero . Please check your inputs."]);
+        }
+        $AB30 = min(1.5, $AB26 / $AB27);
+
 
         //Call AB29 (m)
         $AB29 = $req['G18'] / (0.85 * $req['G20']);
@@ -332,6 +346,12 @@ class PileCapacityController extends BaseController
         } else {
             $res['Q30'] = "NOT OK";
         }
+
+        foreach ($res as $key => $val) {
+            if (is_numeric($val)) {
+                $res[$key] =  number_format((float)$val, 2, '.', '');
+            }
+        }
         return $this->response->setJSON($res);
     }
 
@@ -369,6 +389,8 @@ class PileCapacityController extends BaseController
                 }
             }
         }
+
+
 
         return $this->response->setJSON($cells);
     }
