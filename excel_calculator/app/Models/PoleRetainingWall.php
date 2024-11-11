@@ -1,11 +1,9 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
-class PoleRetainingWall
+class PoleRetainingWall extends BaseModel
 {
-    private $formProperties;
-
     public function __construct()
     {
         $this->formProperties = [
@@ -251,7 +249,8 @@ class PoleRetainingWall
                                     'name' => 'B33',
                                     'unit' => 'm',
                                     'id' => 'B33',
-                                    'type' => 'number'
+                                    'type' => 'number',
+                                    'value' => '1',
                                 ],
                                 [
                                     'inputType' => 'text',
@@ -503,7 +502,7 @@ class PoleRetainingWall
                                             'label' => 'k<sub>20</sub>',
                                             'id' => 'H93',
                                             'name' => 'H93',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'mm',
                                             'disabled' => true
                                         ],
@@ -599,7 +598,7 @@ class PoleRetainingWall
                                     'label' => 'k20',
                                     'id' => 'F86',
                                     'name' => 'F86',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true,
                                 ],
                                 [
@@ -1002,10 +1001,60 @@ class PoleRetainingWall
                 ]
             )
         ];
-    }
 
-    public function getFormProperties()
-    {
-        return $this->formProperties;
+        $this->requiredFields = [
+            'B10' => $this->inputPrefix . 'Wall height (Hw)',
+            'B11' => $this->inputPrefix . 'Pole spacing (Ls)',
+            'B12' => $this->inputPrefix . 'backslope degree',
+            'B13' => $this->inputPrefix . 'toeslope degree',
+            'B14' => $this->inputPrefix . 'Inactive zone (e0)',
+            'B15' => $this->inputPrefix . 'Surcharge (ω)',
+            'B16' => $this->inputPrefix . 'Distance to surcharge (Lw)',
+            'B17' => $this->inputPrefix . 'Diameter of timber pole (d)',
+            'B18' => $this->inputPrefix . 'Diameter of concrete (D)',
+            'B19' => $this->inputPrefix . 'Depth of rotation (Z0)',
+            'B20' => $this->inputPrefix . 'Soil unit weight (Ysoil)',
+            'B24' => $this->inputPrefix . 'Soil friction angle for Gravity case',
+            'B25' => $this->inputPrefix . 'Soil shear strength for Gravity case',
+            'B26' => $this->inputPrefix . 'Load factor for surcharge for Gravity case',
+            'B27' => $this->inputPrefix . 'Incorporate effect of backslope for Gravity case',
+            'B28' => $this->inputPrefix . 'Passive resistance for Gravity case',
+            'B29' => $this->inputPrefix . 'Factor of Safety for Gravity case',
+            'B33' => $this->inputPrefix . 'Leveling distance in front of wall (Lrs)',
+            'B39' => $this->inputPrefix . 'A (topo)',
+            'B40' => $this->inputPrefix . 'W (d)',
+            'B41' => $this->inputPrefix . 'a (max)',
+            'B72' => $this->inputPrefix . 'Z(bmax) for Gravity case',
+            'B84' => $this->inputPrefix . 'Reduction factor',
+            'B85' => $this->inputPrefix . 'k8',
+            'B98' => $this->inputPrefix . '@H for whalers 6.1',
+            'B99' => $this->inputPrefix . 'Thickness for whalers 6.1',
+            'B107' => $this->inputPrefix . '@H for whalers 6.2',
+            'B108' => $this->inputPrefix . 'Thickness for whalers 6.2',
+            'B116' => $this->inputPrefix . '@H for whalers 6.3',
+            'B117' => $this->inputPrefix . 'Thickness for whalers 6.3',
+            'C86' => $this->selectPrefix . 'Trimming method',
+            'C87' => $this->selectPrefix . 'Pole density',
+            'F84' => $this->inputPrefix . 'Steaming factor (k21)',
+            'F98' => $this->selectPrefix . 'Whaler type for whalers 6.1',
+            'F99' => $this->selectPrefix . 'Density for whalers 6.3',
+            'F107' => $this->selectPrefix . 'Whaler type for whalers 6.2',
+            'F108' => $this->selectPrefix . 'Density for whalers 6.3',
+            'F116' => $this->selectPrefix . 'Whaler type for whalers 6.3',
+            'F117' => $this->selectPrefix . 'Density for whalers 6.3',
+            'G39' => $this->inputPrefix . 'Slope of the wall (β)',
+            'G40' => $this->inputPrefix . 'Angle of interface friction (δa)',
+            'H24' => $this->inputPrefix . 'Soil friction angle for Seismic case',
+            'H25' => $this->inputPrefix . 'Soil shear strength for Seismic case',
+            'H26' => $this->inputPrefix . 'Load factor for surcharge for Seismic case',
+            'H28' => $this->inputPrefix . 'Passive resistance for Seismic case',
+            'H29' => $this->inputPrefix . 'Seismic Safety Load factor for Seismic case',
+            'H72' => $this->inputPrefix . 'Z(bmax) for Seismic case',
+            'J84' => $this->inputPrefix . 'k1 for Gravity case',
+            'J85' => $this->inputPrefix . 'k1 for Seicmic case',
+            'J98' => $this->inputPrefix . 'Number of whalers at 6.1',
+            'J107' => $this->inputPrefix . 'Number of whalers at 6.2',
+            'J116' => $this->inputPrefix . 'Number of whalers at 6.3',
+        ];
     }
 }

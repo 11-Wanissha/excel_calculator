@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\BaseModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -14,6 +15,7 @@ use App\Libraries\MainLib;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
+use PhpOffice\PhpSpreadsheet\RichText\RichText;
 
 /**
  * Class BaseController
@@ -52,13 +54,18 @@ abstract class BaseController extends Controller
     /**
      * @return void
      */
+
+    /** 
+     * Model for get form properties and required fields,
+     * Be sure than model is extended from BaseModel
+     */
+    protected $model;
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-
         // E.g.: $this->session = \Config\Services::session();
     }
 
@@ -69,9 +76,9 @@ abstract class BaseController extends Controller
 
         $sheet = $spreadsheet->getActiveSheet();
 
-        $sheet->getColumnDimension('A')->setWidth(16.0);
+        $sheet->getColumnDimension('A')->setWidth(width: 25);
         foreach (range('B', 'Z') as $column) {
-            $sheet->getColumnDimension($column)->setWidth(12.0);
+            $sheet->getColumnDimension($column)->setAutoSize(true);
         }
 
         $sheet->getStyle('A:Z')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT)->setVertical(Alignment::VERTICAL_CENTER);
@@ -135,7 +142,7 @@ abstract class BaseController extends Controller
                             if ($type == 'checkbox') $finalData = 'true';
                         }
 
-                        $sheet->setCellValue("A{$loopIndex}", $input['label'] ?? '-');
+                        $sheet->setCellValue("A{$loopIndex}", $lib->convertHtmlToRichText($input['label']) ?? '-');
                         $sheet->setCellValue("B{$loopIndex}", $finalData);
 
                         if ($unit) {
@@ -154,7 +161,7 @@ abstract class BaseController extends Controller
                                     // $loopIndex++;
                                 }
 
-                                $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $col['label']);
+                                $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $lib->convertHtmlToRichText($col['label']));
                                 $styles = $sheet->getStyle("{$alphabet[$alphabetIndex]}{$loopIndex}");
                                 $styles->getFont()->setBold(true);
                                 $styles->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -183,7 +190,7 @@ abstract class BaseController extends Controller
                                     }
 
                                     if ($id == '') {
-                                        $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $cell[0]['text'] ?? '0');
+                                        $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $lib->convertHtmlToRichText($cell[0]['text']) ?? '0');
                                         $styles = $sheet->getStyle("{$alphabet[$alphabetIndex]}{$loopIndex}");
                                         $styles->getBorders()->applyFromArray([
                                             'allBorders' => [
@@ -195,10 +202,10 @@ abstract class BaseController extends Controller
                                         continue;
                                     }
 
-                                    if (!isset($dataset[$id])) {
+                                    /* if (!isset($dataset[$id])) {
                                         $alphabetIndex++;
                                         continue;
-                                    }
+                                    } */
 
                                     $styles = $sheet->getStyle("{$alphabet[$alphabetIndex]}{$loopIndex}");
                                     $styles->getBorders()->applyFromArray([
@@ -207,7 +214,7 @@ abstract class BaseController extends Controller
                                             'color' => ['argb' => 'FF000000'],
                                         ],
                                     ]);
-                                    $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $dataset[$id]);
+                                    $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $dataset[$id] ?? '-');
                                     $alphabetIndex++;
                                 }
                             }
@@ -219,7 +226,7 @@ abstract class BaseController extends Controller
 
                         $value = isset($dataset[$input['id']]) ? $lib->getDropdownCellValue($input['option'], $dataset[$input['id']]) : '-';
 
-                        $sheet->setCellValue("A{$loopIndex}", $input['label'] ?? '-');
+                        $sheet->setCellValue("A{$loopIndex}", $lib->convertHtmlToRichText($input['label']) ?? '-');
                         $sheet->setCellValue("B{$loopIndex}", $value ?? '-');
                         break;
 
@@ -252,15 +259,16 @@ abstract class BaseController extends Controller
                         ->setARGB('FFFFFFFF');
 
                     $loopIndex++;
-                    foreach ($subMenu['input'] as $input) {
-                        if (!isset($input['inputType'])) continue;
 
-                        $types = ['text', 'table', 'dropdown'];
+                    foreach ($menu['input'] as $inputIndex => $input) {
+
+                        if (!isset($input['inputType']) || !in_array($input['inputType'], $types)) continue;
 
                         switch ($input['inputType']) {
                             case $types[0]:
                                 if (!isset($input['id'])) break;
 
+                                $unit = isset($input['unit']) ? $input['unit'] : null;
                                 $finalData = isset($dataset[$input['id']]) ? $dataset[$input['id']] : null;
 
                                 if (!isset($finalData)) {
@@ -283,8 +291,12 @@ abstract class BaseController extends Controller
                                     if ($type == 'checkbox') $finalData = 'true';
                                 }
 
-                                $sheet->setCellValue("A{$loopIndex}", $input['label'] ?? '-');
+                                $sheet->setCellValue("A{$loopIndex}", $lib->convertHtmlToRichText($input['label']) ?? '-');
                                 $sheet->setCellValue("B{$loopIndex}", $finalData);
+
+                                if ($unit) {
+                                    $sheet->setCellValue("C{$loopIndex}", $unit);
+                                }
                                 break;
 
                             case $types[1]:
@@ -293,9 +305,15 @@ abstract class BaseController extends Controller
 
                                 if (isset($input['column'])) {
                                     foreach ($input['column'] as $index => $col) {
-                                        $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $col['label']);
+                                        if ($alphabetIndex > 7) {
+                                            $alphabetIndex = 0;
+                                            // $loopIndex++;
+                                        }
+
+                                        $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $lib->convertHtmlToRichText($col['label']));
                                         $styles = $sheet->getStyle("{$alphabet[$alphabetIndex]}{$loopIndex}");
                                         $styles->getFont()->setBold(true);
+                                        $styles->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
                                         $styles->getBorders()->applyFromArray([
                                             'allBorders' => [
                                                 'borderStyle' => Border::BORDER_THIN,
@@ -315,9 +333,13 @@ abstract class BaseController extends Controller
 
                                         foreach ($row as $key => $cell) {
                                             $id = $lib->getTableCellId($cell, 'text');
+                                            if ($alphabetIndex > 7) {
+                                                $alphabetIndex = 0;
+                                                // $loopIndex++;
+                                            }
 
                                             if ($id == '') {
-                                                $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $cell[0]['text']);
+                                                $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $lib->convertHtmlToRichText($cell[0]['text']) ?? '0');
                                                 $styles = $sheet->getStyle("{$alphabet[$alphabetIndex]}{$loopIndex}");
                                                 $styles->getBorders()->applyFromArray([
                                                     'allBorders' => [
@@ -329,10 +351,10 @@ abstract class BaseController extends Controller
                                                 continue;
                                             }
 
-                                            if (!isset($dataset[$id])) {
+                                            /* if (!isset($dataset[$id])) {
                                                 $alphabetIndex++;
                                                 continue;
-                                            }
+                                            } */
 
                                             $styles = $sheet->getStyle("{$alphabet[$alphabetIndex]}{$loopIndex}");
                                             $styles->getBorders()->applyFromArray([
@@ -341,7 +363,7 @@ abstract class BaseController extends Controller
                                                     'color' => ['argb' => 'FF000000'],
                                                 ],
                                             ]);
-                                            $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $dataset[$id]);
+                                            $sheet->setCellValue("{$alphabet[$alphabetIndex]}{$loopIndex}", $dataset[$id] ?? '-');
                                             $alphabetIndex++;
                                         }
                                     }
@@ -353,7 +375,7 @@ abstract class BaseController extends Controller
 
                                 $value = isset($dataset[$input['id']]) ? $lib->getDropdownCellValue($input['option'], $dataset[$input['id']]) : '-';
 
-                                $sheet->setCellValue("A{$loopIndex}", $input['label'] ?? '-');
+                                $sheet->setCellValue("A{$loopIndex}", $lib->convertHtmlToRichText($input['label']) ?? '-');
                                 $sheet->setCellValue("B{$loopIndex}", $value ?? '-');
                                 break;
 
@@ -367,6 +389,12 @@ abstract class BaseController extends Controller
             }
         }
 
+        $highestRow = $sheet->getHighestRow();
+
+        foreach (range('1', $highestRow) as $row) {
+            $sheet->getRowDimension($row)->setRowHeight(height: 20);
+        }
+
         return $spreadsheet;
     }
 
@@ -376,7 +404,6 @@ abstract class BaseController extends Controller
         $combinedMenu = $lib->combineArray('menu', $fromProperties['secTion']);
 
         $spreadsheet = $this->renderExcel($combinedMenu, $exportData);
-        $sheet = $spreadsheet->getActiveSheet();
 
         // $writer = new Writer($spreadsheet);
         $writer = new Dompdf($spreadsheet);
