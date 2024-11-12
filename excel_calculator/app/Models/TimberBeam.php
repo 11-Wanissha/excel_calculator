@@ -506,33 +506,33 @@ class TimberBeam
 
                                         ],
                                         [
-                                            'id' => "wTrib.Width(m)",
-                                            'label' => "w Trib. Width(m)",
+                                            'id' => "wTrib.Width",
+                                            'label' => "w Trib. Width",
                                             'unit' => 'm',
                                             'width' => '100px',
                                         ],
                                         [
-                                            'id' => "P1Trib.Area(m^2)",
-                                            'label' => "P1 Trib. Area (m^2)",
-                                            'unit' => 'm^2',
+                                            'id' => "P1Trib.Area",
+                                            'label' => "P1 Trib. Area ",
+                                            'unit' => 'm<sup>2</sup>',
                                             'width' => '100px',
                                         ],
                                         [
-                                            'id' => "P2Trib.Area(m^2)",
-                                            'label' => "P2 Trib. Area (m^2)",
-                                            'unit' => 'm^2',
+                                            'id' => "P2Trib.Area",
+                                            'label' => "P2 Trib. Area ",
+                                            'unit' => 'm<sup>2</sup>',
                                             'width' => '100px',
                                         ],
                                         [
-                                            'id' => "P3Trib.Area(m^2)",
-                                            'label' => "P3 Trib. Area (m^2)",
-                                            'unit' => 'm^2',
+                                            'id' => "P3Trib.Area",
+                                            'label' => "P3 Trib. Area ",
+                                            'unit' => 'm<sup>2</sup>',
                                             'width' => '100px',
                                         ],
                                         [
-                                            'id' => "P4Trib.Area(m^2)",
-                                            'label' => "P4 Trib. Area (m^2)",
-                                            'unit' => 'm^2',
+                                            'id' => "P4Trib.Area",
+                                            'label' => "P4 Trib. Area ",
+                                            'unit' => 'm<sup>2</sup>',
                                             'width' => '100px',
                                         ],
                                     ), // required
@@ -543,27 +543,27 @@ class TimberBeam
                                                     'text' => 'Roof',
                                                 ]
                                             ),
-                                            'wTrib.Width(m)' => array(
+                                            'wTrib.Width' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="F20" name="F20" value=""  /',
                                                 ]
                                             ),
-                                            'P1Trib.Area(m^2)' => array(
+                                            'P1Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="G20" name="G20" value=""  /',
                                                 ]
                                             ),
-                                            'P2Trib.Area(m^2)' => array(
+                                            'P2Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="H20" name="H20" value=""  /',
                                                 ]
                                             ),
-                                            'P3Trib.Area(m^2)' => array(
+                                            'P3Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="I20" name="I20" value=""  /',
                                                 ]
                                             ),
-                                            'P4Trib.Area(m^2)' => array(
+                                            'P4Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="J20" name="J20" value=""  /',
                                                 ]
@@ -575,27 +575,27 @@ class TimberBeam
                                                     'text' => 'Floor',
                                                 ]
                                             ),
-                                            'wTrib.Width(m)' => array(
+                                            'wTrib.Width' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="F21" name="F21" value=""  /',
                                                 ]
                                             ),
-                                            'P1Trib.Area(m^2)' => array(
+                                            'P1Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="G21" name="G21" value=""  /',
                                                 ]
                                             ),
-                                            'P2Trib.Area(m^2)' => array(
+                                            'P2Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="H21" name="H21" value=""  /',
                                                 ]
                                             ),
-                                            'P3Trib.Area(m^2)' => array(
+                                            'P3Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="I21" name="I21" value=""  /',
                                                 ]
                                             ),
-                                            'P4Trib.Area(m^2)' => array(
+                                            'P4Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="J21" name="J21" value=""  /',
                                                 ]
@@ -607,27 +607,27 @@ class TimberBeam
                                                     'text' => 'Deck',
                                                 ]
                                             ),
-                                            'wTrib.Width(m)' => array(
+                                            'wTrib.Width' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="F22" name="F22" value=""  /',
                                                 ]
                                             ),
-                                            'P1Trib.Area(m^2)' => array(
+                                            'P1Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="G22" name="G22" value=""  /',
                                                 ]
                                             ),
-                                            'P2Trib.Area(m^2)' => array(
+                                            'P2Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="H22" name="H22" value=""  /',
                                                 ]
                                             ),
-                                            'P3Trib.Area(m^2)' => array(
+                                            'P3Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="I22" name="I22" value=""  /',
                                                 ]
                                             ),
-                                            'P4Trib.Area(m^2)' => array(
+                                            'P4Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="J22" name="J22" value=""  /',
                                                 ]
@@ -639,27 +639,27 @@ class TimberBeam
                                                     'text' => 'Int Wall',
                                                 ]
                                             ),
-                                            'wTrib.Width(m)' => array(
+                                            'wTrib.Width' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="F23" name="F23" value=""  /',
                                                 ]
                                             ),
-                                            'P1Trib.Area(m^2)' => array(
+                                            'P1Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="G23" name="G23" value=""  /',
                                                 ]
                                             ),
-                                            'P2Trib.Area(m^2)' => array(
+                                            'P2Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="H23" name="H23" value=""  /',
                                                 ]
                                             ),
-                                            'P3Trib.Area(m^2)' => array(
+                                            'P3Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="I23" name="I23" value=""  /',
                                                 ]
                                             ),
-                                            'P4Trib.Area(m^2)' => array(
+                                            'P4Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="J23" name="J23" value=""  /',
                                                 ]
@@ -671,27 +671,27 @@ class TimberBeam
                                                     'text' => 'Ex Wall',
                                                 ]
                                             ),
-                                            'wTrib.Width(m)' => array(
+                                            'wTrib.Width' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="F24" name="F24" value=""  /',
                                                 ]
                                             ),
-                                            'P1Trib.Area(m^2)' => array(
+                                            'P1Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="G24" name="G24" value=""  /',
                                                 ]
                                             ),
-                                            'P2Trib.Area(m^2)' => array(
+                                            'P2Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="H24" name="H24" value=""  /',
                                                 ]
                                             ),
-                                            'P3Trib.Area(m^2)' => array(
+                                            'P3Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="I24" name="I24" value=""  /',
                                                 ]
                                             ),
-                                            'P4Trib.Area(m^2)' => array(
+                                            'P4Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="J24" name="J24" value=""  /',
                                                 ]
@@ -703,27 +703,27 @@ class TimberBeam
                                                     'text' => 'Other',
                                                 ]
                                             ),
-                                            'wTrib.Width(m)' => array(
+                                            'wTrib.Width' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="F25" name="F25" value=""  /',
                                                 ]
                                             ),
-                                            'P1Trib.Area(m^2)' => array(
+                                            'P1Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="G25" name="G25" value=""  /',
                                                 ]
                                             ),
-                                            'P2Trib.Area(m^2)' => array(
+                                            'P2Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="H25" name="H25" value=""  /',
                                                 ]
                                             ),
-                                            'P3Trib.Area(m^2)' => array(
+                                            'P3Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="I25" name="I25" value=""  /',
                                                 ]
                                             ),
-                                            'P4Trib.Area(m^2)' => array(
+                                            'P4Trib.Area' => array(
                                                 [
                                                     'text' => '<input type="number" step="any"  class="form-control" id="J25" name="J25" value=""  /',
                                                 ]
@@ -1164,7 +1164,7 @@ class TimberBeam
                                     'name' => 'B47', // required
                                     'id' => 'B47', // required
                                     'disabled' => true,
-                                    'unit' => 'mm^2',
+                                    'unit' => 'mm<sup>2</sup>',
                                     'type' => 'number',
                                 ],
                                 [
@@ -1173,7 +1173,7 @@ class TimberBeam
                                     'name' => 'E47', // required
                                     'id' => 'E47', // required
                                     'disabled' => true,
-                                    'unit' => 'mm^3',
+                                    'unit' => 'mm<sup>3</sup>',
                                     'type' => 'number',
                                 ],
                                 [
@@ -1223,7 +1223,7 @@ class TimberBeam
                                     'name' => 'C52', // required
                                     'id' => 'C52', // required
                                     'disabled' => true,
-                                    'unit' => 'mm^4',
+                                    'unit' => 'mm<sup>4</sup>',
                                     'type' => 'number',
                                 ],
                                 [

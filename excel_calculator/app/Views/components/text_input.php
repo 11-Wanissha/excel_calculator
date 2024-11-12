@@ -31,7 +31,7 @@ $props = [
                 class="form-control" id="<?= htmlspecialchars($props['id']) ?>" step="any"
                 name="<?= htmlspecialchars($props['name']) ?>" <?php if ($props['disabled']) echo 'disabled'; ?>
                 aria-describedby="basic-addon3" <?= $props['required'] ? 'required' : '' ?> />
-            <span class="input-group-text" id="basic-addon3"><?= htmlspecialchars($props['unit']) ?></span>
+            <span class="input-group-text" id="basic-addon3"><?= $props['unit'] ?></span>
         </div>
         <?php
     }
