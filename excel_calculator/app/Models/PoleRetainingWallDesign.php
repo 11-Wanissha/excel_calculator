@@ -110,7 +110,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'label' => 'Soil unit weight',
                                     'id' => 'B20',
                                     'name' => 'B20',
-                                    'unit' => 'kN/m^3',
+                                    'unit' => 'kN/m<sup>3</sub>',
                                     'type' => 'number',
                                 ],
                             )
@@ -280,7 +280,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'input' => array(
                                         [
                                             'inputType' => 'text',
-                                            'label' => 'A (topo)',
+                                            'label' => 'A<sub>topo</sub>',
                                             'name' => 'B39',
                                             'unit' => 'm',
                                             'id' => 'B39',
@@ -288,21 +288,21 @@ class PoleRetainingWallDesign extends BaseModel
                                         ],
                                         [
                                             'inputType' => 'text',
-                                            'label' => 'W (d)',
+                                            'label' => 'W<sub>d</sub>',
                                             'name' => 'B40',
                                             'id' => 'B40',
                                             'type' => 'number'
                                         ],
                                         [
                                             'inputType' => 'text',
-                                            'label' => 'a (max)',
+                                            'label' => 'a<sub>max</sub>',
                                             'name' => 'B41',
                                             'id' => 'B41',
                                             'type' => 'number'
                                         ],
                                         [
                                             'inputType' => 'text',
-                                            'label' => 'k (h)',
+                                            'label' => 'k<sub>h</sub>',
                                             'name' => 'B42',
                                             'id' => 'B42',
                                             'type' => 'number',
@@ -331,7 +331,7 @@ class PoleRetainingWallDesign extends BaseModel
                                         ],
                                         [
                                             'inputType' => 'text',
-                                            'label' => 'k (h)',
+                                            'label' => 'θ',
                                             'name' => 'G41',
                                             'id' => 'G41',
                                             'type' => 'number',
@@ -537,21 +537,21 @@ class PoleRetainingWallDesign extends BaseModel
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Steaming factor (k21)',
+                                    'label' => 'Steaming factor (k<sub>21</sub>)',
                                     'id' => 'F84',
                                     'name' => 'F84',
                                     'type' => 'number',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k8',
+                                    'label' => 'k<sub>8</sub>',
                                     'id' => 'B85',
                                     'name' => 'B85',
                                     'type' => 'number',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Dry use factor (k22)',
+                                    'label' => 'Dry use factor (k<sub>22</sub>)',
                                     'id' => 'F85',
                                     'name' => 'F85',
                                     'type' => 'number',
@@ -560,14 +560,14 @@ class PoleRetainingWallDesign extends BaseModel
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k1 (Gravity Case)',
+                                    'label' => 'k<sub>1</sub> (Gravity Case)',
                                     'id' => 'J84',
                                     'name' => 'J84',
                                     'type' => 'number',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k1 (Seismic Case)',
+                                    'label' => 'k<sub>1</sub> (Seismic Case)',
                                     'id' => 'J85',
                                     'name' => 'J85',
                                     'type' => 'number',
@@ -595,7 +595,7 @@ class PoleRetainingWallDesign extends BaseModel
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k20',
+                                    'label' => 'k<sub>20</sub>',
                                     'id' => 'F86',
                                     'name' => 'F86',
                                     'type' => 'text',
