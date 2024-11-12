@@ -23,7 +23,7 @@ class PoleRetainingWallDesignController extends BaseController
     }
 
     public function calculator()
-    {
+    {   
         try {
             $req = $this->request->getPost();
             $validate = $this->model->validateRequiredFields($req);

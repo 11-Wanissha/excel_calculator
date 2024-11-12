@@ -8,7 +8,7 @@ class PoleRetainingWallDesign extends BaseModel
     {
         $this->formProperties = [
             'title' => 'Timber Pole Retaining Wall Design',
-            'url' => '/pole-retaining-wall',
+            'url' => '/pole-retaining-wall-design',
             'importUrl' => '/pole-retaining-wall-design-import',
             'exportUrl' => '/pole-retaining-wall-design-export',
             'lastIndex' => 7,
