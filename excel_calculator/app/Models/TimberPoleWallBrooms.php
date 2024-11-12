@@ -283,7 +283,7 @@ class TimberPoleWallBrooms
             'url' => '/timber-pole-retaining-wall-brooms',
             'importUrl' => '/timber-pole-retaining-wall-brooms-import',
             'exportUrl' => '/timber-pole-retaining-wall-brooms-export',
-            'lastIndex' => 8,
+            'show' => [0,1,2,8],
             'secTion' => array(
                 [
                     'menu' => array(
@@ -1213,10 +1213,10 @@ class TimberPoleWallBrooms
                                 ],
                             ),
                         ],
-                        // [
-                        //     'menuTitle' => '6. Graphic',
-                        //     'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
-                        // ]
+                        [
+                            'menuTitle' => '6. Graphic',
+                            'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
+                        ]
                     ),
                 ],
             ),

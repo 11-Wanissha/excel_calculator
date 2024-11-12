@@ -7,5 +7,8 @@ echo view("/main/main_page", [
 ?>
 
 <script>
-    
+    reGenerate();
+    $(document).ready(function () {
+
+    });
 </script>

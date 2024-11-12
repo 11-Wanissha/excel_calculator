@@ -235,7 +235,6 @@ $props = isset($formProperties) ? $formProperties : [];
   let engine;
   let scene;
   let click = false;
-
   let latestCalculatedData = {}
   if (canvas) {
     engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
@@ -439,7 +438,7 @@ $props = isset($formProperties) ? $formProperties : [];
       })
     });
 
-    $('#export').on('click', function () {
+    $('#export').on('click', async function () {
       try {
         $('#loadingSpinner').show();
         $('#submitBtn').hide();
@@ -451,53 +450,69 @@ $props = isset($formProperties) ? $formProperties : [];
           toast.show();
           return;
         }
+        if (!Object.keys(latestCalculatedData).length > 0) {
+          click = false;
+          var toastElement = document.getElementById('liveToast-err');
+          var toastBody = toastElement.querySelector('.toast-body');
+          toastBody.textContent = 'Please Calculated before export';
+          var toast = new bootstrap.Toast(toastElement);
+          toast.show();
+          $('#loadingSpinner').hide();
+          $('#submitBtn').show();
+          return;
+        }
         click = true;
         const formEl = document.forms.form
         const formData = new FormData(formEl)
 
         formData.delete('file')
 
-        const finalFormData = JSON.stringify({
+        let finalFormData = JSON.stringify({
           ...Object.fromEntries(formData),
           ...latestCalculatedData
         })
+        getBase(JSON.parse(finalFormData), (dataURL) => {
+          // You can use the dataURL as needed, e.g., display it in an image element
+          finalFormData = JSON.stringify({
+            ...JSON.parse(finalFormData), // Convert back to an object
+            baseImage: dataURL
+          });
+          $.ajax({
+            url: exportUrl,
+            type: 'POST',
+            data: finalFormData,
+            cache: false,
+            contentType: "application/json",
+            processData: false,
+            success: function (response) {
+              $('#loadingSpinner').hide();
+              $('#submitBtn').show();
 
-        $.ajax({
-          url: exportUrl,
-          type: 'POST',
-          data: finalFormData,
-          cache: false,
-          contentType: "application/json",
-          processData: false,
-          success: function (response) {
-            $('#loadingSpinner').hide();
-            $('#submitBtn').show();
-            console.log(response)
+              click = false;
+              const byteCharacters = atob(response.content);
+              const byteNumbers = new Array(byteCharacters.length);
+              for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+              }
+              const byteArray = new Uint8Array(byteNumbers);
+              const blob = new Blob([byteArray], {
+                type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+              });
 
-            click = false;
-            const byteCharacters = atob(response.content);
-            const byteNumbers = new Array(byteCharacters.length);
-            for (let i = 0; i < byteCharacters.length; i++) {
-              byteNumbers[i] = byteCharacters.charCodeAt(i);
+              const link = document.createElement('a');
+              link.href = URL.createObjectURL(blob);
+              link.download = response.filename;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            },
+            error: function (xhr, status, error) {
+              click = false;
+              $('#loadingSpinner').hide();
+              $('#submitBtn').show();
             }
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], {
-              type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            });
-
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = response.filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          },
-          error: function (xhr, status, error) {
-            click = false;
-            $('#loadingSpinner').hide();
-            $('#submitBtn').show();
-          }
-        })
+          })
+        });
       } catch (e) {
         click = false;
         var toastElement = document.getElementById('liveToast-err');

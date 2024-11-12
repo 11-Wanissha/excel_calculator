@@ -145,9 +145,9 @@ const createScene = function (
     return label;
   };
   const line = [
-    createLine("lineP1", a, true, true, false,  0.7),
-    createLine("lineP2", b, true, true, false,  0.95),
-    createLine("lineP3", c, true, true, false,  1.2),
+    createLine("lineP1", a, true, true, false, 0.7),
+    createLine("lineP2", b, true, true, false, 0.95),
+    createLine("lineP3", c, true, true, false, 1.2),
     createLine("lineP4", d, true, true, false, 1.4),
     createLine("lineR1", R1, false),
     createLine("lineR2", R2, false, false),
@@ -187,14 +187,38 @@ const createScene = function (
 
   // Initial update to align the labels with the lines
   updateLabelPosition();
-
-  // Optionally, you can animate or move the lines and update the labels' positions accordingly
   scene.registerBeforeRender(updateLabelPosition);
-
-  // Coding Model Here
-
   return scene;
 };
+
+//function get Base 64 to return into export
+function getBase(data, callback) {
+  // set camera like createScene
+  const cameraView = data["C12"] < 2 ? 5 : data["C12"] * 2.5;
+  const camera = new BABYLON.ArcRotateCamera(
+    "camera",
+    -Math.PI / 2,
+    Math.PI / 2.5,
+    cameraView,
+    new BABYLON.Vector3(0, 0, 0)
+  );
+  camera.attachControl(canvas, true);
+  camera.wheelPrecision = 20;
+
+  // don't do anything
+  scene.onReadyObservable.addOnce(() => {
+    // This screenshots both objects
+    // This screenshots only the ground
+    BABYLON.Tools.CreateScreenshotUsingRenderTarget(
+      engine,
+      camera,
+      { width: 1920, height: 1080 },
+      (dataURL) => {
+        callback(dataURL);
+      }
+    );
+  });
+}
 
 function reGenerate(response) {
   const length = document.getElementById("C12").value;

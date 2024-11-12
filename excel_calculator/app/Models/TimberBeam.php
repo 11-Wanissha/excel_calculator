@@ -65,7 +65,7 @@ class TimberBeam
             'url' => '/timber-beam',
             'importUrl' => '/timber-beam-import',
             'exportUrl' => '/timber-beam-export',
-            'lastIndex' => 8,
+            'show' => [8],
             'secTion' => array(
                 [
                     'menu' => array(
