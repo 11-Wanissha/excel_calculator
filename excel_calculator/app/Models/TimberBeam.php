@@ -58,7 +58,6 @@ class TimberBeam
     private $beamType;
     private $beamSize;
     private $fromProperties;
-
     public function __construct()
     {
         $this->fromProperties = [

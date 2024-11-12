@@ -30,3 +30,8 @@ $routes->get('/timber-pole-retaining-wall-brooms', 'TimberPoleWallBroomsControll
 $routes->post('/timber-pole-retaining-wall-brooms', 'TimberPoleWallBroomsController::calculator');
 $routes->post('/timber-pole-retaining-wall-brooms-import', 'TimberPoleWallBroomsController::import');
 $routes->post('/timber-pole-retaining-wall-brooms-export', 'TimberPoleWallBroomsController::export');
+/* router for pile-capacity path */
+$routes->get('/pile-capacity', 'PileCapacityController::renderer');
+$routes->post('/pile-capacity', 'PileCapacityController::calculator');
+$routes->post('/pile-capacity-import', 'PileCapacityController::import');
+$routes->post('/pile-capacity-export', 'PileCapacityController::export');
