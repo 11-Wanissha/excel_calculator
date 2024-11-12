@@ -25,11 +25,18 @@ $routes->post('/pole-retaining-wall-design', 'PoleRetainingWallDesignController:
 $routes->post('/pole-retaining-wall-design-import', 'PoleRetainingWallDesignController::import');
 $routes->post('/pole-retaining-wall-design-export', 'PoleRetainingWallDesignController::export');
 
+/* router for propped-cantilever-beam path */
+$routes->get('/propped-cantilever-beam', 'ProppedCantileverBeamController::renderer');
+$routes->post('/propped-cantilever-beam', 'ProppedCantileverBeamController::calculate');
+$routes->post('/propped-cantilever-beam-import', 'ProppedCantileverBeamController::import');
+$routes->post('/propped-cantilever-beam-export', 'ProppedCantileverBeamController::export');
+
 /* router for timber-pole-wall-brooms path */
 $routes->get('/timber-pole-retaining-wall-brooms', 'TimberPoleWallBroomsController::renderer');
 $routes->post('/timber-pole-retaining-wall-brooms', 'TimberPoleWallBroomsController::calculator');
 $routes->post('/timber-pole-retaining-wall-brooms-import', 'TimberPoleWallBroomsController::import');
 $routes->post('/timber-pole-retaining-wall-brooms-export', 'TimberPoleWallBroomsController::export');
+
 /* router for pile-capacity path */
 $routes->get('/pile-capacity', 'PileCapacityController::renderer');
 $routes->post('/pile-capacity', 'PileCapacityController::calculator');
