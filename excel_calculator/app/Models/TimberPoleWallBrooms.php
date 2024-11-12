@@ -353,7 +353,7 @@ class TimberPoleWallBrooms
                                     'label' => 'Soil unit weight (γ)', // required
                                     'id' => 'B15', // required
                                     'name' => 'B15',
-                                    'unit' => 'kN/m3',
+                                    'unit' => 'kN/m<sup>3</sup>',
                                     'type' => 'number',
                                 ],
                                 [
@@ -369,7 +369,7 @@ class TimberPoleWallBrooms
                                     'label' => 'Surcharge (ω)', // required
                                     'id' => 'B17', // required
                                     'name' => 'B17',
-                                    'unit' => 'kN/m2',
+                                    'unit' => 'kN/m<sup>2</sup>',
                                     'type' => 'number',
                                 ],
                                 [
@@ -521,7 +521,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'fb', // required
+                                    'label' => 'f<sub>b</sub>', // required
                                     'id' => 'B28', // required
                                     'name' => 'B28',
                                     'type' => 'number',
@@ -990,7 +990,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'φMn,static=φkfbZ=φ·k1·k8·k20·k21·k22·fb·Z',
+                                                    'text' => 'φMn,static',
                                                 ]
                                             ),
                                             'value' => array(
@@ -1031,7 +1031,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'φMn,seismic=φkfbZ=φ·k1·k8·k20·k21·k22·fb·Z',
+                                                    'text' => 'φMn,seismic',
                                                 ]
                                             ),
                                             'value' => array(
@@ -1076,7 +1076,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'e=Mu/Pu',
+                                                    'text' => 'e',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1127,7 +1127,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'L2=1.5D',
+                                                    'text' => 'L2',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1144,7 +1144,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'f=P/(9CuD)',
+                                                    'text' => 'f',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1161,7 +1161,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'g=(P·(e+L2+0.5f)/(2.25·d·Cu))^0.5',
+                                                    'text' => 'g',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1178,7 +1178,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Embedment (m) L=L2+f+g',
+                                                    'text' => 'Embedment (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1195,7 +1195,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Mmax :P·(e+1.5d+0.5f)',
+                                                    'text' => 'Mmax',
                                                 ]
                                             ),
                                             'static' => array(
