@@ -61,7 +61,7 @@ $props = isset($formProperties) ? $formProperties : [];
                   </button>
                 </h2>
                 <div id="section-<?= $count ?>"
-                  class="accordion-collapse collapse <?= $count === 0 || $count === $props['lastIndex'] ? 'show' : '' ?>"
+                  class="accordion-collapse collapse <?= $count === 0 || (isset($props['show'])  && in_array($count, $props['show']))? 'show' : '' ?>"
                   aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>">
                   <div class="accordion-body">
                     <?php if (isset($menu['canvas'])): ?>
@@ -122,7 +122,7 @@ $props = isset($formProperties) ? $formProperties : [];
                                     <?= $subMenu['subMenuTitle'] ?>
                                   </button>
                                 </h2>
-                                <div id="section-<?= $count ?>" class="accordion-collapse collapse"
+                                <div id="section-<?= $count ?>" class="accordion-collapse collapse <?= $count === 0 || (isset($props['show']) && in_array($count, $props['show'])) ? 'show' : '' ?>"
                                   aria-labelledby="section-<?= $count ?>" data-bs-parent="#section-<?= $count ?>">
                                   <div class="accordion-body">
                                     <div class="row align-items-end">
