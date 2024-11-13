@@ -370,7 +370,8 @@ class PileCapacityController extends BaseController
         $fields = ['G43', 'G58', 'B23', 'G63'];
 
         $rangeFields = [
-            $worksheet->rangeToArray('G9:G30', null, true, true, true),
+            $worksheet->rangeToArray('G9:G24', null, true, true, true),
+            $worksheet->rangeToArray('G27:G30', null, true, true, true),
             $worksheet->rangeToArray('N12:N23', null, true, true, true),
         ];
 
