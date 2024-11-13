@@ -8,6 +8,8 @@ echo view("/main/main_page", [
 
 ?>
 <script>
+    reGenerate();
+    
     function externalFunction(response) {
         // ฟังก์ชันสร้างกราฟ Scatter
 
