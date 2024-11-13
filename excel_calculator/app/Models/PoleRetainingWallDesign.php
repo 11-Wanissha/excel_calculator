@@ -11,7 +11,7 @@ class PoleRetainingWallDesign extends BaseModel
             'url' => '/pole-retaining-wall-design',
             'importUrl' => '/pole-retaining-wall-design-import',
             'exportUrl' => '/pole-retaining-wall-design-export',
-            'lastIndex' => 7,
+            'show' => [8],
             'secTion' => array(
                 [
                     'menu' => array(

@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\BaseModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -14,8 +13,9 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use App\Libraries\MainLib;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
-use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
-use PhpOffice\PhpSpreadsheet\RichText\RichText;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf; // or use Tcpdf
+// or if you're using PhpSpreadsheet's IOFactory:
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 /**
  * Class BaseController
@@ -89,7 +89,7 @@ abstract class BaseController extends Controller
         $types = ['text', 'table', 'dropdown'];
 
         foreach ($menus as $index => $menu) {
-            if (!isset($menu['input'])) continue;
+            if (!isset($menu['input']) && !isset($menu['canvas'])) continue;
 
             if ($index != 0) $loopIndex++;
 
@@ -109,6 +109,47 @@ abstract class BaseController extends Controller
                 ->setARGB('FFFFFFFF');
 
             $loopIndex++;
+
+            if (isset($menu['canvas']) && isset($dataset['baseImage'])) {
+                $loopIndex++;
+                $base64Image = preg_replace('/^data:image\/\w+;base64,/', '', $dataset['baseImage']);
+                $imageData = base64_decode($base64Image);
+
+                if ($imageData === false) {
+                    continue;
+                }
+
+                $uniqueId = uniqid();
+                $tempDir = sys_get_temp_dir();
+                $tempFile = $tempDir . DIRECTORY_SEPARATOR . 'img_' . $uniqueId . '.png';
+
+                if (file_put_contents($tempFile, $imageData) === false) {
+                    continue;
+                }
+
+                $sheet->mergeCells("A{$loopIndex}:D{$loopIndex}");
+
+                $sheet->getStyle("A{$loopIndex}:D{$loopIndex}")->getAlignment()
+                    ->setHorizontal(Alignment::HORIZONTAL_CENTER)
+                    ->setVertical(Alignment::VERTICAL_CENTER);
+
+                $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+                $drawing->setName('Image_' . $uniqueId);
+                $drawing->setDescription('Exported Image');
+                $drawing->setPath($tempFile);
+                $drawing->setCoordinates("A{$loopIndex}");
+                $drawing->setOffsetX(5);
+                $drawing->setOffsetY(5);
+                $drawing->setWidth(330);
+                $drawing->setHeight(330);
+                $drawing->setWorksheet($sheet);
+
+                $sheet->getRowDimension($loopIndex)->setRowHeight(360);
+
+                $loopIndex++;
+
+                continue;
+            }
 
             foreach ($menu['input'] as $inputIndex => $input) {
 
@@ -145,7 +186,7 @@ abstract class BaseController extends Controller
                         $sheet->setCellValue("B{$loopIndex}", $finalData);
 
                         if ($unit) {
-                            $sheet->setCellValue("C{$loopIndex}", $unit);
+                            $sheet->setCellValue("C{$loopIndex}", $lib->convertHtmlToRichText($unit));
                         }
                         break;
 
@@ -294,7 +335,7 @@ abstract class BaseController extends Controller
                                 $sheet->setCellValue("B{$loopIndex}", $finalData);
 
                                 if ($unit) {
-                                    $sheet->setCellValue("C{$loopIndex}", $unit);
+                                    $sheet->setCellValue("C{$loopIndex}", $lib->convertHtmlToRichText($unit));
                                 }
                                 break;
 
@@ -406,19 +447,21 @@ abstract class BaseController extends Controller
 
         $spreadsheet = $this->renderExcel($combinedMenu, $exportData);
 
-        // $writer = new Writer($spreadsheet);
-        $writer = new Dompdf($spreadsheet);
+        IOFactory::registerWriter('Pdf', writerClass: Mpdf::class);
 
-        $tempFile = tempnam(sys_get_temp_dir(), 'temp');
+        $writer = IOFactory::createWriter($spreadsheet, 'Pdf');
+
+        // $writer->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+        // $writer->setPaperSize(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4);
+
+        // Save to temp file
+        $tempFile = tempnam(sys_get_temp_dir(), 'pdf_');
         $writer->save($tempFile);
 
         $fileContents = file_get_contents($tempFile);
-
         $base64 = base64_encode($fileContents);
 
         unlink($tempFile);
-
-        header('Content-Type: application/pdf');
 
         return json_encode([
             'filename' => "{$title}.pdf",
