@@ -32,6 +32,7 @@ class ExportService
         $this->initializeSheet();
     }
 
+    /* setup sheet function */
     private function initializeSheet(): void
     {
         $this->sheet->getColumnDimension('A')->setWidth(25);
@@ -46,6 +47,7 @@ class ExportService
         $this->sheet->setShowGridlines(false);
     }
 
+    /* Enter function */
     public function exportToPdf(array $fromProperties, array $exportData, string $title = 'reported'): string
     {
         $lib = new MainLib();
@@ -87,7 +89,7 @@ class ExportService
 
             $this->renderMenuHeader($subMenu['subMenuTitle'] ?? '-');
 
-            $this->renderMenuInputs($parentInputs, $dataset);
+            $this->renderMenuInputs($subMenu['input'], $dataset);
         }
     }
 
@@ -215,7 +217,7 @@ class ExportService
 
     private function getTextInputValue(array $input, array $dataset): string
     {
-        if (isset($dataset[$input['id']])) {
+        if (isset($dataset[$input['id']]) && isset($input['type'])) {
             return $input['type'] === 'checkbox' ? 'true' : $dataset[$input['id']];
         }
 
@@ -275,12 +277,16 @@ class ExportService
 
     private function renderTableRow(array $row, array $dataset): void
     {
-        foreach ($row as $index => $cell) {
-            if ($index >= self::MAX_COLUMNS) {
+        $alphabetIndex = 0;
+
+        foreach ($row as $cell) {
+
+            if ($alphabetIndex >= self::MAX_COLUMNS) {
+                $alphabetIndex = 0;
                 break;
             }
 
-            $column = $this->alphabet[$index];
+            $column = $this->alphabet[$alphabetIndex];
             $id = $this->lib->getTableCellId($cell, 'text');
 
             $value = $id === '' ?
@@ -288,6 +294,8 @@ class ExportService
 
             $this->sheet->setCellValue("{$column}{$this->currentRow}", $value);
             $this->applyTableCellStyle($column);
+
+            $alphabetIndex++;
         }
     }
 
