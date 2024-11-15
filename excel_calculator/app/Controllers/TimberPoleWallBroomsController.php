@@ -351,18 +351,12 @@ class TimberPoleWallBroomsController extends BaseController
             return $this->response->setStatusCode(400)->setJSON(['error' => "Can't Calculated Check timber rail"]);
         }
         $res['B21'] = round($res['B21'], 2);
-        $res['B22'] = round($res['B22'], 2);
-        $res['B39'] = round($res['B39'], 2);
-        $res['C34'] = round($res['C34'], 2);
-        $res['F34'] = round($res['F34'], 2);
-        $res['C38'] = round($res['C38'], 2);
-        $res['F38'] = round($res['F38'], 2);
-        for ($i = 45; $i < 53; $i++) {
-            if ($i === 47) {
-                continue;
+        if ($res['B22'] !== "NAN!")
+            $res['B22'] = round($res['B22'], 2);
+        foreach ($res as $key => $val) {
+            if (is_numeric($val)) {
+                $res[$key] = number_format((float) $val, 2, '.', '');
             }
-            $res['D' . $i] = round($res['D' . $i], 2);
-            $res['F' . $i] = round($res['F' . $i], 2);
         }
         return $this->response->setJSON($res);
     }
