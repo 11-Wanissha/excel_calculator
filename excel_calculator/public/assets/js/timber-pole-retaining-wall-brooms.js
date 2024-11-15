@@ -1,10 +1,14 @@
 const createScene = function (data) {
   if (!data) {
     data = {
-      H: 0,
-      L: 0,
-      d: 0,
-      D: 0
+      length: 0,
+      P1: 0,
+      P2: 0,
+      P3: 0,
+      P4: 0,
+      Ra: 0,
+      Rb: 0,
+      q: 0,
     };
   }
   let cameraView;
@@ -64,7 +68,7 @@ const createScene = function (data) {
 
   // retainer Wall
   const retainerWidth = (data.d / 1000) * 1.5; // D
-  const retainerHigh = (data.H * 1.5) + 0.5; // H
+  const retainerHigh = data.H * 1.5 + 0.5; // H
 
   if (data.H > 0) {
     const retainerWall = BABYLON.MeshBuilder.CreateBox(

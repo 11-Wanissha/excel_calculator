@@ -1,14 +1,12 @@
-const data = {
-    length: 0,
-    P1: 0,
-    P2: 0,
-    P3: 0,
-    P4: 0,
-    Ra: 0,
-    Rb: 0,
-    q: 0,
-  };
-function createScene() {
+function createScene(data) {
+  if (!data) {
+    data = {
+      H: 0,
+      L: 0,
+      d: 0,
+      D: 0
+    };
+  }
   const scene = new BABYLON.Scene(engine);
   scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0);
   
@@ -248,6 +246,13 @@ function createScene() {
   scene.registerBeforeRender(updateLabelPosition);
 
   return scene;
+}
+function updateFunction(value) {
+  scene.dispose();
+  scene = createScene(value);
+  engine.runRenderLoop(function () {
+    scene.render();
+  });
 }
 
 // ฟังก์ชันเรียกใช้ Babylon.js
