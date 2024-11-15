@@ -1,23 +1,22 @@
+const data = {
+    length: 0,
+    P1: 0,
+    P2: 0,
+    P3: 0,
+    P4: 0,
+    Ra: 0,
+    Rb: 0,
+    q: 0,
+  };
 function createScene() {
   const scene = new BABYLON.Scene(engine);
   scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0);
-  const data = {
-    length: 10,
-    P1: 2.4,
-    P2: 3.2,
-    P3: 4.0,
-    P4: 6.2,
-    Ra: 226.9,
-    Rb: 119.0,
-    q: 10.5,
-  };
+  
   const textSize =
     "bold " +
     (data.length < 5 ? "20" : data.length < 10 ? "34" : "40") +
     "px" +
     " Roboto";
-
-  
 
   // กล้อง
   const camera = new BABYLON.ArcRotateCamera(
@@ -163,7 +162,7 @@ function createScene() {
     if (above) {
       tubeMaterial.diffuseColor = BABYLON.Color3.Green();
       // Position the tube
-      tube.position.y = beam.position.y + 0.5;
+      tube.position.y = beam.position.y + 0.2;
       tube.position.x = -(data.length / 2) + xOffset;
     } else {
       tubeMaterial.diffuseColor = BABYLON.Color3.Green();
@@ -216,11 +215,11 @@ function createScene() {
   const line = [
     createLine("leftSupportLine", 0, false, true), // ฝั่งซ้ายที่ supportWall
     createLine("rightSupportLine", 0, false, false), // ฝั่งขวาที่ supportRight
-    createLine("P1", data.P1, true, false,2.8), // ฝั่งขวาที่ supportRight
-    createLine("P2", data.P2, true, false,3.0), // ฝั่งขวาที่ supportRight
-    createLine("P3", data.P3, true, false,3.2), // ฝั่งขวาที่ supportRight
-    createLine("P4", data.P4, true, false,3.4), // ฝั่งขวาที่ supportRight
-    createLine("q", data.length+0.5, true, false,2.7), // ฝั่งขวาที่ supportRight
+    createLine("P1", data.P1, true, false,2.4), // ฝั่งขวาที่ supportRight
+    createLine("P2", data.P2, true, false,2.6), // ฝั่งขวาที่ supportRight
+    createLine("P3", data.P3, true, false,2.8), // ฝั่งขวาที่ supportRight
+    createLine("P4", data.P4, true, false,3.0), // ฝั่งขวาที่ supportRight
+    createLine("q", data.length+0.5, true, false,2.5), // ฝั่งขวาที่ supportRight
   ];
   const labels = [
     createLabel("Ra", "Ra : " + data.Ra),
@@ -253,6 +252,20 @@ function createScene() {
 
 // ฟังก์ชันเรียกใช้ Babylon.js
 function reGenerate(response) {
+   // Update data with values from HTML elements and response
+   data.length = parseFloat(document.getElementById("C7any").value);
+   data.P1 = parseFloat(document.getElementById("E14any").value);
+   data.P2 = parseFloat(document.getElementById("E15any").value);
+   data.P3 = parseFloat(document.getElementById("E16any").value);
+   data.P4 = parseFloat(document.getElementById("E17any").value);
+   data.Ra = parseFloat(response["L39"]);
+   data.Rb = parseFloat(response["L40"]);
+   data.q = parseFloat(response["D21any"]);
+ 
+   // Dispose the old scene and recreate it
+   scene.dispose();
+   scene = createScene(data);
+ 
   engine.runRenderLoop(function () {
     scene.render();
   });
