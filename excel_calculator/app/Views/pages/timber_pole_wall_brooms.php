@@ -13,7 +13,7 @@ echo view("/main/main_page", [
             const B20 = $('#B20').val();
             // Loop through each selected input and check if any is empty
             $('#B9, #B11, #B12, #B14, #B15, #B16, #B17, #B18').each(function () {
-                if ($(this).val() === '' || null || undefined) {
+                if ($(this).val() === '' || $(this).val() === null || $(this).val() === undefined) {
                     allFilled = false;
                     return false;  // Break the loop if one input is empty
                 }
@@ -39,6 +39,7 @@ echo view("/main/main_page", [
                     contentType: "application/json",
                     processData: false,
                     success: function (response) {
+                        latestCalculatedData = { ...latestCalculatedData, ...response };
                         let value = {
                             H: $('#B9').val(),
                             L: response.B10,

@@ -106,6 +106,19 @@ class TimberPoleWallBroomsController extends BaseController
         $res['D51'] = $res['D48'] + $res['D49'] + $res['D50'];
         $res['D52'] = $res['C34'] * ($res['D45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['D49']);
         $res['B10'] = round($res['D51'], 2);
+        //calculated  Seismic
+        if ($res['B22'] !== "NAN!")
+            $res['F45'] = $res['F38'] / $res['C38'];
+        $res['F46'] = $req['B11'] / $res['B13'] * 1000;
+        $res['F48'] = 1.5 * $res['B13'] / 1000;
+        if ($res['B22'] !== "NAN!")
+            $res['F49'] = $res['C38'] / (9 * $req['B16'] * $res['B13'] * $res['F47'] / 1000);
+        if ($res['B22'] !== "NAN!")
+            $res['F50'] = pow($res['C38'] * ($res['F45'] + $res['F48'] + 0.5 * $res['F49']) / (2.25 * $res['B13'] / 1000 * $req['B16'] * $res['F47']), 0.5);
+        if ($res['B22'] !== "NAN!")
+            $res['F51'] = $res['F48'] + $res['F49'] + $res['F50'];
+        if ($res['B22'] !== "NAN!")
+            $res['F52'] = $res['C38'] * ($res['F45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['F49']);
         foreach ($res as $key => $val) {
             if (is_numeric($val)) {
                 $res[$key] = number_format((float) $val, 2, '.', '');
@@ -113,6 +126,7 @@ class TimberPoleWallBroomsController extends BaseController
         }
         return $this->response->setJSON($res);
     }
+
     public function calculator()
     {
         $req = $this->request->getPost();

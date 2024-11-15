@@ -64,7 +64,7 @@ const createScene = function (data) {
 
   // retainer Wall
   const retainerWidth = (data.d / 1000) * 1.5; // D
-  const retainerHigh = (data.H * 1.5) + 0.5; // H
+  const retainerHigh = data.H * 1.5 + 0.5; // H
 
   if (data.H > 0) {
     const retainerWall = BABYLON.MeshBuilder.CreateBox(
@@ -139,7 +139,7 @@ function getBase(data, callback) {
       }
     } else {
       if (data["B10"] >= 2) {
-        cameraView = data["B10"] * 6;
+        cameraView = data["B10"];
       } else {
         cameraView = 12;
       }
@@ -171,19 +171,14 @@ function getBase(data, callback) {
 }
 
 function reGenerate(response) {
-  // const length = document.getElementById("C12").value;
-  // const a = document.getElementById("G27").value;
-  // const b = document.getElementById("H27").value;
-  // const c = document.getElementById("I27").value;
-  // const d = document.getElementById("J27").value;
-  // const P1 = response["V19"];
-  // const P2 = response["W19"];
-  // const P3 = response["X19"];
-  // const P4 = response["Y19"];
-  // const R1 = response["G39"];
-  // const R2 = response["G40"];
-  // scene.dispose();
-  scene = createScene(response);
+  let value = {
+    H: document.getElementById("B9").value,
+    L: response['B10'],
+    d: document.getElementById("B12").value,
+    D: response['B13'],
+  };
+  scene.dispose();
+  scene = createScene(value);
   engine.runRenderLoop(function () {
     scene.render();
   });
