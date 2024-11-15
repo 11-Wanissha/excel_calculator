@@ -16,6 +16,103 @@ class TimberPoleWallBroomsController extends BaseController
             "formProperties" => $model->getFromProperties(),
         ]);
     }
+    public function calculated3D()
+    {
+        $req = $this->request->getJSON(true);
+        $res = [];
+        // calculated Active pressure coefficient and Seismic pressure coefficient
+        if (isset($req['B14']) && $req['B14'] !== '') {
+            if ((pow(1 + sin($req['B14'] * pi() / 180), 2)) == 0) {
+                return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero. Please check your inputs."]);
+            }
+            $res['B21'] = (pow(cos($req['B14'] * pi() / 180), 2)) / (pow(1 + sin($req['B14'] * pi() / 180), 2));
+            $B19 = isset($req['B18']) && $req['B18'] !== '' ? atan($req['B18']) : 0;
+            if (pow(cos($B19), 2) > 0 && 180 - $B19 != 0) {
+                if ((sin($req['B14'] * pi() / 180) * sin($req['B14'] * pi() / 180 - $B19)) / cos($B19) < 0) {
+                    $res['B22'] = "NAN!";
+                } else {
+                    $res['B22'] =
+                        (pow(cos($req['B14'] * pi() / 180 - $B19), 2)) /
+                        (pow(cos($B19), 2) * pow(1 + sqrt((sin($req['B14'] * pi() / 180) * sin($req['B14'] * pi() / 180 - $B19)) / cos($B19)), 2));
+
+                }
+            } else {
+                return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero. Please check your inputs."]);
+            }
+            $B19 = null;
+        } else {
+            $res['B21'] = 0;
+            $res['B22'] = 0;
+        }
+        if (!isset($req['B20']) || $req['B20'] === '') {
+            $res['B20'] = 1.5;
+            $req['B20'] = 1.5;
+        }
+        //calculated Check pole capacity
+        //calculated Static Factored Demands
+        $C32 = $req['B15'] * pow($req['B9'], 2) * $res['B21'] / 2;
+        $C33 = $res['B21'] * $req['B17'] * $req['B9'];
+        if ($res['B22'] !== "NAN!")
+            $C36 = $req['B15'] * pow($req['B9'], 2) * $res['B22'] / 2;
+        $C37 = $res['B21'] * $req['B17'] * $req['B9'];
+        $F32 = $C32 * $req['B9'] / 3;
+        $F33 = $C33 * $req['B9'] / 2;
+        if ($res['B22'] !== "NAN!")
+            $F36 = $C36 * $req['B9'] / 3;
+        $F37 = $C37 * $req['B9'] / 2;
+
+        $res['C34'] = $req['B20'] * ($C32 + $C33) * $req['B11'];
+        if ($res['B22'] !== "NAN!")
+            $res['C38'] = ($C37 + $C36) * $req['B11'];
+        $res['F34'] = $req['B20'] * ($F32 + $F33) * $req['B11'];
+        if ($res['B22'] !== "NAN!")
+            $res['F38'] = ($F37 + $F36) * $req['B11'];
+        //clear memory
+        $C32 = null;
+        $C33 = null;
+        $C36 = null;
+        $C37 = null;
+        $F32 = null;
+        $F33 = null;
+        $F36 = null;
+        $F37 = null;
+        //calculated Check pole embedment
+        //calculated Static
+        $res['B13'] = round($req['B12'] + 150, 2);
+        if ($res['B13'] == 0 || $res['C34'] == 0 || $res['C34'] == 0) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero. Please check your inputs."]);
+        }
+        $res['D45'] = $res['F34'] / $res['C34'];
+        $res['D46'] = $req['B11'] / $res['B13'] * 1000;
+        if ($res['D46'] >= 4) {
+            $res['D47'] = 1;
+            $res['F47'] = 1;
+        } else if ($res['D46'] <= 1) {
+            $res['D47'] = 0.25;
+            $res['F47'] = 0.25;
+        } else {
+            $res['D47'] = round(0.25 + ($res['D46'] - 1) * 0.25, 2);
+            $res['F47'] = round(0.25 + ($res['D46'] - 1) * 0.25, 2);
+        }
+        $res['D48'] = 1.5 * $res['B13'] / 1000;
+        if ($req['B16'] == 0 || $res['D47'] == 0) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero. Please check your inputs."]);
+        }
+        $res['D49'] = $res['C34'] / (9 * $req['B16'] * $res['B13'] * $res['D47'] / 1000);
+        if ((1000 + 0.5 * $res['D49']) == 0) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => "Can't divide by zero. Please check your inputs."]);
+        }
+        $res['D50'] = pow($res['C34'] * ($res['D45'] + $res['D48'] + 0.5 * $res['D49']) / (2.25 * $res['B13'] / 1000 * $req['B16'] * $res['D47']), 0.5);
+        $res['D51'] = $res['D48'] + $res['D49'] + $res['D50'];
+        $res['D52'] = $res['C34'] * ($res['D45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['D49']);
+        $res['B10'] = round($res['D51'], 2);
+        foreach ($res as $key => $val) {
+            if (is_numeric($val)) {
+                $res[$key] = number_format((float) $val, 2, '.', '');
+            }
+        }
+        return $this->response->setJSON($res);
+    }
     public function calculator()
     {
         $req = $this->request->getPost();
@@ -186,7 +283,7 @@ class TimberPoleWallBroomsController extends BaseController
         if ($res['B22'] !== "NAN!")
             $res['F52'] = $res['C38'] * ($res['F45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['F49']);
 
-        $res['B10'] = round($res['D51'],2);
+        $res['B10'] = round($res['D51'], 2);
         $res['I40'] = $res['E40'] > $res['D52'] ? 'OK!' : 'NG!';
         if ($res['B22'] !== "NAN!")
             $res['I41'] = $res['E41'] > $res['F52'] ? 'OK!' : 'NG!';
