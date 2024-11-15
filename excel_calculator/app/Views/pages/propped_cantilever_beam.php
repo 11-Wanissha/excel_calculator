@@ -8,6 +8,30 @@ echo view("/main/main_page", [
 
 ?>
 <script>
+    $(document).ready(function () {
+        $('#C7any, #E14any, #E15any, #E16any, #E17any').on('input', function () {
+            // Loop through each selected input and set value to 0 if empty
+    
+
+            // Collect data from inputs
+            const data = {
+                length: parseFloat($('#C7any').val()) || 0,
+                P1: parseFloat($('#E14any').val()) || 0,
+                P2: parseFloat($('#E15any').val()) || 0,
+                P3: parseFloat($('#E16any').val()) || 0,
+                P4: parseFloat($('#E17any').val()) || 0,
+                Ra: 0, // Placeholder for actual calculation
+                Rb: 0, // Placeholder for actual calculation
+                q: 0   // Placeholder for actual calculation
+            };
+
+            console.log(data);
+
+            // Uncomment this line if updateFunction is defined
+            updateFunction(data);
+        });
+    });
+
     function externalFunction(response) {
         // ฟังก์ชันสร้างกราฟ Scatter
 

@@ -15,7 +15,7 @@ class ProppedCantileverBeam
             'url' => '/propped-cantilever-beam',
             'importUrl' => '/propped-cantilever-beam-import',
             'exportUrl' => '/propped-cantilever-beam-export',
-            'lastIndex' => 8,
+            'show' => [0,1,2,3,4,5,6,7,8,9,10,11],
             'submitFunction'=>  true,
             'secTion' => array(
                 [
@@ -247,7 +247,7 @@ class ProppedCantileverBeam
                                             ],
                                             [
                                                 'id' => "J25",
-                                                'label' => "Puls",
+                                                'label' => "P<sub>uls</sub>",
                                                 'width' => '100px',
                                             ],
                                         ), // required
@@ -457,7 +457,7 @@ class ProppedCantileverBeam
                                         'column' => array(
                                             [
                                                 'id' => "name",
-                                                'label' => "Psls",
+                                                'label' => "P<sub>sls</sub>",
                                                 'width' => '100px',
 
                                             ],
@@ -655,7 +655,7 @@ class ProppedCantileverBeam
                                             ],
                                             [
                                                 'id' => "J46",
-                                                'label' => "quls",
+                                                'label' => "q<sub>uls</sub>",
                                                 'width' => '100px',
                                             ],
                                         ), // required
@@ -722,7 +722,7 @@ class ProppedCantileverBeam
                                         'column' => array(
                                             [
                                                 'id' => "name",
-                                                'label' => "qsls",
+                                                'label' => "q<sub>sls</sub>",
                                                 'width' => '100px',
 
                                             ],
@@ -770,24 +770,24 @@ class ProppedCantileverBeam
                                         
                                         [
                                             'id' => "B10",
-                                            'label' => "Ψs Short term factor",
+                                            'label' => "Ψ<sub>s</sub> Short term factor",
                                             'width' => '100px',
 
                                         ],
                                         [
                                             'id' => "B11",
-                                            'label' => "Ψl Long term factor",
+                                            'label' => "Ψ<sub>l</sub> Long term factor",
                                             'width' => '100px',
 
                                         ],
                                         [
                                             'id' => "B12",
-                                            'label' => "Ψc Combination factor",
+                                            'label' => "Ψ<sub>c</sub> Combination factor",
                                             'width' => '100px',
                                         ],
                                         [
                                             'id' => "B13",
-                                            'label' => "Ψe Earthquake combination factor",
+                                            'label' => "Ψ<sub>e</sub> Earthquake combination factor",
                                             'width' => '100px',
 
                                         ],
@@ -834,12 +834,12 @@ class ProppedCantileverBeam
                                             
                                             [
                                                 'id' => "C13any",
-                                                'label' => "Puls",
+                                                'label' => "P<sub>uls</sub>",
                                                 'width' => '100px',
                                             ],
                                             [
                                                 'id' => "D13any",
-                                                'label' => "Psls",
+                                                'label' => "P<sub>sls</sub>",
                                                 'width' => '100px',
                                             ],
                                             [
@@ -982,7 +982,7 @@ class ProppedCantileverBeam
                                             [
                                                 'name' => array(
                                                     [
-                                                        'text' => 'quls',
+                                                        'text' => 'q<sub>uls</sub>',
                                                     ]
                                                 ),
                                                 'D20' => array(
@@ -995,7 +995,7 @@ class ProppedCantileverBeam
                                             [
                                                 'name' => array(
                                                     [
-                                                        'text' => 'qsls',
+                                                        'text' => 'q<sub>sls</sub>',
                                                     ]
                                                 ),
                                                 'D20' => array(
@@ -1030,7 +1030,7 @@ class ProppedCantileverBeam
                                         ],
                                         [
                                             'id' => "D8",
-                                            'label' => "Inertia (mm4)",
+                                            'label' => "Inertia (mm<sup>4</sup>)",
                                             'width' => '100px',
 
                                         ],
@@ -1279,11 +1279,11 @@ class ProppedCantileverBeam
                                 
                             )
                         ],
-                        
-                        // [
-                        //     'menuTitle' => '4. Graphic',
-                        //     'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
-                        // ]
+
+                        [
+                            'menuTitle' => '4. Graphic',
+                            'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
+                        ]
                     )
                 ],
                 
