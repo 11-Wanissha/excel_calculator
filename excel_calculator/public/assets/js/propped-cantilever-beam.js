@@ -9,7 +9,7 @@ function createScene(data) {
   }
   const scene = new BABYLON.Scene(engine);
   scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0);
-  
+
   const textSize =
     "bold " +
     (data.length < 5 ? "20" : data.length < 10 ? "34" : "40") +
@@ -142,14 +142,14 @@ function createScene(data) {
     left = true,
     positionY = 0
   ) => {
-     // Define line points for the tube path
+    // Define line points for the tube path
 
     const tube = BABYLON.MeshBuilder.CreateTube(
       name,
       {
         path: linePoints,
         radius: 0.015,
-        tessellation: 16,
+        tessellation: 16
       },
       scene
     );
@@ -209,15 +209,15 @@ function createScene(data) {
     label.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
     return label;
   };
-  
+
   const line = [
     createLine("leftSupportLine", 0, false, true), // ฝั่งซ้ายที่ supportWall
     createLine("rightSupportLine", 0, false, false), // ฝั่งขวาที่ supportRight
-    createLine("P1", data.P1, true, false,2.4), // ฝั่งขวาที่ supportRight
-    createLine("P2", data.P2, true, false,2.6), // ฝั่งขวาที่ supportRight
-    createLine("P3", data.P3, true, false,2.8), // ฝั่งขวาที่ supportRight
-    createLine("P4", data.P4, true, false,3.0), // ฝั่งขวาที่ supportRight
-    createLine("q", data.length+0.5, true, false,2.5), // ฝั่งขวาที่ supportRight
+    createLine("P1", data.P1, true, false, 2.4), // ฝั่งขวาที่ supportRight
+    createLine("P2", data.P2, true, false, 2.6), // ฝั่งขวาที่ supportRight
+    createLine("P3", data.P3, true, false, 2.8), // ฝั่งขวาที่ supportRight
+    createLine("P4", data.P4, true, false, 3.0), // ฝั่งขวาที่ supportRight
+    createLine("q", data.length + 0.5, true, false, 2.5) // ฝั่งขวาที่ supportRight
   ];
   const labels = [
     createLabel("Ra", "Ra : " + data.Ra),
@@ -226,8 +226,7 @@ function createScene(data) {
     createLabel("P2", "P2 : " + data.P2),
     createLabel("P3", "P3 : " + data.P3),
     createLabel("P4", "P4 : " + data.P4),
-    createLabel("q", "q : " + data.q),
-    
+    createLabel("q", "q : " + data.q)
   ];
   const scaling = new BABYLON.Vector3(2, 1, 1);
   const updateLabelPosition = () => {
@@ -254,23 +253,56 @@ function updateFunction(value) {
     scene.render();
   });
 }
+//function get Base 64 to return into export
+function getBase(data, callback) {
+  // set camera like createScene
+  let cameraView;
+  cameraView = scene.activeCamera;
+  if (!cameraView) {
+    cameraView = data.length + 5;
+  }
+  const camera = new BABYLON.ArcRotateCamera(
+    "camera",
+    -Math.PI / 2,
+    Math.PI / 2.2,
+    cameraView,
+    new BABYLON.Vector3(0, 0, 0)
+  );
+  camera.attachControl(canvas, true);
+  camera.wheelPrecision = 20;
 
+  // don't do anything
+  scene.onReadyObservable.addOnce(() => {
+    // This screenshots both objects
+    // This screenshots only the ground
+    BABYLON.Tools.CreateScreenshotUsingRenderTarget(
+      engine,
+      camera,
+      { width: 1920, height: 1080 },
+      (dataURL) => {
+        callback(dataURL);
+      }
+    );
+  });
+}
 // ฟังก์ชันเรียกใช้ Babylon.js
 function reGenerate(response) {
-   // Update data with values from HTML elements and response
-   data.length = parseFloat(document.getElementById("C7any").value);
-   data.P1 = parseFloat(document.getElementById("E14any").value);
-   data.P2 = parseFloat(document.getElementById("E15any").value);
-   data.P3 = parseFloat(document.getElementById("E16any").value);
-   data.P4 = parseFloat(document.getElementById("E17any").value);
-   data.Ra = parseFloat(response["L39"]);
-   data.Rb = parseFloat(response["L40"]);
-   data.q = parseFloat(response["D21any"]);
- 
-   // Dispose the old scene and recreate it
-   scene.dispose();
-   scene = createScene(data);
- 
+  const data = {
+    // Update data with values from HTML elements and response
+    length: parseFloat(document.getElementById("C7any").value),
+    P1: parseFloat(document.getElementById("E14any").value),
+    P2: parseFloat(document.getElementById("E15any").value),
+    P3: parseFloat(document.getElementById("E16any").value),
+    P4: parseFloat(document.getElementById("E17any").value),
+    Ra: parseFloat(response["L39"]),
+    Rb: parseFloat(response["L40"]),
+    q: parseFloat(response["D21any"])
+  };
+
+  // Dispose the old scene and recreate it
+  scene.dispose();
+  scene = createScene(data);
+
   engine.runRenderLoop(function () {
     scene.render();
   });
