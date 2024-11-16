@@ -720,6 +720,10 @@ class PileCapacity
                                     ),
                                 ]
                             )
+                        ],
+                        [
+                            'menuTitle' => '4. Graphic',
+                            'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
                         ]
                     ),
                 ],
