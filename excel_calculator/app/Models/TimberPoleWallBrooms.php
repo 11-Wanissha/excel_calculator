@@ -962,7 +962,7 @@ class TimberPoleWallBrooms
                                     'name' => 'B39',
                                     'type' => 'number',
                                     'disabled' => true,
-                                    'unit' => 'x103mm3',
+                                    'unit' => 'x103mm<sup>3</sup>',
                                     'slot' => 1,
                                 ],
                                 [
@@ -1076,7 +1076,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'e',
+                                                    'text' => 'e (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1127,7 +1127,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'L2',
+                                                    'text' => 'L<sub>2</sub> (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1144,7 +1144,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'f',
+                                                    'text' => 'f (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1161,7 +1161,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'g',
+                                                    'text' => 'g (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1195,7 +1195,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Mmax',
+                                                    'text' => 'Mmax (kNm)',
                                                 ]
                                             ),
                                             'static' => array(
