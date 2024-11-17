@@ -36,7 +36,11 @@
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="https://mymockweb.online/tank">Water tank calculator</a></li>
 							<li><a class="dropdown-item" href="https://mymockweb.online/soakage">Soakage calculator</a></li>
-							<li><a class="dropdown-item" href="https://mymockweb.online/soakage">Timber Beam calculator</a></li>
+							<li><a class="dropdown-item" href="/timber-beam">Timber Beam calculator</a></li>
+							<li><a class="dropdown-item" href="/timber-pole-retaining-wall-brooms">Timber Pole Retaining Wall Brooms Calculator</a></li>
+							<li><a class="dropdown-item" href="/pole-retaining-wall-design">Timber Pole Retaining Wall Design</a></li>
+							<li><a class="dropdown-item" href="/propped-cantilever-beam">Propped Cantilever Beam Calculator</a></li>
+							<li><a class="dropdown-item" href="/pile-capacity">RC Pile Capacity Calculator</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">
