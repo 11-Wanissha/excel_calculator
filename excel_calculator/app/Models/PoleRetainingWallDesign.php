@@ -11,7 +11,7 @@ class PoleRetainingWallDesign extends BaseModel
             'url' => '/pole-retaining-wall-design',
             'importUrl' => '/pole-retaining-wall-design-import',
             'exportUrl' => '/pole-retaining-wall-design-export',
-            'lastIndex' => 7,
+            'show' => [7],
             'secTion' => array(
                 [
                     'menu' => array(
@@ -993,10 +993,10 @@ class PoleRetainingWallDesign extends BaseModel
                                 ]
                             )
                         ],
-                        // [
-                        //     'menuTitle' => '7. Graphic',
-                        //     'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
-                        // ]
+                        [
+                            'menuTitle' => '7. Graphic',
+                            'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
+                        ]
                     )
                 ]
             )
