@@ -1,18 +1,30 @@
-const createScene = function (
-  length = 0,
-  a = 0,
-  b = 0,
-  c = 0,
-  d = 0,
-  P1 = 0,
-  P2 = 0,
-  P3 = 0,
-  P4 = 0,
-  R1 = 0,
-  R2 = 0
-) {
-  const scale = length * 2.5;
-  const cameraView = length < 2 ? 5 : scale;
+const createScene = function (data) {
+  if (!data) {
+    data = {
+      length: 0,
+      P1: 0,
+      P2: 0,
+      P3: 0,
+      P4: 0,
+      Ra: 0,
+      Rb: 0,
+      q: 0
+    };
+  }
+  let cameraView;
+  if (data.H > data.L) {
+    if (data.H >= 2) {
+      cameraView = data.H * 6;
+    } else {
+      cameraView = 12;
+    }
+  } else {
+    if (data.L >= 2) {
+      cameraView = data.L;
+    } else {
+      cameraView = 12;
+    }
+  }
   // This creates a basic Babylon Scene object (non-mesh)
   const scene = new BABYLON.Scene(engine);
   scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0);
@@ -20,7 +32,7 @@ const createScene = function (
   const camera = new BABYLON.ArcRotateCamera(
     "camera",
     -Math.PI / 2,
-    Math.PI / 2.5,
+    Math.PI / 2.2,
     cameraView,
     new BABYLON.Vector3(0, 0, 0)
   );
@@ -42,66 +54,85 @@ const createScene = function (
     "assets/image/wood-texture.jpg",
     scene
   );
-  // retainer Wall
-  const retainerWidth = 0.4; // D
-  const retainerHeight = 4; // L
-
-  const retainerWall = BABYLON.MeshBuilder.CreateBox(
-    "retainerWall",
-    { width: retainerWidth, height: retainerHeight, depth: retainerWidth },
-    scene
-  );
-  retainerWall.material = woodMaterial;
-  retainerWall.position.x = 1.5;
   // hole
-  const holeWidth = 0.5; // d
-  const holeHeight = 4; // H
+  const holeWidth = (data.D / 1000) * 1.5; // d
+  const holeHigh = data.L * 1.5; // L
 
   const holeWall = BABYLON.MeshBuilder.CreateBox(
     "holeWall",
-    { width: holeWidth, height: holeHeight, depth: holeWidth },
+    { width: holeWidth, height: holeHigh, depth: 10 + holeWidth },
     scene
   );
   holeWall.material = holematerial;
-  // Foundation base
-  //   const foundationWidth = 9;
-  //   const foundationDepth = 0.5;
+  holeWall.position.x = 0;
 
-  //   const foundation = BABYLON.MeshBuilder.CreateBox(
-  //     "foundation",
-  //     { width: foundationWidth, height: foundationDepth, depth: wallDepth },
-  //     scene
-  //   );
-  //   foundation.position.y = -foundationDepth / 2;
-  //   foundation.position.z = -baseWidth / 2;
+  // retainer Wall
+  const retainerWidth = (data.d / 1000) * 1.5; // D
+  const retainerHigh = data.H * 1.5 + 0.5; // H
 
-  //   // Arrows for force components
-  //   const arrowSurcharge = BABYLON.MeshBuilder.CreateCylinder(
-  //     "arrowSurcharge",
-  //     { diameterTop: 0.05, diameterBottom: 0.1, height: 1 },
-  //     scene
-  //   );
-  //   arrowSurcharge.rotation.z = Math.PI / 2;
-  //   arrowSurcharge.position.set(-1, 3.5, 0);
+  if (data.H > 0) {
+    const retainerWall = BABYLON.MeshBuilder.CreateBox(
+      "retainerWall",
+      { width: retainerWidth, height: retainerHigh, depth: 10 + retainerWidth },
+      scene
+    );
+    retainerWall.material = woodMaterial;
+    retainerWall.position.x = 0;
+    retainerWall.position.y =
+      holeWall.position.y -
+      holeHigh / 2 +
+      retainerHigh / 2 +
+      (holeWidth / 2 - retainerWidth / 2);
+  }
 
-  // capture
-  //   BABYLON.Tools.CreateScreenshot(engine, camera, { width: 1920, height: 1080 });
+  const grass = BABYLON.MeshBuilder.CreateBox(
+    "grass",
+    { width: 5, height: 0.1, depth: 10 + retainerWidth },
+    scene
+  );
+  grass.position.x = holeWidth / 2 + 5 / 2;
+  grass.position.y = holeWall.position.y + holeHigh / 2 - 0.1 / 2;
+  grass.material = new BABYLON.StandardMaterial("grassMaterial", scene);
+  grass.material.diffuseColor = new BABYLON.Color3(0.36, 0.69, 0.22);
+
+  const soil = BABYLON.MeshBuilder.CreateBox(
+    "soilbox",
+    { width: 5, height: holeHigh - 0.1, depth: 10 + retainerWidth },
+    scene
+  );
+  soil.position.x = holeWidth / 2 + 5 / 2;
+  soil.position.y = grass.position.y - (0.1 / 2 + (holeHigh - 0.1) / 2);
+  soil.material = new BABYLON.StandardMaterial("groundMaterial", scene);
+  soil.material.diffuseColor = new BABYLON.Color3(0.7, 0.48, 0.24);
+
+  if (data.H > 0) {
+    const soilForce = BABYLON.MeshBuilder.CreateBox(
+      "soilbox",
+      { width: 5, height: retainerHigh, depth: 10 + retainerWidth },
+      scene
+    );
+    soilForce.position.x = -(holeWidth / 2 + 5 / 2);
+    soilForce.position.y =
+      holeWall.position.y -
+      holeHigh / 2 +
+      retainerHigh / 2 +
+      (holeWidth / 2 - retainerWidth / 2);
+    soilForce.material = new BABYLON.StandardMaterial("groundMaterial", scene);
+    soilForce.material.diffuseColor = new BABYLON.Color3(0.7, 0.48, 0.24);
+  }
   return scene;
 };
-
+function updateFunction(value) {
+  scene.dispose();
+  scene = createScene(value);
+  engine.runRenderLoop(function () {
+    scene.render();
+  });
+}
 //function get Base 64 to return into export
 function getBase(data, callback) {
   // set camera like createScene
-  const cameraView = data["C12"] < 2 ? 5 : data["C12"] * 2.5;
-  const camera = new BABYLON.ArcRotateCamera(
-    "camera",
-    -Math.PI / 2,
-    Math.PI / 2.5,
-    cameraView,
-    new BABYLON.Vector3(0, 0, 0)
-  );
-  camera.attachControl(canvas, true);
-  camera.wheelPrecision = 20;
+  let cameraView = scene.activeCamera;
 
   // don't do anything
   scene.onReadyObservable.addOnce(() => {
@@ -109,7 +140,7 @@ function getBase(data, callback) {
     // This screenshots only the ground
     BABYLON.Tools.CreateScreenshotUsingRenderTarget(
       engine,
-      camera,
+      cameraView,
       { width: 1920, height: 1080 },
       (dataURL) => {
         callback(dataURL);
@@ -119,21 +150,15 @@ function getBase(data, callback) {
 }
 
 function reGenerate(response) {
-  // const length = document.getElementById("C12").value;
-  // const a = document.getElementById("G27").value;
-  // const b = document.getElementById("H27").value;
-  // const c = document.getElementById("I27").value;
-  // const d = document.getElementById("J27").value;
-  // const P1 = response["V19"];
-  // const P2 = response["W19"];
-  // const P3 = response["X19"];
-  // const P4 = response["Y19"];
-  // const R1 = response["G39"];
-  // const R2 = response["G40"];
-  // scene.dispose();
-  // scene = createScene(length, a, b, c, d, P1, P2, P3, P4, R1, R2);
+  let value = {
+    H: document.getElementById("B9").value,
+    L: response["B10"],
+    d: document.getElementById("B12").value,
+    D: response["B13"]
+  };
+  scene.dispose();
+  scene = createScene(value);
   engine.runRenderLoop(function () {
     scene.render();
   });
-  getBase();
 }

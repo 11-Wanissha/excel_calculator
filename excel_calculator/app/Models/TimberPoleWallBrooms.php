@@ -358,7 +358,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Undrained shear strength (Cu)', // required
+                                    'label' => 'Undrained shear strength (C<sub>u</sub>)', // required
                                     'id' => 'B16', // required
                                     'name' => 'B16',
                                     'unit' => 'kPa',
@@ -389,7 +389,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Active pressure coefficient (Ka)', // required
+                                    'label' => 'Active pressure coefficient (K<sub>a</sub>)', // required
                                     'id' => 'B21', // required
                                     'name' => 'B21',
                                     'type' => 'number',
@@ -397,7 +397,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Seismic pressure coefficient (Kae)', // required
+                                    'label' => 'Seismic pressure coefficient (K<sub>ae</sub>)', // required
                                     'id' => 'B22', // required
                                     'name' => 'B22',
                                     'type' => 'number',
@@ -411,7 +411,7 @@ class TimberPoleWallBrooms
                             'input' => array(
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k1,static', // required 
+                                    'label' => 'k<sub>1,static</sub>', // required 
                                     'id' => 'B25', // required
                                     'name' => 'B25',
                                     'value' => 0.6,
@@ -419,7 +419,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k1,seismic', // required
+                                    'label' => 'k<sub>1,seismic</sub>', // required
                                     'id' => 'D25', // required
                                     'name' => 'D25',
                                     'value' => 1,
@@ -489,7 +489,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k20', // required
+                                    'label' => 'k<sub>20</sub>', // required
                                     'id' => 'B26', // required
                                     'name' => 'B26',
                                     'type' => 'number',
@@ -497,7 +497,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k8', // required
+                                    'label' => 'k<sub>8</sub>', // required
                                     'id' => 'B27', // required
                                     'name' => 'B27',
                                     'value' => 1,
@@ -505,7 +505,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k21', // required
+                                    'label' => 'k<sub>21</sub>', // required
                                     'id' => 'D27', // required
                                     'name' => 'D27',
                                     'value' => 0.85,
@@ -513,7 +513,7 @@ class TimberPoleWallBrooms
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'k22', // required
+                                    'label' => 'k<sub>22</sub>', // required
                                     'id' => 'F27', // required
                                     'name' => 'F27',
                                     'type' => 'number',
@@ -962,7 +962,7 @@ class TimberPoleWallBrooms
                                     'name' => 'B39',
                                     'type' => 'number',
                                     'disabled' => true,
-                                    'unit' => 'x103mm3',
+                                    'unit' => 'x103mm<sup>3</sup>',
                                     'slot' => 1,
                                 ],
                                 [
@@ -1076,7 +1076,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'e',
+                                                    'text' => 'e (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1127,7 +1127,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'L2',
+                                                    'text' => 'L<sub>2</sub> (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1144,7 +1144,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'f',
+                                                    'text' => 'f (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1161,7 +1161,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'g',
+                                                    'text' => 'g (m)',
                                                 ]
                                             ),
                                             'static' => array(
@@ -1195,7 +1195,7 @@ class TimberPoleWallBrooms
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Mmax',
+                                                    'text' => 'Mmax (kNm)',
                                                 ]
                                             ),
                                             'static' => array(
