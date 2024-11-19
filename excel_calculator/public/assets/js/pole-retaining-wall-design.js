@@ -319,12 +319,12 @@ function createScene(data = defaultDataSet) {
         { width: scaledDataset.d, height: totalTimberHeight - 0.5, depth: scaledDataset.d },
         scene
     );
-    supportPole.position.x = beamHalfWidth + scaledDataset.LS;
+    supportPole.position.x = scaledDataset.LS;
     supportPole.position.y = (totalTimberHeight / 2) - scaledDataset.Z0;
     supportPole.material = new BABYLON.StandardMaterial("wallMaterial", scene);
     supportPole.material.diffuseColor = new BABYLON.Color3(0.86, 0.85, 0.71);
 
-    const afterTriangleXPos = beamHalfWidth + scaledDataset.LS + (scaledDataset.d * 3)
+    const afterTriangleXPos = supportPole.position.x + (scaledDataset.LTS / 2) + (scaledDataset.d / 2) + 0.01
 
     // after triangle
     const afterTriangle = createRightTriangularPrism(scene, {
@@ -348,7 +348,7 @@ function createScene(data = defaultDataSet) {
         color: new BABYLON.Color3(0.63, 0.62, 0.53)
     })
 
-    const groundWidth = ((scaledDataset.d) + 3 + scaledDataset.LTS) / 2;
+    const groundWidth = ((scaledDataset.d) + 3 + scaledDataset.LTS) / 1.5;
 
     // ดิน
     const ground = BABYLON.MeshBuilder.CreateBox(
@@ -361,12 +361,6 @@ function createScene(data = defaultDataSet) {
     ground.material = new BABYLON.StandardMaterial("groundMaterial", scene);
 
     ground.material.diffuseColor = new BABYLON.Color3(0.7, 0.48, 0.24);
-
-
-    const linePoints = [
-        new BABYLON.Vector3(0, 0.8, 0), // Starting point above the box
-        new BABYLON.Vector3(0, 0.2, 0) // Pointing to the box
-    ];
 
     // Wall height line
     scaledDataset.Hw > 0 && createLine(scene, {
