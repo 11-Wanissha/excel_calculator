@@ -258,6 +258,7 @@ function createRightTriangularPrism(scene, options = {}) {
 
 function createScene(data = defaultDataSet) {
     const scene = new BABYLON.Scene(engine);
+    engine.resize();
     scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0);
 
     const scale = data.length * 2.5;

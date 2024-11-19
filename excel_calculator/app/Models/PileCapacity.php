@@ -25,11 +25,11 @@ class PileCapacity
     public function getFromProperties()
     {
         $this->fromProperties = [
-            'title' => 'PileCapacity Calculator',
+            'title' => 'RC Pile Capacity Calculator',
             'url' => '/pile-capacity',
             'importUrl' => '/pile-capacity-import',
             'exportUrl' => '/pile-capacity-export',
-            'lastIndex' => 0,
+            'show' => [0, 1, 6],
             'secTion' => array(
                 [
                     'menu' => array(

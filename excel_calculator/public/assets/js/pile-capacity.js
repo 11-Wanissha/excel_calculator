@@ -10,9 +10,6 @@ const createScene = function () {
   const innerRadius = Math.round((outerRadius - G28 / 2 / 10) * 100) / 100; // แปลงเป็น cm และปัดเศษ 2 ตำแหน่ง
 
   const dotCount = G23;
-  console.log(outerRadius);
-  console.log(innerRadius);
-  console.log(dotCount);
   const dotSpacingAngle = (2 * Math.PI) / dotCount; // มุมระหว่างจุดแต่ละจุด
   const dotPositionRadius = innerRadius - 0.5; // ระยะห่างจากขอบวงกลมด้านใน
 
@@ -22,6 +19,7 @@ const createScene = function () {
 
   // สร้าง Scene ของ Babylon.js
   const scene = new BABYLON.Scene(engine);
+  engine.resize();
   scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0); // สีพื้นหลัง
 
   // ตั้งค่ากล้อง
@@ -120,10 +118,6 @@ function getBase(data, callback) {
 }
 
 function reGenerate(response) {
-  // const outerRadius = response["outerRadius"]; // ปรับขนาดวงกลมด้านนอก
-  // const innerRadius = response["innerRadius"]; // ปรับขนาดวงกลมด้านใน ควรมีขนาดเล็กกว่า outerRadius เล็กน้อย
-  // const dotRadius = response["dotRadius"]; // ขนาดของจุดสีดำแต่ละจุด
-  // const dotCount = response["dotCount"]; // จำนวนจุดสีดำรอบวงกลมด้านใน
   scene = createScene();
   engine.runRenderLoop(function () {
     scene.render();
