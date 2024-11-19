@@ -237,7 +237,11 @@ $props = isset($formProperties) ? $formProperties : [];
   let click = false;
   let latestCalculatedData = {}
   if (canvas) {
-    engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+    engine = new BABYLON.Engine(canvas, true, {
+      preserveDrawingBuffer: true, // Keep the drawing buffer for screenshots
+      stencil: true,               // Enable stencil buffer
+      disableWebGL2Support: false, // Allow WebGL 2.0 if supported
+    }); // Generate the BABYLON 3D engine
     scene = createScene(); //Call the createScene function
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -290,7 +294,7 @@ $props = isset($formProperties) ? $formProperties : [];
               element.value = response[data];
               // element.style.width = "auto";
             } else {
-              console.warn(`No element found with ID: ${data}`);
+              continue;
             }
           }
           if (external) {
@@ -421,7 +425,7 @@ $props = isset($formProperties) ? $formProperties : [];
             } else if (element) {
               element.value = response[data];
             } else {
-              console.warn(`No element found with ID: ${data}`);
+              continue;
             }
           }
           var toastElement = document.getElementById('liveToast-success');
@@ -507,6 +511,7 @@ $props = isset($formProperties) ? $formProperties : [];
               document.body.removeChild(link);
             },
             error: function (xhr, status, error) {
+              console.log(error)
               click = false;
               $('#loadingSpinner').hide();
               $('#submitBtn').show();

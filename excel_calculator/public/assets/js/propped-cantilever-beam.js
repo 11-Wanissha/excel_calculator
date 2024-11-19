@@ -8,6 +8,7 @@ function createScene(data) {
     };
   }
   const scene = new BABYLON.Scene(engine);
+  engine.resize();
   scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0);
 
   const textSize =
@@ -26,7 +27,7 @@ function createScene(data) {
     scene
   );
   camera.attachControl(canvas, true);
-
+  camera.wheelPrecision = 20;
   // แสง
   const light = new BABYLON.HemisphericLight(
     "light",
@@ -256,20 +257,7 @@ function updateFunction(value) {
 //function get Base 64 to return into export
 function getBase(data, callback) {
   // set camera like createScene
-  let cameraView;
-  cameraView = scene.activeCamera;
-  if (!cameraView) {
-    cameraView = data.length + 5;
-  }
-  const camera = new BABYLON.ArcRotateCamera(
-    "camera",
-    -Math.PI / 2,
-    Math.PI / 2.2,
-    cameraView,
-    new BABYLON.Vector3(0, 0, 0)
-  );
-  camera.attachControl(canvas, true);
-  camera.wheelPrecision = 20;
+  let cameraView = scene.activeCamera;
 
   // don't do anything
   scene.onReadyObservable.addOnce(() => {
@@ -277,7 +265,7 @@ function getBase(data, callback) {
     // This screenshots only the ground
     BABYLON.Tools.CreateScreenshotUsingRenderTarget(
       engine,
-      camera,
+      cameraView,
       { width: 1920, height: 1080 },
       (dataURL) => {
         callback(dataURL);

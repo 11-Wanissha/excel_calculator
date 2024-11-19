@@ -8,7 +8,7 @@ const createScene = function (data) {
       P4: 0,
       Ra: 0,
       Rb: 0,
-      q: 0,
+      q: 0
     };
   }
   let cameraView;
@@ -27,6 +27,7 @@ const createScene = function (data) {
   }
   // This creates a basic Babylon Scene object (non-mesh)
   const scene = new BABYLON.Scene(engine);
+  engine.resize();
   scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0);
 
   const camera = new BABYLON.ArcRotateCamera(
@@ -132,32 +133,7 @@ function updateFunction(value) {
 //function get Base 64 to return into export
 function getBase(data, callback) {
   // set camera like createScene
-  let cameraView;
-  cameraView = scene.activeCamera;
-  if (!cameraView) {
-    if (data["B9"] > data["B10"]) {
-      if (data["B9"] >= 2) {
-        cameraView = data["B9"] * 6;
-      } else {
-        cameraView = 12;
-      }
-    } else {
-      if (data["B10"] >= 2) {
-        cameraView = data["B10"];
-      } else {
-        cameraView = 12;
-      }
-    }
-  }
-  const camera = new BABYLON.ArcRotateCamera(
-    "camera",
-    -Math.PI / 2,
-    Math.PI / 2.2,
-    cameraView,
-    new BABYLON.Vector3(0, 0, 0)
-  );
-  camera.attachControl(canvas, true);
-  camera.wheelPrecision = 20;
+  let cameraView = scene.activeCamera;
 
   // don't do anything
   scene.onReadyObservable.addOnce(() => {
@@ -165,7 +141,7 @@ function getBase(data, callback) {
     // This screenshots only the ground
     BABYLON.Tools.CreateScreenshotUsingRenderTarget(
       engine,
-      camera,
+      cameraView,
       { width: 1920, height: 1080 },
       (dataURL) => {
         callback(dataURL);
@@ -177,9 +153,9 @@ function getBase(data, callback) {
 function reGenerate(response) {
   let value = {
     H: document.getElementById("B9").value,
-    L: response['B10'],
+    L: response["B10"],
     d: document.getElementById("B12").value,
-    D: response['B13'],
+    D: response["B13"]
   };
   scene.dispose();
   scene = createScene(value);

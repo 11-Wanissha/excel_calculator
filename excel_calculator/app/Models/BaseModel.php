@@ -6,8 +6,10 @@ abstract class BaseModel
 {
     protected $formProperties = [];
     protected $requiredFields = [];
-    protected $inputPrefix = 'Please fill up ';
-    protected $selectPrefix = 'Please select ';
+    protected array $importFields = [];
+    protected string $inputPrefix = 'Please fill up ';
+    protected string $selectPrefix = 'Please select ';
+    protected string $defaultExportName = 'report';
 
     public function getFormProperties()
     {

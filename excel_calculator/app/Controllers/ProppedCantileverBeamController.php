@@ -687,30 +687,6 @@ class ProppedCantileverBeamController extends BaseController
     // Implement import functionality here
   }
 
-  // public function calculated3D()
-  // {
-  //   $req = $this->request->getJSON(true);
-  //   $res = [];
-  //   try {
-  //      // Point loads: ULS P1------------------------------------/////
-  //      $res['C26'] = isset($req['C18']) ? $req['C18'] * 1.35 : throw new \ErrorException("error");
-  //      $res['D26'] = isset($req['C18']) && isset($req['D18']) ? $req['C18'] * 1.2 + 1.5 * $req['D18'] : throw new \ErrorException("error");
-  //      $res['E26'] = isset($req['D18']) && isset($req['E18']) && isset($req['C11']) ? $req['D18'] * 1.2 + 1.5 * $req['C11'] * $req['E18'] : throw new \ErrorException("error");
-  //      $res['F26'] = isset($req['C18']) && isset($req['E18']) && isset($req['D18']) && isset($req['C12']) ? 1.2 * $req['C18'] + $req['C12'] * $req['D18'] + $req['E18'] : throw new \ErrorException("error");
-  //      $res['G26'] = isset($req['C18']) && isset($req['E18']) ? 0.9 * $req['C18'] + $req['E18'] : throw new \ErrorException("error");
-  //      $res['H26'] = isset($req['C18']) && isset($req['F18']) && isset($req['D18']) && isset($req['C13']) ? $req['C18'] + $req['C13'] * $req['D18'] + $req['F18'] : throw new \ErrorException("error");
-  //      $res['I26'] = isset($req['C18']) && isset($req['G18']) && isset($req['D18']) && isset($req['C12']) ? 1.2 * $req['C18'] + $req['C12'] * $req['D18'] + $req['G18'] : throw new \ErrorException("error");
-  //      $res['J26'] = max($res['C26'], $res['D26'], $res['E26'], $res['F26'], $res['G26'], $res['H26'], $res['I26']);
-
-
-
-  //     return $this->response->setJSON($res);
-  //   } catch (\ErrorException $e) {
-  //     return $this->response->setStatusCode(400, $e->getMessage());
-  //   }
-
-
-  // }
 
   public function export()
   {

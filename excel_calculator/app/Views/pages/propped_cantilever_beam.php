@@ -25,7 +25,6 @@ echo view("/main/main_page", [
                 q: 0   // Placeholder for actual calculation
             };
 
-            console.log(data);
 
             // Uncomment this line if updateFunction is defined
             updateFunction(data);
@@ -41,7 +40,6 @@ echo view("/main/main_page", [
         createChart('myChartShear', 'U', 'Y', 'Shear (kN)', response); // กราฟ Shear
         createChart('myChartDeflection', 'V', 'Z', 'Deflection (mm)', response); // กราฟ Deflection
 
-        console.log(response);
     }
 
     function createChart(chartId, ulsKey, slsKey, title, response) {

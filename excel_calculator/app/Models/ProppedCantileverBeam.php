@@ -261,43 +261,43 @@ class ProppedCantileverBeam
                                                 ),
                                                 'C25' => array(
                                                     [
-                                                        'text' => '<input type="number"  step="any"  class="form-control" id="C26" name="C26" value="" disabled /',
+                                                        'text' => '<p id="C26" name="C26">0</p>',
                                                         
                                                     ]
                                                 ),
                                                 'D25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="D26" name="D26" value="" disabled /',
+                                                        'text' => '<p id="D26" name="D26">0</p>',
                                                     ]
                                                 ),
                                                 'E25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="E26" name="E26" value="" disabled /',
+                                                        'text' => '<p id="E26" name="E26">0</p>',
                                                     ]
                                                 ),
                                                 'F25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F26" name="F26" value="" disabled /',
+                                                        'text' => '<p id="F26" name="F26">0</p>',
                                                     ]
                                                 ),
                                                 'G25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G26" name="G26" value="" disabled /',
+                                                        'text' => '<p id="G26" name="G26">0</p>',
                                                     ]
                                                 ),
                                                 'H25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H26" name="H26" value="" disabled /',
+                                                        'text' => '<p id="H26" name="H26">0</p>',
                                                     ]
                                                 ),
                                                 'I25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I26" name="I26" value="" disabled /',
+                                                        'text' => '<p id="I26" name="I26">0</p>',
                                                     ]
                                                 ),
                                                 'J25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J26" name="J26" value="" disabled /',
+                                                        'text' => '<p id="J26" name="J26">0</p>',
                                                     ]
                                                 ),
                                             ],
@@ -309,42 +309,42 @@ class ProppedCantileverBeam
                                                 ),
                                                 'C25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="C27" name="C27" value="" disabled /',
+                                                        'text' => '<p id="C27" name="C27">0</p>',
                                                     ]
                                                 ),
                                                 'D25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="D27" name="D27" value="" disabled  /',
+                                                        'text' => '<p id="D27" name="D27">0</p>',
                                                     ]
                                                 ),
                                                 'E25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="E27" name="E27" value="" disabled /',
+                                                        'text' => '<p id="E27" name="E27">0</p>',
                                                     ]
                                                 ),
                                                 'F25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F27" name="F27" value="" disabled /',
+                                                        'text' => '<p id="F27" name="F27">0</p>',
                                                     ]
                                                 ),
                                                 'G25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G27" name="G27" value="" disabled /',
+                                                        'text' => '<p id="G27" name="G27">0</p>',
                                                     ]
                                                 ),
                                                 'H25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H27" name="H27" value="" disabled /',
+                                                        'text' => '<p id="H27" name="H27">0</p>',
                                                     ]
                                                 ),
                                                 'I25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I27" name="I27" value="" disabled /',
+                                                        'text' => '<p id="I27" name="I27">0</p>',
                                                     ]
                                                 ),
                                                 'J25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J27" name="J27" value="" disabled /',
+                                                        'text' => '<p id="J27" name="J27">0</p>',
                                                     ]
                                                 ),
                                             ],
@@ -356,42 +356,42 @@ class ProppedCantileverBeam
                                                 ),
                                                 'C25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="C28" name="C28" value="" disabled /',
+                                                        'text' => '<p id="C28" name="C28">0</p>',
                                                     ]
                                                 ),
                                                 'D25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="D28" name="D28" value="" disabled /',
+                                                        'text' => '<p id="D28" name="D28">0</p>',
                                                     ]
                                                 ),
                                                 'E25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="E28" name="E28" value="" disabled /',
+                                                        'text' => '<p id="E28" name="E28">0</p>',
                                                     ]
                                                 ),
                                                 'F25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F28" name="F28" value="" disabled /',
+                                                        'text' => '<p id="F28" name="F28">0</p>',
                                                     ]
                                                 ),
                                                 'G25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G28" name="G28" value="" disabled /',
+                                                        'text' => '<p id="G28" name="G28">0</p>',
                                                     ]
                                                 ),
                                                 'H25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H28" name="H28" value="" disabled /',
+                                                        'text' => '<p id="H28" name="H28">0</p>',
                                                     ]
                                                 ),
                                                 'I25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I28" name="I28" value="" disabled /',
+                                                        'text' => '<p id="I28" name="I28">0</p>',
                                                     ]
                                                 ),
                                                 'J25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J28" name="J28" value="" disabled /',
+                                                        'text' => '<p id="J28" name="J28">0</p>',
                                                     ]
                                                 ),
                                             ],
@@ -403,42 +403,42 @@ class ProppedCantileverBeam
                                                 ),
                                                 'C25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="C29" name="C29" value="" disabled /',
+                                                        'text' => '<p id="C29" name="C29">0</p>',
                                                     ]
                                                 ),
                                                 'D25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="D29" name="D29" value="" disabled /',
+                                                        'text' => '<p id="D29" name="D29">0</p>',
                                                     ]
                                                 ),
                                                 'E25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="E29" name="E29" value="" disabled /',
+                                                        'text' => '<p id="E29" name="E29">0</p>',
                                                     ]
                                                 ),
                                                 'F25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F29" name="F29" value="" disabled /',
+                                                        'text' => '<p id="F29" name="F29">0</p>',
                                                     ]
                                                 ),
                                                 'G25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G29" name="G29" value="" disabled /',
+                                                        'text' => '<p id="G29" name="G29">0</p>',
                                                     ]
                                                 ),
                                                 'H25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H29" name="H29" value="" disabled /',
+                                                        'text' => '<p id="H29" name="H29">0</p>',
                                                     ]
                                                 ),
                                                 'I25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I29" name="I29" value="" disabled /',
+                                                        'text' => '<p id="I29" name="I29">0</p>',
                                                     ]
                                                 ),
                                                 'J25' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J29" name="J29" value="" disabled /',
+                                                        'text' => '<p id="J29" name="J29">0</p>',
                                                     ]
                                                 ),
                                             ],
@@ -668,42 +668,42 @@ class ProppedCantileverBeam
                                                 ),
                                                 'C46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="C47" name="C47" value="" disabled /',
+                                                        'text' => '<p id="C47" name="C47">0</p>',
                                                     ]
                                                 ),
                                                 'D46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="D47" name="D47" value="" disabled /',
+                                                        'text' => '<p id="D47" name="D47">0</p>',
                                                     ]
                                                 ),
                                                 'E46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="E47" name="E47" value="" disabled /',
+                                                        'text' => '<p id="E47" name="E47">0</p>',
                                                     ]
                                                 ),
                                                 'F46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="F47" name="F47" value="" disabled /',
+                                                        'text' => '<p id="F47" name="F47">0</p>',
                                                     ]
                                                 ),
                                                 'G46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="G47" name="G47" value="" disabled /',
+                                                        'text' => '<p id="G47" name="G47">0</p>',
                                                     ]
                                                 ),
                                                 'H46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="H47" name="H47" value="" disabled /',
+                                                        'text' => '<p id="H47" name="H47">0</p>',
                                                     ]
                                                 ),
                                                 'I46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="I47" name="I47" value="" disabled /',
+                                                        'text' => '<p id="I47" name="I47">0</p>',
                                                     ]
                                                 ),
                                                 'J46' => array(
                                                     [
-                                                        'text' => '<input type="number" step="any"  class="form-control" id="J47" name="J47" value="" disabled /',
+                                                        'text' => '<p id="J47" name="J47">0</p>',
                                                     ]
                                                 ),
                                             ],

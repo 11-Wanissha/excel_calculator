@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\TimberBeam;
+use Exception;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx as Reader;
 
 class TimberBeamController extends BaseController
@@ -467,11 +468,15 @@ class TimberBeamController extends BaseController
 
   public function export()
   {
-    $req = $this->request->getJSON(true);
-    $model = new TimberBeam();
-    $title = isset($req['C8']) ? $req['C8'] : '';
-    $exportResult = $this->defaultExportInterface($model->getFromProperties(), $req, "timber-beam-report{$title}");
+    try {
+      $req = $this->request->getJSON(true);
+      $model = new TimberBeam();
+      $title = isset($req['C8']) ? $req['C8'] : '';
+      $exportResult = $this->defaultExportInterface($model->getFromProperties(), $req, "timber-beam-report{$title}");
 
-    return $this->response->setJSON($exportResult);
+      return $this->response->setJSON($exportResult);
+    } catch (Exception $e) {
+      return $this->response->setStatusCode(400)->setJSON(['error' => $e->getMessage()]);
+    }
   }
 }

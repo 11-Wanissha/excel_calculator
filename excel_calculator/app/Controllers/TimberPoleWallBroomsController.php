@@ -62,11 +62,9 @@ class TimberPoleWallBroomsController extends BaseController
         $F37 = $C37 * $req['B9'] / 2;
 
         $res['C34'] = $req['B20'] * ($C32 + $C33) * $req['B11'];
-        if ($res['B22'] !== "NAN!")
-            $res['C38'] = ($C37 + $C36) * $req['B11'];
+        $res['C38'] = $res['B22'] !== "NAN!" ? ($C37 + $C36) * $req['B11'] : "NAN!";
         $res['F34'] = $req['B20'] * ($F32 + $F33) * $req['B11'];
-        if ($res['B22'] !== "NAN!")
-            $res['F38'] = ($F37 + $F36) * $req['B11'];
+        $res['F38'] = $res['B22'] !== "NAN!" ? ($F37 + $F36) * $req['B11'] : "NAN!";
         //clear memory
         $C32 = null;
         $C33 = null;
@@ -107,18 +105,13 @@ class TimberPoleWallBroomsController extends BaseController
         $res['D52'] = $res['C34'] * ($res['D45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['D49']);
         $res['B10'] = round($res['D51'], 2);
         //calculated  Seismic
-        if ($res['B22'] !== "NAN!")
-            $res['F45'] = $res['F38'] / $res['C38'];
+        $res['F45'] = $res['B22'] !== "NAN!" ? $res['F38'] / $res['C38'] : "NAN!";
         $res['F46'] = $req['B11'] / $res['B13'] * 1000;
         $res['F48'] = 1.5 * $res['B13'] / 1000;
-        if ($res['B22'] !== "NAN!")
-            $res['F49'] = $res['C38'] / (9 * $req['B16'] * $res['B13'] * $res['F47'] / 1000);
-        if ($res['B22'] !== "NAN!")
-            $res['F50'] = pow($res['C38'] * ($res['F45'] + $res['F48'] + 0.5 * $res['F49']) / (2.25 * $res['B13'] / 1000 * $req['B16'] * $res['F47']), 0.5);
-        if ($res['B22'] !== "NAN!")
-            $res['F51'] = $res['F48'] + $res['F49'] + $res['F50'];
-        if ($res['B22'] !== "NAN!")
-            $res['F52'] = $res['C38'] * ($res['F45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['F49']);
+        $res['F49'] = $res['B22'] !== "NAN!" ? $res['C38'] / (9 * $req['B16'] * $res['B13'] * $res['F47'] / 1000) : "NAN!";
+        $res['F50'] = $res['B22'] !== "NAN!" ? pow($res['C38'] * ($res['F45'] + $res['F48'] + 0.5 * $res['F49']) / (2.25 * $res['B13'] / 1000 * $req['B16'] * $res['F47']), 0.5) : "NAN!";
+        $res['F51'] = $res['B22'] !== "NAN!" ? $res['F48'] + $res['F49'] + $res['F50'] : "NAN!";
+        $res['F52'] = $res['B22'] !== "NAN!" ? $res['C38'] * ($res['F45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['F49']) : "NAN!";
         foreach ($res as $key => $val) {
             if (is_numeric($val)) {
                 $res[$key] = number_format((float) $val, 2, '.', '');
@@ -214,11 +207,9 @@ class TimberPoleWallBroomsController extends BaseController
         $F37 = $C37 * $req['B9'] / 2;
 
         $res['C34'] = $req['B20'] * ($C32 + $C33) * $req['B11'];
-        if ($res['B22'] !== "NAN!")
-            $res['C38'] = ($C37 + $C36) * $req['B11'];
+        $res['C38'] = $res['B22'] !== "NAN!" ? ($C37 + $C36) * $req['B11'] : "NAN!";
         $res['F34'] = $req['B20'] * ($F32 + $F33) * $req['B11'];
-        if ($res['B22'] !== "NAN!")
-            $res['F38'] = ($F37 + $F36) * $req['B11'];
+        $res['F38'] = $res['B22'] !== "NAN!" ? ($F37 + $F36) * $req['B11'] : "NAN!";
         //clear memory
         $C32 = null;
         $C33 = null;
@@ -284,23 +275,17 @@ class TimberPoleWallBroomsController extends BaseController
         $res['D51'] = $res['D48'] + $res['D49'] + $res['D50'];
         $res['D52'] = $res['C34'] * ($res['D45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['D49']);
         //calculated  Seismic
-        if ($res['B22'] !== "NAN!")
-            $res['F45'] = $res['F38'] / $res['C38'];
+        $res['F45'] = $res['B22'] !== "NAN!" ? $res['F38'] / $res['C38'] : "NAN!";
         $res['F46'] = $req['B11'] / $res['B13'] * 1000;
         $res['F48'] = 1.5 * $res['B13'] / 1000;
-        if ($res['B22'] !== "NAN!")
-            $res['F49'] = $res['C38'] / (9 * $req['B16'] * $res['B13'] * $res['F47'] / 1000);
-        if ($res['B22'] !== "NAN!")
-            $res['F50'] = pow($res['C38'] * ($res['F45'] + $res['F48'] + 0.5 * $res['F49']) / (2.25 * $res['B13'] / 1000 * $req['B16'] * $res['F47']), 0.5);
-        if ($res['B22'] !== "NAN!")
-            $res['F51'] = $res['F48'] + $res['F49'] + $res['F50'];
-        if ($res['B22'] !== "NAN!")
-            $res['F52'] = $res['C38'] * ($res['F45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['F49']);
+        $res['F49'] = $res['B22'] !== "NAN!" ? $res['C38'] / (9 * $req['B16'] * $res['B13'] * $res['F47'] / 1000) : "NAN!";
+        $res['F50'] = $res['B22'] !== "NAN!" ? pow($res['C38'] * ($res['F45'] + $res['F48'] + 0.5 * $res['F49']) / (2.25 * $res['B13'] / 1000 * $req['B16'] * $res['F47']), 0.5) : "NAN!";
+        $res['F51'] = $res['B22'] !== "NAN!" ? $res['F48'] + $res['F49'] + $res['F50'] : "NAN!";
+        $res['F52'] = $res['B22'] !== "NAN!" ? $res['C38'] * ($res['F45'] + 1.5 * $res['B13'] / 1000 + 0.5 * $res['F49']) : "NAN!";
 
         $res['B10'] = round($res['D51'], 2);
         $res['I40'] = $res['E40'] > $res['D52'] ? 'OK!' : 'NG!';
-        if ($res['B22'] !== "NAN!")
-            $res['I41'] = $res['E41'] > $res['F52'] ? 'OK!' : 'NG!';
+        $res['I41'] = $res['B22'] !== "NAN!" ? $res['E41'] > $res['F52'] ? 'OK!' : 'NG!' : "NAN!";
         //calculated Check timber rails
         $model = new TimberPoleWallBrooms();
         $res['F56'] = $model->getValue($req['B57'], $req['B56']);
@@ -309,8 +294,7 @@ class TimberPoleWallBroomsController extends BaseController
         if ($res['B22'] !== "NAN!")
             $E60 = $res['B59'] * $req['B15'] * $res['B22'] + $req['B17'] * $res['B22'];
         $res['G59'] = round($E59 * pow($req['B11'], 2) / 8, 1);
-        if ($res['B22'] !== "NAN!")
-            $res['G60'] = round($E60 * pow($req['B11'], 2) / 8, 1);
+        $res['G60'] = $res['B22'] !== "NAN!" ? round($E60 * pow($req['B11'], 2) / 8, 1) : "NAN!";
         $E59 = null;
         $E60 = null;
         $E63 = $req['B20'] * ($req['B63'] * $res['B21'] * $req['B15'] + $req['B17'] * $res['B21']);
@@ -320,11 +304,9 @@ class TimberPoleWallBroomsController extends BaseController
         if ($res['B22'] !== "NAN!")
             $E68 = $req['B67'] * $req['B15'] * $res['B22'] + $req['B17'] * $res['B22'];
         $res['G63'] = round($E63 * pow($req['B11'], 2) / 8, 1);
-        if ($res['B22'] !== "NAN!")
-            $res['G64'] = round($E64 * pow($req['B11'], 2) / 8, 1);
+        $res['G64'] = $res['B22'] !== "NAN!" ? round($E64 * pow($req['B11'], 2) / 8, 1) : "NAN!";
         $res['G67'] = round($E67 * pow($req['B11'], 2) / 8, 1);
-        if ($res['B22'] !== "NAN!")
-            $res['G68'] = round($E68 * pow($req['B11'], 2) / 8, 1);
+        $res['G68'] = $res['B22'] !== "NAN!" ? round($E68 * pow($req['B11'], 2) / 8, 1) : "NAN!";
         $E63 = null;
         $E64 = null;
         $E67 = null;
@@ -338,21 +320,15 @@ class TimberPoleWallBroomsController extends BaseController
             $res['I67'] = $model->getValueDataset($req['E69'], 1);
             $res['I68'] = $model->getValueDataset($req['E69'], 0);
             $res['K59'] = $res['I59'] > $res['G59'] ? 'OK!' : 'NG!';
-            if ($res['B22'] !== "NAN!")
-                $res['K60'] = $res['I60'] > $res['G60'] ? 'OK!' : 'NG!';
+            $res['K60'] = $res['B22'] !== "NAN!" ? $res['I60'] > $res['G60'] ? 'OK!' : 'NG!' : "NAN!";
             $res['K63'] = $res['I63'] > $res['G63'] ? 'OK!' : 'NG!';
-            if ($res['B22'] !== "NAN!")
-                $res['K64'] = $res['I64'] > $res['G64'] ? 'OK!' : 'NG!';
+            $res['K64'] = $res['B22'] !== "NAN!" ? $res['I64'] > $res['G64'] ? 'OK!' : 'NG!' : "NAN!";
             $res['K67'] = $res['I67'] > $res['G67'] ? 'OK!' : 'NG!';
-            if ($res['B22'] !== "NAN!")
-                $res['K68'] = $res['I68'] > $res['G68'] ? 'OK!' : 'NG!';
+            $res['K68'] = $res['B22'] !== "NAN!" ? $res['I68'] > $res['G68'] ? 'OK!' : 'NG!' : "NAN!";
             $model = null;
         } else {
             return $this->response->setStatusCode(400)->setJSON(['error' => "Can't Calculated Check timber rail"]);
         }
-        $res['B21'] = round($res['B21'], 2);
-        if ($res['B22'] !== "NAN!")
-            $res['B22'] = round($res['B22'], 2);
         foreach ($res as $key => $val) {
             if (is_numeric($val)) {
                 $res[$key] = number_format((float) $val, 2, '.', '');

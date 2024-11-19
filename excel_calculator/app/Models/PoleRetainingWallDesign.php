@@ -11,7 +11,7 @@ class PoleRetainingWallDesign extends BaseModel
             'url' => '/pole-retaining-wall-design',
             'importUrl' => '/pole-retaining-wall-design-import',
             'exportUrl' => '/pole-retaining-wall-design-export',
-            'lastIndex' => 7,
+            'show' => [1, 2, 5, 6 ,7, 8, 12],
             'secTion' => array(
                 [
                     'menu' => array(
@@ -27,19 +27,19 @@ class PoleRetainingWallDesign extends BaseModel
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Wall height',
+                                    'label' => 'Wall height (H<sub>w</sub>)',
                                     'id' => 'B10',
                                     'name' => 'B10',
                                     'unit' => 'm',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Pole spacing',
+                                    'label' => 'Pole spacing (L<sub>s</sub>)',
                                     'id' => 'B11',
                                     'name' => 'B11',
                                     'unit' => 'm',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
@@ -47,7 +47,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'id' => 'B12',
                                     'name' => 'B12',
                                     'unit' => 'degree',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
@@ -55,63 +55,132 @@ class PoleRetainingWallDesign extends BaseModel
                                     'id' => 'B13',
                                     'name' => 'B13',
                                     'unit' => 'degree',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Inactive zone',
+                                    'label' => 'Inactive zone (e<sub>0</sub>)',
                                     'id' => 'B14',
                                     'name' => 'B14',
                                     'unit' => 'm',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Surcharge',
+                                    'label' => 'Surcharge (ω)',
                                     'id' => 'B15',
                                     'name' => 'B15',
                                     'unit' => 'kPa',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Distance to surcharge',
+                                    'label' => 'Distance to surcharge (L<sub>w</sub>)',
                                     'id' => 'B16',
                                     'name' => 'B16',
                                     'unit' => 'm',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
-                                    'inputType' => 'text',
-                                    'label' => 'Diameter of timber pole',
+                                    'inputType' => 'dropdown',
+                                    'label' => 'Diameter of timber pole (d)',
                                     'id' => 'B17',
                                     'name' => 'B17',
-                                    'unit' => 'mm',
-                                    'type' => 'number',
+                                    'selectOption' => '200',
+                                    'option' => array(
+                                        [
+                                            'optionName' => '0',
+                                            'value' => '0',
+                                        ],
+                                        [
+                                            'optionName' => '150 mm',
+                                            'value' => '150'
+                                        ],
+                                        [
+                                            'optionName' => '175 mm',
+                                            'value' => '175'
+                                        ],
+                                        [
+                                            'optionName' => '200 mm',
+                                            'value' => '200'
+                                        ],
+                                        [
+                                            'optionName' => '225 mm',
+                                            'value' => '225'
+                                        ],
+                                        [
+                                            'optionName' => '250 mm',
+                                            'value' => '250'
+                                        ],
+                                        [
+                                            'optionName' => '275 mm',
+                                            'value' => '275'
+                                        ],
+                                        [
+                                            'optionName' => '300 mm',
+                                            'value' => '300'
+                                        ],
+                                        [
+                                            'optionName' => '325 mm',
+                                            'value' => '325'
+                                        ],
+                                        [
+                                            'optionName' => '350 mm',
+                                            'value' => '350'
+                                        ],
+                                        [
+                                            'optionName' => '375 mm',
+                                            'value' => '375'
+                                        ],
+                                        [
+                                            'optionName' => '400 mm',
+                                            'value' => '400'
+                                        ],
+                                        [
+                                            'optionName' => '425 mm',
+                                            'value' => '425'
+                                        ],
+                                        [
+                                            'optionName' => '450 mm',
+                                            'value' => '450'
+                                        ],
+                                        [
+                                            'optionName' => '500 mm',
+                                            'value' => '500'
+                                        ],
+                                        [
+                                            'optionName' => '550 mm',
+                                            'value' => '550'
+                                        ],
+                                        [
+                                            'optionName' => '600 mm',
+                                            'value' => '600'
+                                        ],
+                                    )
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Diameter of concrete',
+                                    'label' => 'Diameter of concrete (D)',
                                     'id' => 'B18',
                                     'name' => 'B18',
                                     'unit' => 'mm',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Depth of rotation',
+                                    'label' => 'Depth of rotation (Z<sub>0</sub>)',
                                     'id' => 'B19',
                                     'name' => 'B19',
                                     'unit' => 'm',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'label' => 'Soil unit weight',
+                                    'label' => 'Soil unit weight (Y<sub>soil</sub>)',
                                     'id' => 'B20',
                                     'name' => 'B20',
                                     'unit' => 'kN/m<sup>3</sub>',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                             )
                         ],
@@ -142,102 +211,102 @@ class PoleRetainingWallDesign extends BaseModel
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Soil friction angle (degree)'
+                                                    'text' => 'Soil friction angle: φ (degree)'
                                                 ]
                                             ),
                                             'gravity' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B24" name="B24" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="B24" name="B24" value="0"  /',
                                                 ]
                                             ),
                                             'seismic' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H24" name="H24" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="H24" name="H24" value="0"  /',
                                                 ]
                                             )
                                         ],
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Soil shear strength (kPa)'
+                                                    'text' => 'Soil shear strength: S<sub>u</sub> (kPa)'
                                                 ]
                                             ),
                                             'gravity' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B25" name="B25" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="B25" name="B25" value="0"  /',
                                                 ]
                                             ),
                                             'seismic' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H25" name="H25" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="H25" name="H25" value="0"  /',
                                                 ]
                                             )
                                         ],
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Load factor for surcharge'
+                                                    'text' => 'Load factor for surcharge: α'
                                                 ]
                                             ),
                                             'gravity' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B26" name="B26" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="B26" name="B26" value="0"  /',
                                                 ]
                                             ),
                                             'seismic' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H26" name="H26" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="H26" name="H26" value="0"  /',
                                                 ]
                                             )
                                         ],
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Incorporate effect of backslope'
+                                                    'text' => 'Incorporate effect of backslope: K<sub>a</sub>/K<sub>ae</sub>'
                                                 ]
                                             ),
                                             'gravity' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B27" name="B27" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="B27" name="B27" value="0"  /',
                                                 ]
                                             ),
                                             'seismic' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any" disabled class="form-control" id="H27" name="H27" value="0.42"  /',
+                                                    'text' => '<input type="text" step="any" disabled class="form-control" id="H27" name="H27" value="0.42"  /',
                                                 ]
                                             )
                                         ],
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Passive resistance'
+                                                    'text' => 'Passive resistance: K<sub>p</sub>' 
                                                 ]
                                             ),
                                             'gravity' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B28" name="B28" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="B28" name="B28" value="0"  /',
                                                 ]
                                             ),
                                             'seismic' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H28" name="H28" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="H28" name="H28" value="0"  /',
                                                 ]
                                             )
                                         ],
                                         [
                                             'name' => array(
                                                 [
-                                                    'text' => 'Factor of Safety/Load factor'
+                                                    'text' => 'Factor of Safety/Load factor: FS/FS<sub>EQ</sub>'
                                                 ]
                                             ),
                                             'gravity' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="B29" name="B29" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="B29" name="B29" value="0"  /',
                                                 ]
                                             ),
                                             'seismic' => array(
                                                 [
-                                                    'text' => '<input type="number" step="any"  class="form-control" id="H29" name="H29" value="0"  /',
+                                                    'text' => '<input type="text" step="any"  class="form-control" id="H29" name="H29" value="0"  /',
                                                 ]
                                             )
                                         ]
@@ -249,7 +318,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'name' => 'B33',
                                     'unit' => 'm',
                                     'id' => 'B33',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'value' => '1',
                                 ],
                                 [
@@ -258,7 +327,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'name' => 'J33',
                                     'unit' => 'm',
                                     'id' => 'J33',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true
                                 ],
                                 [
@@ -267,7 +336,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'name' => 'F35',
                                     'unit' => 'm',
                                     'id' => 'F35',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true
                                 ],
                             ),
@@ -284,28 +353,28 @@ class PoleRetainingWallDesign extends BaseModel
                                             'name' => 'B39',
                                             'unit' => 'm',
                                             'id' => 'B39',
-                                            'type' => 'number'
+                                            'type' => 'text'
                                         ],
                                         [
                                             'inputType' => 'text',
                                             'label' => 'W<sub>d</sub>',
                                             'name' => 'B40',
                                             'id' => 'B40',
-                                            'type' => 'number'
+                                            'type' => 'text'
                                         ],
                                         [
                                             'inputType' => 'text',
                                             'label' => 'a<sub>max</sub>',
                                             'name' => 'B41',
                                             'id' => 'B41',
-                                            'type' => 'number'
+                                            'type' => 'text'
                                         ],
                                         [
                                             'inputType' => 'text',
                                             'label' => 'k<sub>h</sub>',
                                             'name' => 'B42',
                                             'id' => 'B42',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'disabled' => true
                                         ],
                                     )
@@ -318,7 +387,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'Slop of the wall',
                                             'name' => 'G39',
                                             'id' => 'G39',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'degree'
                                         ],
                                         [
@@ -326,7 +395,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'Angle of interface friction (active)',
                                             'name' => 'G40',
                                             'id' => 'G40',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'degree'
                                         ],
                                         [
@@ -334,7 +403,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'θ',
                                             'name' => 'G41',
                                             'id' => 'G41',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'disabled' => true,
                                             'unit' => 'degree'
                                         ],
@@ -347,7 +416,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'label' => 'Ψ', // required
                                     'name' => 'H45',
                                     'id' => 'H45',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true,
                                 ],
                                 [
@@ -355,7 +424,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'label' => 'K<sub>ae</sub>', // required
                                     'name' => 'H46',
                                     'id' => 'H46',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true,
                                 ],
                                 [
@@ -363,7 +432,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'label' => 'K<sub>aeh</sub>', // required
                                     'name' => 'H47',
                                     'id' => 'H47',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true,
                                 ],
                                 [
@@ -391,8 +460,8 @@ class PoleRetainingWallDesign extends BaseModel
                                         ],
                                         [
                                             'name' => array(['text' => '<span>M</span><sub>d</sub> (kN.m/m)']),
-                                            'gravity' => array(['text' => '<input type="number" disabled step="any"  class="form-control" id="B52" name="B52" value=""  /',]),
-                                            'seismic' => array(['text' => '<input type="number" disabled step="any"  class="form-control" id="H52" name="H52" value=""  /',])
+                                            'gravity' => array(['text' => '<input type="text" disabled step="any"  class="form-control" id="B52" name="B52" value=""  /',]),
+                                            'seismic' => array(['text' => '<input type="text" disabled step="any"  class="form-control" id="H52" name="H52" value=""  /',])
                                         ],
                                         [
                                             'name' => array(['text' => 'Restoring moment about base from passive soil pressure']),
@@ -401,8 +470,8 @@ class PoleRetainingWallDesign extends BaseModel
                                         ],
                                         [
                                             'name' => array(['text' => '<span>M</span><sub>r</sub> (kN.m/m)']),
-                                            'gravity' => array(['text' => '<input type="number" disabled step="any"  class="form-control" id="B56" name="B56" value=""  /',]),
-                                            'seismic' => array(['text' => '<input type="number" disabled step="any"  class="form-control" id="H56" name="H56" value=""  /',])
+                                            'gravity' => array(['text' => '<input type="text" disabled step="any"  class="form-control" id="B56" name="B56" value=""  /',]),
+                                            'seismic' => array(['text' => '<input type="text" disabled step="any"  class="form-control" id="H56" name="H56" value=""  /',])
                                         ],
                                         [
                                             'name' => array(['text' => 'Chech Factor of Safety']),
@@ -411,14 +480,14 @@ class PoleRetainingWallDesign extends BaseModel
                                         ],
                                         [
                                             'name' => array(['text' => 'FS / <span>FS</span><sub>EQ</sub>']),
-                                            'gravity' => array(['text' => '<input type="number" disabled step="any"  class="form-control" id="C59" name="C59" value=""  /',]),
-                                            'seismic' => array(['text' => '<input type="number" disabled step="any"  class="form-control" id="I59" name="I59" value=""  /',])
+                                            'gravity' => array(['text' => '<input type="text" disabled step="any"  class="form-control" id="C59" name="C59" value=""  /',]),
+                                            'seismic' => array(['text' => '<input type="text" disabled step="any"  class="form-control" id="I59" name="I59" value=""  /',])
                                         ],
                                     )
                                 ],
                                 [
                                     'inputType' => 'text',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'label' => 'Depth of Embedment',
                                     'disabled' => true,
                                     'id' => 'F61',
@@ -427,11 +496,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'slot' => 1,
                                 ]
                             )
-                        ]
-                    )
-                ],
-                [
-                    'menu' => array(
+                        ],
                         [
                             'menuTitle' => '4. Pole Demand',
                             'input' => array(
@@ -460,13 +525,13 @@ class PoleRetainingWallDesign extends BaseModel
                                         ],
                                         [
                                             'name' => array(['text' => 'Z<sub>bmax</sub> (m)']),
-                                            'gravity' => array(['text' => '<input type="number" step="any"  class="form-control" id="B72" name="B72" value=""  /',]),
-                                            'seismic' => array(['text' => '<input type="number" step="any"  class="form-control" id="H72" name="H72" value=""  /',])
+                                            'gravity' => array(['text' => '<input type="text" step="any"  class="form-control" id="B72" name="B72" value=""  /',]),
+                                            'seismic' => array(['text' => '<input type="text" step="any"  class="form-control" id="H72" name="H72" value=""  /',])
                                         ],
                                         [
                                             'name' => array(['text' => 'V<sub>bmax</sub> (kN/m)']),
-                                            'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="B75" name="B75" value=""  /',]),
-                                            'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="H75" name="H75" value=""  /',])
+                                            'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="B75" name="B75" value=""  /',]),
+                                            'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="H75" name="H75" value=""  /',])
                                         ],
                                         [
                                             'name' => array(['text' => 'Maximum Bending Moment in pole']),
@@ -475,13 +540,18 @@ class PoleRetainingWallDesign extends BaseModel
                                         ],
                                         [
                                             'name' => array(['text' => 'M* (kNm)']),
-                                            'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="B80" name="B80" value=""  /',]),
-                                            'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="H80" name="H80" value=""  /',])
+                                            'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="B80" name="B80" value=""  /',]),
+                                            'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="H80" name="H80" value=""  /',])
                                         ],
                                     )
                                 ]
                             )
                         ],
+                    )
+                ],
+                [
+                    'menu' => array(
+
                         [
                             'menuTitle' => '5. Timber Pole Strength',
                             'subMenu' => array(
@@ -493,7 +563,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'E',
                                             'id' => 'E93',
                                             'name' => 'E93',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'GPa',
                                             'disabled' => true
                                         ],
@@ -511,7 +581,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'Assessing deflection under unfactored soil load only',
                                             'id' => 'B95',
                                             'name' => 'B95',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'mm',
                                             'disabled' => true
                                         ],
@@ -520,7 +590,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => '% of H',
                                             'id' => 'E95',
                                             'name' => 'E95',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => '%',
                                             'disabled' => true
                                         ],
@@ -533,28 +603,28 @@ class PoleRetainingWallDesign extends BaseModel
                                     'label' => 'Reduction Factor (φ)',
                                     'id' => 'B84',
                                     'name' => 'B84',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
                                     'label' => 'Steaming factor (k<sub>21</sub>)',
                                     'id' => 'F84',
                                     'name' => 'F84',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
                                     'label' => 'k<sub>8</sub>',
                                     'id' => 'B85',
                                     'name' => 'B85',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
                                     'label' => 'Dry use factor (k<sub>22</sub>)',
                                     'id' => 'F85',
                                     'name' => 'F85',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'value' => '1',
                                     'readonly' => true
                                 ],
@@ -563,14 +633,14 @@ class PoleRetainingWallDesign extends BaseModel
                                     'label' => 'k<sub>1</sub> (Gravity Case)',
                                     'id' => 'J84',
                                     'name' => 'J84',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'text',
                                     'label' => 'k<sub>1</sub> (Seismic Case)',
                                     'id' => 'J85',
                                     'name' => 'J85',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                 ],
                                 [
                                     'inputType' => 'dropdown',
@@ -623,7 +693,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'label' => 'f<sub>b</sub>',
                                     'id' => 'F87',
                                     'name' => 'F87',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true,
                                     'unit' => 'MPa'
                                 ],
@@ -632,7 +702,7 @@ class PoleRetainingWallDesign extends BaseModel
                                     'label' => 'Pole diameter, d',
                                     'id' => 'J87',
                                     'name' => 'J87',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true,
                                     'unit' => 'mm',
                                     'slot' => 1,
@@ -657,8 +727,8 @@ class PoleRetainingWallDesign extends BaseModel
                                     'row' => array(
                                         [
                                             'name' => array(['text' => 'φM<sub>n</sub> (kMn)']),
-                                            'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="B90" name="B90" value=""  /',]),
-                                            'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="H90" name="H90" value=""  /',])
+                                            'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="B90" name="B90" value=""  /',]),
+                                            'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="H90" name="H90" value=""  /',])
                                         ],
                                     )
                                 ]
@@ -676,14 +746,14 @@ class PoleRetainingWallDesign extends BaseModel
                                             'id' => 'J98',
                                             'name' => 'J98',
                                             'value' => '1',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                         ],
                                         [
                                             'inputType' => 'text',
                                             'label' => '@H',
                                             'id' => 'B98',
                                             'name' => 'B98',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'm',
                                         ],
                                         [
@@ -708,7 +778,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'Thickness',
                                             'id' => 'B99',
                                             'name' => 'B99',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'mm',
                                         ],
                                         [
@@ -733,7 +803,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'f<sub>b</sub>',
                                             'id' => 'J99',
                                             'name' => 'J99',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'Mpa',
                                             'disabled' => true,
                                         ],
@@ -757,18 +827,18 @@ class PoleRetainingWallDesign extends BaseModel
                                             'row' => array(
                                                 [
                                                     'name' => array(['text' => 'w* (kN/m/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="D103" name="D103" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="J103" name="J103" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="D103" name="D103" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="J103" name="J103" value=""  /',])
                                                 ],
                                                 [
                                                     'name' => array(['text' => 'M* (kNm/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="D104" name="D104" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="J104" name="J104" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="D104" name="D104" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="J104" name="J104" value=""  /',])
                                                 ],
                                                 [
                                                     'name' => array(['text' => 'φM<sub>n</sub> (kNm/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="B105" name="B105" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="H105" name="H105" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="B105" name="B105" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="H105" name="H105" value=""  /',])
                                                 ],
                                             )
                                         ],
@@ -784,14 +854,14 @@ class PoleRetainingWallDesign extends BaseModel
                                             'id' => 'J107',
                                             'name' => 'J107',
                                             'value' => '2',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                         ],
                                         [
                                             'inputType' => 'text',
                                             'label' => '@H',
                                             'id' => 'B107',
                                             'name' => 'B107',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'm',
                                         ],
                                         [
@@ -816,7 +886,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'Thickness',
                                             'id' => 'B108',
                                             'name' => 'B108',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'mm',
                                         ],
                                         [
@@ -841,7 +911,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'f<sub>b</sub>',
                                             'id' => 'J108',
                                             'name' => 'J108',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'disabled' => true,
                                             'unit' => 'Mpa'
                                         ],
@@ -865,18 +935,18 @@ class PoleRetainingWallDesign extends BaseModel
                                             'row' => array(
                                                 [
                                                     'name' => array(['text' => 'w* (kN/m/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="D112" name="D112" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="J112" name="J112" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="D112" name="D112" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="J112" name="J112" value=""  /',])
                                                 ],
                                                 [
                                                     'name' => array(['text' => 'M* (kNm/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="D113" name="D113" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="J113" name="J113" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="D113" name="D113" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="J113" name="J113" value=""  /',])
                                                 ],
                                                 [
                                                     'name' => array(['text' => 'φM<sub>n</sub> (kNm/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="B114" name="B114" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="H114" name="H114" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="B114" name="B114" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="H114" name="H114" value=""  /',])
                                                 ],
                                             )
                                         ],
@@ -892,14 +962,14 @@ class PoleRetainingWallDesign extends BaseModel
                                             'id' => 'J116',
                                             'name' => 'J116',
                                             'value' => '3',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                         ],
                                         [
                                             'inputType' => 'text',
                                             'label' => '@H',
                                             'id' => 'B116',
                                             'name' => 'B116',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'm',
                                         ],
                                         [
@@ -924,7 +994,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'Thickness',
                                             'id' => 'B117',
                                             'name' => 'B117',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'mm',
                                         ],
                                         [
@@ -949,7 +1019,7 @@ class PoleRetainingWallDesign extends BaseModel
                                             'label' => 'f<sub>b</sub>',
                                             'id' => 'J117',
                                             'name' => 'J117',
-                                            'type' => 'number',
+                                            'type' => 'text',
                                             'unit' => 'Mpa',
                                             'disabled' => true,
                                         ],
@@ -973,18 +1043,18 @@ class PoleRetainingWallDesign extends BaseModel
                                             'row' => array(
                                                 [
                                                     'name' => array(['text' => 'w* (kN/m/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="D121" name="D121" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="J121" name="J121" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="D121" name="D121" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="J121" name="J121" value=""  /',])
                                                 ],
                                                 [
                                                     'name' => array(['text' => 'M* (kNm/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="D122" name="D122" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="J122" name="J122" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="D122" name="D122" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="J122" name="J122" value=""  /',])
                                                 ],
                                                 [
                                                     'name' => array(['text' => 'φM<sub>n</sub> (kNm/m)']),
-                                                    'gravity' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="B123" name="B123" value=""  /',]),
-                                                    'seismic' => array(['text' => '<input type="number" step="any" disabled class="form-control" id="H123" name="H123" value=""  /',])
+                                                    'gravity' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="B123" name="B123" value=""  /',]),
+                                                    'seismic' => array(['text' => '<input type="text" step="any" disabled class="form-control" id="H123" name="H123" value=""  /',])
                                                 ],
                                             )
                                         ],
@@ -993,10 +1063,10 @@ class PoleRetainingWallDesign extends BaseModel
                                 ]
                             )
                         ],
-                        // [
-                        //     'menuTitle' => '7. Graphic',
-                        //     'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
-                        // ]
+                        [
+                            'menuTitle' => '7. Graphic',
+                            'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
+                        ]
                     )
                 ]
             )

@@ -20,6 +20,7 @@ const createScene = function (
     " Roboto";
   // This creates a basic Babylon Scene object (non-mesh)
   const scene = new BABYLON.Scene(engine);
+  engine.resize();
   scene.clearColor = new BABYLON.Color4(0.051, 0.792, 0.941, 1.0);
 
   const camera = new BABYLON.ArcRotateCamera(

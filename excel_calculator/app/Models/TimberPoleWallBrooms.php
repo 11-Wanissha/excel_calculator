@@ -400,7 +400,7 @@ class TimberPoleWallBrooms
                                     'label' => 'Seismic pressure coefficient (K<sub>ae</sub>)', // required
                                     'id' => 'B22', // required
                                     'name' => 'B22',
-                                    'type' => 'number',
+                                    'type' => 'text',
                                     'disabled' => true,
                                     'slot' => 1,
                                 ],
