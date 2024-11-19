@@ -160,7 +160,7 @@ class PileCapacity
                                     'label' => 'Area steel',
                                     'id' => 'G25',
                                     'name' => 'G25',
-                                    'unit' => 'mm2',
+                                    'unit' => 'mm<sup>2</sup>',
                                     'type' => 'number',
                                     'disabled' => true
                                 ],
@@ -201,7 +201,7 @@ class PileCapacity
                                     'label' => 'Area spiral',
                                     'id' => 'G31',
                                     'name' => 'G31',
-                                    'unit' => 'mm^2',
+                                    'unit' => 'mm<sup>2</sup>',
                                     'type' => 'number',
                                     'disabled' => true,
                                 ],
@@ -297,648 +297,382 @@ class PileCapacity
                     'menu' => array(
                         [
                             'menuTitle' => '3. Check Pile Geotechnical Capacity',
-                            'subMenu' => array(
-                                [
-                                    'subMenuTitle' => '3.1 Pile Geotechnical Capacity',
-                                    'input' => array(
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'Pile end bearing capacity', // required
-                                            'id' => 'G35', // required
-                                            'name' => 'G35',
-                                            'type' => 'number',
-                                            'unit' => 'kN',
-                                            'value' => 0,
-                                            'disabled' => true,
-                                            'slot' => 1,
-                                        ],
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'Pile skin friction capacity', // required
-                                            'id' => 'G36', // required
-                                            'name' => 'G36',
-                                            'type' => 'number',
-                                            'unit' => 'kN',
-                                            'value' => 0,
-                                            'disabled' => true,
-                                            'slot' => 1,
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "kN·m",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'Total Pile Compression Capacity',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G38" name="G38">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p id="I38" name="I38">-</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "kN·m",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'Total Pile Tension Capacity',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G39" name="G39">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p id="I39" name="I39">-</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ]
-                                    ),
-                                ],
-                                [
-                                    'subMenuTitle' => '3.2 Pile Axial Capacity',
-                                    'input' => array(
-                                        (
-                                            [
-                                                'inputType' => 'table',
-                                                'slot' => 1,
-                                                'column' => array(
-                                                    [
-                                                        'id' => "mstatic",
-                                                        'label' => "Mstatic",
-                                                    ],
-                                                    [
-                                                        'id' => "Mn,static",
-                                                        'label' => "φMn,static",
-                                                        'unit' => "kN·m",
-                                                    ],
-                                                    [
-                                                        'id' => "ok",
-                                                        'label' => "OK/NOT OK",
-                                                    ],
-                                                ),
-                                                'row' => array(
-                                                    [
-                                                        'mstatic' => array(
-                                                            [
-                                                                'text' => 'Compression Capacity',
-                                                            ]
-                                                        ),
-                                                        'Mn,static' => array(
-                                                            [
-                                                                'text' => '<p id="G44" name="G44">0</p>',
-                                                            ]
-                                                        ),
-                                                        'ok' => array(
-                                                            [
-                                                                'text' => '<p id="I44" name="I44">-</p>',
-                                                            ]
-                                                        ),
-                                                    ],
-                                                )
-                                            ]
-                                        ),
-                                    )
-                                ],
-                                [
-                                    'subMenuTitle' => '3.3 Compression Capacity within PPHZ',
-                                    'input' => array(
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "-",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'ps (provided)',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G47" name="G47">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p id="I47" name="I47">-</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "-",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'pT (provided)',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G48" name="G48">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p id="I48" name="I48">-</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "-",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'ps min',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G49" name="G49">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p>as per 10.3.10.5.1 (a)</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "-",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'ps min',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G50" name="G50">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p>as per 10.3.10.5.1 (b)</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "-",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'pt min',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G51" name="G51">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p>as per 10.3.8.1</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "-",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'pt max',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G52" name="G52">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p>as per 14.3.6.6</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "-",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'pt max',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G53" name="G53">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p>as per 10.4.6.2</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "-",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'pt max',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G54" name="G54">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p>as per 10.4.6.2</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ],
-                                    )
-                                ],
-                                [
-                                    'subMenuTitle' => '3.4 Tension',
-                                    'input' => array(
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "kN·m",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'Tensile capacity',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G59" name="G59">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p id="I59" name="I59">-</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            )
-                                        ]
-                                    )
-                                ],
-                                [
-                                    'subMenuTitle' => '3.5 Pile shear capacity',
-                                    'input' => array(
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'Nominal shear stress', // required
-                                            'id' => 'G64', // required
-                                            'name' => 'G64',
-                                            'type' => 'number',
-                                            'unit' => 'MPa',
-                                            'value' => 0,
-                                            'disabled' => true,
-                                            'slot' => 1,
-                                        ],
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'Max nominal shear stress', // required
-                                            'id' => 'G65', // required
-                                            'name' => 'G65',
-                                            'type' => 'number',
-                                            'unit' => 'MPa',
-                                            'value' => 0,
-                                            'disabled' => true,
-                                            'slot' => 1,
-                                        ],
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'Shear resisted by concrete', // required
-                                            'id' => 'G66', // required
-                                            'name' => 'G66',
-                                            'type' => 'number',
-                                            'unit' => 'Kn',
-                                            'value' => 0,
-                                            'disabled' => true,
-                                            'slot' => 1,
-                                        ],
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'Shear resisted by reinforcing', // required
-                                            'id' => 'G67', // required
-                                            'name' => 'G67',
-                                            'type' => 'number',
-                                            'unit' => 'Kn',
-                                            'value' => 0,
-                                            'disabled' => true,
-                                            'slot' => 1,
-                                        ],
-                                        [
-                                            'inputType' => 'text',
-                                            'label' => 'Min shear reinforcement', // required
-                                            'id' => 'G69', // required
-                                            'name' => 'G69',
-                                            'type' => 'number',
-                                            'unit' => 'mm*2',
-                                            'value' => 0,
-                                            'disabled' => true,
-                                            'slot' => 1,
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "kN·m",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'Shear reinforcement provided',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G70" name="G70">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p id="I70" name="I70">-</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            ),
-                                        ],
-                                        [
-                                            'inputType' => 'table',
-                                            'slot' => 1,
-                                            'column' => array(
-                                                [
-                                                    'id' => "mstatic",
-                                                    'label' => "Mstatic",
-                                                ],
-                                                [
-                                                    'id' => "Mn,static",
-                                                    'label' => "φMn,static",
-                                                    'unit' => "kN·m",
-                                                ],
-                                                [
-                                                    'id' => "ok",
-                                                    'label' => "OK/NOT OK",
-                                                ],
-                                            ),
-                                            'row' => array(
-                                                [
-                                                    'mstatic' => array(
-                                                        [
-                                                            'text' => 'Section shear capacity',
-                                                        ]
-                                                    ),
-                                                    'Mn,static' => array(
-                                                        [
-                                                            'text' => '<p id="G71" name="G71">0</p>',
-                                                        ]
-                                                    ),
-                                                    'ok' => array(
-                                                        [
-                                                            'text' => '<p id="I71" name="I71">-</p>',
-                                                        ]
-                                                    ),
-                                                ],
-                                            ),
-                                        ],
-                                    )
-                                ]
-                            )
-                        ],
-                        [
-                            'menuTitle' => '4. Result',
                             'input' => array(
+                                [
+                                    'inputType' => 'text',
+                                    'label' => 'Pile end bearing capacity', // required
+                                    'id' => 'G35', // required
+                                    'name' => 'G35',
+                                    'type' => 'number',
+                                    'unit' => 'kN',
+                                    'value' => 0,
+                                    'disabled' => true,
+                                    'slot' => 1,
+                                ],
+                                [
+                                    'inputType' => 'text',
+                                    'label' => 'Pile skin friction capacity', // required
+                                    'id' => 'G36', // required
+                                    'name' => 'G36',
+                                    'type' => 'number',
+                                    'unit' => 'kN',
+                                    'value' => 0,
+                                    'disabled' => true,
+                                    'slot' => 1,
+                                ],
+                                [
+                                    'inputType' => 'table', //main
+                                    'slot' => 1,
+                                    'column' => array(
+                                        [
+                                            'id' => "name",
+                                            'label' => "name",
+                                        ],
+                                        [
+                                            'id' => "value",
+                                            'label' => "value",
+                                            'unit' => "kN/mm <sup>2</sup>",
+                                        ],
+                                        [
+                                            'id' => "ok",
+                                            'label' => "OK/NOT OK",
+                                        ],
+                                    ),
+                                    'row' => array(
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'Total Pile Compression Capacity',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G38" name="G38">0</p>',
+                                                ]
+                                            ),
+                                            'ok' => array(
+                                                [
+                                                    'text' => '<p id="I38" name="I38">-</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'Total Pile Tension Capacity',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G39" name="G39">0</p>',
+                                                ]
+                                            ),
+                                            'ok' => array(
+                                                [
+                                                    'text' => '<p id="I39" name="I39">-</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'Compression Capacity',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G44" name="G44">0</p>',
+                                                ]
+                                            ),
+                                            'ok' => array(
+                                                [
+                                                    'text' => '<p id="I44" name="I44">-</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'ps (provided)',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G47" name="G47">0</p>',
+                                                ]
+                                            ),
+                                            'ok' => array(
+                                                [
+                                                    'text' => '<p id="I47" name="I47">-</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'pT (provided)',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G48" name="G48">0</p>',
+                                                ]
+                                            ),
+                                            'ok' => array(
+                                                [
+                                                    'text' => '<p id="I48" name="I48">-</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'Tensile capacity',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G59" name="G59">0</p>',
+                                                ]
+                                            ),
+                                            'ok' => array(
+                                                [
+                                                    'text' => '<p id="I59" name="I59">-</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'Shear reinforcement provided (mm<sup>2</sup>)',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G70" name="G70">0</p>',
+                                                ]
+                                            ),
+                                            'ok' => array(
+                                                [
+                                                    'text' => '<p id="I70" name="I70">-</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'Section shear capacity',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G71" name="G71">0</p>',
+                                                ]
+                                            ),
+                                            'ok' => array(
+                                                [
+                                                    'text' => '<p id="I71" name="I71">-</p>',
+                                                ]
+                                            ),
+                                        ],
+                                    )
+                                ],
+                                [
+                                    'inputType' => 'table',
+                                    'slot' => 1,
+                                    'column' => array(
+                                        [
+                                            'id' => "name",
+                                            'label' => "Compression Capacity in PPHZ",
+                                        ],
+                                        [
+                                            'id' => "value",
+                                            'label' => "value",
+                                            'unit' => "-",
+                                        ],
+                                        [
+                                            'id' => "as per",
+                                            'label' => "as per",
+                                        ],
+                                    ),
+                                    'row' => array(
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'ps min',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G49" name="G49">0</p>',
+                                                ]
+                                            ),
+                                            'as per' => array(
+                                                [
+                                                    'text' => '<p>as per 10.3.10.5.1 (a)</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'ps min',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G50" name="G50">0</p>',
+                                                ]
+                                            ),
+                                            'as per' => array(
+                                                [
+                                                    'text' => '<p>as per 10.3.10.5.1 (b)</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'pt min',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G51" name="G51">0</p>',
+                                                ]
+                                            ),
+                                            'as per' => array(
+                                                [
+                                                    'text' => '<p>as per 10.3.8.1</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'pt max',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G52" name="G52">0</p>',
+                                                ]
+                                            ),
+                                            'as per' => array(
+                                                [
+                                                    'text' => '<p>as per 14.3.6.6</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'pt max',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G53" name="G53">0</p>',
+                                                ]
+                                            ),
+                                            'as per' => array(
+                                                [
+                                                    'text' => '<p>as per 10.4.6.2</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'pt max',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G54" name="G54">0</p>',
+                                                ]
+                                            ),
+                                            'as per' => array(
+                                                [
+                                                    'text' => '<p>as per 10.4.6.2</p>',
+                                                ]
+                                            ),
+                                        ],
+                                        [
+                                            'name' => array(
+                                                [
+                                                    'text' => 'pt max',
+                                                ]
+                                            ),
+                                            'value' => array(
+                                                [
+                                                    'text' => '<p id="G54" name="G54">0</p>',
+                                                ]
+                                            ),
+                                            'as per' => array(
+                                                [
+                                                    'text' => '<p>as per 10.4.6.2</p>',
+                                                ]
+                                            ),
+                                        ],
+                                    )
+                                ],
+
+                                [
+                                    'inputType' => 'text',
+                                    'label' => 'Nominal shear stress', // required
+                                    'id' => 'G64', // required
+                                    'name' => 'G64',
+                                    'type' => 'number',
+                                    'unit' => 'MPa',
+                                    'value' => 0,
+                                    'disabled' => true,
+                                    'slot' => 1,
+                                ],
+                                [
+                                    'inputType' => 'text',
+                                    'label' => 'Max nominal shear stress', // required
+                                    'id' => 'G65', // required
+                                    'name' => 'G65',
+                                    'type' => 'number',
+                                    'unit' => 'MPa',
+                                    'value' => 0,
+                                    'disabled' => true,
+                                    'slot' => 1,
+                                ],
+                                [
+                                    'inputType' => 'text',
+                                    'label' => 'Shear resisted by concrete', // required
+                                    'id' => 'G66', // required
+                                    'name' => 'G66',
+                                    'type' => 'number',
+                                    'unit' => 'Kn',
+                                    'value' => 0,
+                                    'disabled' => true,
+                                    'slot' => 1,
+                                ],
+                                [
+                                    'inputType' => 'text',
+                                    'label' => 'Shear resisted by reinforcing', // required
+                                    'id' => 'G67', // required
+                                    'name' => 'G67',
+                                    'type' => 'number',
+                                    'unit' => 'Kn',
+                                    'value' => 0,
+                                    'disabled' => true,
+                                    'slot' => 1,
+                                ],
+                                [
+                                    'inputType' => 'text',
+                                    'label' => 'Min shear reinforcement', // required
+                                    'id' => 'G69', // required
+                                    'name' => 'G69',
+                                    'type' => 'number',
+                                    'unit' => 'mm*2',
+                                    'value' => 0,
+                                    'disabled' => true,
+                                    'slot' => 1,
+                                ],
                                 [
                                     'inputType' => 'table',
                                     'slot' => 1,
@@ -986,6 +720,10 @@ class PileCapacity
                                     ),
                                 ]
                             )
+                        ],
+                        [
+                            'menuTitle' => '4. Graphic',
+                            'canvas' => '<canvas id="renderCanvas" touch-action="none"></canvas>',
                         ]
                     ),
                 ],
