@@ -17,13 +17,13 @@ class PoleRetainingWallDesignController extends BaseController
     public function renderer()
     {
 
-        return view('pages/pole_retaining_wall', [
+        return view('pages/pole_retaining_wall_design', [
             'formProperties' => $this->model->getFormProperties()
         ]);
     }
 
     public function calculator()
-    {   
+    {
         try {
             $req = $this->request->getPost();
             $validate = $this->model->validateRequiredFields($req);
@@ -108,24 +108,24 @@ class PoleRetainingWallDesignController extends BaseController
                 )
             ) * $res['B11'];
 
-            $res['F86'] = $res['C86'] == "peeling" ? 0.9 : ($res['C86'] == "shaving" ? 0.85 : 0);
+            $res['F86'] = $res['C86'] == "peeling" ? 0.9 : ($res['C86'] == "shaving" ? 0.85 : 'Specify method');
             $res['F87'] = $res['C87'] == "high" ? 52 : 38;
             $res['J87'] = $res['B17'];
-            $res['B90'] = $res['B84'] * $res['J84'] * $res['B85'] * $res['F86'] *
+            $res['B90'] = $res['F86'] === 'Specify method' ? 'NaN' : $res['B84'] * $res['J84'] * $res['B85'] * $res['F86'] *
                 $res['F84'] * $res['F85'] * $res['F87'] * 1000 * pi() *
                 pow(($res['J87'] / 1000), 3) / 32;
-            $res['H90'] = $res['B84'] * $res['J85'] * $res['B85'] * $res['F86'] *
+            $res['H90'] = $res['F86'] === 'Specify method' ? 'NaN' : $res['B84'] * $res['J85'] * $res['B85'] * $res['F86'] *
                 $res['F84'] * $res['F85'] * $res['F87'] * 1000 * pi() *
                 pow(($res['J87'] / 1000), 3) / 32;
 
             $res['E93'] = $res['C87'] == "high" ? 12.1 : 8.7;
 
-            $res['H93'] = $res['C86'] == "peeling" ? 1 : ($res['C86'] == "shaving" ? 0.95 : 0);
-            $res['B95'] = ($res['B27'] * $res['B20'] * $res['F35'] * $res['B11']) *
+            $res['H93'] = $res['C86'] == "peeling" ? 1 : ($res['C86'] == "shaving" ? 0.95 : 'Specify method');
+            $res['B95'] = $res['H93'] === 'Specify method' ? 'NaN' : ($res['B27'] * $res['B20'] * $res['F35'] * $res['B11']) *
                 pow(($res['F35'] * 1000), 4) /
                 (30 * $res['E93'] * 1000 * $res['H93'] * pi() *
                     pow(($res['B17'] / 2), 4) / 4);
-            $res['E95'] = $res['B95'] / ($res['F35'] * 1000) * 100;
+            $res['E95'] = is_numeric($res['B95']) ? $res['B95'] / ($res['F35'] * 1000) * 100 : 'NaN';
 
             /* ============================================= */
 
@@ -206,6 +206,9 @@ class PoleRetainingWallDesignController extends BaseController
                     "");
 
             foreach ($res as $key => $val) {
+                if ($key == 'B17') {
+                    continue;
+                }
                 if (is_numeric($val)) {
                     $res[$key] = number_format((float) $val, 3, '.', '');
                 }
@@ -213,6 +216,7 @@ class PoleRetainingWallDesignController extends BaseController
 
             return $this->response->setJSON($res);
         } catch (Exception $e) {
+            log_message('DEBUG', $e->getMessage());
             return $this->response->setStatusCode(400)->setJSON(['error' => $e->getMessage()]);
         }
     }
