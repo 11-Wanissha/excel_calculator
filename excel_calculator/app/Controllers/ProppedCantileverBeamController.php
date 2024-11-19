@@ -114,7 +114,7 @@ class ProppedCantileverBeamController extends BaseController
       $res['D22any'] = $res['C52'];
       // distance
       for ($i = 6; $i <= 106; $i++) {
-        $res["P{$i}any"] = (string) $value; // เก็บค่าเป็น string
+        $pAny["P{$i}any"] = (string) $value; // เก็บค่าเป็น string
         $value++; // เพิ่มค่าทีละ 1
       }
       $res["Q6any"] = '0';
@@ -122,57 +122,57 @@ class ProppedCantileverBeamController extends BaseController
       // Distributed Loads P0
       $res["J7any"] = $req['C7any'] * 1000;
       for ($i = 8; $i <= 106; $i++) {
-        $res["Q{$i}any"] = round($res["Q7any"] * $res["P{$i}any"], 1);
+        $res["Q{$i}any"] = round($res["Q7any"] * $pAny["P{$i}any"], 1);
 
       }
       for ($i = 6; $i <= 106; $i++) {
-        $res["R{$i}any"] = $res["Q{$i}any"] * 1000; // เก็บค่าเป็น string
+        $rAny["R{$i}any"] = $res["Q{$i}any"] * 1000; // เก็บค่าเป็น string
 
       }
       //M ULS p0
       for ($i = 6; $i <= 106; $i++) {
-        $res["AC{$i}any"] = -((3 * $res['D21any'] * $req["C7any"] / 8) * ($req["C7any"] - $res["Q{$i}any"])
+        $acAny["AC{$i}any"] = -((3 * $res['D21any'] * $req["C7any"] / 8) * ($req["C7any"] - $res["Q{$i}any"])
           - ($res['D21any'] * pow($req["C7any"] - $res["Q{$i}any"], 2) / 2));
 
       }
       //V ULS p0
       for ($i = 6; $i <= 106; $i++) {
-        $res["AD{$i}any"] = -((-3 * $res['D21any'] * $req["C7any"] / 8) + $res['D21any'] * ($req["C7any"] - $res["Q{$i}any"]));
+        $adAny["AD{$i}any"] = -((-3 * $res['D21any'] * $req["C7any"] / 8) + $res['D21any'] * ($req["C7any"] - $res["Q{$i}any"]));
 
       }
       //D ULS p0
       for ($i = 6; $i <= 106; $i++) {
-        $res["AE{$i}any"] =
+        $aeAny["AE{$i}any"] =
           -(
-            $res['D21any'] * ($res['J7any'] - $res["R{$i}any"]) *
-            (pow($res['J7any'], 3) - 3 * $res['J7any'] * pow($res['J7any'] - $res["R{$i}any"], 2) + 2 * pow($res['J7any'] - $res["R{$i}any"], 3))
+            $res['D21any'] * ($res['J7any'] - $rAny["R{$i}any"]) *
+            (pow($res['J7any'], 3) - 3 * $res['J7any'] * pow($res['J7any'] - $rAny["R{$i}any"], 2) + 2 * pow($res['J7any'] - $rAny["R{$i}any"], 3))
           ) / (48 * $req['C8any'] * $req['C9any']);
 
       }
       //M SLS p0
       for ($i = 6; $i <= 106; $i++) {
-        $res["AG{$i}any"] = ($res['D21any'] == 0) ? 0 : $res["AC{$i}any"] * $res['D22any'] / $res['D21any'];
+        $agAny["AG{$i}any"] = ($res['D21any'] == 0) ? 0 : $acAny["AC{$i}any"] * $res['D22any'] / $res['D21any'];
 
       }
       //V SLS p0
       for ($i = 6; $i <= 106; $i++) {
-        $res["AH{$i}any"] = ($res['D21any'] == 0) ? 0 : $res["AD{$i}any"] * $res['D22any'] / $res['D21any'];
+        $ahAny["AH{$i}any"] = ($res['D21any'] == 0) ? 0 : $adAny["AD{$i}any"] * $res['D22any'] / $res['D21any'];
 
       }
       //D SLS p0
       for ($i = 6; $i <= 106; $i++) {
-        $res["AI{$i}any"] = ($res['D21any'] == 0) ? 0 : $res["AE{$i}any"] * $res['D22any'] / $res['D21any'];
+        $aiAny["AI{$i}any"] = ($res['D21any'] == 0) ? 0 : $aeAny["AE{$i}any"] * $res['D22any'] / $res['D21any'];
 
       }
 
       // Distributed Loads P1
-      $res["I14any"] = $res['F14any'] * 1000;
-      $res["I15any"] = $res['F15any'] * 1000;
-      $res["I16any"] = $res['F16any'] * 1000;
-      $res["I17any"] = $res['F17any'] * 1000;
+      $i14Any['I14any'] = $res['F14any'] * 1000;
+      $i15Any['I15any'] = $res['F15any'] * 1000;
+      $i16Any['I16any'] = $res['F16any'] * 1000;
+      $i17Any['I17any'] = $res['F17any'] * 1000;
       //M ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["AN{$i}any"] = -(
+        $anAny["AN{$i}any"] = -(
           ($res["Q{$i}any"] <= $req['E14any']) ?
           (
             (-$res['C14any'] * $res['F14any'] * (pow($req['C7any'], 2) - pow($res['F14any'], 2)) / (2 * pow($req['C7any'], 2))) +
@@ -189,7 +189,7 @@ class ProppedCantileverBeamController extends BaseController
 
       //V
       for ($i = 6; $i <= 106; $i++) {
-        $res["AO{$i}any"] = ($res["Q{$i}any"] <= $req['E14any'])
+        $aoAny["AO{$i}any"] = ($res["Q{$i}any"] <= $req['E14any'])
           ? -($res['C14any'] - $res['C14any'] * pow($req['E14any'], 2) * ($res['F14any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)))
           : ($res['C14any'] * pow($req['E14any'], 2) * ($res['F14any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)));
 
@@ -197,33 +197,33 @@ class ProppedCantileverBeamController extends BaseController
 
       //D
       for ($i = 6; $i <= 106; $i++) {
-        $res["AP{$i}any"] =
-          (($res['J7any'] - $res["R{$i}any"]) <= $res['I14any'])
+        $apAny["AP{$i}any"] =
+          (($res['J7any'] - $rAny["R{$i}any"]) <= $i14Any['I14any'])
           ? (
             (
-              ($res['C14any'] * $res['I14any'] * pow($res["R{$i}any"], 2) *
-                (2 * $res['J7any'] * pow($res['I14any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I14any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+              ($res['C14any'] * $i14Any['I14any'] * pow($rAny["R{$i}any"], 2) *
+                (2 * $res['J7any'] * pow($i14Any['I14any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]) + pow($i14Any['I14any'], 2) * ($res['J7any'] - $rAny["R{$i}any"])))
               / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
             ) + (
-              -$res['C14any'] * pow(($res['I14any'] - ($res['J7any'] - $res["R{$i}any"])), 3)
+              -$res['C14any'] * pow(($i14Any['I14any'] - ($res['J7any'] - $rAny["R{$i}any"])), 3)
               / (6 * $req['C8any'] * $req['C9any'])
             )
           ) : (
             (
-              $res['C14any'] * $res['I14any'] * pow($res["R{$i}any"], 2) *
-              (2 * $res['J7any'] * pow($res['I14any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I14any'], 2) * ($res['J7any'] - $res["R{$i}any"]))
+              $res['C14any'] * $i14Any['I14any'] * pow($rAny["R{$i}any"], 2) *
+              (2 * $res['J7any'] * pow($i14Any['I14any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]) + pow($i14Any['I14any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]))
             ) / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
           );
 
         // คูณ 1000 หลังจากคำนวณเสร็จ
-        $res["AP{$i}any"] *= 1000;
+        $apAny["AP{$i}any"] *= 1000;
       }
 
       // Distributed Loads P2
 
       //M ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["AR{$i}any"] = -(
+        $arAny["AR{$i}any"] = -(
           ($res["Q{$i}any"] <= $req["E15any"])
           ? (
             ((-$res["C15any"] * $res["F15any"] * (pow($req["C7any"], 2) - pow($res["F15any"], 2)) / (2 * pow($req["C7any"], 2))) +
@@ -238,33 +238,33 @@ class ProppedCantileverBeamController extends BaseController
       }
       //V ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["AS{$i}any"] = ($res["Q{$i}any"] <= $req["E15any"])
+        $asAny["AS{$i}any"] = ($res["Q{$i}any"] <= $req["E15any"])
           ? -($res["C15any"] - ($res["C15any"] * pow($req["E15any"], 2) * ($res["F15any"] + 2 * $req["C7any"]) / (2 * pow($req["C7any"], 3))))
           : ($res["C15any"] * pow($req["E15any"], 2) * ($res["F15any"] + 2 * $req["C7any"]) / (2 * pow($req["C7any"], 3)));
 
       }
       //d ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["AT{$i}any"] =
-          (($res['J7any'] - $res["R{$i}any"]) <= $res['I15any'])
+        $atAny["AT{$i}any"] =
+          (($res['J7any'] - $rAny["R{$i}any"]) <= $i15Any['I15any'])
           ? (
-            (($res['C15any'] * $res['I15any'] * pow($res["R{$i}any"], 2) *
-              (2 * $res['J7any'] * pow($res['I15any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I15any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+            (($res['C15any'] * $i15Any['I15any'] * pow($rAny["R{$i}any"], 2) *
+              (2 * $res['J7any'] * pow($i15Any['I15any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]) + pow($i15Any['I15any'], 2) * ($res['J7any'] - $rAny["R{$i}any"])))
               / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])) +
-            (-$res['C15any'] * pow($res['I15any'] - ($res['J7any'] - $res["R{$i}any"]), 3)
+            (-$res['C15any'] * pow($i15Any['I15any'] - ($res['J7any'] - $rAny["R{$i}any"]), 3)
               / (6 * $req['C8any'] * $req['C9any']))
           ) : (
-            ($res['C15any'] * $res['I15any'] * pow($res["R{$i}any"], 2) *
-              (2 * $res['J7any'] * pow($res['I15any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I15any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+            ($res['C15any'] * $i15Any['I15any'] * pow($rAny["R{$i}any"], 2) *
+              (2 * $res['J7any'] * pow($i15Any['I15any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]) + pow($i15Any['I15any'], 2) * ($res['J7any'] - $rAny["R{$i}any"])))
             / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
           );
-        $res["AT{$i}any"] *= 1000;
+        $atAny["AT{$i}any"] *= 1000;
       }
 
       // Distributed Loads P3
       //M ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["AV{$i}any"] =
+        $avAny["AV{$i}any"] =
           -(($res["Q{$i}any"] <= $req['E16any'])
             ? (
               (-$res['C16any'] * $res['F16any'] * (pow($req['C7any'], 2) - pow($res['F16any'], 2)) / (2 * pow($req['C7any'], 2))) +
@@ -277,36 +277,36 @@ class ProppedCantileverBeamController extends BaseController
       }
       //V ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["AW{$i}any"] =
+        $awAny["AW{$i}any"] =
           ($res["Q{$i}any"] <= $req['E16any'])
           ? -($res['C16any'] - ($res['C16any'] * pow($req['E16any'], 2) * ($res['F16any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3))))
           : ($res['C16any'] * pow($req['E16any'], 2) * ($res['F16any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)));
       }
       //D ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["AX{$i}any"] =
-          (($res['J7any'] - $res["R{$i}any"]) <= $res['I16any'])
+        $axAny["AX{$i}any"] =
+          (($res['J7any'] - $rAny["R{$i}any"]) <= $i16Any['I16any'])
           ? (
             (
-              ($res['C16any'] * $res['I16any'] * pow($res["R{$i}any"], 2) *
-                (2 * $res['J7any'] * pow($res['I16any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I16any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+              ($res['C16any'] * $i16Any['I16any'] * pow($rAny["R{$i}any"], 2) *
+                (2 * $res['J7any'] * pow($i16Any['I16any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]) + pow($i16Any['I16any'], 2) * ($res['J7any'] - $rAny["R{$i}any"])))
               / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
             ) + (
-              -$res['C16any'] * pow(($res['I16any'] - ($res['J7any'] - $res["R{$i}any"])), 3)
+              -$res['C16any'] * pow(($i16Any['I16any'] - ($res['J7any'] - $rAny["R{$i}any"])), 3)
               / (6 * $req['C8any'] * $req['C9any'])
             )
           ) : (
-            ($res['C16any'] * $res['I16any'] * pow($res["R{$i}any"], 2) *
-              (2 * $res['J7any'] * pow($res['I16any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I16any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+            ($res['C16any'] * $i16Any['I16any'] * pow($rAny["R{$i}any"], 2) *
+              (2 * $res['J7any'] * pow($i16Any['I16any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]) + pow($i16Any['I16any'], 2) * ($res['J7any'] - $rAny["R{$i}any"])))
             / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
           );
 
-        $res["AX{$i}any"] *= 1000;
+        $axAny["AX{$i}any"] *= 1000;
       }
       // Distributed Loads P4
       //M ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["AZ{$i}any"] =
+        $azAny["AZ{$i}any"] =
           -(
             ($res["Q{$i}any"] <= $req['E17any'])
             ? (
@@ -321,7 +321,7 @@ class ProppedCantileverBeamController extends BaseController
       }
       //V ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["BA{$i}any"] =
+        $baAny["BA{$i}any"] =
           ($res["Q{$i}any"] <= $req['E17any'])
           ? -($res['C17any'] - $res['C17any'] * pow($req['E17any'], 2) * ($res['F17any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3)))
           : $res['C17any'] * pow($req['E17any'], 2) * ($res['F17any'] + 2 * $req['C7any']) / (2 * pow($req['C7any'], 3));
@@ -329,133 +329,133 @@ class ProppedCantileverBeamController extends BaseController
 
       //D ULS
       for ($i = 6; $i <= 106; $i++) {
-        $res["BB{$i}any"] =
-          (($res['J7any'] - $res["R{$i}any"]) <= $res['I17any'])
+        $bbAny["BB{$i}any"] =
+          (($res['J7any'] - $rAny["R{$i}any"]) <= $i17Any['I17any'])
           ? (
             (
-              ($res['C17any'] * $res['I17any'] * pow($res["R{$i}any"], 2) *
-                (2 * $res['J7any'] * pow($res['I17any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I17any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+              ($res['C17any'] * $i17Any['I17any'] * pow($rAny["R{$i}any"], 2) *
+                (2 * $res['J7any'] * pow($i17Any['I17any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]) + pow($i17Any['I17any'], 2) * ($res['J7any'] - $rAny["R{$i}any"])))
               / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
             ) + (
-              -$res['C17any'] * pow(($res['I17any'] - ($res['J7any'] - $res["R{$i}any"])), 3)
+              -$res['C17any'] * pow(($i17Any['I17any'] - ($res['J7any'] - $rAny["R{$i}any"])), 3)
               / (6 * $req['C8any'] * $req['C9any'])
             )
           ) : (
-            ($res['C17any'] * $res['I17any'] * pow($res["R{$i}any"], 2) *
-              (2 * $res['J7any'] * pow($res['I17any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $res["R{$i}any"]) + pow($res['I17any'], 2) * ($res['J7any'] - $res["R{$i}any"])))
+            ($res['C17any'] * $i17Any['I17any'] * pow($rAny["R{$i}any"], 2) *
+              (2 * $res['J7any'] * pow($i17Any['I17any'], 2) - 3 * pow($res['J7any'], 2) * ($res['J7any'] - $rAny["R{$i}any"]) + pow($i17Any['I17any'], 2) * ($res['J7any'] - $rAny["R{$i}any"])))
             / (12 * pow($res['J7any'], 3) * $req['C8any'] * $req['C9any'])
           );
-        $res["BB{$i}any"] *= 1000;
+        $bbAny["BB{$i}any"] *= 1000;
       }
       // Distributed Loads total
       //M total
       for ($i = 6; $i <= 106; $i++) {
-        $res["BD{$i}any"] = $res["AN{$i}any"] + $res["AR{$i}any"] + $res["AV{$i}any"] + $res["AZ{$i}any"];
+        $bdAny["BD{$i}any"] = $anAny["AN{$i}any"] + $arAny["AR{$i}any"] + $avAny["AV{$i}any"] + $azAny["AZ{$i}any"];
       }
 
       //V total
       for ($i = 6; $i <= 106; $i++) {
-        $res["BE{$i}any"] = $res["AO{$i}any"] + $res["AS{$i}any"] + $res["AW{$i}any"] + $res["BA{$i}any"];
+        $beAny["BE{$i}any"] = $aoAny["AO{$i}any"] + $asAny["AS{$i}any"] + $awAny["AW{$i}any"] + $baAny["BA{$i}any"];
       }
 
       //D total
       for ($i = 6; $i <= 106; $i++) {
-        $res["BF{$i}any"] = $res["AP{$i}any"] + $res["AT{$i}any"] + $res["AX{$i}any"] + $res["BB{$i}any"];
+        $bfAny["BF{$i}any"] = $apAny["AP{$i}any"] + $atAny["AT{$i}any"] + $axAny["AX{$i}any"] + $bbAny["BB{$i}any"];
       }
 
       // Distributed Loads SLS P1
       //M
       for ($i = 6; $i <= 106; $i++) {
-        $res["BI{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $res["AN{$i}any"];
+        $biAny["BI{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $anAny["AN{$i}any"];
       }
       //V
       for ($i = 6; $i <= 106; $i++) {
-        $res["BJ{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $res["AO{$i}any"];
+        $bjAny["BJ{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $aoAny["AO{$i}any"];
       }
 
       //D
       for ($i = 6; $i <= 106; $i++) {
-        $res["BK{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $res["AP{$i}any"];
+        $bkAny["BK{$i}any"] = ($res['C14any'] == 0) ? 0 : ($res['D14any'] / $res['C14any']) * $apAny["AP{$i}any"];
       }
 
       // Distributed Loads SLS P2
       //M 
       for ($i = 6; $i <= 106; $i++) {
-        $res["BM{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $res["AR{$i}any"];
+        $bmAny["BM{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $arAny["AR{$i}any"];
       }
       //V 
       for ($i = 6; $i <= 106; $i++) {
-        $res["BN{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $res["AS{$i}any"];
+        $bnAny["BN{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $asAny["AS{$i}any"];
       }
       //D
       for ($i = 6; $i <= 106; $i++) {
-        $res["BO{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $res["AT{$i}any"];
+        $boAny["BO{$i}any"] = ($res['C15any'] == 0) ? 0 : ($res['D15any'] / $res['C15any']) * $atAny["AT{$i}any"];
       }
 
       // Distributed Loads SLS P3
       //M 
       for ($i = 6; $i <= 106; $i++) {
-        $res["BQ{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $res["AV{$i}any"];
+        $bqAny["BQ{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $avAny["AV{$i}any"];
       }
       //V 
       for ($i = 6; $i <= 106; $i++) {
-        $res["BR{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $res["AW{$i}any"];
+        $brAny["BR{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $awAny["AW{$i}any"];
       }
       //D 
       for ($i = 6; $i <= 106; $i++) {
-        $res["BS{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $res["AX{$i}any"];
+        $bsAny["BS{$i}any"] = ($res['C16any'] == 0) ? 0 : ($res['D16any'] / $res['C16any']) * $axAny["AX{$i}any"];
       }
 
       // Distributed Loads SLS P4
       //M 
       for ($i = 6; $i <= 106; $i++) {
-        $res["BU{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $res["AZ{$i}any"];
+        $buAny["BU{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $azAny["AZ{$i}any"];
       }
       //V
       for ($i = 6; $i <= 106; $i++) {
-        $res["BV{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $res["BA{$i}any"];
+        $bvAny["BV{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $baAny["BA{$i}any"];
       }
       //D 
       for ($i = 6; $i <= 106; $i++) {
-        $res["BW{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $res["BB{$i}any"];
+        $bwAny["BW{$i}any"] = ($res['C17any'] == 0) ? 0 : ($res['D17any'] / $res['C17any']) * $bbAny["BB{$i}any"];
       }
 
       // Distributed Loads SLS total
       for ($i = 6; $i <= 106; $i++) {
-        $res["BY{$i}any"] = $res["BI{$i}any"] + $res["BM{$i}any"] + $res["BQ{$i}any"] + $res["BU{$i}any"];
+        $byAny["BY{$i}any"] = $biAny["BI{$i}any"] + $bmAny["BM{$i}any"] + $bqAny["BQ{$i}any"] + $buAny["BU{$i}any"];
       }
       for ($i = 6; $i <= 106; $i++) {
-        $res["BZ{$i}any"] = $res["BJ{$i}any"] + $res["BN{$i}any"] + $res["BR{$i}any"] + $res["BV{$i}any"];
+        $bzAny["BZ{$i}any"] = $bjAny["BJ{$i}any"] + $bnAny["BN{$i}any"] + $brAny["BR{$i}any"] + $bvAny["BV{$i}any"];
       }
       for ($i = 6; $i <= 106; $i++) {
-        $res["CA{$i}any"] = $res["BK{$i}any"] + $res["BO{$i}any"] + $res["BS{$i}any"] + $res["BW{$i}any"];
+        $caAny["CA{$i}any"] = $bkAny["BK{$i}any"] + $boAny["BO{$i}any"] + $bsAny["BS{$i}any"] + $bwAny["BW{$i}any"];
       }
 
       //ULS Demands
 
       for ($i = 6; $i <= 106; $i++) {
-        $res["T{$i}any"] = $res["AC{$i}any"] + $res["BD{$i}any"];
+        $res["T{$i}any"] = $acAny["AC{$i}any"] + $bdAny["BD{$i}any"];
       }
 
       for ($i = 6; $i <= 106; $i++) {
-        $res["U{$i}any"] = $res["AD{$i}any"] + $res["BE{$i}any"];
+        $res["U{$i}any"] = $adAny["AD{$i}any"] + $beAny["BE{$i}any"];
       }
 
       for ($i = 6; $i <= 106; $i++) {
-        $res["V{$i}any"] = $res["AE{$i}any"] + $res["BF{$i}any"];
+        $res["V{$i}any"] = $aeAny["AE{$i}any"] + $bfAny["BF{$i}any"];
       }
       //SLS Demands
 
       for ($i = 6; $i <= 106; $i++) {
-        $res["X{$i}any"] = $res["AG{$i}any"] + $res["BY{$i}any"];
+        $res["X{$i}any"] = $agAny["AG{$i}any"] + $byAny["BY{$i}any"];
       }
 
       for ($i = 6; $i <= 106; $i++) {
-        $res["Y{$i}any"] = $res["AH{$i}any"] + $res["BZ{$i}any"];
+        $res["Y{$i}any"] = $ahAny["AH{$i}any"] + $bzAny["BZ{$i}any"];
       }
 
       for ($i = 6; $i <= 106; $i++) {
-        $res["Z{$i}any"] = $res["AI{$i}any"] + $res["CA{$i}any"];
+        $res["Z{$i}any"] = $aiAny["AI{$i}any"] + $caAny["CA{$i}any"];
       }
       /////cal
 
@@ -686,7 +686,6 @@ class ProppedCantileverBeamController extends BaseController
     return $this->response->setJSON($cells);
     // Implement import functionality here
   }
-
 
   public function export()
   {
