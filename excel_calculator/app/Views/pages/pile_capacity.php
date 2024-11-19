@@ -8,8 +8,9 @@ echo view("/main/main_page", [
 ?>
 
 <script>
-    reGenerate();
-    // $(document).ready(function(){
-
-    // });
+    $(document).ready(function(){
+        $('#G9,#G28,#G23').on('input',function(){
+            reGenerate();
+        })
+    });
 </script>

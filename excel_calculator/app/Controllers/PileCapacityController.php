@@ -347,19 +347,16 @@ class PileCapacityController extends BaseController
             $res['Q30'] = "NOT OK";
         }
 
-        $res['innerRadius'] = sqrt($res['G31'] / M_PI);
+        $res['innerRadius'] = sqrt($req['G9'] / M_PI);
 
         //กำหนดรัศมีของวงกลมด้านนอกให้สัมพันธ์กับระยะห่างของขอบ (cover)
         $res['outerRadius'] = $res['innerRadius'] + ($req['G28'] / 100); // แปลงค่า cover จาก mm เป็น cm เพื่อใช้ในโครงสร้าง
 
         // ปรับระยะห่างในการวางจุดสีดำ โดยใช้ระยะห่างจาก innerRadius และ dotSpacing
-        $res['dotRadius'] = $res['innerRadius'] - 0.3; // ระยะห่างที่ใช้ในการจัดจุดด้านใน
-
-        // คำนวณจำนวนจุดที่สามารถวางได้รอบวงกลมโดยใช้ระยะ dotSpacing
-        $calculatedDotCount = floor((2 * M_PI * $res['dotRadius']) / $req['G29']);
+        $res['dotRadius'] = $res['innerRadius'] * 0.05; // ระยะห่างที่ใช้ในการจัดจุดด้านใน
 
         // ตรวจสอบว่าได้ dotCount ใกล้เคียงเป้าหมายหรือไม่ หากน้อยกว่าเป้าหมายปรับให้เป็นตามเป้าหมาย
-        $res['dotCount'] = $calculatedDotCount;
+        $res['dotCount'] = $req['G23'];
 
         foreach ($res as $key => $val) {
             if (is_numeric($val)) {
