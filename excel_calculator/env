@@ -26,6 +26,7 @@
 # app_baseURL = ''
 # app.forceGlobalSecureRequests = false
 # app.CSPEnabled = false
+app.baseURL = 'http://dekdee3.informatics.buu.ac.th:8002/'
 
 #--------------------------------------------------------------------
 # DATABASE
