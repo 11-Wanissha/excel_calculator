@@ -43,3 +43,5 @@ $routes->get('/pile-capacity', 'PileCapacityController::renderer');
 $routes->post('/pile-capacity', 'PileCapacityController::calculator');
 $routes->post('/pile-capacity-import', 'PileCapacityController::import');
 $routes->post('/pile-capacity-export', 'PileCapacityController::export');
+
+$routes->get('/example', 'ExampleController::renderer');
