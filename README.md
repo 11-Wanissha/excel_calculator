@@ -43,5 +43,5 @@ exel_calculator/
 > Babylon.js
 
 ## Other
-> bootstrap 5
+> bootstrap 5,
 > Jquery
